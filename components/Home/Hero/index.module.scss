@@ -1,0 +1,68 @@
+#hero {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-image: url("../../../assets/imgs/Hero_Bg.png");
+  object-fit: cover;
+  border-radius: 0px 0px 75px 75px;
+
+  .card {
+    background-color: var(--main-beige-color);
+    padding-left: 43px;
+    padding-top: 12.5px;
+    padding-bottom: 55px;
+    border-radius: 75px;
+    z-index: 2;
+    position: relative;
+
+    .car_inner {
+      display: flex;
+      align-items: center;
+      .text_container {
+        .title {
+          margin-top: 50px;
+          margin-bottom: 86px;
+          h2 {
+            font-family: var(--main-font);
+            color: var(--main-blue-color);
+            font-size: 40px;
+            font-weight: 400;
+          }
+        }
+
+        .desc {
+          margin-bottom: 31px;
+          p {
+            color: var(--main-blue-color);
+            font-size: 28px;
+            font-family: var(--main-font);
+            font-weight: regular;
+          }
+        }
+
+        .btn {
+          margin-left: 60px;
+
+          button {
+            background-color: var(--main-blue-color);
+            color: var(--main-white-color);
+            font-size: 16px;
+            font-family: var(--main-font);
+            font-weight: var(--font-bold);
+            box-shadow: var(--btn-box-shadow);
+            border-radius: 30px;
+            text-transform: capitalize;
+            padding: 13px 22px;
+          }
+        }
+      }
+      .img_container {
+        // width: 573px;
+        // height: 100%;
+        img {
+          width: 573px;
+          height: 471px;
+        }
+      }
+    }
+  }
+}

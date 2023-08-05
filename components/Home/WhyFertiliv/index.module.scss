@@ -1,0 +1,106 @@
+#WhyFertiliv {
+  margin-top: 80px;
+
+  width: 100%;
+  .title {
+    text-align: center;
+    margin-bottom: 50px;
+    h3 {
+      color: var(--main-blue-color);
+      font-size: 30px;
+      font-family: var(--main-font);
+      font-weight: var(--font-bold);
+    }
+  }
+
+  .boxes_container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 80px;
+
+    .box {
+      // width: 350px;
+      padding-left: 20px;
+      padding-right: 32px;
+      padding-top: 20px;
+      padding-bottom: 30px;
+      background-color: var(--main-beige-color);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      border-radius: 0px 20px 20px 20px;
+
+      .icon_container {
+        margin-bottom: 20px;
+        width: 150px;
+        height: 150px;
+        background-color: var(--main-white-color);
+        display: flex;
+        border-radius: 50%;
+        img {
+          margin: auto;
+          width: 89.76px;
+          height: 117.02px;
+
+          border-radius: 50%;
+        }
+      }
+
+      .box_title {
+        margin-bottom: 4px;
+        h4 {
+          color: var(--main-blue-color);
+          font-weight: var(--font-bold);
+          font-family: var(--main-font);
+          font-size: 30px;
+        }
+      }
+
+      .desc {
+        p {
+          text-align: left;
+          // color: var(--sec-dark-color);
+          color: #262626;
+          font-weight: var(--font-regular);
+          font-family: var(--main-font);
+          font-size: 24px;
+        }
+      }
+
+      .link {
+        margin-top: 18px;
+        a {
+          color: var(--main-blue-color);
+          font-size: 24px;
+          text-decoration: underline;
+          font-weight: var(--font-regular);
+          font-family: var(--main-font);
+        }
+      }
+    }
+  }
+
+  .video {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    iframe {
+      background-color: var(--main-beige-color);
+      border-radius: 20px;
+      width: 781.97px;
+      height: 440.53px;
+    }
+
+    p {
+      margin-top: 22px;
+      color: var(--main-gray-color);
+      font-size: 24px;
+      font-weight: var(--font-regular);
+      font-family: var(--main-font);
+    }
+  }
+}

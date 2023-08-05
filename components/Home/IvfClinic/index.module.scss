@@ -1,0 +1,55 @@
+section.IvfClinic {
+  margin-top: 80px;
+  .title {
+    text-align: center;
+    margin-bottom: 50px;
+
+    h3 {
+      color: var(--main-blue-color);
+      font-size: 30px;
+      font-family: var(--main-font);
+      font-weight: var(--font-bold);
+    }
+  }
+
+  .desc {
+    text-align: center;
+    margin-bottom: 59px;
+    p {
+      color: var(--sec-gray-color);
+      font-size: 24px;
+      font-family: var(--main-font);
+      font-weight: var(--font-regular);
+    }
+  }
+
+  .images_container {
+    display: flex;
+    .main_img {
+      margin-right: 20px;
+      img {
+        width: 600px;
+        height: 429px;
+      }
+    }
+
+    .small_images {
+      display: flex;
+      flex-wrap: wrap;
+      img {
+        // width: 274px;
+        width: 255px;
+        height: 203px;
+        margin-bottom: 20px;
+
+        &:first-child {
+          // background-color: red;
+          margin-right: 20px;
+        }
+        &:nth-child(3) {
+          margin-right: 20px;
+        }
+      }
+    }
+  }
+}
