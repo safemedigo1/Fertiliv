@@ -9,7 +9,7 @@ const Consultation = () => {
   const { Consultation_girl } = imgs;
   return (
     <Container>
-      <section id={styles.consultation}>
+      <section id={'consultation'} className={styles.consultation}>
         <div className={styles.title}>
           <Typography variant='h3'>Free Initial Consultation</Typography>
         </div>
