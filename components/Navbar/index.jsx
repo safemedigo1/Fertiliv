@@ -10,7 +10,8 @@ import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Box from '@mui/material/Box';
 import Slide from '@mui/material/Slide';
 import Link from 'next/link';
-
+import imgs from '../../assets/constants/imgs'
+import Image from 'next/image';
 
 // Hide navbar on scroll (to bottom)
 function HideOnScroll(props) {
@@ -37,6 +38,7 @@ const NavLinks = [
 ]
 
 const Navbar = (props) => {
+  const { whatsapp, logo } = imgs;
   return (
     <>
       <CssBaseline />
@@ -48,7 +50,7 @@ const Navbar = (props) => {
               <div className={styles.navbar}>
                 <Link href='/' className={styles.logo}>
                   <div className={styles.icon_container}>
-                    <img src="" alt="" />
+                    <Image src={logo} alt="logo" />
                   </div>
                   <Typography variant={'h1'}>Fertiliv</Typography>
                 </Link>
@@ -62,9 +64,9 @@ const Navbar = (props) => {
 
                 <div className={styles.num}>
                   <div className={styles.img_container}>
-                    <img src="./assad" alt="" />
+                    <Image src={whatsapp} alt="whatsapp" />
                   </div>
-                  <Typography>0090 552 502 6000</Typography>
+                  <Link href="tel:(+90) 552 502 6000">0090 552 502 6000</Link>
                 </div>
               </div>
             </Container>

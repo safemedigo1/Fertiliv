@@ -1,0 +1,66 @@
+section.doctor {
+  margin-top: 85px;
+  display: flex;
+  flex-direction: column;
+  .card {
+    background-color: var(--main-beige-color);
+    padding: 57px 18px;
+    border-radius: 75px;
+
+    .title,
+    .title2 {
+      text-align: center;
+      width: 100%;
+      margin-bottom: 16px;
+      h3 {
+        color: var(--main-blue-color);
+        font-size: 30px;
+        font-family: var(--main-font);
+        font-weight: var(--font-bold);
+      }
+    }
+
+    .title2 {
+      margin-top: -46px;
+    }
+
+    .desc {
+      p {
+        color: var(--main-dark-color);
+        font-size: 18px;
+        font-family: var(--main-font);
+        font-weight: var(--font-semiBold);
+        text-align: center;
+        span {
+          color: var(--main-blue-color);
+        }
+      }
+    }
+
+    .img_container {
+      text-align: center;
+      margin-top: 16px;
+      img {
+        object-fit: contain;
+        width: 794.75px;
+        height: 389.58px;
+      }
+    }
+
+    .docBtn {
+      text-align: center;
+      margin-top: 38px;
+      button {
+        width: 232px;
+        background-color: var(--main-blue-color);
+        color: var(--main-white-color);
+        font-size: 20px;
+        font-family: var(--main-font);
+        font-weight: var(--font-bold);
+        box-shadow: var(--btn-box-shadow);
+        border-radius: 30px;
+        text-transform: capitalize;
+      }
+    }
+  }
+}

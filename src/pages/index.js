@@ -7,6 +7,9 @@ import Hero from "../../components/Home/Hero";
 import WhyFertiliv from "../../components/Home/WhyFertiliv";
 import Consultation from "../../components/Home/Consultation";
 import IvfClinic from "../../components/Home/IvfClinic";
+import HowItWorks from "../../components/Home/HowItWorks";
+import Doctor from "../../components/Home/Doctor";
+import Memberships from "../../components/Home/Memberships";
 
 export default function Home() {
   return (
@@ -22,6 +25,9 @@ export default function Home() {
       <WhyFertiliv />
       <Consultation />
       <IvfClinic />
+      <HowItWorks />
+      <Doctor />
+      <Memberships />
     </>
   );
 }
