@@ -37,7 +37,9 @@ const Reviews = () => {
 
           </div>
 
-          <div className="slider_container"></div>
+          <div className="slider_container">
+            <Carousel></Carousel>
+          </div>
         </div>
       </Container>
     </section>
