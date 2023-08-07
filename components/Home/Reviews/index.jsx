@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './index.module.scss'
 import { Container, Rating, Typography } from '@mui/material'
-import Carousel from 'react-elastic-carousel';
+import Carousel from '@itseasy21/react-elastic-carousel';
 
 const Reviews = () => {
 
