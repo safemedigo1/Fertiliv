@@ -48,6 +48,13 @@ section.quote {
 
     .steps_container {
       form {
+        .treatments {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          flex-wrap: wrap;
+          height: 300px;
+        }
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -124,6 +131,30 @@ section.quote {
           text-align: center;
           margin-right: 0 !important;
           margin-top: 50px;
+        }
+      }
+
+      .conf_msg {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        height: 200px;
+
+        .title {
+          margin-bottom: 20px;
+          h5 {
+            color: var(--main-blue-color);
+            font-family: var(--main-font);
+            font-weight: var(--font-bold);
+          }
+        }
+
+        .desc {
+          p {
+            color: var(--main-blue-color);
+            font-family: var(--main-font);
+            font-weight: var(--font-bold);
+          }
         }
       }
     }
