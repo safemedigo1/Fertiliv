@@ -11,6 +11,8 @@ import HowItWorks from "../../components/Home/HowItWorks";
 import Doctor from "../../components/Home/Doctor";
 import Memberships from "../../components/Home/Memberships";
 import Reviews from "../../components/Home/Reviews";
+import Quote from "../../components/Home/Quote";
+import Footer from "../../components/Footer";
 
 export default function Home() {
   return (
@@ -30,6 +32,8 @@ export default function Home() {
       <Doctor />
       <Memberships />
       <Reviews />
+      <Quote />
+      <Footer />
     </>
   );
 }

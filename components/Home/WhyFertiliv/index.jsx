@@ -6,11 +6,7 @@ import imgs from '../../../assets/constants/imgs'
 import Image from 'next/image'
 const WhyFertiliv = () => {
   const { Success, Packages, Experience } = imgs;
-  const boxInfo = [
 
-    { icon: 'icon', title: 'Affordable Packages', desc: '', linkTitle: 'Book a consultation', link: '/' },
-    { icon: 'icon', title: 'The A-Z Experience', desc: '', linkTitle: 'Let us call you', link: '/' },
-  ]
 
   return (
     <section id={styles.WhyFertiliv}>

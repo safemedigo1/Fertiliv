@@ -6,6 +6,7 @@
   --sec-beige-color: #c4c4c4;
   --main-gray-color: #707070;
   --sec-gray-color: #6a6a6a;
+  --third-gray-color: #aeaeae;
   --main-dark-color: #000000;
   --sec-dark-color: #262626;
   --main-blue-color: #1b0968;
@@ -28,7 +29,7 @@
 html,
 body {
   max-width: 100vw;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 body {
@@ -48,4 +49,49 @@ button:hover {
   background-color: var(--main-white-color) !important;
   color: var(--main-blue-color) !important;
   border: 1px solid var(--main-blue-color) !important;
+}
+
+/* React-Elastic-carsouel */
+#reviews .rec-carousel {
+  position: relative;
+}
+
+#reviews .rec-carousel .main_btn {
+  position: absolute;
+  top: 50%;
+  z-index: 9999;
+}
+#reviews .rec-carousel .main_btn:first-child {
+  left: -29px;
+}
+#reviews .rec-carousel .main_btn:last-child {
+  right: -35px;
+}
+
+#reviews .rec-carousel button {
+  background-color: transparent;
+  border: none !important;
+  cursor: pointer;
+  background: #e6dcd4;
+  width: 37.82px;
+  height: 37.82px;
+  border-radius: 50%;
+  box-shadow: 0px 3px 6px #00000029 !important;
+
+  display: flex;
+}
+#reviews .rec-carousel button:disabled {
+  display: none;
+}
+#reviews .rec-carousel button:hover {
+  background-color: #bebebe !important;
+  border: none !important;
+  outline: none;
+}
+#reviews .rec-carousel button .right_arrow svg,
+#reviews .rec-carousel button .left_arrow svg {
+  width: 40px;
+  height: 40px;
+  color: #8d8d8d;
+  margin-right: auto;
 }

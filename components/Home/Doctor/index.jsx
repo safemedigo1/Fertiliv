@@ -20,12 +20,9 @@ const Doctor = () => {
             <Typography><span>Dr. Nilay Karaca</span>, MD, has over 28 years of experience in obstetrics and gynecology, including deep expertise in IVF. She provides patients with a highly personalized approach, tailoring therapies to not only obtain a high chance of positive pregnancy results but to also be healthy, particularly for patients who have previously unsuccessful reproductive treatments.</Typography>
           </div>
 
-
           <div className={styles.img_container}>
             <Image src={doctor} alt="Doctor Nilay" />
           </div>
-
-
 
           <div className={styles.title2}>
             <Typography variant='h3'>A Pioneer In IVF Treatment</Typography>

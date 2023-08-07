@@ -1,0 +1,100 @@
+section.reviews {
+  margin-top: 60px;
+  .section_container {
+    background-color: var(--main-beige-color);
+    padding: 50px;
+    border-radius: 75px;
+    display: flex;
+    align-items: flex-start;
+
+    .text_container {
+      width: 33%;
+      .title,
+      .title2 {
+        h3 {
+          color: var(--main-blue-color);
+          font-size: 30px;
+          font-family: var(--main-font);
+          font-weight: var(--font-bold);
+        }
+      }
+
+      .title2 {
+        margin-top: 20px;
+      }
+
+      .desc {
+        p {
+          text-align: left;
+
+          letter-spacing: 0px;
+          color: #262626;
+          font-weight: var(--font-regular);
+          font-family: var(--main-font);
+          font-size: 24px;
+        }
+      }
+    }
+
+    .slider_container {
+      width: 100%;
+
+      .box {
+        background-color: var(--main-white-color);
+        width: 244px;
+        border-radius: 20px;
+        padding: 20px;
+        .author {
+          display: flex;
+          margin-bottom: 11px;
+          .icon_container {
+          }
+          p {
+            color: var(--main-blue-color);
+            font-family: var(--main-font);
+            font-size: 16px;
+            font-weight: var(--font-bold);
+          }
+        }
+
+        .date {
+          margin-bottom: 10px;
+
+          p {
+            color: var(--third-gray-color);
+            font-family: var(--main-font);
+            font-size: 14px;
+            font-weight: var(--font-regular);
+          }
+        }
+
+        .rate {
+        }
+
+        .desc {
+          margin-bottom: 11px;
+
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 6;
+          white-space: pre-wrap;
+          -webkit-line-clamp: 6;
+          p {
+            color: var(--sec-gray-color);
+            font-family: var(--main-font);
+            font-size: 20px;
+            font-weight: var(--font-medium);
+          }
+        }
+
+        p {
+          color: var(--third-gray-color);
+          font-family: var(--main-font);
+          font-size: 14px;
+          font-weight: var(--font-regular);
+        }
+      }
+    }
+  }
+}
