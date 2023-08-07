@@ -10,6 +10,7 @@ import IvfClinic from "../../components/Home/IvfClinic";
 import HowItWorks from "../../components/Home/HowItWorks";
 import Doctor from "../../components/Home/Doctor";
 import Memberships from "../../components/Home/Memberships";
+import Reviews from "../../components/Home/Reviews";
 
 export default function Home() {
   return (
@@ -28,6 +29,7 @@ export default function Home() {
       <HowItWorks />
       <Doctor />
       <Memberships />
+      <Reviews />
     </>
   );
 }
