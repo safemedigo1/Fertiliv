@@ -13,7 +13,7 @@ export default async function sendEmail(req, res) {
     service: "gmail",
     auth: {
       user: "majd.khaled87@gmail.com",
-      pass: "gzszfksphqncbpyd",
+      pass: "uylpdgemqncigqez",
     },
   });
 
