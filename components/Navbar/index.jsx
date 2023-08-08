@@ -32,7 +32,7 @@ function HideOnScroll(props) {
 
 const NavLinks = [
   { title: 'IVF Steps', link: '#HowItWorks' },
-  { title: 'Get A Quote', link: '#quote' },
+  { title: 'Get A Quote', link: '/quote' },
   { title: 'About Fertiliv Clinic', link: '#IvfClinic' },
   { title: 'Contact Us', link: '#consultation' },
 ]

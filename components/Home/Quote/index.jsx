@@ -22,33 +22,17 @@ const Quote = () => {
   const [selectedValues, setSelectedValues] = useState([]);
 
 
+
+
   const treatments = [
-    { treatment: 'Myoma Treatment' },
-    { treatment: 'Endometriosis Treatment' },
+    { treatment: 'Unknown problems after trying to conceive for a year or more.' },
+    { treatment: 'Repeated failed IVF / ICSI / Repeated Miscarriages / Blocked tubes' },
     { treatment: 'Polycystic Ovary Syndrome Treatment' },
-    { treatment: 'Menopause Treatment' },
-    { treatment: 'IVF / Fertility Treatment' },
-    { treatment: 'IUI' },
-    { treatment: 'Ovarian Stimulation' },
-    {
-      treatment: 'Egg Collection'
-    },
-    { treatment: 'Micro TESE' },
-    { treatment: 'Embryo Transfer    ' },
-    { treatment: 'Genetic Diagnosis    ' },
-    {
-      treatment: 'Check Up    '
-    },
-    { treatment: 'Pregnancy Care    ' },
-    { treatment: 'Childbirth' },
-    { treatment: 'Aesthetic treatments    ' },
-    { treatment: 'Others' },
+    { treatment: 'Irregular periods / Polycystic Ovary Syndrome / Ovulation disorders / endocrinology problems' },
+    { treatment: 'Pelvic or Back pain / Uterine problems' },
+    { treatment: 'Very low / zero sperm count / quality(the husband)' },
+    { treatment: 'Personal factors / overage / Unexplained infertility' },
   ]
-
-
-
-
-
 
   const handleChangeFrom = (event) => {
     const { name, value, checked } = event.target;
@@ -65,13 +49,11 @@ const Quote = () => {
     setPhoneNum(newPhoneVal);
   };
 
-
   useEffect(() => {
     setUpdatedFormData({ ...formData, phone: phoneNum, selectedForm: selectedValues, })
 
 
   }, [formData]);
-
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -79,12 +61,8 @@ const Quote = () => {
     // Add the phone number to the form data
     // const updatedFormData = { ...formData, phone: phoneNum };
 
-
-
-
-
     if (updatedFormData) {
-      const url = `/api/sendEmail`;
+      const url = `/api/sendEmailSec`;
       const response = await fetch(url, {
         method: 'POST',
         headers: {
@@ -104,10 +82,7 @@ const Quote = () => {
         setStep(step + 1);
 
       }
-
-
     }
-
   };
 
   const handleCheckboxChange = (event) => {
@@ -120,9 +95,6 @@ const Quote = () => {
       setSelectedValues(selectedValues.filter((val) => val !== value));
     }
   };
-
-  console.log(updatedFormData)
-
 
   return (
     <section id='quote' className={styles.quote}>
