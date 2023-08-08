@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { Checkbox, FormControlLabel, Typography, } from '@mui/material';
-import { useRouter } from 'next/router';
 import imgs from "../../../assets/constants/imgs";
 import styles from './index.module.scss'
 import Image from 'next/image';
@@ -27,8 +26,6 @@ import { ThreeDots } from 'react-loader-spinner'
 
 const quote = () => {
   const { logo, } = imgs;
-  const router = useRouter()
-  const { pathname, query } = router
   const [step, setStep] = useState(1);
 
   const [selectedDate, setSelectedDate] = useState(null);
