@@ -23,7 +23,7 @@ import { ThreeDots } from 'react-loader-spinner'
 import { useRouter } from 'next/router';
 
 
-const Quote = () => {
+const QuotePage = () => {
   const { logo, } = imgs;
   const [step, setStep] = useState(7);
   const router = useRouter();
@@ -852,4 +852,4 @@ const Quote = () => {
   )
 }
 
-export default Quote
+export default QuotePage
