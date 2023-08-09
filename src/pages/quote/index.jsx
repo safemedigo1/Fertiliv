@@ -25,7 +25,7 @@ import { ThreeDots } from 'react-loader-spinner'
 import { useRouter } from 'next/router';
 
 
-const quote = () => {
+const Quote = () => {
   const { logo, } = imgs;
   const [step, setStep] = useState(1);
   const router = useRouter()
@@ -37,9 +37,6 @@ const quote = () => {
 
   const [asp, setAsp] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const handleOnChange = (res) => {
-    setResult(res);
-  };
 
   const handleAsp = () => {
     setAsp(true)
@@ -317,7 +314,7 @@ const quote = () => {
                 height="8px"
                 isLabelVisible={false}
                 maxCompleted={5}
-                borderRadius="5px"
+                borderRadius="0px"
               />
             </div>
           }
@@ -870,4 +867,4 @@ const quote = () => {
   )
 }
 
-export default quote
+export default Quote

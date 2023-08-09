@@ -47,13 +47,13 @@ section.quote {
     }
 
     .steps_container {
+      width: 100%;
+
       form {
         .treatments {
           display: flex;
           flex-direction: column;
           align-items: flex-start;
-          flex-wrap: wrap;
-          height: 300px;
         }
         display: flex;
         flex-direction: column;

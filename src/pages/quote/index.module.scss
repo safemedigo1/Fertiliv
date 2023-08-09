@@ -89,7 +89,11 @@
         display: flex;
         margin-bottom: 0px;
         align-items: center;
+        border: none !important;
 
+        &:hover {
+          border: none !important;
+        }
         @media screen and (max-width: 450px) {
           margin-top: 0px;
           margin-bottom: 0;

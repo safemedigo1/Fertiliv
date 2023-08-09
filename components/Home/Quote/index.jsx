@@ -110,10 +110,14 @@ const Quote = () => {
 
         </div>
 
+
+
         <div className={styles.section_container}>
-          <div className={styles.img_container}>
-            <Image src={quoteImg} alt="quote" />
-          </div>
+          {step != 3 &&
+            <div className={styles.img_container}>
+              <Image src={quoteImg} alt="quote" />
+            </div>
+          }
 
 
 
