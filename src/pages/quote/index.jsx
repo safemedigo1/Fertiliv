@@ -225,6 +225,7 @@ const Quote = () => {
         },
         body: JSON.stringify({ ...updatedFormData }),
       });
+      console.log(response)
 
       if (response) {
         setIsLoading(false)
@@ -718,7 +719,7 @@ const Quote = () => {
                         height="25"
                         width="25"
                         radius="9"
-                        color="#1b0968"
+                        color="#707070"
                         ariaLabel="three-dots-loading"
                         wrapperStyle={{}}
                         wrapperClassName="load_more_btn"
