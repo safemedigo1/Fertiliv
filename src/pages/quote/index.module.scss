@@ -230,9 +230,6 @@
       grid-template-columns: 1fr 1fr;
       grid-gap: 8px;
 
-      .last_child {
-        // grid-column: 1 / span 2;
-      }
       label {
         border-radius: 5px;
         background-color: #e7edec;

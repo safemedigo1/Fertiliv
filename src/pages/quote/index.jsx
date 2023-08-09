@@ -63,6 +63,7 @@ const Quote = () => {
     router.back()
   }
 
+
   const treatments = [
     { title: 'Myoma Treatment' },
     { title: 'Endometriosis Treatment' },
@@ -118,7 +119,7 @@ const Quote = () => {
         clearTimeout(timer);
       };
     }
-  }, [step, router]);
+  }, [router]);
 
 
 
@@ -194,7 +195,8 @@ const Quote = () => {
 
   useEffect(() => {
     setUpdatedFormData({ ...formData, phone: phoneNum, selectedForm_1: selectedValues, selectedForm_2: forValues, selectedDate: selectedDate?.$d?.toLocaleDateString(), selectedTime: timeValue, asp: asp })
-  }, [formData])
+  }, [])
+
 
 
   const handleSubmit = async (event) => {
@@ -465,7 +467,7 @@ const Quote = () => {
                       },
                       marginLeft: 0
 
-                    }} />} label={"Others"} className={styles.last_child} />
+                    }} />} label={"Others"} />
                 </>
 
               }
