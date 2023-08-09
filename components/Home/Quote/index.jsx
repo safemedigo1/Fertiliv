@@ -7,7 +7,7 @@ import PhoneInput from 'react-phone-input-2';
 import { motion } from "framer-motion";
 
 const Quote = () => {
-  const { quote } = imgs;
+  const { quoteImg } = imgs;
   const [step, setStep] = useState(1);
   const [phoneNum, setPhoneNum] = useState();
   const [updatedFormData, setUpdatedFormData] = useState()
@@ -112,7 +112,7 @@ const Quote = () => {
 
         <div className={styles.section_container}>
           <div className={styles.img_container}>
-            <Image src={quote} alt="quote" />
+            <Image src={quoteImg} alt="quote" />
           </div>
 
 

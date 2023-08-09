@@ -22,12 +22,13 @@ import Link from 'next/link';
 import ProgressBar from "@ramonak/react-progress-bar";
 import toast from 'react-hot-toast';
 import { ThreeDots } from 'react-loader-spinner'
+import { useRouter } from 'next/router';
 
 
 const quote = () => {
   const { logo, } = imgs;
   const [step, setStep] = useState(1);
-
+  const router = useRouter()
   const [selectedDate, setSelectedDate] = useState(null);
   const [timeValue, setTimeValue] = useState(null);
   const [phoneNum, setPhoneNum] = useState('');

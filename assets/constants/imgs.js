@@ -8,7 +8,7 @@ import small_4 from "../imgs/small_3.png";
 import big from "../imgs/big.png";
 import logo from "../imgs/logo.png";
 import doctor from "../imgs/doctor.png";
-import quote from "../imgs/quote.png";
+import quoteImg from "../imgs/quoteImg.png";
 
 // MemeberShib Sec
 import ISO from "../imgs/ISO.png";
@@ -71,7 +71,7 @@ export default {
   Eshre,
   Junior,
   Tesvikler,
-  quote,
+  quoteImg,
 
   facebook,
   instagram,
