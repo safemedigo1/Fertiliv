@@ -8,11 +8,9 @@ import { FaArrowLeft } from 'react-icons/fa';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
-// import { datePicker } from '@material-ui/pickers';
 import DatePicker from '@mui/x-date-pickers/DatePicker';
 import dayjs from 'dayjs';
 import { DigitalClock } from '@mui/x-date-pickers/DigitalClock';
-//
 import PhoneInput from "react-phone-input-2";
 import 'react-phone-input-2/lib/style.css'
 import AuthCode from 'react-auth-code-input';
@@ -27,14 +25,11 @@ import { useRouter } from 'next/router';
 
 const Quote = () => {
   const { logo, } = imgs;
-  const [step, setStep] = useState(1);
-  const router = useRouter()
+  const [step, setStep] = useState(7);
+  const router = useRouter();
   const [selectedDate, setSelectedDate] = useState(null);
   const [timeValue, setTimeValue] = useState(null);
   const [phoneNum, setPhoneNum] = useState('');
-  // const [anyTime, setAnyTime] = useState(true)
-  const [result, setResult] = useState();
-
   const [asp, setAsp] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -90,33 +85,24 @@ const Quote = () => {
 
   };
 
-  // useEffect(() => {
-  //   if (timeValue) {
-  //     setAnyTime(false)
-  //   }
-  // }, [timeValue])
 
 
   useEffect(() => {
     window.scrollTo(0, 0);
-
     if (step === 7) {
       const timer = setTimeout(() => {
         router.push('/');
-      }, 3000);
+      }, 5000);
 
       return () => {
         clearTimeout(timer);
       };
     }
+  }, [step, router]);
 
-  }, [step, router,]);
 
-  // const handleAnyTime = () => {
-  //   setAnyTime(true)
-  //   setTimeValue(null)
-  //   // setStep(step + 1)
-  // }
+
+
 
 
   useEffect(() => {
@@ -138,7 +124,6 @@ const Quote = () => {
     }
   }, [timeValue])
 
-  // Dagte Range
 
   const [selectedValues, setSelectedValues] = useState([]);
   const [forValues, setForValues] = useState([]);
