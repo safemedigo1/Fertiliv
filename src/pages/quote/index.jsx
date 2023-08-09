@@ -23,15 +23,35 @@ import { ThreeDots } from 'react-loader-spinner'
 import { useRouter } from 'next/router';
 
 
-const QuotePage = () => {
+const Quote = () => {
   const { logo, } = imgs;
-  const [step, setStep] = useState(7);
+  const [step, setStep] = useState(1);
   const router = useRouter();
   const [selectedDate, setSelectedDate] = useState(null);
   const [timeValue, setTimeValue] = useState(null);
   const [phoneNum, setPhoneNum] = useState('');
   const [asp, setAsp] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [selectedValues, setSelectedValues] = useState([]);
+  const [forValues, setForValues] = useState([]);
+  const [formData, setFormData] = useState({
+    fname: '',
+    lname: '',
+    email: '',
+    phone: '',
+    agree: false,
+    selectedForm_1: '',
+    selectedForm_2: '',
+    selectedDate: '',
+    selectedTime: ''
+
+  });
+
+  const [updatedFormData, setUpdatedFormData] = useState();
+  const [message, setMessage] = useState('');
+  const [enteredOtp, setEnteredOtp] = useState("");
+  const [otp, setOtp] = useState('');
+
 
   const handleAsp = () => {
     setAsp(true)
@@ -106,13 +126,14 @@ const QuotePage = () => {
 
 
   useEffect(() => {
-    if (selectedDate !== null) {
+    if (selectedDate) {
       setStep(step + 1)
     }
   }, [selectedDate])
 
   useEffect(() => {
-    if (timeValue !== null) {
+
+    if (timeValue) {
       const timer = setTimeout(() => {
         setStep(step + 1)
       }, 1000);
@@ -120,13 +141,10 @@ const QuotePage = () => {
       return () => {
         clearTimeout(timer);
       };
-
     }
   }, [timeValue])
 
 
-  const [selectedValues, setSelectedValues] = useState([]);
-  const [forValues, setForValues] = useState([]);
 
   const handleforValues = (event) => {
     const value = event.target.value;
@@ -153,20 +171,7 @@ const QuotePage = () => {
 
 
   // Step 5
-  const [formData, setFormData] = useState({
-    fname: '',
-    lname: '',
-    email: '',
-    phone: '',
-    agree: false,
-    selectedForm_1: '',
-    selectedForm_2: '',
-    selectedDate: '',
-    selectedTime: ''
 
-  });
-
-  const [updatedFormData, setUpdatedFormData] = useState()
 
 
   const handleChangeFrom = (event) => {
@@ -189,7 +194,6 @@ const QuotePage = () => {
 
   useEffect(() => {
     setUpdatedFormData({ ...formData, phone: phoneNum, selectedForm_1: selectedValues, selectedForm_2: forValues, selectedDate: selectedDate?.$d?.toLocaleDateString(), selectedTime: timeValue, asp: asp })
-
   }, [formData])
 
 
@@ -237,10 +241,6 @@ const QuotePage = () => {
 
   // Handle OTP
 
-  const [message, setMessage] = useState('');
-
-  const [enteredOtp, setEnteredOtp] = useState("");
-  const [otp, setOtp] = useState('');
 
   const handleCodeSubmit = async (event) => {
     // event.preventDefault();
@@ -852,4 +852,4 @@ const QuotePage = () => {
   )
 }
 
-export default QuotePage
+export default Quote
