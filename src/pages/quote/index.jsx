@@ -195,7 +195,7 @@ const Quote = () => {
 
   useEffect(() => {
     setUpdatedFormData({ ...formData, phone: phoneNum, selectedForm_1: selectedValues, selectedForm_2: forValues, selectedDate: selectedDate?.$d?.toLocaleDateString(), selectedTime: timeValue, asp: asp })
-  }, [formData])
+  }, [formData, phoneNum, selectedValues, forValues, selectedDate, timeValue, asp])
 
 
 
