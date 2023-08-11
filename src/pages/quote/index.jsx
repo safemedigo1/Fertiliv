@@ -119,7 +119,7 @@ const Quote = () => {
         clearTimeout(timer);
       };
     }
-  }, [router]);
+  }, [step, router]);
 
 
 
