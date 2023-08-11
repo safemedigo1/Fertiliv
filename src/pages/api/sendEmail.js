@@ -37,8 +37,8 @@ export default async function sendEmail(req, res) {
   const mailOptions = {
     from: "majd.khaled87@gmail.com",
     to: "majd.khaled87@gmail.com",
-    subject: "New message from your website",
-    text: `First name:${fname}\nLast name${lname}\nEmail: ${email}\nPhone Number: ${phone}\nI like to do : ${selectedForm_1}\nFor:${selectedForm_2}\nDate:${selectedDate}\nTime:${selectedTime}\nI Want As Soon As Possible:${asp}`,
+    subject: "New message from (Fertiliv)",
+    text: `(Fertiliv) First name:${fname}\nLast name${lname}\nEmail: ${email}\nPhone Number: ${phone}\nI like to do : ${selectedForm_1}\nFor:${selectedForm_2}\nDate:${selectedDate}\nTime:${selectedTime}\nI Want As Soon As Possible:${asp}`,
   };
 
   try {

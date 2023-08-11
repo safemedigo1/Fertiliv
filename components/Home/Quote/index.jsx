@@ -10,7 +10,7 @@ const Quote = () => {
   const { quoteImg } = imgs;
   const [step, setStep] = useState(1);
   const [phoneNum, setPhoneNum] = useState();
-  const [updatedFormData, setUpdatedFormData] = useState()
+  const [updatedFormData, setUpdatedFormData] = useState();
   const [formData, setFormData] = useState({
     fname: '',
     lname: '',
@@ -20,9 +20,6 @@ const Quote = () => {
 
   });
   const [selectedValues, setSelectedValues] = useState([]);
-
-
-
 
   const treatments = [
     { treatment: 'Unknown problems after trying to conceive for a year or more.' },
@@ -41,8 +38,6 @@ const Quote = () => {
       ...formData,
       [name]: name === 'agree' ? checked : value,
     });
-
-
   };
 
   const handleChangePhone = (newPhoneVal, countryData) => {
@@ -53,7 +48,7 @@ const Quote = () => {
     setUpdatedFormData({ ...formData, phone: phoneNum, selectedForm: selectedValues, })
 
 
-  }, [formData]);
+  }, [formData, phoneNum, selectedValues]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -122,9 +117,7 @@ const Quote = () => {
 
 
           <div className={styles.steps_container}>
-
             <form action="">
-
               {step === 1 &&
                 <>
 
@@ -136,10 +129,10 @@ const Quote = () => {
 
 
                     {treatments.map((treatment, index) =>
-                      <div className={styles.input_wrap}>
+                      <div className={styles.input_wrap} key={index}>
 
                         <FormControlLabel
-                          key={index}
+
 
                           sx={{
                             marginLeft: 0,
@@ -243,7 +236,6 @@ const Quote = () => {
                 </div>
 
               </motion.div>
-
             }
 
 
@@ -252,7 +244,6 @@ const Quote = () => {
 
         </div>
       </Container>
-
     </section>
   )
 }
