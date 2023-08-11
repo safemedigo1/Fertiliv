@@ -127,8 +127,8 @@ const Quote = () => {
 
 
   useEffect(() => {
-    if (selectedDate) {
-      setStep(step + 1)
+    if (selectedDate != null) {
+      setStep((prevStep) => prevStep + 1);
     }
   }, [selectedDate])
 
@@ -136,7 +136,7 @@ const Quote = () => {
 
     if (timeValue) {
       const timer = setTimeout(() => {
-        setStep(step + 1)
+        setStep((prevStep) => prevStep + 1);
       }, 1000);
 
       return () => {
