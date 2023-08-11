@@ -2,9 +2,20 @@
   margin-top: 80px;
 
   width: 100%;
+
+  @media screen and (max-width: 992px) {
+    background-color: var(--main-beige-color);
+    margin-top: 60px;
+    padding-top: 40px;
+  }
+
   .title {
     text-align: center;
     margin-bottom: 50px;
+    @media screen and (max-width: 992px) {
+      margin-bottom: 25px;
+    }
+
     h3 {
       color: var(--main-blue-color);
       font-size: 30px;
@@ -19,6 +30,11 @@
     justify-content: space-between;
     margin-bottom: 80px;
 
+    @media screen and (max-width: 992px) {
+      flex-direction: column;
+      align-items: center;
+    }
+
     .box {
       // width: 350px;
       padding-left: 20px;
@@ -32,6 +48,14 @@
 
       border-radius: 0px 20px 20px 20px;
 
+      @media screen and (max-width: 992px) {
+        border-radius: 0px;
+        background-color: transparent;
+        padding: 0;
+        margin-bottom: 44px;
+        align-items: center;
+      }
+
       .icon_container {
         margin-bottom: 20px;
         width: 150px;
@@ -41,8 +65,9 @@
         border-radius: 50%;
         img {
           margin: auto;
-          width: 89.76px;
-          height: 117.02px;
+          width: 135px;
+          height: 135px;
+          object-fit: contain;
         }
       }
 
@@ -63,7 +88,10 @@
           font-weight: var(--font-regular);
           font-family: var(--main-font);
           font-size: 24px;
-          line-height: 1.7zrem;
+          line-height: 1.7rem;
+          @media screen and (max-width: 992px) {
+            text-align: center;
+          }
         }
       }
 

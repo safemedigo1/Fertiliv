@@ -1,8 +1,15 @@
 section.IvfClinic {
   margin-top: 80px;
+  @media screen and (max-width: 992px) {
+    margin-top: 40px;
+  }
+
   .title {
     text-align: center;
     margin-bottom: 50px;
+    @media screen and (max-width: 992px) {
+      margin-bottom: 24px;
+    }
 
     h3 {
       color: var(--main-blue-color);
@@ -15,28 +22,70 @@ section.IvfClinic {
   .desc {
     text-align: center;
     margin-bottom: 59px;
+    @media screen and (max-width: 992px) {
+      margin-bottom: 24px;
+    }
+
     p {
       color: var(--sec-gray-color);
       font-size: 24px;
       font-family: var(--main-font);
       font-weight: var(--font-semiBold);
       line-height: 1.9rem;
+      @media screen and (max-width: 992px) {
+        font-size: 20px;
+      }
     }
+  }
+
+  #slider_container {
+    width: 792px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   .images_container {
     display: flex;
+    cursor: pointer;
+
+    @media screen and (max-width: 992px) {
+      flex-direction: column;
+      align-items: center;
+    }
+
     .main_img {
       margin-right: 20px;
+      @media screen and (max-width: 992px) {
+        margin-bottom: 20px;
+        margin-right: 0px;
+      }
       img {
         width: 600px;
         height: 429px;
+
+        @media screen and (max-width: 750px) {
+          width: 100%;
+          margin-right: 0px;
+          height: 250px;
+        }
       }
     }
 
     .small_images {
       display: flex;
       flex-wrap: wrap;
+      @media screen and (max-width: 750px) {
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: center;
+      }
+      @media screen and (max-width: 450px) {
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+      }
       img {
         // width: 274px;
         width: 255px;
@@ -49,6 +98,20 @@ section.IvfClinic {
         }
         &:nth-child(3) {
           margin-right: 20px;
+        }
+
+        @media screen and (max-width: 992px) {
+          margin-right: 20px;
+          width: 160px;
+          height: 160px;
+          object-fit: contain;
+        }
+        @media screen and (max-width: 750px) {
+          width: 100px;
+          height: 100px;
+          object-fit: contain;
+          margin-right: 16px;
+          margin-bottom: 16px;
         }
       }
     }

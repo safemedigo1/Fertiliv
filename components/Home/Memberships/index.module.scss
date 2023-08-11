@@ -6,7 +6,15 @@ section.memberships {
     grid-template-rows: 1fr;
     grid-column-gap: 30px;
     grid-row-gap: 0px;
+    @media screen and (max-width: 992px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+    }
     .text_container {
+      @media screen and (max-width: 992px) {
+        margin-bottom: 24px;
+      }
+
       .title,
       .title2 {
         h3 {
@@ -41,15 +49,28 @@ section.memberships {
       grid-column-gap: 20px;
       grid-row-gap: 0px;
 
+      @media screen and (max-width: 992px) {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+      }
+
       .member {
         display: flex;
         flex-direction: column;
+        @media screen and (max-width: 992px) {
+          margin-bottom: 20px;
+        }
 
         .icon_container {
           img {
             width: 112px;
             height: 112px;
             object-fit: contain;
+
+            @media screen and (max-width: 992px) {
+              width: 80px;
+              height: 80px;
+            }
           }
         }
         .title {
@@ -60,6 +81,10 @@ section.memberships {
             font-family: var(--main-font);
             font-weight: var(--font-semiBold);
             line-height: 1.5rem;
+
+            @media screen and (max-width: 992px) {
+              font-size: 16px;
+            }
           }
         }
       }

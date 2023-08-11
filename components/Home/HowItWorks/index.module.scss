@@ -1,5 +1,9 @@
 section.HowItWorks {
   margin-top: 80px;
+  @media screen and (max-width: 992px) {
+    margin-top: 40px;
+  }
+
   .title {
     text-align: center;
     margin-bottom: 18px;
@@ -24,7 +28,8 @@ section.HowItWorks {
     }
   }
 
-  .steps_container {
+  .steps_container,
+  .steps_container_mob {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: 1fr;
@@ -34,7 +39,6 @@ section.HowItWorks {
     .step_box {
       display: flex;
       flex-direction: column;
-      align-items: center;
 
       &:not(:last-child) .icon_container {
         &::after {
@@ -66,6 +70,8 @@ section.HowItWorks {
 
       .title {
         h4 {
+          text-align: left;
+
           color: var(--main-blue-color);
           font-size: 25px;
           font-weight: var(--font-bold);
@@ -75,15 +81,28 @@ section.HowItWorks {
 
       .desc {
         p {
-          font-size: 20px;
+          font-size: 18px;
           font-weight: var(--font-semiBold);
           font-family: var(--main-font);
           color: var(--main-dark-color);
-          text-align: center;
-          margin-right: 10px;
+          text-align: left;
+          margin-right: 16px;
           line-height: 1.5rem;
         }
       }
+    }
+  }
+
+  .steps_container {
+    @media screen and (max-width: 992px) {
+      display: none;
+    }
+  }
+
+  .steps_container_mob {
+    display: none;
+    @media screen and (max-width: 922px) {
+      display: flex;
     }
   }
 

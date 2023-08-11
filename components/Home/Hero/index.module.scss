@@ -5,6 +5,12 @@
   object-fit: cover;
   border-radius: 0px 0px 75px 75px;
 
+  @media screen and (max-width: 992px) {
+    border-radius: 0px;
+    padding-top: 26px;
+    padding-bottom: 25px;
+  }
+
   .card {
     background-color: var(--main-beige-color);
     padding-left: 43px;
@@ -14,18 +20,38 @@
     z-index: 2;
     position: relative;
 
+    @media screen and (max-width: 992px) {
+      padding-right: 16px;
+      padding-left: 16px;
+    }
+
+    @media screen and (max-width: 992px) {
+      background-color: #ffeee1c4;
+    }
     .car_inner {
       display: flex;
       align-items: center;
+
+      @media screen and (max-width: 992px) {
+        flex-direction: column-reverse;
+      }
       .text_container {
         .title {
           margin-top: 50px;
           margin-bottom: 86px;
+          @media screen and (max-width: 992px) {
+            margin-top: 25px;
+            margin-bottom: 6px;
+          }
+
           h2 {
             font-family: var(--main-font);
             color: var(--main-blue-color);
             font-size: 40px;
             font-weight: 400;
+            @media screen and (max-width: 992px) {
+              font-size: 28px;
+            }
           }
         }
 
@@ -61,6 +87,11 @@
         img {
           width: 573px;
           height: 471px;
+
+          @media screen and (max-width: 992px) {
+            width: 250px;
+            height: 250px;
+          }
         }
       }
     }

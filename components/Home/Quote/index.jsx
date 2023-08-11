@@ -136,32 +136,41 @@ const Quote = () => {
 
 
                     {treatments.map((treatment, index) =>
-                      <FormControlLabel
-                        key={index}
+                      <div className={styles.input_wrap}>
 
-                        sx={{
-                          marginLeft: 0,
+                        <FormControlLabel
+                          key={index}
 
-                        }}
-                        required
-                        control={<Checkbox
-                          value={treatment.treatment}
-                          checked={selectedValues.includes(treatment.treatment)}
-                          onChange={handleCheckboxChange}
                           sx={{
-                            color: '#1B0968',
-                            '.Mui-checked': {
-                              color: '#1B0968 ',
-                            },
-                            '.MuiCheckbox-colorSecondary.Mui-checked': {
-                              color: '#1B0968 ',
-                            },
-                            '.MuiIconButton-root': {
-                              color: '#1B0968 ',
-                            },
-                            marginLeft: 0
+                            marginLeft: 0,
 
-                          }} />} label={treatment.treatment} />
+                          }}
+                          required
+                          control={<Checkbox
+                            value={treatment.treatment}
+                            checked={selectedValues.includes(treatment.treatment)}
+                            onChange={handleCheckboxChange}
+                            sx={{
+                              color: '#1B0968',
+                              '.Mui-checked': {
+                                color: '#1B0968 ',
+                              },
+                              '.MuiCheckbox-colorSecondary.Mui-checked': {
+                                color: '#1B0968 ',
+                              },
+                              '.MuiIconButton-root': {
+                                color: '#1B0968 ',
+                              },
+                              marginLeft: 0,
+                              "span": {
+                                display: 'none',
+                                background: 'red'
+                              }
+
+                            }} />} label={treatment.treatment} />
+
+                      </div>
+
                     )}
 
 

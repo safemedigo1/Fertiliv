@@ -1,12 +1,20 @@
 footer.footer {
   margin-top: 70px;
   background-color: var(--main-beige-color);
+  @media screen and (max-width: 992px) {
+    margin-top: 40px;
+  }
+
   .footer_container {
     padding-top: 58px;
     padding-bottom: 85px;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+
+    @media screen and (max-width: 992px) {
+      flex-direction: column;
+    }
 
     .text_container {
       .logo {
@@ -29,6 +37,10 @@ footer.footer {
 
       .desc {
         margin-bottom: 58px;
+        @media screen and (max-width: 992px) {
+          margin-bottom: 24px;
+        }
+
         p {
           color: var(--main-blue-color);
           font-size: 28px;
@@ -40,6 +52,11 @@ footer.footer {
       .language {
         display: flex;
         justify-content: center;
+        @media screen and (max-width: 992px) {
+          margin-bottom: 24px;
+          justify-content: flex-start;
+        }
+
         a {
           display: flex;
           align-items: center;
@@ -64,6 +81,10 @@ footer.footer {
         align-items: center;
         margin-bottom: 57px;
         justify-content: center;
+        @media screen and (max-width: 992px) {
+          margin-bottom: 24px;
+          justify-content: flex-start;
+        }
 
         a {
           &:not(:last-child) {

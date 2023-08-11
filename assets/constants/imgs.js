@@ -40,6 +40,7 @@ import Stimulation from "../imgs/Stimulation.svg";
 import Collection from "../imgs/Collection.svg";
 import Laboratory from "../imgs/Laboratory.svg";
 import Transfer from "../imgs/Transfer.svg";
+import verified from "../imgs/verified.svg";
 
 export default {
   Consultation_girl,
@@ -81,4 +82,5 @@ export default {
   tr,
   en,
   ar,
+  verified,
 };

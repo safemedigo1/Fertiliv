@@ -93,11 +93,11 @@ const WhyFertiliv = () => {
           </div>
         </div>
 
-        <div className={styles.video}>
+        {/* <div className={styles.video}>
           <iframe src="" frameborder="0"></iframe>
 
           <Typography>Fertility clinic Fertiliv in Istanbul</Typography>
-        </div>
+        </div> */}
       </Container>
     </section>
   )

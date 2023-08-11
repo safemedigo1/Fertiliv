@@ -8,78 +8,80 @@ import Image from 'next/image';
 const Consultation = () => {
   const { Consultation_girl } = imgs;
   return (
-    <Container>
-      <section id={'consultation'} className={styles.consultation}>
-        <div className={styles.title}>
-          <Typography variant='h3'>Free Initial Consultation</Typography>
-        </div>
-
-        <div className={styles.cards_container}>
-          <div className={styles.text_card}>
-            <div className={styles.img_container}>
-              <Image src={Consultation_girl} alt="" />
-            </div>
-            <div className={styles.text_container}>
-              <div className={styles.title}>
-                <Typography variant='h4'>Do you have a question?</Typography>
-              </div>
-
-              <div className={styles.desc}>
-                <Typography>Our highly efficient health care
-                  <br />
-                  coordinating team will be at your <br />
-                  disposal full time. leave your <br />
-                  information and your question and <br />
-                  we will reply you back.</Typography>
-              </div>
-            </div>
-
-
+    <section id={'consultation'} className={styles.consultation}>
+      <Container>
+        <div className={styles.section_container}>
+          <div className={styles.title}>
+            <Typography variant='h3'>Free Initial Consultation</Typography>
           </div>
 
-          <div className={styles.input_container}>
-            <form action="">
+          <div className={styles.cards_container}>
+            <div className={styles.text_card}>
+              <div className={styles.img_container}>
+                <Image src={Consultation_girl} alt="" />
+              </div>
+              <div className={styles.text_container}>
+                <div className={styles.title}>
+                  <Typography variant='h4'>Do you have a question?</Typography>
+                </div>
 
-              <div className={styles.name}>
-                <input type="text" placeholder='Your First Name' />
-                <input type="text" placeholder='Your Second Name' />
+                <div className={styles.desc}>
+                  <Typography>Our highly efficient health care
+                    <br />
+                    coordinating team will be at your <br />
+                    disposal full time. leave your <br />
+                    information and your question and <br />
+                    we will reply you back.</Typography>
+                </div>
               </div>
 
-              <div className={styles.phone}>
-                <PhoneInput
-                  country={'tr'}
-                  value=''
-                  // onChange={handleChangePhone}
-                  // onChange={newPhoneVal => setPhoneNum(newPhoneVal)}
 
-                  inputProps={{
-                    name: 'phone',
-                    required: true,
-                  }}
-                />
-              </div>
+            </div>
 
-              <div className={styles.email}>
-                <input type="email" placeholder='E-mail' />
-              </div>
+            <div className={styles.input_container}>
+              <form action="">
 
-              <div className={styles.textarea}>
-                <textarea name="" id="" placeholder='Your Question'></textarea>
-              </div>
+                <div className={styles.name}>
+                  <input type="text" placeholder='Your First Name' />
+                  <input type="text" placeholder='Your Second Name' />
+                </div>
 
-            </form>
+                <div className={styles.phone}>
+                  <PhoneInput
+                    country={'tr'}
+                    value=''
+                    // onChange={handleChangePhone}
+                    // onChange={newPhoneVal => setPhoneNum(newPhoneVal)}
+
+                    inputProps={{
+                      name: 'phone',
+                      required: true,
+                    }}
+                  />
+                </div>
+
+                <div className={styles.email}>
+                  <input type="email" placeholder='E-mail' />
+                </div>
+
+                <div className={styles.textarea}>
+                  <textarea name="" id="" placeholder='Your Question'></textarea>
+                </div>
+
+              </form>
+            </div>
+          </div>
+
+          <div className={styles.terms}>
+            <Typography>I agree to my given details including health data may be processed by Fertilive for the purpose of obtaining quotes. The consent can be revoked at any time with effect for the future.*</Typography>
+          </div>
+          <div className={styles.subBtn}>
+            <Button>Submit</Button>
           </div>
         </div>
 
-        <div className={styles.terms}>
-          <Typography>I agree to my given details including health data may be processed by Fertilive for the purpose of obtaining quotes. The consent can be revoked at any time with effect for the future.*</Typography>
-        </div>
-        <div className={styles.subBtn}>
-          <Button>Submit</Button>
-        </div>
-
-      </section>
-    </Container>
+      </Container>
+    </section>
   )
 }
 

@@ -40,6 +40,10 @@ section.quote {
 
     .img_container {
       margin-right: 50px;
+      @media screen and (max-width: 992px) {
+        display: none;
+      }
+
       img {
         width: 199.58px;
         height: 274px;
@@ -50,6 +54,19 @@ section.quote {
       width: 100%;
 
       form {
+        .input_wrap {
+          span {
+            &:last-child {
+              display: none;
+            }
+          }
+
+          @media screen and (max-width: 992px) {
+            background-color: var(--main-beige-color);
+            margin-bottom: 16px;
+            border-radius: 24px;
+          }
+        }
         .treatments {
           display: flex;
           flex-direction: column;
@@ -71,6 +88,10 @@ section.quote {
           text-align: center;
           margin-right: 287px;
           margin-top: 24px;
+          @media screen and (max-width: 992px) {
+            margin-right: 0;
+          }
+
           button {
             width: 232px;
             background-color: var(--main-blue-color);
@@ -86,6 +107,11 @@ section.quote {
 
       .input_container {
         margin-left: 120px;
+        @media screen and (max-width: 992px) {
+          margin-left: 0;
+          margin: auto;
+        }
+
         .name,
         .email,
         .phone {
@@ -108,8 +134,22 @@ section.quote {
         }
 
         .name {
+          @media screen and (max-width: 992px) {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            input {
+              width: 100%;
+              margin-bottom: 16px;
+            }
+          }
+
           input:first-child {
             margin-right: 16px;
+            @media screen and (max-width: 992px) {
+              margin-right: 0;
+            }
           }
         }
 
@@ -127,6 +167,15 @@ section.quote {
           }
         }
 
+        .email,
+        .phone {
+          input {
+            @media screen and (max-width: 992px) {
+              width: 100%;
+            }
+          }
+        }
+
         .nextBtn {
           text-align: center;
           margin-right: 0 !important;
@@ -139,6 +188,10 @@ section.quote {
         display: flex;
         flex-direction: column;
         height: 200px;
+
+        @media screen and (max-width: 992px) {
+          height: auto;
+        }
 
         .title {
           margin-bottom: 20px;

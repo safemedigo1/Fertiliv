@@ -1,3 +1,5 @@
+@import "~react-image-gallery/styles/css/image-gallery.css";
+
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
@@ -54,27 +56,69 @@ button:hover {
 }
 
 /* React-Elastic-carsouel */
+
+#HowItWorks
+  .rec-carousel-item:not(:last-child)
+  .HowItWorks_step_box__rhJrz
+  .HowItWorks_icon_container__FqhZr::after {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 0px;
+  width: 300px;
+  height: 10px;
+  background-color: var(--main-beige-color);
+  z-index: -1;
+}
+
+#HowItWorks .rec-carousel,
 #reviews .rec-carousel {
   position: relative;
 }
-
 #reviews .rec-carousel .main_btn {
   position: absolute;
   top: 50%;
   z-index: 1;
 }
+#HowItWorks .rec-carousel .main_btn {
+  position: absolute;
+  top: 40%;
+  z-index: 1;
+}
+
 #reviews .rec-carousel .main_btn:first-child {
   left: -29px;
 }
+#HowItWorks .rec-carousel .main_btn:first-child {
+  left: 0;
+}
+
+#HowItWorks .rec-carousel .main_btn:last-child {
+  right: 0 !important;
+}
+
+#HowItWorks .rec-carousel .main_btn:last-child,
 #reviews .rec-carousel .main_btn:last-child {
   right: -35px;
 }
 
+@media screen and (max-width: 992px) {
+  #reviews .rec-carousel .main_btn:last-child {
+    right: 0px;
+  }
+}
+@media screen and (max-width: 992px) {
+  #reviews .rec-carousel .main_btn:first-child {
+    left: 0px;
+  }
+}
+
+#HowItWorks .rec-carousel button,
 #reviews .rec-carousel button {
   background-color: transparent;
   border: none !important;
   cursor: pointer;
-  background: #e6dcd4;
+  background: #faf0f000;
   width: 37.82px;
   height: 37.82px;
   border-radius: 50%;
@@ -82,18 +126,96 @@ button:hover {
 
   display: flex;
 }
+#HowItWorks .rec-carousel button {
+  box-shadow: unset !important;
+  width: 40px;
+  height: 40px;
+}
+
+#HowItWorks .rec-carousel button:disabled,
 #reviews .rec-carousel button:disabled {
   display: none;
 }
 #reviews .rec-carousel button:hover {
-  background-color: #bebebe !important;
+  background-color: #f5f5f5bd !important;
   border: none !important;
   outline: none;
 }
+
+#HowItWorks .rec-carousel button:hover {
+  background-color: #e6dcd4 !important;
+}
+
+#HowItWorks .rec-carousel button .right_arrow svg,
+#HowItWorks .rec-carousel button .left_arrow svg,
 #reviews .rec-carousel button .right_arrow svg,
 #reviews .rec-carousel button .left_arrow svg {
   width: 40px;
   height: 40px;
   color: #8d8d8d;
   margin-right: auto;
+}
+
+#IvfClinic .fullscreen-image-gallery .image-gallery-svg {
+  height: 60px;
+  width: 60px;
+  color: var(--main-beige-color);
+  filter: none !important;
+}
+
+#IvfClinic .fullscreen-image-gallery .image-gallery-image {
+  /* height: 500px; */
+}
+#IvfClinic .fullscreen-image-gallery .image-gallery-slide-wrapper {
+  width: calc(100% - 150px);
+}
+
+#IvfClinic .fullscreen-image-gallery .image-gallery-icon:hover {
+  background-color: transparent !important;
+  outline: none !important;
+  border: none !important;
+}
+#IvfClinic .fullscreen-image-gallery .image-gallery-icon {
+  background-color: transparent !important;
+  outline: none !important;
+  border: none !important;
+  filter: none !important;
+}
+
+#IvfClinic .fullscreen-image-gallery .image-gallery-fullscreen-button,
+.image-gallery-play-button {
+  padding: 10px;
+
+  color: var(--main-blue-color) !important;
+  filter: none !important;
+}
+#IvfClinic .fullscreen-image-gallery .image-gallery-fullscreen-button {
+  display: none !important;
+}
+
+#IvfClinic .fullscreen-image-gallery .image-gallery-fullscreen-button:hover,
+.image-gallery-play-button:hover {
+  background-color: transparent !important;
+  outline: none !important;
+  border: none !important;
+}
+
+.fullscreen-image-gallery {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  background-color: #000;
+}
+
+#IvfClinic .fullscreen-image-gallery .close_icon svg {
+  color: var(--main-beige-color);
+  position: absolute;
+  top: 50px;
+  left: 30px;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
 }

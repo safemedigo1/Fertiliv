@@ -1,5 +1,5 @@
-import { AppBar, Container, Grid } from '@mui/material'
-import React from 'react'
+import { AppBar, Container, Box } from '@mui/material'
+import React, { useState } from 'react'
 import styles from './index.module.scss'
 
 
@@ -7,11 +7,13 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import CssBaseline from '@mui/material/CssBaseline';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
-import Box from '@mui/material/Box';
 import Slide from '@mui/material/Slide';
 import Link from 'next/link';
 import imgs from '../../assets/constants/imgs'
 import Image from 'next/image';
+import { GiHamburgerMenu } from 'react-icons/gi'
+import { motion } from 'framer-motion'
+import CloseIcon from '@mui/icons-material/Close';
 
 // Hide navbar on scroll (to bottom)
 function HideOnScroll(props) {
@@ -39,6 +41,8 @@ const NavLinks = [
 
 const Navbar = (props) => {
   const { whatsapp, logo } = imgs;
+  const [showMenu, setShowMenu] = useState(false);
+
   return (
     <>
       <CssBaseline />
@@ -68,7 +72,44 @@ const Navbar = (props) => {
                   </div>
                   <Link href="tel:(+90) 552 502 6000">0090 552 502 6000</Link>
                 </div>
+
+                <div className={styles.menu} onClick={() => setShowMenu(true)}>
+                  <div className={styles.icon_container}>
+                    <GiHamburgerMenu />
+                  </div>
+
+                  <div className={styles.num}>
+                    <div className={styles.img_container}>
+                      <Image src={whatsapp} alt="whatsapp" />
+                    </div>
+                    <Link href="tel:(+90) 552 502 6000">0090 552 502 6000</Link>
+                  </div>
+
+                </div>
+
+                {showMenu &&
+                  <motion.div className={styles.sidebar_container} animate={{ x: [300, 0] }}
+                    transition={{ duration: 0.85, ease: "easeOut" }}
+                  >
+                    <div className={styles.sidebar_inner}>
+                      <div className={styles.close_icon} onClick={() => setShowMenu(false)}>
+                        <CloseIcon />
+                      </div>
+
+                      <div className={styles.links}>
+                        {NavLinks.map((link, idx) =>
+                          <Link href={link.link} key={idx} onClick={() => setShowMenu(false)}>
+                            {link.title}
+                          </Link>)}
+                      </div>
+                    </div>
+                  </motion.div>
+
+                }
               </div>
+
+
+
             </Container>
 
           </Toolbar>

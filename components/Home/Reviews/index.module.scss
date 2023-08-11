@@ -1,5 +1,9 @@
 section.reviews {
   margin-top: 60px;
+
+  @media screen and (max-width: 992px) {
+    background-color: var(--main-beige-color);
+  }
   .section_container {
     background-color: var(--main-beige-color);
     padding: 50px;
@@ -7,10 +11,24 @@ section.reviews {
     display: flex;
     align-items: flex-start;
 
+    @media screen and (max-width: 992px) {
+      flex-direction: column;
+      background-color: transparent;
+      padding-right: 0;
+      padding-left: 0;
+      border-radius: 0;
+    }
+
     .text_container {
       width: 33%;
+      @media screen and (max-width: 992px) {
+        width: 100%;
+        margin-bottom: 24px;
+      }
+
       .title,
       .title2 {
+        margin-bottom: 16px;
         h3 {
           color: var(--main-blue-color);
           font-size: 30px;
@@ -44,11 +62,20 @@ section.reviews {
         width: 244px;
         border-radius: 20px;
         padding: 20px;
+
+        @media screen and (max-width: 992px) {
+          padding: 16px;
+          margin-right: 10px;
+        }
+
         .author {
           display: flex;
+          align-items: center;
           margin-bottom: 11px;
           .icon_container {
+            margin-left: 7px;
           }
+
           p {
             color: var(--main-blue-color);
             font-family: var(--main-font);
