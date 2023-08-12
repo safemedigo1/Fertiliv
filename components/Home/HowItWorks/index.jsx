@@ -7,7 +7,6 @@ import Link from 'next/link'
 import Carousel from '@itseasy21/react-elastic-carousel';
 import { consts } from '@itseasy21/react-elastic-carousel';
 import { useState } from 'react'
-import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io';
 
 const HowItWorks = () => {
   const { Planning,
@@ -27,26 +26,7 @@ const HowItWorks = () => {
 
 
   ])
-  // Change Arrow in react-elastic-carousel Lirbrary
-  function myArrow({ type, onClick, isEdge }) {
-    const pointer = type === consts.PREV ?
-      <div className='left_arrow'>
-        <IoIosArrowBack />
-      </div>
 
-      :
-      <div className='right_arrow'>
-        <  IoIosArrowForward />
-      </div>
-
-      ;
-
-    return (
-      <button className='main_btn' onClick={onClick} disabled={isEdge}>
-        {pointer}
-      </button>
-    );
-  }
 
   const steps = [
     { icon: Planning, title: 'Planning', desc: 'Discuss with our specialists the reasons of your infertility and treatment options after initial consultation and tests (online or in person)' },
@@ -91,8 +71,8 @@ const HowItWorks = () => {
         </div>
 
         <div className={styles.steps_container_mob}>
-          <Carousel renderArrow={myArrow}
-            breakPoints={breakPoints} pagination={false}>
+          <Carousel showArrows={false}
+            breakPoints={breakPoints} pagination={true}>
 
             {steps.map((step, idx) =>
               <div key={idx} className={styles.step_box} >

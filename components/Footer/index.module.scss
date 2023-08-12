@@ -1,9 +1,6 @@
 footer.footer {
-  margin-top: 70px;
+  margin-top: 80px;
   background-color: var(--main-beige-color);
-  @media screen and (max-width: 992px) {
-    margin-top: 40px;
-  }
 
   .footer_container {
     padding-top: 58px;
@@ -46,7 +43,6 @@ footer.footer {
       .desc {
         margin-bottom: 58px;
         @media screen and (max-width: 992px) {
-          margin-bottom: 24px;
         }
 
         p {
@@ -54,6 +50,10 @@ footer.footer {
           font-size: 28px;
           font-weight: var(--font-regular);
           font-family: var(--main-font);
+
+          @media screen and (max-width: 992px) {
+            font-size: 18px;
+          }
         }
       }
 

@@ -1,11 +1,11 @@
 section.reviews {
   margin-top: 60px;
 
-  @media screen and (max-width: 992px) {
-    background-color: var(--main-beige-color);
-  }
   .section_container {
-    background-color: var(--main-beige-color);
+    @media screen and (min-width: 992px) {
+      background-color: var(--main-beige-color);
+    }
+
     padding: 50px;
     border-radius: 75px;
     display: flex;
@@ -13,10 +13,13 @@ section.reviews {
 
     @media screen and (max-width: 992px) {
       flex-direction: column;
-      background-color: transparent;
-      padding-right: 0;
-      padding-left: 0;
-      border-radius: 0;
+      width: 100%;
+      padding-top: 24px;
+      padding-bottom: 24px;
+      padding-left: 16px;
+      padding-right: 16px;
+      background-color: var(--main-beige-color);
+      border-radius: 12px;
     }
 
     .text_container {
@@ -41,7 +44,8 @@ section.reviews {
       }
 
       .title2 {
-        margin-top: 20px;
+        margin-top: 16px;
+        margin-bottom: 0px;
       }
 
       .desc {

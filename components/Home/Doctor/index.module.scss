@@ -1,22 +1,21 @@
 section.doctor {
-  margin-top: 85px;
+  margin-top: 80px;
   display: flex;
   flex-direction: column;
 
-  @media screen and (max-width: 992px) {
-    margin-top: 40px;
-    background-color: var(--main-beige-color);
-  }
   .card {
     background-color: var(--main-beige-color);
     padding: 57px 18px;
     border-radius: 75px;
 
     @media screen and (max-width: 992px) {
-      padding-right: 0;
-      padding-left: 0;
-      border-radius: 0px;
-      background-color: transparent;
+      width: 100%;
+      padding-top: 24px;
+      padding-bottom: 24px;
+      padding-left: 20px;
+      padding-right: 32px;
+      background-color: var(--main-beige-color);
+      border-radius: 12px;
     }
 
     .title,

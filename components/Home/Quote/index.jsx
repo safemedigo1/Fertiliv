@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 
 const Quote = () => {
   const { quoteImg } = imgs;
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(3);
   const [phoneNum, setPhoneNum] = useState();
   const [updatedFormData, setUpdatedFormData] = useState();
   const [formData, setFormData] = useState({

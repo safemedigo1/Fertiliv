@@ -10,9 +10,9 @@ import Image from 'next/image';
 const Reviews = () => {
   const { verified } = imgs;
   const [breakPoints] = useState([
-    { width: 1, itemsToShow: 1.4, },
-    { width: 550, itemsToShow: 3, },
-    { width: 850, itemsToShow: 3 },
+    { width: 1, itemsToShow: 1.4, showArrows: false, pagination: true },
+    { width: 550, itemsToShow: 2.5, },
+    { width: 850, itemsToShow: 2.5 },
     { width: 1150, itemsToShow: 4, },
     { width: 1450, itemsToShow: 5 },
     { width: 1750, itemsToShow: 6, },
@@ -50,20 +50,20 @@ const Reviews = () => {
 
   return (
     <section id='reviews' className={styles.reviews}>
-      <Container>
+      <Container >
         <div className={styles.section_container}>
           <div className={styles.text_container}>
             <div className={styles.title}>
               <Typography variant='h3'>
-                What Our Patients Are Saying: 88%
+                What Our Patients Are Saying:
 
               </Typography>
             </div>
-            {/* <div className={styles.title2}>
+            <div className={styles.title2}>
               <Typography variant='h3'>
                 88%
               </Typography>
-            </div> */}
+            </div>
 
             <div className={styles.desc}>
               <Typography>

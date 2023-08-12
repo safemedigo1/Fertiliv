@@ -74,7 +74,7 @@ const IvfClinic = () => {
 
             className="fullscreen-image-gallery">
             <div className="fullscreen-image-gallery__wrapper">
-              <ImageGallery items={images} showIndex={true} thumbnailPosition={'right'} />
+              <ImageGallery items={images} showIndex={true} />
             </div>
 
             <div className="close_icon" onClick={() => setShowGallery(false)}>

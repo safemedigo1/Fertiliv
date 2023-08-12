@@ -1,8 +1,5 @@
 section.HowItWorks {
   margin-top: 80px;
-  @media screen and (max-width: 992px) {
-    margin-top: 40px;
-  }
 
   .title {
     text-align: center;
@@ -28,6 +25,7 @@ section.HowItWorks {
     @media screen and (max-width: 992px) {
       text-align: left;
       margin-bottom: 20px;
+      line-height: 1.3em;
     }
 
     p {
@@ -117,6 +115,7 @@ section.HowItWorks {
           line-height: 1.5rem;
           @media screen and (max-width: 450px) {
             font-size: 16px;
+            line-height: 1.3em;
           }
         }
       }
@@ -138,6 +137,9 @@ section.HowItWorks {
 
   .stepBtn {
     text-align: center;
+    @media screen and (max-width: 450px) {
+      margin-top: 24px;
+    }
     button {
       width: 232px;
       background-color: var(--main-blue-color);

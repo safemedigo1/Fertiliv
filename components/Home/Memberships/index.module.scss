@@ -83,12 +83,15 @@ section.memberships {
 
             @media screen and (max-width: 992px) {
               width: 80px;
-              height: 80px;
+              height: 50px;
             }
           }
         }
         .title {
           margin-top: 8px;
+          @media screen and (max-width: 450px) {
+            margin-top: 0;
+          }
           p {
             color: var(--main-gray-color);
             font-size: 20px;
@@ -97,7 +100,8 @@ section.memberships {
             line-height: 1.5rem;
 
             @media screen and (max-width: 992px) {
-              font-size: 16px;
+              font-size: 14px;
+              line-height: 1.2em;
             }
           }
         }

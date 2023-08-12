@@ -14,14 +14,14 @@ const Memberships = () => {
     Tesvikler, } = imgs;
 
   const memberships = [
-    { icon: Reproductive, title: 'Reproductive Health And Infertility Association' },
-    { icon: Eshre, title: 'European Society Of Human Reproduction And Embryology' },
-    { icon: arms, title: 'American Society For Reproductive Medicine' },
-    { icon: Tesvikler, title: 'Republic Of Turkey Ministry Of Health' },
-    { icon: International, title: 'International Health Tourism Authorization Certificate' },
-    { icon: golden, title: 'Quality Management System By ISO' },
-    { icon: Junior, title: 'Junior Chamber International' },
-    { icon: ISO, title: 'International Organization For Standardization' },
+    { icon: Reproductive, title: 'Reproductive health and infertility association' },
+    { icon: Eshre, title: 'European society of human reproduction and embryology' },
+    { icon: arms, title: 'American society for reproductive medicine' },
+    { icon: Tesvikler, title: 'Republic of turkey ministry of health' },
+    { icon: International, title: 'International health tourism authorization certificate' },
+    { icon: golden, title: 'Quality management system by ISO' },
+    { icon: Junior, title: 'Junior chamber international' },
+    { icon: ISO, title: 'International organization for standardization' },
   ]
   return (
     <section id='memberships' className={styles.memberships}>

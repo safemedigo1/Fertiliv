@@ -1,5 +1,5 @@
 section.quote {
-  margin-top: 70px;
+  margin-top: 80px;
 
   .text_container {
     display: flex;
@@ -48,6 +48,7 @@ section.quote {
         font-size: 24px;
         @media screen and (max-width: 450px) {
           font-size: 18px;
+          line-height: 1.3em;
         }
       }
     }
@@ -79,7 +80,22 @@ section.quote {
           @media screen and (max-width: 992px) {
             width: 100%;
           }
+
+          label {
+            @media screen and (max-width: 992px) {
+              align-items: flex-start !important;
+            }
+            & > span {
+              @media screen and (max-width: 992px) {
+                margin-top: 2px;
+              }
+            }
+          }
           span {
+            @media screen and (max-width: 992px) {
+              padding-top: 0px;
+            }
+
             &:last-child {
               display: none;
             }
@@ -88,7 +104,9 @@ section.quote {
           @media screen and (max-width: 992px) {
             background-color: var(--main-beige-color);
             margin-bottom: 16px;
-            border-radius: 24px;
+            border-radius: 5px;
+            padding-top: 5px;
+            padding-bottom: 5px;
           }
         }
         .treatments {
@@ -170,7 +188,6 @@ section.quote {
 
             input {
               width: 100%;
-              margin-bottom: 16px;
             }
           }
 
@@ -178,6 +195,7 @@ section.quote {
             margin-right: 16px;
             @media screen and (max-width: 992px) {
               margin-right: 0;
+              margin-bottom: 16px;
             }
           }
         }
@@ -217,11 +235,17 @@ section.quote {
         display: flex;
         flex-direction: column;
         height: 200px;
+        background-color: var(--main-beige-color);
+        border-radius: 12px;
+        padding: 16px;
 
         @media screen and (max-width: 992px) {
           height: auto;
         }
 
+        @media screen and (max-width: 450px) {
+          text-align: left;
+        }
         .title {
           margin-bottom: 20px;
           h5 {
@@ -236,6 +260,10 @@ section.quote {
             color: var(--main-blue-color);
             font-family: var(--main-font);
             font-weight: var(--font-bold);
+
+            @media screen and (max-width: 450px) {
+              line-height: 1.3em;
+            }
           }
         }
       }

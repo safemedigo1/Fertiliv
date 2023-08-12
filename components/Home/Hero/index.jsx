@@ -12,11 +12,9 @@ const Hero = () => {
   return (
     <section id={styles.hero}>
       <Container>
-        <div className={styles.img_container_mob}>
-          <Image src={Hero_baby} alt="" />
-        </div>
+
         <div className={styles.card}>
-          <div className={styles.car_inner}>
+          <div className={styles.card_inner}>
             <div className={styles.text_container}>
               <div className={styles.title}>
                 <Typography variant='h2'>Let us help you bring hope, happiness and a new life <br />
@@ -36,6 +34,24 @@ const Hero = () => {
             </div>
             <div className={styles.img_container}>
               <Image src={Hero_baby} alt="" />
+            </div>
+          </div>
+          <div className={styles.card_inner_mob}>
+            <div className={styles.title}>
+              <Typography variant='h2'>Let us help you bring hope, happiness and a new life <br />
+                into the world.</Typography>
+            </div>
+
+            <div className={styles.img_container}>
+              <Image src={Hero_baby} alt="" />
+            </div>
+            <div className={styles.desc}>
+              <Typography>
+                Advanced Fertility Center Fertiliv
+              </Typography>
+            </div>
+            <div className={styles.btn}>
+              <Button onClick={() => router.push('#consultation')}>Free Online Consultation</Button>
             </div>
           </div>
         </div>
