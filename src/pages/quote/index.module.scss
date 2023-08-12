@@ -27,7 +27,7 @@
   }
 
   .quote_card {
-    width: 700px;
+    width: 600px;
     margin: 20px auto;
     background-color: var(--main-white-color);
     box-shadow: 0px 30px 30px #00000029;
@@ -35,7 +35,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 20px;
+    padding: 20px 16px;
     box-sizing: border-box;
     @media screen and (min-width: 992px) {
       min-height: 600px;
@@ -66,7 +66,7 @@
     }
 
     @media screen and (max-width: 400px) {
-      background-color: transparent;
+      // background-color: transparent;
       padding: 10px;
       padding-bottom: 0;
       padding-top: 16px;
@@ -167,44 +167,6 @@
       }
     }
 
-    // .steps {
-    //   width: 100%;
-    //   display: flex;
-    //   justify-content: space-around;
-    //   margin-bottom: 16px;
-
-    //   .step {
-    //     background-color: #8d8d8d;
-    //     width: 38px;
-    //     height: 38px;
-    //     border-radius: 50%;
-    //     display: flex;
-    //     z-index: 3;
-    //     span {
-    //       position: relative;
-    //       margin: auto;
-    //       color: var(--main-white-color);
-    //     }
-    //     &:not(:last-child) {
-    //       background-color: var(--main-green-color);
-
-    //       ::after {
-    //         content: "";
-    //         position: absolute;
-    //         top: 50%;
-    //         left: 23px;
-    //         width: 190px;
-    //         height: 2px;
-    //         z-index: 1;
-    //         background-color: var(--main-green-color);
-    //         @media screen and (max-width: 450px) {
-    //           width: 155px;
-    //         }
-    //       }
-    //     }
-    //   }
-    // }
-
     .question {
       align-self: flex-start;
       margin-bottom: 8px;
@@ -229,6 +191,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-gap: 8px;
+      justify-items: center;
 
       label {
         border-radius: 5px;
@@ -236,7 +199,11 @@
         // min-height: 40px;
         margin-left: 0 !important;
         padding-right: 8px;
-        width: 100%;
+        width: 80%;
+
+        @media screen and (max-width: 450px) {
+          width: 100%;
+        }
 
         span {
           color: var(--main-blue-color);
@@ -251,9 +218,12 @@
           }
 
           @media screen and (max-width: 450px) {
-            padding-right: 2px;
+            padding-right: 5px;
           }
 
+          &:last-child {
+            display: none;
+          }
           svg {
             color: var(--main-blue-color);
             width: 17px;
@@ -341,12 +311,12 @@
             padding: 0;
             align-items: center;
             justify-content: center;
-
             width: 95px;
             height: 43px;
             color: var(--main-dark-color);
             font-weight: var(--font-bold);
             font-family: "Quicksand";
+
             @media screen and (max-width: 450px) {
               width: 120px;
               margin-left: 0;
@@ -395,7 +365,7 @@
 
         .any_time.selected {
           li {
-            background-color: #004747 !important;
+            // background-color: #004747 !important;
             color: white;
           }
         }

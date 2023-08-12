@@ -87,7 +87,7 @@ button:hover {
 }
 
 #reviews .rec-carousel .main_btn:first-child {
-  left: -29px;
+  left: -6px;
 }
 #HowItWorks .rec-carousel .main_btn:first-child {
   left: 0;
@@ -97,9 +97,8 @@ button:hover {
   right: 0 !important;
 }
 
-#HowItWorks .rec-carousel .main_btn:last-child,
 #reviews .rec-carousel .main_btn:last-child {
-  right: -35px;
+  right: -6px;
 }
 
 @media screen and (max-width: 992px) {
@@ -167,7 +166,7 @@ button:hover {
   /* height: 500px; */
 }
 #IvfClinic .fullscreen-image-gallery .image-gallery-slide-wrapper {
-  width: calc(100% - 150px);
+  /* width: calc(100% - 150px); */
 }
 
 #IvfClinic .fullscreen-image-gallery .image-gallery-icon:hover {

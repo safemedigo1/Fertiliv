@@ -427,6 +427,7 @@ const Quote = () => {
                         value={treatment.title}
                         checked={selectedValues.includes(treatment.title)}
                         onChange={handleCheckboxChange}
+
                         sx={{
                           color: '#1B0968',
                           '.Mui-checked': {
