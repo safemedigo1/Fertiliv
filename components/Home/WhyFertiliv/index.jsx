@@ -38,7 +38,7 @@ const WhyFertiliv = () => {
             </div>
 
             <div className={styles.link}>
-              <Link href='/'>Meet our team</Link>
+              <Link href='#doctor'>Meet our team</Link>
             </div>
           </div>
 
@@ -63,7 +63,7 @@ const WhyFertiliv = () => {
             </div>
 
             <div className={styles.link}>
-              <Link href='/'>Book a consultation</Link>
+              <Link href='#consultation'>Book a consultation</Link>
             </div>
           </div>
 
@@ -88,7 +88,7 @@ const WhyFertiliv = () => {
             </div>
 
             <div className={styles.link}>
-              <Link href='/'>Let us call you</Link>
+              <Link href='/quote'>Let us call you</Link>
             </div>
           </div>
         </div>

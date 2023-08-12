@@ -21,11 +21,18 @@ section.consultation {
     .title {
       text-align: center;
       margin-bottom: 24px;
+      @media screen and (max-width: 450px) {
+        text-align: left;
+      }
       h3 {
         font-family: var(--main-font);
         color: var(--main-blue-color);
         font-weight: var(--font-bold);
         font-size: 30px;
+
+        @media screen and (max-width: 450px) {
+          font-size: 24px;
+        }
       }
     }
 
@@ -64,6 +71,9 @@ section.consultation {
             height: 200px;
             object-fit: contain;
           }
+          @media screen and (max-width: 450px) {
+            margin-right: auto;
+          }
 
           img {
             width: 100%;
@@ -73,9 +83,17 @@ section.consultation {
 
         .text_container {
           margin-left: 30px;
+          @media screen and (max-width: 992px) {
+            margin-left: 0;
+          }
+          @media screen and (max-width: 450px) {
+            width: 100%;
+          }
           .title {
             text-align: left;
-
+            @media screen and (max-width: 450px) {
+              margin-bottom: 15px;
+            }
             h4 {
               font-family: var(--main-font);
               color: var(--main-blue-color);
@@ -92,6 +110,13 @@ section.consultation {
               font-size: 16px;
               @media screen and (max-width: 992px) {
                 text-align: center;
+              }
+
+              @media screen and (max-width: 450px) {
+                text-align: left;
+                br {
+                  display: none;
+                }
               }
             }
           }
@@ -112,6 +137,9 @@ section.consultation {
             display: flex;
             justify-content: space-between;
             margin-bottom: 16px;
+            @media screen and (max-width: 450px) {
+              flex-direction: column;
+            }
 
             input {
               width: 180px;
@@ -122,9 +150,17 @@ section.consultation {
               padding-top: 10px;
               padding-bottom: 10px;
               padding-left: 16px;
-
               &:focus {
                 outline: none;
+              }
+              @media screen and (max-width: 450px) {
+                width: 100%;
+              }
+
+              &:first-child {
+                @media screen and (max-width: 450px) {
+                  margin-bottom: 16px;
+                }
               }
             }
           }

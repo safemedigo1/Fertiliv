@@ -7,17 +7,28 @@ section.HowItWorks {
   .title {
     text-align: center;
     margin-bottom: 18px;
+    @media screen and (max-width: 450px) {
+      text-align: left;
+      margin-bottom: 16px;
+    }
     h3 {
       color: var(--main-blue-color);
       font-size: 30px;
       font-family: var(--main-font);
       font-weight: var(--font-bold);
+      @media screen and (max-width: 450px) {
+        font-size: 24px;
+      }
     }
   }
 
   .desc {
     text-align: center;
     margin-bottom: 40px;
+    @media screen and (max-width: 992px) {
+      text-align: left;
+      margin-bottom: 20px;
+    }
 
     p {
       color: var(--sec-gray-color);
@@ -25,6 +36,10 @@ section.HowItWorks {
       font-family: var(--main-font);
       font-weight: var(--font-medium);
       line-height: 1.5rem;
+
+      @media screen and (max-width: 450px) {
+        font-size: 16px;
+      }
     }
   }
 
@@ -63,8 +78,16 @@ section.HowItWorks {
         margin-bottom: 30px;
         position: relative;
 
+        @media screen and (max-width: 450px) {
+          width: 90px;
+          height: 90px;
+        }
+
         img {
           margin: auto;
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
         }
       }
 
@@ -76,6 +99,10 @@ section.HowItWorks {
           font-size: 25px;
           font-weight: var(--font-bold);
           font-family: var(--main-font);
+
+          @media screen and (max-width: 450px) {
+            font-size: 20px;
+          }
         }
       }
 
@@ -88,6 +115,9 @@ section.HowItWorks {
           text-align: left;
           margin-right: 16px;
           line-height: 1.5rem;
+          @media screen and (max-width: 450px) {
+            font-size: 16px;
+          }
         }
       }
     }

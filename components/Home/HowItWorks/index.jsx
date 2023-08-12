@@ -121,7 +121,7 @@ const HowItWorks = () => {
 
         <div className={styles.stepBtn}>
           <Button>
-            <Link href='/'>Take The First Step!</Link>
+            <Link href='/quote'>Take The First Step!</Link>
           </Button>
         </div>
       </Container>

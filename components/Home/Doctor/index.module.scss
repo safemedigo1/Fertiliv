@@ -24,11 +24,18 @@ section.doctor {
       text-align: center;
       width: 100%;
       margin-bottom: 16px;
+      @media screen and (max-width: 450px) {
+        text-align: left;
+      }
       h3 {
         color: var(--main-blue-color);
         font-size: 30px;
         font-family: var(--main-font);
         font-weight: var(--font-bold);
+
+        @media screen and (max-width: 450px) {
+          font-size: 24px;
+        }
       }
     }
 
@@ -45,6 +52,11 @@ section.doctor {
         text-align: center;
         line-height: 1.5rem;
 
+        @media screen and (max-width: 450px) {
+          text-align: left;
+          font-size: 16px;
+        }
+
         span {
           color: var(--main-blue-color);
         }
@@ -54,6 +66,9 @@ section.doctor {
     .img_container {
       text-align: center;
       margin-top: 16px;
+      @media screen and (max-width: 450px) {
+        margin-top: 0px;
+      }
       img {
         object-fit: contain;
         width: 794.75px;
@@ -70,6 +85,7 @@ section.doctor {
     .docBtn {
       text-align: center;
       margin-top: 38px;
+
       button {
         width: 232px;
         background-color: var(--main-blue-color);
@@ -80,6 +96,10 @@ section.doctor {
         box-shadow: var(--btn-box-shadow);
         border-radius: 30px;
         text-transform: capitalize;
+
+        @media screen and (max-width: 450px) {
+          font-size: 18px;
+        }
       }
     }
   }

@@ -3,13 +3,18 @@ import React from 'react'
 import styles from './index.module.scss'
 import imgs from '../../../assets/constants/imgs'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 
 
 const Hero = () => {
   const { Hero_baby } = imgs;
+  const router = useRouter();
   return (
     <section id={styles.hero}>
       <Container>
+        <div className={styles.img_container_mob}>
+          <Image src={Hero_baby} alt="" />
+        </div>
         <div className={styles.card}>
           <div className={styles.car_inner}>
             <div className={styles.text_container}>
@@ -26,7 +31,7 @@ const Hero = () => {
 
 
               <div className={styles.btn}>
-                <Button>Free Online Consultation</Button>
+                <Button onClick={() => router.push('#consultation')}>Free Online Consultation</Button>
               </div>
             </div>
             <div className={styles.img_container}>

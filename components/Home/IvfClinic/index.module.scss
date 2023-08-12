@@ -11,11 +11,19 @@ section.IvfClinic {
       margin-bottom: 24px;
     }
 
+    @media screen and (max-width: 450px) {
+      text-align: left;
+      margin-bottom: 16px;
+    }
+
     h3 {
       color: var(--main-blue-color);
       font-size: 30px;
       font-family: var(--main-font);
       font-weight: var(--font-bold);
+      @media screen and (max-width: 450px) {
+        font-size: 24px;
+      }
     }
   }
 
@@ -26,6 +34,13 @@ section.IvfClinic {
       margin-bottom: 24px;
     }
 
+    @media screen and (max-width: 450px) {
+      text-align: left;
+      br {
+        display: none;
+      }
+    }
+
     p {
       color: var(--sec-gray-color);
       font-size: 24px;
@@ -34,6 +49,10 @@ section.IvfClinic {
       line-height: 1.9rem;
       @media screen and (max-width: 992px) {
         font-size: 20px;
+      }
+
+      @media screen and (max-width: 450px) {
+        font-size: 16px;
       }
     }
   }

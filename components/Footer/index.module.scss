@@ -26,12 +26,20 @@ footer.footer {
           width: 80px;
           height: 80px;
           margin-right: 14px;
+          @media screen and (max-width: 450px) {
+            width: 44px;
+            height: 44px;
+          }
         }
         h1 {
           color: var(--main-blue-color);
           font-size: 45px;
           font-weight: bold;
           font-family: var(--main-font);
+
+          @media screen and (max-width: 450px) {
+            font-size: 34px;
+          }
         }
       }
 

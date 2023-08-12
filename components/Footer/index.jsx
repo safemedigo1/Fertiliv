@@ -87,7 +87,7 @@ const Footer = () => {
         </Container>
       </footer>
 
-      <Typography sx={{ textAlign: 'center', color: '#1B0968', fontSize: '20px', fontWeight: '400', fontFamily: 'Quicksand' }}>Fertiliv 2023 protected copy write</Typography>
+      <Typography sx={{ textAlign: 'center', color: '#1B0968', fontSize: '18px', fontWeight: '400', fontFamily: 'Quicksand' }}>Fertiliv 2023 protected copy write</Typography>
     </>
 
   )

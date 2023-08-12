@@ -34,6 +34,9 @@ section.reviews {
           font-size: 30px;
           font-family: var(--main-font);
           font-weight: var(--font-bold);
+          @media screen and (max-width: 450px) {
+            font-size: 24px;
+          }
         }
       }
 
@@ -50,6 +53,10 @@ section.reviews {
           font-weight: var(--font-regular);
           font-family: var(--main-font);
           font-size: 24px;
+
+          @media screen and (max-width: 450px) {
+            font-size: 18px;
+          }
         }
       }
     }
@@ -112,6 +119,9 @@ section.reviews {
             font-family: var(--main-font);
             font-size: 20px;
             font-weight: var(--font-medium);
+            @media screen and (max-width: 450px) {
+              font-size: 18px;
+            }
           }
         }
 

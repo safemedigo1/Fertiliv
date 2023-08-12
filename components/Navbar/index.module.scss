@@ -103,10 +103,13 @@
     .num {
       @media screen and (max-width: 992px) {
         display: block;
-        margin-right: 20px;
       }
+
       .img_container {
-        top: -6px;
+        position: relative;
+        img {
+          margin-right: 0px !important;
+        }
       }
     }
     .icon_container {
@@ -143,8 +146,13 @@
     max-height: calc(150vh - 50px);
     overflow-y: auto;
 
-    @media screen and (min-width: 750px) {
-      // width: 50%;
+    @media screen and (max-width: 750px) {
+      width: 50%;
+      // width: 100%;
+    }
+    @media screen and (max-width: 550px) {
+      width: 70%;
+      // width: 100%;
     }
 
     .sidebar_inner {

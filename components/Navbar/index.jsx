@@ -73,17 +73,16 @@ const Navbar = (props) => {
                   <Link href="tel:(+90) 552 502 6000">0090 552 502 6000</Link>
                 </div>
 
-                <div className={styles.menu} onClick={() => setShowMenu(true)}>
-                  <div className={styles.icon_container}>
+                <div className={styles.menu} >
+                  <div className={styles.icon_container} onClick={() => setShowMenu(true)}>
                     <GiHamburgerMenu />
                   </div>
 
-                  <div className={styles.num}>
+                  <Link href="tel:(+90) 552 502 6000" className={styles.num}>
                     <div className={styles.img_container}>
                       <Image src={whatsapp} alt="whatsapp" />
                     </div>
-                    <Link href="tel:(+90) 552 502 6000">0090 552 502 6000</Link>
-                  </div>
+                  </Link>
 
                 </div>
 

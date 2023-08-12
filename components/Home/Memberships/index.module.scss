@@ -22,12 +22,22 @@ section.memberships {
           font-size: 30px;
           font-family: var(--main-font);
           font-weight: var(--font-bold);
+          @media screen and (max-width: 450px) {
+            text-align: left;
+            font-size: 24px;
+          }
         }
       }
       .title2 {
         margin-top: 24px;
+        @media screen and (max-width: 450px) {
+          margin-top: 16px;
+        }
         h3 {
           font-size: 50px;
+          @media screen and (max-width: 450px) {
+            font-size: 25px;
+          }
         }
       }
       .desc {
@@ -38,6 +48,10 @@ section.memberships {
           letter-spacing: 0px;
 
           font-weight: var(--font-semiBold);
+
+          @media screen and (max-width: 450px) {
+            font-size: 16px;
+          }
         }
       }
     }
