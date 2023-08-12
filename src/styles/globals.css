@@ -198,6 +198,16 @@ button:hover {
   border: none !important;
 }
 
+#IvfClinic .image-gallery-fullscreen-button {
+  display: none;
+}
+
+#IvfClinic .image-gallery-play-button svg {
+  width: 55px !important;
+  height: 55px !important;
+  fill: var(--main-blue-color);
+}
+
 .fullscreen-image-gallery {
   position: fixed;
   top: 0;

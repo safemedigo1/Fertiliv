@@ -139,8 +139,8 @@
         color: var(--main-dark-color);
         transition: all 0.3s ease;
         cursor: pointer;
-
         top: 16px;
+
         &:hover {
           @media screen and (min-width: 992px) {
             color: #8d8d8d;
@@ -192,7 +192,26 @@
       grid-template-columns: 1fr 1fr;
       grid-gap: 8px;
       justify-items: center;
+      label {
+        @media screen and (max-width: 992px) {
+          align-items: flex-start !important;
+        }
+        & > span {
+          @media screen and (max-width: 992px) {
+            margin-top: 2px;
+          }
+        }
+      }
 
+      span {
+        @media screen and (max-width: 992px) {
+          padding-top: 0px;
+        }
+
+        &:last-child {
+          display: none;
+        }
+      }
       label {
         border-radius: 5px;
         background-color: #e7edec;
@@ -208,9 +227,10 @@
         span {
           color: var(--main-blue-color);
           font-size: 16px;
-          font-weight: var(--font-sem-bold);
+          font-weight: 500;
           font-family: "Quicksand";
-          padding: 8;
+          padding-top: 3px;
+          line-height: 1.3em;
 
           @media screen and (max-width: 400px) {
             font-size: 14px;

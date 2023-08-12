@@ -65,20 +65,22 @@ const Quote = () => {
 
 
   const treatments = [
-    { title: 'Myoma Treatment' },
-    { title: 'Endometriosis Treatment' },
-    { title: 'Polycystic Ovary Syndrome Treatment' },
-    { title: 'Menopause Treatment' },
-    { title: 'IVF / Fertility Treatment' },
+    { title: 'IVF' },
+    { title: 'ICSI/IMSI' },
     { title: 'IUI' },
-    { title: 'Ovarian Stimulation' },
-    { title: 'Egg Collection' },
     { title: 'Micro TESE' },
+    { title: 'Eggs freezing' },
+    { title: 'Embryos freezing' },
+    { title: 'Genetic diagnosis' },
+    { title: 'Check up' },
+    { title: 'Pregnancy care' },
+    { title: 'Childbirth' },
     { title: 'Embryo Transfer' },
     { title: 'Genetic Diagnosis' },
-    { title: 'Check Up' },
-    { title: 'Pregnancy Care' },
-    { title: 'Childbirth' },
+    { title: 'Myoma' },
+    { title: 'Menopause' },
+    { title: 'Endometriosis' },
+    { title: 'Polycystic ovary syndrome' },
     { title: 'Aesthetic treatments' },
   ]
   const question = [
@@ -372,7 +374,7 @@ const Quote = () => {
                 animate={{ opacity: 1 }}
                 initial={{ opacity: 0 }}
               >
-                What Would You Like To Do?
+                Which treatment would you like to do?
               </motion.h4 >
             }
             {step === 2 &&
