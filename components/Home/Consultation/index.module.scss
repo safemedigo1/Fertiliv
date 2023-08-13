@@ -46,6 +46,7 @@ section.consultation {
 
       @media screen and (max-width: 992px) {
         flex-direction: column;
+        margin-bottom: 0px;
       }
       .text_card {
         width: 650px;
@@ -223,8 +224,12 @@ section.consultation {
         font-family: var(--main-font);
         color: var(--sec-gray-color);
         font-weight: var(--font-regular);
-        font-size: 20px;
+        font-size: 18px;
         line-height: 1.3em;
+
+        @media screen and (max-width: 450px) {
+          font-size: 16px;
+        }
       }
     }
     .subBtn {

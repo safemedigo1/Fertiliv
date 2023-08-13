@@ -5,6 +5,7 @@ import styles from './index.module.scss';
 import Image from 'next/image';
 import PhoneInput from 'react-phone-input-2';
 import { motion } from "framer-motion";
+import { ThreeDots } from 'react-loader-spinner'
 
 const Quote = () => {
   const { quoteImg } = imgs;
@@ -20,6 +21,7 @@ const Quote = () => {
 
   });
   const [selectedValues, setSelectedValues] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const treatments = [
     { treatment: 'Unknown problems after trying to conceive for a year or more.' },
@@ -52,6 +54,7 @@ const Quote = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setIsLoading(true)
     // Submit the form data to the server
     // Add the phone number to the form data
     // const updatedFormData = { ...formData, phone: phoneNum };
@@ -68,14 +71,12 @@ const Quote = () => {
       });
 
       if (response) {
-        // setIsLoading(false)
-        console.log(response)
-        console.log(updatedFormData)
+        setIsLoading(false)
       }
       if (response.status === 200) {
         // handleCodeSubmit();
+        setIsLoading(false)
         setStep(step + 1);
-
       }
     }
   };
@@ -91,6 +92,19 @@ const Quote = () => {
     }
   };
 
+
+  useEffect(() => {
+    if (step === 3) {
+      const timer = setTimeout(() => {
+        setStep(1)
+      }, 4000);
+
+      return () => {
+        clearTimeout(timer);
+      };
+
+    }
+  }, [step])
   return (
     <section id='quote' className={styles.quote}>
       <Container>
@@ -104,8 +118,6 @@ const Quote = () => {
           </div>
 
         </div>
-
-
 
         <div className={styles.section_container}>
           {step != 3 &&
@@ -211,8 +223,20 @@ const Quote = () => {
 
                   <div className={styles.nextBtn} onClick={handleSubmit}>
                     <Button>
-                      Submit
-                    </Button>
+                      {isLoading ?
+                        <ThreeDots
+                          height="25"
+                          width="25"
+                          radius="9"
+                          color="#707070"
+                          ariaLabel="three-dots-loading"
+                          wrapperStyle={{}}
+                          wrapperClassName="load_more_btn"
+                          visible={true}
+                        />
+                        : "Submit"
+
+                      }                    </Button>
                   </div>
                 </motion.div>
               }

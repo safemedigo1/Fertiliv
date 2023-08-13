@@ -33,6 +33,14 @@ const IvfClinic = () => {
       original: small_4.src,
       thumbnail: small_4.src,
     },
+    {
+      original: small_4.src,
+      thumbnail: small_4.src,
+    },
+    {
+      original: small_4.src,
+      thumbnail: small_4.src,
+    },
   ];
 
   return (
@@ -59,6 +67,8 @@ const IvfClinic = () => {
             <Image src={small_1} alt='hospital image' />
             <Image src={small_2} alt='hospital image' />
             <Image src={small_3} alt='hospital image' />
+            <Image src={small_4} alt='hospital image' />
+            <Image src={small_4} alt='hospital image' />
             <Image src={small_4} alt='hospital image' />
 
 

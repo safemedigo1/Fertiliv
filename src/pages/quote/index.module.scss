@@ -193,8 +193,10 @@
       grid-gap: 8px;
       justify-items: center;
       label {
-        @media screen and (max-width: 992px) {
-          align-items: flex-start !important;
+        @media screen and (max-width: 450px) {
+          // align-items: flex-start !important;
+          margin-right: 0px;
+          padding-bottom: 3px;
         }
         & > span {
           @media screen and (max-width: 992px) {
@@ -229,10 +231,10 @@
           font-size: 16px;
           font-weight: 500;
           font-family: "Quicksand";
-          padding-top: 3px;
+          // padding-top: 3px;
           line-height: 1.3em;
 
-          @media screen and (max-width: 400px) {
+          @media screen and (max-width: 450px) {
             font-size: 14px;
             font-weight: bold;
           }

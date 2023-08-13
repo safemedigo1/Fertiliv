@@ -29,11 +29,12 @@ const WhyFertiliv = () => {
 
               <div className={styles.desc}>
                 <Typography>
-                  Trust our team to <br />
-                  understand your unique  <br />
-                  needs and create a  <br />
-                  personalized strategy for  <br />
-                  starting a family. Let us  <br />
+                  Trust our team to
+                  understand your unique
+                  needs and create a
+                  personalized strategy for
+                  starting a family.
+                  <br />Let us
                   make your dreams a reality.
                 </Typography>
               </div>
@@ -54,12 +55,13 @@ const WhyFertiliv = () => {
 
               <div className={styles.desc}>
                 <Typography>
-                  Affordable advanced fertility <br />
-                  treatments Seeking to make <br />
-                  it easier for everyone to <br />
-                  have a baby. Enjoy your <br />
-                  free online initial <br />
+                  Affordable advanced fertility
+                  treatments Seeking to make
+                  it easier for everyone to
+                  have a baby.<br /> Enjoy your
+                  free online initial
                   consultations.
+
                 </Typography>
               </div>
 
