@@ -5,6 +5,7 @@ import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css'
 import imgs from '../../../assets/constants/imgs'
 import Image from 'next/image';
+
 const Consultation = () => {
   const { Consultation_girl } = imgs;
   return (
