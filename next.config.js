@@ -16,7 +16,9 @@ const nextConfig = {
       "http://localhost:3000",
       "localhost:3000",
       "fertiliv.vercel.app",
+      "https://fertiliv.vercel.app",
       "fertiliv.com",
+      "https://fertilive.com/",
     ],
   },
 

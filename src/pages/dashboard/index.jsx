@@ -139,8 +139,6 @@ const Dashboard = () => {
 
 
   useEffect(() => {
-    console.log(process.env.NODE_ENV === "production", "production");
-    console.log(process.env.NODE_ENV === "development", "development");
 
     getALLBlogs()
 
@@ -334,14 +332,14 @@ const Dashboard = () => {
                         hidden
                       />
                       {selectedInput?.image && updatedImage === null &&
-                        <div className="img_container">
-                          <Image width={200} height={200} src={`${selectedInput.image}`} alt={selectedInput.title} />
+                        <div className={styles.img_container}>
+                          <img src={`${selectedInput.image}`} alt={selectedInput.title} />
                         </div>
                       }
 
                       {updatedImage !== null &&
-                        <div className="img_container">
-                          <Image width={200} height={200} src={`${updatedImage}`} alt={selectedInput.title} />
+                        <div className={styles.img_container}>
+                          <img src={`${updatedImage}`} alt={selectedInput.title} />
                         </div>
                       }
 
