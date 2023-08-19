@@ -1,4 +1,4 @@
-import "@/styles/globals.css";
+import "../styles/globals.css";
 import { Quicksand } from "next/font/google";
 import { MyContextProvider } from "../../context/MyContext";
 
