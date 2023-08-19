@@ -95,7 +95,7 @@ const Dashboard = () => {
     try {
       const response = await axios.delete(`/api/deleteBlog?id=${selectedInput.id}`);
       console.log(response.data.message);
-      // getALLBlogs()
+      getALLBlogs();
       router.push('#blogs')
     } catch (error) {
       console.log("Error deleting blog");
@@ -113,25 +113,28 @@ const Dashboard = () => {
     formData.set('image', image);
     formData.set('file', selectedFile);
 
-    try {
-      const response = await fetch('/api/createBlog', {
-        method: 'POST',
-        body: formData,
-      });
+    if (title && description && date && image) {
+      try {
+        const response = await fetch('/api/createBlog', {
+          method: 'POST',
+          body: formData,
+        });
 
-      if (response.ok) {
-        console.log('Blog created successfully');
-        // Reset form fields
-        getALLBlogs()
-        setTitle('');
-        setDescription('');
-        setDate('');
-        setImage(null);
-      } else {
-        console.error('Failed to create blog');
+        if (response.ok) {
+          console.log('Blog created successfully');
+          // Reset form fields
+          getALLBlogs()
+          setTitle('');
+          setDescription('');
+          setDate('');
+          setImage(null);
+        } else {
+          console.error('Failed to create blog');
+        }
+      } catch (error) {
+        console.error('Error:', error);
       }
-    } catch (error) {
-      console.error('Error:', error);
+
     }
   };
 
@@ -195,23 +198,23 @@ const Dashboard = () => {
             <section id='dashboard' className={styles.dashboard}>
               <div className={styles.blogs_card}>
                 <div className={styles.title}>
-                  <Typography variant='h3'>Blogs Count (4)</Typography>
+                  <Typography variant='h3'>Blogs Count ({allBlogs.length})</Typography>
                 </div>
                 <form action="">
 
                   <div className={styles.blog_title}>
                     <label>Title:</label>
-                    <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+                    <input type="text" value={title} required onChange={(e) => setTitle(e.target.value)} />
                   </div>
 
                   <div className={styles.blog_desc}>
                     <label>Description:</label>
-                    <textarea value={description} onChange={handleDescriptionChange} />
+                    <textarea value={description} required onChange={handleDescriptionChange} />
                   </div>
 
                   <div className={styles.blog_date}>
                     <label>Date:</label>
-                    <input type="date" value={date} onChange={handleDateChange} />
+                    <input type="date" value={date} required onChange={handleDateChange} />
                   </div>
 
 
