@@ -343,7 +343,6 @@ const Dashboard = () => {
                         </div>
                       }
 
-                      {console.log(updatedImage, 'HERE')}
 
 
                     </div>
