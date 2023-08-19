@@ -139,6 +139,8 @@ const Dashboard = () => {
 
 
   useEffect(() => {
+    console.log(process.env.NODE_ENV === "production", "production");
+    console.log(process.env.NODE_ENV === "development", "development");
 
     getALLBlogs()
 
