@@ -52,8 +52,7 @@ import path from "path";
 import Cors from "cors";
 
 const isDev = process.env.NODE_ENV === "development";
-const isDevZs = process.env.NODE_ENV === "production";
-const baseUrl = isDev ? "http://localhost:3000" : "https://fertilive.com";
+const baseUrl = isDev ? "http://localhost:3000" : "https://www.fertiliv.com";
 
 // Helper function to wrap the cors middleware
 const cors =
