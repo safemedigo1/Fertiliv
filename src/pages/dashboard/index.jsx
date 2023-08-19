@@ -147,7 +147,7 @@ const Dashboard = () => {
 
   const getALLBlogs = async () => {
 
-    await fetch("http://localhost:3000/api/getBlogs")
+    await fetch("/api/getBlogs")
       .then((response) => response.json())
       .then((data) => {
         console.log(data, "DATA")
