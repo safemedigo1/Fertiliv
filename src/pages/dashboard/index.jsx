@@ -20,7 +20,7 @@ const Dashboard = () => {
   const [date, setDate] = useState('');
   const [image, setImage] = useState(null);
 
-  const [updatedImage, setUpdatedImage] = useState('');
+  const [updatedImage, setUpdatedImage] = useState(null);
   const [updatedSelectedFile, setUpdatedSelectedFile] = useState(null)
 
   const [updatedTitle, setUpdatedTitle] = useState('');
@@ -73,49 +73,6 @@ const Dashboard = () => {
   };
 
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-
-  //   // Create an object to hold the blog data
-  //   const blogData = {
-  //     file: selectedFile,
-  //     title: title,
-  //     description: description,
-  //     date: date,
-  //     image: image,
-
-  //   };
-
-  //   const body = new FormData();
-  //   // console.log("file", image)
-  //   body.append("file", image);
-
-
-
-  //   // Send the blogData object to your API
-  //   // You can use fetch or any other library for making the API request
-  //   // Example using fetch:
-  //   if (title && description && date) {
-  //     console.log('true')
-  //   } else {
-  //     console.log("FALSE")
-  //   }
-  //   fetch('/api/createBlog', {
-  //     method: 'POST',
-  //     body: JSON.stringify(blogData)
-  //   })
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       // Handle the API response if needed
-  //       console.log(data);
-  //       getALLBlogs()
-
-  //     })
-  //     .catch((error) => {
-  //       // Handle any errors
-  //       console.error('Error:', error);
-  //     });
-  // };
 
 
   const handleUpdate = async () => {
@@ -156,8 +113,6 @@ const Dashboard = () => {
     formData.set('image', image);
     formData.set('file', selectedFile);
 
-
-    ;
     try {
       const response = await fetch('/api/createBlog', {
         method: 'POST',
@@ -362,8 +317,7 @@ const Dashboard = () => {
 
 
                     <div className={styles.upload_container}>
-                      <label for="image">Upload image</label>
-
+                      <label for="image">Chose image</label>
                       <input type="file"
                         id="image"
                         onChange={({ target }) => {
@@ -377,16 +331,19 @@ const Dashboard = () => {
                         required
                         hidden
                       />
-                      {selectedInput?.image &&
-
+                      {selectedInput?.image && updatedImage === null &&
                         <div className="img_container">
+                          <Image width={200} height={200} src={`${selectedInput.image}`} alt={selectedInput.title} />
                         </div>
-
                       }
-                      <img src={`../../..${selectedInput.image.src}`} alt={selectedInput.title} />
-                      {/* <img src={`${myIMG.src}`} alt={selectedInput.title} /> */}
 
-                      {console.log(selectedInput)}
+                      {updatedImage !== null &&
+                        <div className="img_container">
+                          <Image width={200} height={200} src={`${updatedImage}`} alt={selectedInput.title} />
+                        </div>
+                      }
+
+                      {console.log(updatedImage, 'HERE')}
 
 
                     </div>

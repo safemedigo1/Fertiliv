@@ -12,9 +12,10 @@ app.prepare().then(() => {
     const parsedUrl = parse(req.url, true);
     const { pathname } = parsedUrl;
     // Serve static files from the public directory
+    console.log(pathname, "PATHNAMEZ");
+    console.log(parsedUrl, "PATHNAMEZ");
     if (pathname.startsWith("/uploads")) {
       const filePath = join(__dirname, "public", pathname);
-      console.log(filePath, "PATHNAMEZ");
 
       app.serveStatic(req, res, filePath);
     } else {
