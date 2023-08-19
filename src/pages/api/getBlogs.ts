@@ -81,7 +81,7 @@ const getBlogs: NextApiHandler = async (req, res) => {
       const blogsWithFixedImageUrls = blogs.map((blog: any) => {
         return {
           ...blog,
-          image: `${baseUrl}${blog.image}`,
+          image: `https://www.fertiliv.com${blog.image}`,
         };
       });
 
