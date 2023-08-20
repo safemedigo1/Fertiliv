@@ -57,8 +57,9 @@
           h2 {
             font-family: var(--main-font);
             color: var(--main-blue-color);
+
             font-size: 40px;
-            font-weight: 400;
+            font-weight: var(--font-bold);
 
             @media screen and (max-width: 992px) {
               font-size: 28px;

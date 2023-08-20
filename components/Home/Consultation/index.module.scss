@@ -109,15 +109,15 @@ section.consultation {
 
           .desc {
             p {
-              color: var(--sec-gray-color);
+              color: var(--dark-gray-color);
               font-family: var(--main-font);
-              font-weight: var(--font-regular);
-              font-size: 16px;
+              font-weight: var(--font-semiBold);
+              font-size: 18px;
               line-height: 1.3em;
 
               @media screen and (max-width: 992px) {
                 text-align: center;
-                font-size: 20px;
+                font-size: 16px;
               }
 
               @media screen and (max-width: 450px) {
@@ -224,7 +224,7 @@ section.consultation {
         font-family: var(--main-font);
         color: var(--sec-gray-color);
         font-weight: var(--font-regular);
-        font-size: 18px;
+        font-size: 16px;
         line-height: 1.3em;
 
         @media screen and (max-width: 450px) {

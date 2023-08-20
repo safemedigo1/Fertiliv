@@ -26,7 +26,6 @@ const Quote = () => {
   const treatments = [
     { treatment: 'Unknown problems after trying to conceive for a year or more.' },
     { treatment: 'Repeated failed IVF / ICSI / Repeated Miscarriages / Blocked tubes' },
-    { treatment: 'Polycystic Ovary Syndrome Treatment' },
     { treatment: 'Irregular periods / Polycystic Ovary Syndrome / Ovulation disorders / endocrinology problems' },
     { treatment: 'Pelvic or Back pain / Uterine problems' },
     { treatment: 'Very low / zero sperm count / quality(the husband)' },
@@ -155,24 +154,18 @@ const Quote = () => {
                             value={treatment.treatment}
                             checked={selectedValues.includes(treatment.treatment)}
                             onChange={handleCheckboxChange}
-                            sx={{
-                              color: '#1B0968',
-                              '.Mui-checked': {
-                                color: '#1B0968 ',
-                              },
-                              '.MuiCheckbox-colorSecondary.Mui-checked': {
-                                color: '#1B0968 ',
-                              },
-                              '.MuiIconButton-root': {
-                                color: '#1B0968 ',
-                              },
-                              marginLeft: 0,
-                              "span": {
-                                display: 'none',
-                                background: 'red'
-                              }
 
-                            }} />} label={treatment.treatment} />
+
+                            sx={{
+                              color: '#1b0968 !important',
+                              '&.Mui-checked': {
+                                color: '#1b0968 !important',
+                              },
+
+                            }}
+
+
+                          />} label={treatment.treatment} />
 
                       </div>
 

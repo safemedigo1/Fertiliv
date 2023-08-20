@@ -11,7 +11,7 @@ const Reviews = () => {
   const { verified } = imgs;
   const [breakPoints] = useState([
     { width: 1, itemsToShow: 1.4, showArrows: false, pagination: true },
-    { width: 550, itemsToShow: 2.5, },
+    { width: 550, itemsToShow: 3, },
     { width: 850, itemsToShow: 2.5 },
     { width: 1150, itemsToShow: 4, },
     { width: 1450, itemsToShow: 5 },

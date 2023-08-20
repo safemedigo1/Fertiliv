@@ -81,7 +81,7 @@ const WhyFertiliv = () => {
 
               <div className={styles.desc}>
                 <Typography>
-                  We offer a seamless journey <br />
+                  We offer a seamless journey
                   to parenthood, providing: <br />
                   1-accommodations <br />
                   2-transportation <br />

@@ -109,6 +109,7 @@ section.quote {
             padding-bottom: 5px;
           }
         }
+
         .treatments {
           display: flex;
           flex-direction: column;
@@ -119,7 +120,7 @@ section.quote {
         align-items: flex-start;
 
         span {
-          color: var(--main-blue-color);
+          color: var(--main-dark-color);
           font-size: 19px;
           font-family: var(--main-font);
           font-weight: var(--font-regular);
@@ -127,6 +128,10 @@ section.quote {
           @media screen and (max-width: 450px) {
             font-size: 16px;
           }
+        }
+
+        span input span {
+          color: "red" !important;
         }
 
         .nextBtn {
