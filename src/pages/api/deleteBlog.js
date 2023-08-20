@@ -12,6 +12,7 @@ export default function deleteBlog(req, res) {
       // Find the specific blog you want to delete (assuming the blog has an ID property)
       const blogId = req.query.id; // Assuming you pass the blog ID as a query parameter
       const blogIndex = blogs.findIndex((blog) => blog.id === blogId);
+      console.log(blogIndex, "DELET");
 
       // if (blogIndex === -1) {
       //   res.status(404).json({ error: "Blog not found" });

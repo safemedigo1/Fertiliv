@@ -13,6 +13,8 @@ export default function updateBlog(req, res) {
       const blogId = req.body.id; // Assuming you pass the blog ID in the request body
       const blog = blogs.find((blog) => blog.id === blogId);
 
+      console.log(blog, "blogupdated");
+
       if (!blog) {
         res.status(404).json({ error: "Blog not found" });
         return;
@@ -21,6 +23,7 @@ export default function updateBlog(req, res) {
       // Update the blog properties
       blog.title = req.body.title; // Assuming you pass the updated title in the request body
 
+      console.log(req.body, "HERE");
       // Convert the array of blogs back to JSON
       const updatedJsonData = JSON.stringify(blogs, null, 2);
 

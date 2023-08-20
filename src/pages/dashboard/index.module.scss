@@ -4,6 +4,8 @@ section.dashboard {
   align-items: center;
   justify-content: center;
   height: 100vh;
+  margin-bottom: 80px;
+
   .blogs_card {
     background-color: var(--main-beige-color);
     padding: 24px;
@@ -134,6 +136,10 @@ section.dashboard {
       }
     }
   }
+}
+
+section.dashboard {
+  margin-top: 80px;
 }
 
 section.control {

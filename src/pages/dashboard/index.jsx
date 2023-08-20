@@ -20,7 +20,6 @@ const Dashboard = () => {
   const [date, setDate] = useState('');
   const [image, setImage] = useState(null);
 
-  const [updatedImage, setUpdatedImage] = useState(null);
   const [updatedSelectedFile, setUpdatedSelectedFile] = useState(null)
 
   const [updatedTitle, setUpdatedTitle] = useState('');
@@ -32,8 +31,8 @@ const Dashboard = () => {
 
   const [saveBlog, setSaveBlog] = useState(false);
   const [selectedInput, setSelectedInput] = useState(null)
+  const [updatedImage, setUpdatedImage] = useState(null);
   const [selectedFile, setSelectedFile] = useState()
-
 
   const { step, setStep } = useContext(MyContext);
 
@@ -58,8 +57,18 @@ const Dashboard = () => {
   const handleUpdatedTitleChange = (event) => {
     setUpdatedTitle(event.target.value);
     setSelectedInput({ ...selectedInput, title: event.target.value });
-
   };
+
+
+
+  const handleUpdatedImage = ({ target }) => {
+    console.log(target, "TARGET UPDATED")
+    if (target.files) {
+      const file2 = target.files[0];
+      setUpdatedImage(URL.createObjectURL(file2));
+      setUpdatedSelectedFile(file2)
+    }
+  }
 
   const handleUpdatedDescriptionChange = (event) => {
     setUpdatedDescription(event.target.value);
@@ -77,17 +86,17 @@ const Dashboard = () => {
 
   const handleUpdate = async () => {
     try {
-      const response = await axios.put("/api/updateBlog", { id: selectedInput.id, date: updatedDate, description: updatedDescription, title: updatedTitle, image: updatedImage });
+      const response = await axios.put("/api/updateBlog", { id: selectedInput.id, date: updatedDate, description: updatedDescription, title: updatedTitle, image: updatedImage, });
       console.log(response.data.message);
       getALLBlogs();
-      router.push('#blogs')
+      router.push('#blogs');
 
     } catch (error) {
       console.log("Error updating blog");
     }
 
-    console.log(selectedInput)
   };
+  console.log(selectedInput, "SELECTED INPUT")
 
 
   const handleDelete = async () => {
@@ -153,8 +162,6 @@ const Dashboard = () => {
     await fetch("/api/getBlogs")
       .then((response) => response.json())
       .then((data) => {
-        console.log(data, "DATA")
-
         // const jsonData = JSON.parse(data); // Parse the text as JSON
         setAllBlogs(data); // The parsed JSON data
       })
@@ -204,7 +211,7 @@ const Dashboard = () => {
 
                   <div className={styles.blog_title}>
                     <label>Title:</label>
-                    <input type="text" value={title} required onChange={(e) => setTitle(e.target.value)} />
+                    <input type="text" value={title} required onChange={handleTitleChange} />
                   </div>
 
                   <div className={styles.blog_desc}>
@@ -320,16 +327,11 @@ const Dashboard = () => {
 
 
                     <div className={styles.upload_container}>
-                      <label for="image">Chose image</label>
+                      <label for="updatedImage">Chose image</label>
                       <input type="file"
-                        id="image"
-                        onChange={({ target }) => {
-                          if (target.files) {
-                            const file = target.files[0];
-                            setUpdatedImage(URL.createObjectURL(file));
-                            setUpdatedSelectedFile(file)
-                          }
-                        }}
+                        id="updatedImage"
+                        name="updatedImage"
+                        onChange={handleUpdatedImage}
                         accept="image/*"
                         required
                         hidden
