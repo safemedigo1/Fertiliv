@@ -12,15 +12,27 @@ export default function deleteBlog(req, res) {
       // Find the specific blog you want to delete (assuming the blog has an ID property)
       const blogId = req.query.id; // Assuming you pass the blog ID as a query parameter
       const blogIndex = blogs.findIndex((blog) => blog.id === blogId);
-      console.log(req.query.id, "ID BODY");
 
-      const selectedBlog = blogs.findIndex((blog) => blog.id === blogId);
-      console.log(selectedBlog, "FINDED");
+      if (blogId) {
+        const selectedBlogImage = blogs.find((blog) => blog.id == blogId);
+
+        const previousImagePath = selectedBlogImage.image;
+        const imgPath = path.join(process.cwd(), "public", previousImagePath);
+        console.log(imgPath, "Image Path");
+
+        if (fs.existsSync(imgPath)) {
+          fs.unlinkSync(imgPath);
+        }
+      }
+
+      // console.log(blogs, "HEREE");
 
       // if (blogIndex === -1) {
       //   res.status(404).json({ error: "Blog not found" });
       //   return;
       // }
+
+      // Delete Image File
 
       // Remove the blog from the array
       blogs.splice(blogIndex, 1);

@@ -84,19 +84,34 @@ const Dashboard = () => {
 
 
 
+
+
   const handleUpdate = async () => {
     try {
-      const response = await axios.put("/api/updateBlog", { id: selectedInput.id, date: updatedDate, description: updatedDescription, title: updatedTitle, image: updatedImage, });
+      const formData = new FormData();
+      formData.append("id", selectedInput.id);
+      formData.append("title", selectedInput.title);
+      formData.append("description", selectedInput.description);
+      formData.append("date", selectedInput.date);
+      formData.append("image", selectedInput.image);
+      formData.append('file', updatedSelectedFile);
+
+
+
+      const response = await fetch('/api/updateBlog', {
+        method: 'PUT',
+        body: formData,
+      });
+
       console.log(response.data.message);
       getALLBlogs();
-      router.push('#blogs');
 
     } catch (error) {
-      console.log("Error updating blog");
+      getALLBlogs();
+      console.log("Error updating blog", error);
     }
-
   };
-  console.log(selectedInput, "SELECTED INPUT")
+
 
 
   const handleDelete = async () => {
@@ -248,6 +263,8 @@ const Dashboard = () => {
                     }
                   </div>
 
+
+
                   <div className={styles.submit_btn} onClick={handleSubmit}>
                     <Button>
                       {isLoading ?
@@ -387,6 +404,8 @@ const Dashboard = () => {
                         }
                       </Button>
                     </div>
+
+
 
                   </form>
 
