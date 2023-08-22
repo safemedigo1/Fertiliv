@@ -64,14 +64,30 @@ const createBlog = (
   });
 };
 
+// const handler: NextApiHandler = async (req, res) => {
+//   try {
+//     await fs.readdir(path.join(process.cwd(), "public", "uploads")); // Step 1: Check if the uploads directory exists
+//   } catch (error) {
+//     await fs.mkdir(path.join(process.cwd(), "public", "uploads")); // Step 1: Create the uploads directory if it doesn't exist
+//   }
+//   await createBlog(req, true);
+//   res.json({ done: "ok" });
+// };
+
+// export default handler;
+
 const handler: NextApiHandler = async (req, res) => {
-  try {
-    await fs.readdir(path.join(process.cwd(), "public", "uploads")); // Step 1: Check if the uploads directory exists
-  } catch (error) {
-    await fs.mkdir(path.join(process.cwd(), "public", "uploads")); // Step 1: Create the uploads directory if it doesn't exist
+  if (req.method === "POST") {
+    try {
+      await fs.readdir(path.join(process.cwd(), "public", "uploads"));
+    } catch (error) {
+      await fs.mkdir(path.join(process.cwd(), "public", "uploads"));
+    }
+    await createBlog(req, true);
+    res.json({ done: "ok" });
+  } else {
+    res.status(405).json({ error: "Method Not Allowed" });
   }
-  await createBlog(req, true);
-  res.json({ done: "ok" });
 };
 
 export default handler;
