@@ -137,7 +137,7 @@ const Dashboard = () => {
     formData.set('image', image);
     formData.set('file', selectedFile);
 
-    if (title && description && date && image) {
+    if (title && description && date) {
       try {
         const response = await fetch('/api/createBlog', {
           method: 'POST',
