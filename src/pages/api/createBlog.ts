@@ -88,6 +88,7 @@ import { NextApiHandler, NextApiRequest, NextApiResponse } from "next";
 import formidable from "formidable";
 import path from "path";
 import fs from "fs/promises";
+import { readFileSync } from "fs";
 
 export const config = {
   api: {
@@ -139,7 +140,7 @@ const createBlog = async (
 
       try {
         const blogsFilePath = path.join(process.cwd(), "blogs.json");
-        const data = await fs.readFile(blogsFilePath, "utf8");
+        const data = readFileSync(blogsFilePath, "utf8");
         const blogs = JSON.parse(data);
         blogs.push(blogData);
         await fs.writeFile(blogsFilePath, JSON.stringify(blogs, null, 2));
