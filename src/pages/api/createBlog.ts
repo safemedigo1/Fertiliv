@@ -64,6 +64,7 @@ const readFile = (
 };
 
 const handler: NextApiHandler = async (req, res) => {
+  console.log(req, "METHODS");
   try {
     await fs.readdir(path.join(process.cwd(), "public", "uploads")); // Step 1: Check if the uploads directory exists
   } catch (error) {
