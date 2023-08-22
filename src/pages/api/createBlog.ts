@@ -31,9 +31,9 @@ const createBlog = (
     form.parse(req, async (err, fields, files) => {
       if (err) reject(err);
       resolve({ fields, files });
-      console.log(files.file[0], "files");
+      console.log(files, "files");
 
-      const file = files.file[0];
+      const file = files?.file[0];
       const filePath = file.filepath;
       const fileName = path.basename(filePath);
       const relativePath = path.join("/uploads", fileName);
@@ -51,7 +51,8 @@ const createBlog = (
       };
 
       const blogsFilePath = path.join(process.cwd(), "blogs.json");
-      fs.readFile(blogsFilePath, "utf8")
+      await fs
+        .readFile(blogsFilePath, "utf8")
         .then((data) => {
           const blogs = JSON.parse(data);
           blogs.push(blogData);
