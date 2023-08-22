@@ -31,7 +31,7 @@ const readFile = (
     form.parse(req, async (err, fields, files) => {
       if (err) reject(err);
       resolve({ fields, files });
-      console.log(files);
+
       const file = files.file[0];
       const filePath = file.filepath;
       const fileName = path.basename(filePath);
