@@ -31,7 +31,6 @@ const createBlog = (
     form.parse(req, async (err, fields, files) => {
       if (err) reject(err);
       resolve({ fields, files });
-      console.log(files, "files");
 
       const file = files?.file[0];
       const filePath = file.filepath;
@@ -71,7 +70,7 @@ const handler: NextApiHandler = async (req, res) => {
   } catch (error) {
     await fs.mkdir(path.join(process.cwd(), "public", "uploads")); // Step 1: Create the uploads directory if it doesn't exist
   }
-  // await createBlog(req, true);
+  await createBlog(req, true);
   res.json({ done: "ok" });
 };
 

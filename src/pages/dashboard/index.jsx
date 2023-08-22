@@ -103,7 +103,7 @@ const Dashboard = () => {
         body: formData,
       });
 
-      console.log(response.data.message);
+      console.log(response);
       getALLBlogs();
 
     } catch (error) {
@@ -118,7 +118,7 @@ const Dashboard = () => {
 
     try {
       const response = await axios.delete(`/api/deleteBlog?id=${selectedInput.id}`);
-      console.log(response.data.message);
+      console.log(response);
       getALLBlogs();
       router.push('#blogs')
     } catch (error) {
@@ -138,14 +138,14 @@ const Dashboard = () => {
     formData.set('file', selectedFile);
 
     if (title && description && date && image) {
-      console.log(image, title, description, date, "DATA")
       try {
         const response = await fetch('/api/createBlog', {
           method: 'POST',
           body: formData,
         });
 
-        if (response.ok) {
+        if (response.status === 200) {
+          console.log(response, "RESPOSE")
           console.log('Blog created successfully');
           // Reset form fields
           getALLBlogs()
