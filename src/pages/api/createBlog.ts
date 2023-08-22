@@ -45,7 +45,7 @@ const readFile = (
         title: fields.title[0],
         description: fields.description[0],
         date: fields.date[0],
-        image: `${fixedRelativePath}`,
+        image: `https://www.fertiliv.com${fixedRelativePath}`,
         id: generateRandomId(),
       };
 
