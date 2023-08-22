@@ -9,7 +9,7 @@ export const config = {
   },
 };
 
-const readFile = (
+const createBlog = (
   req: NextApiRequest,
   saveLocally?: boolean
 ): Promise<{ fields: formidable.Fields; files: formidable.Files }> => {
@@ -31,6 +31,7 @@ const readFile = (
     form.parse(req, async (err, fields, files) => {
       if (err) reject(err);
       resolve({ fields, files });
+      console.log(files.file[0], "files");
 
       const file = files.file[0];
       const filePath = file.filepath;
@@ -69,7 +70,7 @@ const handler: NextApiHandler = async (req, res) => {
   } catch (error) {
     await fs.mkdir(path.join(process.cwd(), "public", "uploads")); // Step 1: Create the uploads directory if it doesn't exist
   }
-  await readFile(req, true);
+  await createBlog(req, true);
   res.json({ done: "ok" });
 };
 
