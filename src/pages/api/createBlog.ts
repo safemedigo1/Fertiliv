@@ -71,7 +71,7 @@ const handler: NextApiHandler = async (req, res) => {
   } catch (error) {
     await fs.mkdir(path.join(process.cwd(), "public", "uploads")); // Step 1: Create the uploads directory if it doesn't exist
   }
-  await createBlog(req, true);
+  // await createBlog(req, true);
   res.json({ done: "ok" });
 };
 

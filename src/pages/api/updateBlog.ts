@@ -10,7 +10,7 @@ export const config = {
 };
 
 export default function updateBlog(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method === "POST") {
+  if (req.method === "PUT") {
     const options: formidable.Options = {};
     options.uploadDir = path.join(process.cwd(), "public", "uploads"); // Step 1: Use a dedicated directory, e.g., "uploads"
     options.keepExtensions = true;
@@ -80,6 +80,6 @@ export default function updateBlog(req: NextApiRequest, res: NextApiResponse) {
       });
     });
   } else {
-    res.status(405).json({ error: "Method Not Allowed" });
+    res.status(405).json({ error: "Method Not Allowed In Update Blog" });
   }
 }
