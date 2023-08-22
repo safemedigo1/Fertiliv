@@ -138,6 +138,7 @@ const Dashboard = () => {
     formData.set('file', selectedFile);
 
     if (title && description && date && image) {
+      console.log(image, title, description, date, "DATA")
       try {
         const response = await fetch('/api/createBlog', {
           method: 'POST',
@@ -154,6 +155,7 @@ const Dashboard = () => {
           setImage(null);
         } else {
           console.error('Failed to create blog');
+          console.log(response, "RESPOSE")
         }
       } catch (error) {
         console.error('Error:', error);
