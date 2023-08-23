@@ -12,133 +12,25 @@
     "id": 57910
   },
   {
-    "title": [
-      "sdaddadda"
-    ],
-    "description": [
-      "daddasaaddsasa"
-    ],
-    "date": [
-      "2023-08-24"
-    ],
-    "image": "/uploads/1692732431085-big.png",
-    "id": 66369
-  },
-  {
-    "title": [
-      "test"
-    ],
-    "description": [
-      "sAd"
-    ],
-    "date": [
-      "2023-08-24"
-    ],
-    "image": "/uploads/1692732458665-tr.png",
-    "id": 69368
-  },
-  {
-    "title": [
-      "TEST "
-    ],
-    "description": [
-      "TEST"
-    ],
-    "date": [
-      "2023-08-05"
-    ],
-    "image": "/uploads/1692733657892-big.png",
-    "id": 84228
-  },
-  {
-    "title": [
-      "gasga"
-    ],
-    "description": [
-      "sgadgasagasgsgd"
-    ],
-    "date": [
-      "2023-08-10"
-    ],
-    "image": "/uploads/1692734550101-Hero-Bg.png",
-    "id": 2985
-  },
-  {
-    "title": [
-      "fsa"
-    ],
-    "description": [
-      "sfa"
-    ],
-    "date": [
-      "2023-08-25"
-    ],
-    "image": "/uploads/1692734583734-small-4.png",
-    "id": 34761
-  },
-  {
-    "title": [
-      "F"
-    ],
-    "description": [
-      "aF"
-    ],
-    "date": [
-      "2023-08-02"
-    ],
-    "image": "/uploads/1692734645738-doctor.png",
-    "id": 57477
-  },
-  {
-    "title": [
-      "TEMP"
-    ],
-    "description": [
-      "TEMP"
-    ],
-    "date": [
-      "2023-08-05"
-    ],
-    "image": "/uploads/1692734677165-small-3.png",
-    "id": 60922
-  },
-  {
-    "title": [
-      "dsa"
-    ],
-    "description": [
-      "asddassda"
-    ],
-    "date": [
-      "2023-08-05"
-    ],
-    "image": "/uploads/1692734732252-doctor.png",
-    "id": 59616
-  },
-  {
-    "title": [
-      "sad"
-    ],
-    "description": [
-      "sad"
-    ],
-    "date": [
-      "2023-08-12"
-    ],
+    "title": "Daazzz",
+    "description": "sad",
+    "date": "2023-08-12",
     "image": "/uploads/1692734755104-big.png",
     "id": 92274
   },
+
   {
-    "title": [
-      "test"
-    ],
-    "description": [
-      "test"
-    ],
-    "date": [
-      "2023-08-12"
-    ],
-    "image": "/uploads/1692758727328-small-3.png",
-    "id": 20739
+    "title": "Test",
+    "description": "TEst",
+    "date": "2023-08-03",
+    "image": "/uploads/1692773417563-small-1.png",
+    "id": 66650
+  },
+  {
+    "title": "Sadsad",
+    "description": "asdadadas",
+    "date": "2023-08-24",
+    "image": "/uploads/1692773564709-Consultation-girl.png",
+    "id": 95669
   }
 ]

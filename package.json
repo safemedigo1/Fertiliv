@@ -17,6 +17,7 @@
     "@mui/x-data-grid": "^6.11.1",
     "@mui/x-date-pickers": "^6.11.0",
     "@ramonak/react-progress-bar": "^5.0.3",
+    "@sanity/client": "^6.4.9",
     "@types/formidable": "^3.4.1",
     "axios": "^1.4.0",
     "cors": "^2.8.5",
