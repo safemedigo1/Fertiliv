@@ -74,6 +74,51 @@ section.memberships {
         @media screen and (max-width: 992px) {
           margin-bottom: 20px;
         }
+        &:nth-child(7) {
+          .icon_container {
+            img {
+              @media screen and (max-width: 750px) {
+                width: 50px;
+              }
+            }
+          }
+        }
+        &:nth-child(6) {
+          .icon_container {
+            img {
+              @media screen and (max-width: 750px) {
+                width: 50px;
+              }
+            }
+          }
+        }
+        &:nth-child(5) {
+          .icon_container {
+            img {
+              @media screen and (max-width: 750px) {
+                width: 50px;
+              }
+            }
+          }
+        }
+        &:nth-child(4) {
+          .icon_container {
+            img {
+              @media screen and (max-width: 750px) {
+                width: 50px;
+              }
+            }
+          }
+        }
+        &:nth-child(1) {
+          .icon_container {
+            img {
+              @media screen and (max-width: 750px) {
+                width: 50px;
+              }
+            }
+          }
+        }
 
         .icon_container {
           img {
