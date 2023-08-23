@@ -3,7 +3,8 @@ import path from "path";
 
 export default function deleteBlog(req, res) {
   if (req.method === "DELETE") {
-    const filePath = path.join(process.cwd(), "blogs.json");
+    // const filePath = path.join(process.cwd(), "blogs.json");
+    const filePath = path.join("/tmp", "blogs.json");
 
     try {
       const jsonData = fs.readFileSync(filePath, "utf-8");
@@ -17,22 +18,17 @@ export default function deleteBlog(req, res) {
         const selectedBlogImage = blogs.find((blog) => blog.id == blogId);
 
         const previousImagePath = selectedBlogImage.image;
-        const imgPath = path.join(process.cwd(), "public", previousImagePath);
-        console.log(imgPath, "Image Path");
+        // const imgPath = path.join(process.cwd(), "public", previousImagePath);
+        const imgPath = path.join(
+          "/tmp/uploads",
+          path.basename(previousImagePath)
+        );
 
+        // Delete Image File
         if (fs.existsSync(imgPath)) {
           fs.unlinkSync(imgPath);
         }
       }
-
-      // console.log(blogs, "HEREE");
-
-      // if (blogIndex === -1) {
-      //   res.status(404).json({ error: "Blog not found" });
-      //   return;
-      // }
-
-      // Delete Image File
 
       // Remove the blog from the array
       blogs.splice(blogIndex, 1);
