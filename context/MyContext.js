@@ -5,7 +5,7 @@ export const MyContext = createContext();
 
 // Create a provider component
 export const MyContextProvider = ({ children }) => {
-  const [step, setStep] = useState(2);
+  const [step, setStep] = useState(1);
 
   return (
     <MyContext.Provider value={{ step, setStep }}>
