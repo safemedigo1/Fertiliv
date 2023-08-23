@@ -47,7 +47,8 @@ import path from "path";
 
 export default function deleteBlog(req, res) {
   if (req.method === "DELETE") {
-    const filePath = path.join(process.cwd(), "tmp", "blogs.json");
+    // const filePath = path.join(process.cwd(), "tmp", "blogs.json");
+    const filePath = path.join("/tmp", "blogs.json");
 
     try {
       fs.accessSync(filePath, fs.constants.R_OK | fs.constants.W_OK);

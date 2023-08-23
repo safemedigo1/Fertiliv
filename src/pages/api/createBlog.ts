@@ -42,9 +42,9 @@
 //       const baseUrl = isDev ? "http://localhost:3000" : "https://fertilive.com";
 
 //       const blogData = {
-//         title: fields.title[0],
-//         description: fields.description[0],
-//         date: fields.date[0],
+// title: fields.title[0],
+// description: fields.description[0],
+// date: fields.date[0],
 //         image: `${fixedRelativePath}`,
 //         id: generateRandomId(),
 //       };
@@ -246,9 +246,9 @@ const createBlog = async (
       const baseUrl = isDev ? "http://localhost:3000" : "https://fertilive.com";
 
       const blogData = {
-        title: fields.title,
-        description: fields.description,
-        date: fields.date,
+        title: fields.title[0],
+        description: fields.description[0],
+        date: fields.date[0],
         image: `${fixedRelativePath}`,
         id: generateRandomId(),
       };
@@ -260,8 +260,10 @@ const createBlog = async (
         try {
           const data = await fs.readFile(blogsFilePath, "utf8");
           blogs = JSON.parse(data);
+          console.log(blogsFilePath, "BLOGS");
         } catch (error) {
           // Ignore if blogs.json doesn't exist yet
+          console.log(error);
         }
 
         blogs.push(blogData);

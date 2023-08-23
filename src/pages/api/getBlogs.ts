@@ -25,7 +25,7 @@ const getBlogs: NextApiHandler = async (req, res) => {
   try {
     // Run the cors middleware
     await cors(async (req: any, res: NextApiResponse) => {
-      const blogsFilePath = path.join(process.cwd(), "blogs.json");
+      const blogsFilePath = path.join("/tmp", "blogs.json");
       const data = await fs.readFile(blogsFilePath, "utf8");
       const blogs = JSON.parse(data);
 
