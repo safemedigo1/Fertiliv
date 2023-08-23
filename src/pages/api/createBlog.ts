@@ -239,7 +239,7 @@ const createBlog = async (
       const file = files?.file[0];
       const filePath = file?.filepath;
       const fileName = path.basename(filePath);
-      const relativePath = path.join("/tmp", fileName);
+      const relativePath = path.join("/uploads", fileName);
       const fixedRelativePath = relativePath.replace(/\\/g, "/");
 
       const isDev = process.env.NODE_ENV === "development";
