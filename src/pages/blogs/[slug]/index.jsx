@@ -551,7 +551,7 @@ export async function getStaticProps({ params }) {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      "lang": locale,
+      "lang": "en",
     })
   })
 
