@@ -50,7 +50,7 @@ export default function Blogs({ blogCategory, blogs, allBlogsTagsData, currentPa
         <Container sx={{ maxWidth: "1239px" }} maxWidth={false}>
           <div className={styles.filter}>
             <FormControl fullWidth  >
-              {/* <InputLabel id="demo-simple-select-autowidth-label">{t('blogs_page:filter_title')}</InputLabel> */}
+
               <Select
                 displayEmpty
                 inputProps={{ 'aria-label': 'Without label' }}
