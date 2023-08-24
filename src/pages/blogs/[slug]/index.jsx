@@ -216,7 +216,7 @@ export default function BolgDetailsID({ blog, allBlogsTagsData }) {
             lg: "none"
           }
         }}
-        id={styles.signle_blog_header} dir={`${router.locale === 'ar' ? 'rtl' : 'ltr'}`}>
+        id={styles.signle_blog_header} >
         <div className={styles.img_container}>
           <Image
             width={300}
@@ -266,7 +266,7 @@ export default function BolgDetailsID({ blog, allBlogsTagsData }) {
       </Box>
 
       <Container sx={{ maxWidth: "1239px" }} maxWidth={false}>
-        <div id={styles.blog_details} dir={`${router.locale === 'ar' ? 'rtl' : 'ltr'}`}>
+        <div id={styles.blog_details} >
           <div className={styles.headline}>
             <article className={styles.headline_inner}>
               <div className={styles.headline_img_container}>
@@ -280,7 +280,7 @@ export default function BolgDetailsID({ blog, allBlogsTagsData }) {
                 id={"apply"}
                 className="ck-content"
                 dangerouslySetInnerHTML={createMarkup()}
-                dir={`${router.locale === 'ar' ? 'rtl' : 'ltr'}`}
+
               />
 
             </article>
@@ -338,14 +338,14 @@ export default function BolgDetailsID({ blog, allBlogsTagsData }) {
         </div>
       </Container >
 
-      <div id={styles.related_tags} dir={`${router.locale === 'ar' ? 'rtl' : 'ltr'}`}>
+      <div id={styles.related_tags} >
       </div>
       <Container sx={{ maxWidth: "1239px" }} maxWidth={false}>
         <div id={styles.cards_container} >
           <div className={styles.comments_card}>
             <div className={styles.card}>
               <div className={styles.header}>
-                <Typography dir={`${router.locale === 'ar' ? 'rtl' : 'ltr'}`}>
+                <Typography >
                   {("single_blog:comments")} <span>{`(${commentsCount})`}</span>
                 </Typography>
                 <hr />
@@ -437,7 +437,7 @@ export default function BolgDetailsID({ blog, allBlogsTagsData }) {
           <div className={styles.leave_comment}>
             <div className={styles.card}>
               <div className={styles.header}>
-                <Typography dir={`${router.locale === 'ar' ? 'rtl' : 'ltr'}`}>
+                <Typography >
                   {("single_blog:leave_comment")}
                 </Typography>
                 <hr />
@@ -447,12 +447,12 @@ export default function BolgDetailsID({ blog, allBlogsTagsData }) {
 
 
                 <div className={styles.name}>
-                  <label dir={`${router.locale === 'ar' ? 'rtl' : 'ltr'}`} htmlFor="">{("single_blog:name")} <span>*</span></label>
+                  <label htmlFor="">{("single_blog:name")} <span>*</span></label>
                   <input type="text" name="name" placeholder="Enter Your Name" required onFocus={handleFocus} onChange={handleInputChange} />
                 </div>
 
                 <div className={styles.email} >
-                  <label htmlFor="" dir={`${router.locale === 'ar' ? 'rtl' : 'ltr'}`}>{("single_blog:email")} <span>*</span></label>
+                  <label htmlFor="" >{("single_blog:email")} <span>*</span></label>
                   <input type="email" name="email" placeholder="Enter Your Email" required onFocus={handleFocus} onChange={handleInputChange} />
                   {errorList !== false &&
                     <Typography sx={{ color: 'red', marginTop: '10px' }}>{errorList[0].message}</Typography >
@@ -463,7 +463,7 @@ export default function BolgDetailsID({ blog, allBlogsTagsData }) {
                 </div>
 
                 <div className={styles.comment}>
-                  <label dir={`${router.locale === 'ar' ? 'rtl' : 'ltr'}`} htmlFor="">{("single_blog:comment")} <span>*</span></label>
+                  <label htmlFor="">{("single_blog:comment")} <span>*</span></label>
                   <textarea placeholder="Enter Your Comment" rows="4" cols="50" required name="comment" onFocus={handleFocus} onChange={handleInputChange}>
 
                   </textarea>
