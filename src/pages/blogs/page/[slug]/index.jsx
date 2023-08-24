@@ -181,10 +181,9 @@ export async function getStaticPaths() {
 
 
 
-  const paths = numbersArray.flatMap((number, idx) => customLocale.map((locale) => ({
+  const paths = numbersArray.flatMap((number, idx) => ({
     params: { slug: number.toString() },
-    locale: "en",
-  })))
+  }))
 
 
 
