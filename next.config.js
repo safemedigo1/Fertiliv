@@ -19,6 +19,8 @@ const nextConfig = {
       "https://fertiliv.vercel.app",
       "fertiliv.com",
       "https://fertilive.com/",
+      "https://cp2.safemedigo.com",
+      "cp2.safemedigo.com",
     ],
   },
 

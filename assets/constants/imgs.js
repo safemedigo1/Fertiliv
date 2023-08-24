@@ -9,6 +9,7 @@ import big from "../imgs/big.png";
 import logo from "../imgs/logo.png";
 import doctor from "../imgs/doctor.png";
 import quoteImg from "../imgs/quoteImg.png";
+import userimg from "../imgs/userimg.png";
 
 // MemeberShib Sec
 import ISO from "../imgs/ISO.png";
@@ -83,4 +84,5 @@ export default {
   en,
   ar,
   verified,
+  userimg,
 };
