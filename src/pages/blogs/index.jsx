@@ -72,8 +72,8 @@ export default function Blogs({ blogCategory, blogs, allBlogsTagsData, currentPa
                 <MenuItem disabled sx={{ display: 'none' }}>
                   Choose Category
                 </MenuItem>
-                {blogCategory.map((item) => (
-                  <MenuItem value={item.slug} >
+                {blogCategory.map((item, index) => (
+                  <MenuItem value={item.slug} key={index}>
                     {item.categeryName}
                   </MenuItem>
                 ))}

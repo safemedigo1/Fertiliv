@@ -2,7 +2,6 @@ import styles from '../../index.module.scss';
 import { useRouter } from "next/router";
 import Pagination from "@mui/material/Pagination";
 import { Box, Container, Typography } from "@mui/material";
-import { PageHeader, Tags } from "@/components";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
@@ -10,10 +9,10 @@ import Select from "@mui/material/Select";
 import ExpandMoreOutlinedIcon from "@mui/icons-material/ExpandMoreOutlined";
 import Link from "next/link";
 import { useState } from "react";
-import SecNavbar from '@/components/Navbar/SecNavbar';
 import Image from 'next/image'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { motion } from 'framer-motion'
+import Navbar from '../../../../../components/Navbar';
+import Footer from '../../../../../components/Footer';
 
 export default function BlogPage({ blogCategory, blogs, allBlogsTagsData, currentPage, totalPages }) {
   const router = useRouter();
@@ -41,11 +40,9 @@ export default function BlogPage({ blogCategory, blogs, allBlogsTagsData, curren
   }
 
 
-  const count = blogs.count / 6;
   return (
     <>
-      <SecNavbar />
-      <PageHeader />
+      <Navbar />
       <div id={styles.tags_filter}>
         <Container sx={{ maxWidth: "1239px" }} maxWidth={false}>
           <div className={styles.filter}>
@@ -67,8 +64,8 @@ export default function BlogPage({ blogCategory, blogs, allBlogsTagsData, curren
               >
 
 
-                {blogCategory.map((item) => (
-                  <MenuItem value={item.slug} >
+                {blogCategory.map((item, idx) => (
+                  <MenuItem value={item.slug} key={idx}>
                     {item.categeryName}
                   </MenuItem>
                 ))}
@@ -130,18 +127,7 @@ export default function BlogPage({ blogCategory, blogs, allBlogsTagsData, curren
                       </div>
                     </div>
 
-                    <div className={styles.btns_container}>
-                      <div className={styles.trans_btn}>
-                        {post.tags.map((tag) => (
-                          <>
-                            <Link href={`/tags/${tag.slug}`}>
-                              <button>{tag.tagName}</button>
-                            </Link>
-                          </>
-                        ))}
-                      </div>
 
-                    </div>
                   </motion.a>
                 </>
               ))}
@@ -156,12 +142,8 @@ export default function BlogPage({ blogCategory, blogs, allBlogsTagsData, curren
             </Box>
           </Container>
         </section>
-        {/* Tags Component */}
-        <Tags allBlogsTagsData={allBlogsTagsData} />
       </div>
-
-
-
+      <Footer />
 
 
 
@@ -201,7 +183,7 @@ export async function getStaticPaths() {
 
   const paths = numbersArray.flatMap((number, idx) => customLocale.map((locale) => ({
     params: { slug: number.toString() },
-    locale: locale,
+    locale: "en",
   })))
 
 
@@ -215,7 +197,7 @@ export async function getStaticPaths() {
 }
 
 
-export async function getStaticProps({ locale, params }) {
+export async function getStaticProps({ params }) {
 
   const page = params.slug || '1'; // If no page is specified, default to page 1
   const limit = 6; // Number of products to display per page
@@ -230,7 +212,7 @@ export async function getStaticProps({ locale, params }) {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      "lang": locale,
+      "lang": "en",
     })
   })
   const data2 = await res1.json()
@@ -244,7 +226,7 @@ export async function getStaticProps({ locale, params }) {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      "lang": locale,
+      "lang": "en",
       "blogCategoryId": myCategoryId[0]?.id || '0',
       "currentPage": page,
     })
@@ -263,7 +245,7 @@ export async function getStaticProps({ locale, params }) {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      "lang": locale,
+      "lang": "en",
     })
   })
 
@@ -278,7 +260,6 @@ export async function getStaticProps({ locale, params }) {
       currentPage: parseInt(page),
       totalPages,
       allBlogsTagsData,
-      ...(await serverSideTranslations(locale, ['navbar', 'sec_navbar', 'blogs_page', 'page_header_comp', 'Footer'])),
     },
     revalidate: 10,
 

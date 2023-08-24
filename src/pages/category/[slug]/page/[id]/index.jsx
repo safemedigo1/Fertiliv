@@ -71,8 +71,8 @@ const PageNumber = ({ blogCategory, query, blogs, myCategoryId, currentPage, tot
                 <MenuItem disabled sx={{ display: 'none' }}>
                   {myCategoryId[0].categeryName}
                 </MenuItem>
-                {blogCategory.map((item) => (
-                  <MenuItem value={item.slug} >
+                {blogCategory.map((item, idx) => (
+                  <MenuItem value={item.slug} key={idx} >
                     {item.categeryName}
                   </MenuItem>
                 ))}
