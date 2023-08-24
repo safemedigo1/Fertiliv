@@ -530,7 +530,7 @@ export async function getStaticPaths() {
 
 
 
-export async function getStaticProps({ params, locale }) {
+export async function getStaticProps({ params }) {
   const res = await fetch("https://api2.safemedigo.com/api/v1/Blog/GetBlogUiDataBySlug", {
     method: 'POST',
     headers: {
@@ -539,7 +539,7 @@ export async function getStaticProps({ params, locale }) {
     },
     body: JSON.stringify({
       "slug": params.slug,
-      "lang": locale
+      "lang": "en"
     })
   })
   const data = await res.json()
