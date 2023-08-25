@@ -1,13 +1,29 @@
 import fs from "fs";
 import path from "path";
 import formidable from "formidable";
-import { NextApiRequest, NextApiResponse } from "next";
+import { NextApiRequest, NextApiResponse, NextApiHandler } from "next";
+import Cors from "cors";
 
 export const config = {
   api: {
     bodyParser: false,
   },
 };
+
+// Helper function to wrap the cors middleware
+const cors =
+  (handler: NextApiHandler) => async (req: any, res: NextApiResponse) => {
+    await new Promise((resolve, reject) => {
+      Cors()(req, res, (result: unknown) => {
+        if (result instanceof Error) {
+          return reject(result);
+        }
+        return resolve(result);
+      });
+    });
+
+    return handler(req, res);
+  };
 
 export default function updateBlog(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === "PUT") {
@@ -34,6 +50,49 @@ export default function updateBlog(req: NextApiRequest, res: NextApiResponse) {
         resolve({ fields, files });
 
         const filePath = path.join(process.cwd(), "blogs.json");
+
+        // try {
+        //   const jsonData = fs.readFileSync(filePath, "utf-8");
+        //   const blogs = JSON.parse(jsonData);
+
+        //   // Find the specific blog you want to update (assuming the blog has an ID property)
+        //   const blogId = +fields.id[0].trim(); // Trim whitespace from the blog ID
+        //   const blog = blogs.find((blog: { id: Number }) => blog.id === blogId);
+
+        //   if (!blog) {
+        //     res.status(404).json({ error: "Blog not found" });
+        //     return;
+        //   }
+
+        //   // Delete the previous image if it exists
+        //   const previousImagePath = blog.image;
+        //   const prevPath = path.join(
+        //     process.cwd(),
+        //     "public",
+        //     previousImagePath
+        //   );
+
+        //   if (files.file && fs.existsSync(prevPath)) {
+        //     fs.unlinkSync(prevPath);
+        //   }
+
+        //   // Update the blog properties
+        //   blog.title = fields.title[0]; // Assuming you pass the updated title in the request body
+        //   blog.description = fields.description[0]; // Assuming you pass the updated description in the request body
+        //   blog.date = fields.date[0]; // Assuming you pass the updated date in the request body
+
+        //   // Convert the array of blogs back to JSON
+        //   const updatedJsonData = JSON.stringify(blogs, null, 2);
+
+        //   // Write the updated JSON data back to the blogs.json file
+        //   fs.writeFileSync(filePath, updatedJsonData, "utf-8");
+
+        //   res.status(200).json({ message: "Blog updated successfully" });
+        // } catch (error) {
+        //   console.error(error);
+        //   res.status(500).json({ error: "Internal Server Error" });
+        // }
+        // console.log(fields, "FielldDDDSSSSS");
 
         try {
           const jsonData = fs.readFileSync(filePath, "utf-8");
@@ -70,13 +129,11 @@ export default function updateBlog(req: NextApiRequest, res: NextApiResponse) {
 
           // Write the updated JSON data back to the blogs.json file
           fs.writeFileSync(filePath, updatedJsonData, "utf-8");
-
           res.status(200).json({ message: "Blog updated successfully" });
         } catch (error) {
-          console.error(error);
+          console.error("Error reading blogs.json", error);
           res.status(500).json({ error: "Internal Server Error" });
         }
-        // console.log(fields, "FielldDDDSSSSS");
       });
     });
   } else {

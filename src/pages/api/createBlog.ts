@@ -77,7 +77,6 @@ const handler: NextApiHandler = async (req, res) => {
       });
 
       // Use the imageFiles array as needed
-      console.log(imageFiles);
 
       await createBlog(req, true);
       res.json({ done: "ok" });
