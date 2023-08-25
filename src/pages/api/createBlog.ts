@@ -1,7 +1,7 @@
 import { NextApiHandler, NextApiRequest } from "next";
 import formidable from "formidable";
 import path from "path";
-import fs from "fs/promises";
+import { promises as fs } from "fs";
 
 export const config = {
   api: {
@@ -49,17 +49,15 @@ const createBlog = (
         id: generateRandomId(),
       };
 
-      const blogsFilePath = path.join("blogs.json");
-      await fs
-        .readFile(blogsFilePath, "utf8")
-        .then((data) => {
-          const blogs = JSON.parse(data);
-          blogs.push(blogData);
-          return fs.writeFile(blogsFilePath, JSON.stringify(blogs, null, 2));
-        })
-        .catch((error) => {
-          console.error("Error writing to blogs.json", error);
-        });
+      try {
+        const blogsFilePath = path.join("blogs.json");
+        const data = await fs.readFile(blogsFilePath, "utf8");
+        const blogs = JSON.parse(data);
+        blogs.push(blogData);
+        await fs.writeFile(blogsFilePath, JSON.stringify(blogs, null, 2));
+      } catch (error) {
+        console.error("Error writing to blogs.json", error);
+      }
     });
   });
 };
@@ -88,7 +86,7 @@ const handler: NextApiHandler = async (req, res) => {
   }
 };
 
-export default handler;
+export default handler as NextApiHandler;
 
 function generateRandomId() {
   return Math.floor(Math.random() * 100000) + 1;
