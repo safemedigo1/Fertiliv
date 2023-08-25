@@ -16,7 +16,7 @@ const createBlog = (
   const options: formidable.Options = {};
 
   if (saveLocally) {
-    options.uploadDir = path.join(process.cwd(), "public", "uploads"); // Step 1: Use a dedicated directory, e.g., "uploads"
+    options.uploadDir = path.join("public", "uploads"); // Step 1: Use a dedicated directory, e.g., "uploads"
     options.keepExtensions = true; // Retain the file extensions
     options.filename = (name, ext, path, form) => {
       const timestamp = Date.now().toString();
@@ -49,7 +49,7 @@ const createBlog = (
         id: generateRandomId(),
       };
 
-      const blogsFilePath = path.join(process.cwd(), "blogs.json");
+      const blogsFilePath = path.join("blogs.json");
       await fs
         .readFile(blogsFilePath, "utf8")
         .then((data) => {
@@ -67,7 +67,7 @@ const createBlog = (
 const handler: NextApiHandler = async (req, res) => {
   if (req.method === "POST") {
     try {
-      const directoryPath = path.join(process.cwd(), "public", "uploads");
+      const directoryPath = path.join("public", "uploads");
       const files = await fs.readdir(directoryPath);
 
       // Filter only image files

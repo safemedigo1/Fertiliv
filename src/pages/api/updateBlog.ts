@@ -28,7 +28,7 @@ const cors =
 export default function updateBlog(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === "PUT") {
     const options: formidable.Options = {};
-    options.uploadDir = path.join(process.cwd(), "public", "uploads"); // Step 1: Use a dedicated directory, e.g., "uploads"
+    options.uploadDir = path.join("public", "uploads"); // Step 1: Use a dedicated directory, e.g., "uploads"
     options.keepExtensions = true;
 
     options.filename = (name, ext, path, form) => {
@@ -49,87 +49,47 @@ export default function updateBlog(req: NextApiRequest, res: NextApiResponse) {
         }
         resolve({ fields, files });
 
-        const filePath = path.join(process.cwd(), "blogs.json");
-
-        // try {
-        //   const jsonData = fs.readFileSync(filePath, "utf-8");
-        //   const blogs = JSON.parse(jsonData);
-
-        //   // Find the specific blog you want to update (assuming the blog has an ID property)
-        //   const blogId = +fields.id[0].trim(); // Trim whitespace from the blog ID
-        //   const blog = blogs.find((blog: { id: Number }) => blog.id === blogId);
-
-        //   if (!blog) {
-        //     res.status(404).json({ error: "Blog not found" });
-        //     return;
-        //   }
-
-        //   // Delete the previous image if it exists
-        //   const previousImagePath = blog.image;
-        //   const prevPath = path.join(
-        //     process.cwd(),
-        //     "public",
-        //     previousImagePath
-        //   );
-
-        //   if (files.file && fs.existsSync(prevPath)) {
-        //     fs.unlinkSync(prevPath);
-        //   }
-
-        //   // Update the blog properties
-        //   blog.title = fields.title[0]; // Assuming you pass the updated title in the request body
-        //   blog.description = fields.description[0]; // Assuming you pass the updated description in the request body
-        //   blog.date = fields.date[0]; // Assuming you pass the updated date in the request body
-
-        //   // Convert the array of blogs back to JSON
-        //   const updatedJsonData = JSON.stringify(blogs, null, 2);
-
-        //   // Write the updated JSON data back to the blogs.json file
-        //   fs.writeFileSync(filePath, updatedJsonData, "utf-8");
-
-        //   res.status(200).json({ message: "Blog updated successfully" });
-        // } catch (error) {
-        //   console.error(error);
-        //   res.status(500).json({ error: "Internal Server Error" });
-        // }
         // console.log(fields, "FielldDDDSSSSS");
 
         try {
-          const jsonData = fs.readFileSync(filePath, "utf-8");
-          const blogs = JSON.parse(jsonData);
+          await cors(async (req: any, res: NextApiResponse) => {
+            const filePath = path.join("blogs.json");
 
-          // Find the specific blog you want to update (assuming the blog has an ID property)
-          const blogId = +fields.id[0].trim(); // Trim whitespace from the blog ID
-          const blog = blogs.find((blog: { id: Number }) => blog.id === blogId);
+            const jsonData = fs.readFileSync(filePath, "utf-8");
+            const blogs = JSON.parse(jsonData);
+            console.log(filePath, "HERE");
 
-          if (!blog) {
-            res.status(404).json({ error: "Blog not found" });
-            return;
-          }
+            // Find the specific blog you want to update (assuming the blog has an ID property)
+            const blogId = +fields.id[0].trim(); // Trim whitespace from the blog ID
+            const blog = blogs.find(
+              (blog: { id: Number }) => blog.id === blogId
+            );
 
-          // Delete the previous image if it exists
-          const previousImagePath = blog.image;
-          const prevPath = path.join(
-            process.cwd(),
-            "public",
-            previousImagePath
-          );
+            if (!blog) {
+              res.status(404).json({ error: "Blog not found" });
+              return;
+            }
 
-          if (files.file && fs.existsSync(prevPath)) {
-            fs.unlinkSync(prevPath);
-          }
+            // Delete the previous image if it exists
+            const previousImagePath = blog.image;
+            const prevPath = path.join("public", previousImagePath);
 
-          // Update the blog properties
-          blog.title = fields.title[0]; // Assuming you pass the updated title in the request body
-          blog.description = fields.description[0]; // Assuming you pass the updated description in the request body
-          blog.date = fields.date[0]; // Assuming you pass the updated date in the request body
+            if (files.file && fs.existsSync(prevPath)) {
+              fs.unlinkSync(prevPath);
+            }
 
-          // Convert the array of blogs back to JSON
-          const updatedJsonData = JSON.stringify(blogs, null, 2);
+            // Update the blog properties
+            blog.title = fields.title[0]; // Assuming you pass the updated title in the request body
+            blog.description = fields.description[0]; // Assuming you pass the updated description in the request body
+            blog.date = fields.date[0]; // Assuming you pass the updated date in the request body
 
-          // Write the updated JSON data back to the blogs.json file
-          fs.writeFileSync(filePath, updatedJsonData, "utf-8");
-          res.status(200).json({ message: "Blog updated successfully" });
+            // Convert the array of blogs back to JSON
+            const updatedJsonData = JSON.stringify(blogs, null, 2);
+
+            // Write the updated JSON data back to the blogs.json file
+            fs.writeFileSync(filePath, updatedJsonData, "utf-8");
+            res.status(200).json({ message: "Blog updated successfully" });
+          })(req, res);
         } catch (error) {
           console.error("Error reading blogs.json", error);
           res.status(500).json({ error: "Internal Server Error" });
