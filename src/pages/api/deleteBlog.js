@@ -3,7 +3,7 @@ import path from "path";
 
 export default async function deleteBlog(req, res) {
   if (req.method === "DELETE") {
-    const filePath = path.join(process.cwd(), "blogs.json");
+    const filePath = path.join("blogs.json");
 
     try {
       const jsonData = fs.readFileSync(filePath, "utf-8");
@@ -16,7 +16,7 @@ export default async function deleteBlog(req, res) {
         const selectedBlogImage = blogs.find((blog) => blog.id == blogId);
         if (selectedBlogImage.image) {
           const previousImagePath = selectedBlogImage.image;
-          const imgPath = path.join(process.cwd(), "public", previousImagePath);
+          const imgPath = path.join("public", previousImagePath);
           // Delete Image File
           fs.unlinkSync(imgPath);
         }
