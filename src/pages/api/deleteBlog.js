@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 
-export default function deleteBlog(req, res) {
+export default async function deleteBlog(req, res) {
   if (req.method === "DELETE") {
     const filePath = path.join(process.cwd(), "blogs.json");
 
@@ -12,15 +12,12 @@ export default function deleteBlog(req, res) {
       // Find the specific blog you want to delete (assuming the blog has an ID property)
       const blogId = req.query.id; // Assuming you pass the blog ID as a query parameter
       const blogIndex = blogs.findIndex((blog) => blog.id === blogId);
-
       if (blogId) {
         const selectedBlogImage = blogs.find((blog) => blog.id == blogId);
-
-        const previousImagePath = selectedBlogImage.image;
-        const imgPath = path.join(process.cwd(), "public", previousImagePath);
-
-        // Delete Image File
-        if (fs.existsSync(imgPath)) {
+        if (selectedBlogImage.image) {
+          const previousImagePath = selectedBlogImage.image;
+          const imgPath = path.join(process.cwd(), "public", previousImagePath);
+          // Delete Image File
           fs.unlinkSync(imgPath);
         }
       }

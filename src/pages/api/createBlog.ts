@@ -67,12 +67,23 @@ const createBlog = (
 const handler: NextApiHandler = async (req, res) => {
   if (req.method === "POST") {
     try {
-      await fs.readdir(path.join(process.cwd(), "public", "uploads"));
+      const directoryPath = path.join(process.cwd(), "public", "uploads");
+      const files = await fs.readdir(directoryPath);
+
+      // Filter only image files
+      const imageFiles = files.filter((file) => {
+        const extension = path.extname(file).toLowerCase();
+        return [".jpg", ".jpeg", ".png", ".gif", ".webp"].includes(extension);
+      });
+
+      // Use the imageFiles array as needed
+      console.log(imageFiles);
+
+      await createBlog(req, true);
+      res.json({ done: "ok" });
     } catch (error) {
-      await fs.mkdir(path.join(process.cwd(), "public", "uploads"));
+      console.log(error, "ERROR");
     }
-    await createBlog(req, true);
-    res.json({ done: "ok" });
   } else {
     res.status(405).json({ error: "Method Not Allowed" });
   }
