@@ -31,10 +31,12 @@ const getBlogs: NextApiHandler = async (req, res) => {
 
       // Update the image URLs to use the appropriate base URL
       const blogsWithFixedImageUrls = blogs.map((blog: any) => {
-        return {
-          ...blog,
-          image: `https://www.fertiliv.com${blog.image}`,
-        };
+        if (blog.image) {
+          return {
+            ...blog,
+            image: `https://www.fertiliv.com${blog.image}`,
+          };
+        }
       });
 
       res.status(200).json(blogsWithFixedImageUrls);

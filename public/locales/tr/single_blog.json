@@ -1,0 +1,14 @@
+{
+  "add_comment": "Yorumunu ekle",
+  "comment": "Yorum",
+  "comments": "Yorumlar",
+  "email": "E-posta",
+  "helpful": "Yardımsever?",
+  "leave_comment": "Yorum bırak",
+  "load_more": "Daha fazla yükle",
+  "name": "İsim",
+  "share": "Paylaş.",
+  "commentSuccess": "Comment sent successfully. The comment will be visible once approved",
+  "commentFailed": "This email has already made a comment",
+  "emailValid": "Email must be a valid email"
+}

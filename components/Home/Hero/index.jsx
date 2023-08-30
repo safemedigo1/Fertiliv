@@ -9,6 +9,7 @@ import { useRouter } from 'next/router'
 const Hero = () => {
   const { Hero_baby } = imgs;
   const router = useRouter();
+  console.log(router.locales)
   return (
     <section id={styles.hero}>
       <Container>

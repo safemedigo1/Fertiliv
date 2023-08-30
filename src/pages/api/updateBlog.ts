@@ -54,10 +54,9 @@ export default function updateBlog(req: NextApiRequest, res: NextApiResponse) {
         try {
           await cors(async (req: any, res: NextApiResponse) => {
             const filePath = path.join("blogs.json");
-
             const jsonData = fs.readFileSync(filePath, "utf-8");
             const blogs = JSON.parse(jsonData);
-            console.log(filePath, "HERE");
+            console.log(filePath, "filePathHHHHZZZZZZZZZZZZZZZZZZZZZZZZ");
 
             // Find the specific blog you want to update (assuming the blog has an ID property)
             const blogId = +fields.id[0].trim(); // Trim whitespace from the blog ID

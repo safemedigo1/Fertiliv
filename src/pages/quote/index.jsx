@@ -21,9 +21,12 @@ import ProgressBar from "@ramonak/react-progress-bar";
 import toast from 'react-hot-toast';
 import { ThreeDots } from 'react-loader-spinner'
 import { useRouter } from 'next/router';
+import { useTranslation } from 'react-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 
 const Quote = () => {
+  const { t } = useTranslation();
   const { logo, } = imgs;
   const [step, setStep] = useState(1);
   const router = useRouter();
@@ -65,25 +68,25 @@ const Quote = () => {
 
 
   const treatments = [
-    { title: 'IVF' },
-    { title: 'ICSI/IMSI' },
-    { title: 'IUI' },
-    { title: 'Micro TESE' },
-    { title: 'Eggs freezing' },
-    { title: 'Embryos freezing' },
-    { title: 'Check up' },
-    { title: 'Pregnancy care' },
-    { title: 'Childbirth' },
-    { title: 'Genetic Diagnosis' },
-    { title: 'Myoma' },
-    { title: 'Menopause' },
-    { title: 'Endometriosis' },
-    { title: 'Polycystic ovary syndrome' },
-    { title: 'Aesthetic treatments' },
+    { title: t("quote_page:treatment_1") },
+    { title: t("quote_page:treatment_2") },
+    { title: t("quote_page:treatment_3") },
+    { title: t("quote_page:treatment_4") },
+    { title: t("quote_page:treatment_5") },
+    { title: t("quote_page:treatment_6") },
+    { title: t("quote_page:treatment_7") },
+    { title: t("quote_page:treatment_8") },
+    { title: t("quote_page:treatment_9") },
+    { title: t("quote_page:treatment_10") },
+    { title: t("quote_page:treatment_11") },
+    { title: t("quote_page:treatment_12") },
+    { title: t("quote_page:treatment_13") },
+    { title: t("quote_page:treatment_14") },
+    { title: t("quote_page:treatment_15") },
   ]
   const question = [
-    { title: 'I Am Looking For Myself' },
-    { title: 'I Am Looking For Someone Else' },
+    { title: t("quote_page:answer_1") },
+    { title: t("quote_page:answer_2") },
   ]
 
 
@@ -133,8 +136,7 @@ const Quote = () => {
   }, [selectedDate])
 
   useEffect(() => {
-
-    if (timeValue) {
+    if (timeValue !== null) {
       const timer = setTimeout(() => {
         setStep((prevStep) => prevStep + 1);
       }, 1000);
@@ -143,7 +145,9 @@ const Quote = () => {
         clearTimeout(timer);
       };
     }
+
   }, [timeValue])
+  console.log(timeValue)
 
 
 
@@ -225,7 +229,6 @@ const Quote = () => {
         },
         body: JSON.stringify({ ...updatedFormData }),
       });
-      console.log(response)
 
       if (response) {
         setIsLoading(false)
@@ -261,7 +264,6 @@ const Quote = () => {
 
 
     } catch (error) {
-      console.error(error);
       setMessage('Failed to send OTP code');
     }
 
@@ -278,7 +280,7 @@ const Quote = () => {
       setStep(step + 1)
 
     } else {
-      setMessage('Invalid code');
+      setMessage(t("quote_page:invalid_code"));
     }
   };
 
@@ -292,8 +294,8 @@ const Quote = () => {
     <>
 
 
-      <div className={styles.card_wrapper}>
-        <div className={styles.quote_card}>
+      <div className={styles.card_wrapper} dir={router.locale === "ar" ? 'rtl' : 'ltr'}>
+        <div className={styles.quote_card} dir={router.locale === "ar" ? 'rtl' : 'ltr'}>
           {step <= 5 &&
             <div className={styles.progressBar}>
               <ProgressBar
@@ -326,7 +328,7 @@ const Quote = () => {
               {step >= 2 && step !== 6 &&
                 <div className={styles.back} onClick={prevStep}>
                   <Typography>
-                    Back
+                    {t("quote_page:back")}
                   </Typography>
                   <FaArrowLeft />
                 </div>
@@ -337,24 +339,11 @@ const Quote = () => {
 
           {step === 1 &&
             <div className={styles.desc}>
-              <Typography>Hi, Thank You For Choosing Fertiliv For Your Healthcare Journey. We Prioritize Your Safety And Strive For A Smooth Experience.</Typography>
+              <Typography>{t("quote_page:title")}</Typography>
+
             </div>
           }
 
-          {/*
-          {step < 6 &&
-            <div className={styles.steps}>
-              <div className={styles.step}>
-                <span>{step}</span>
-              </div>
-              {
-                step !== 6 &&
-                <div className={styles.step}>
-                  <span>{step + 1}</span>
-                </div>
-              }
-            </div>
-          } */}
 
           {step === 5 &&
             <motion.h4
@@ -362,7 +351,7 @@ const Quote = () => {
               initial={{ opacity: 0 }}
               style={{ fontWeight: 'bold' }}
               className={styles.question}>
-              Please Provide Your Contact Details.
+              {t("quote_page:title_2")}
               <span style={{ color: 'red' }}>*</span>
             </motion.h4>
           }
@@ -372,7 +361,7 @@ const Quote = () => {
                 animate={{ opacity: 1 }}
                 initial={{ opacity: 0 }}
               >
-                Which treatment would you like to do?
+                {t("quote_page:ask_1")}
               </motion.h4 >
             }
             {step === 2 &&
@@ -380,7 +369,7 @@ const Quote = () => {
                 animate={{ opacity: 1 }}
                 initial={{ opacity: 0 }}
               >
-                Who Is This Treatment For?
+                {t("quote_page:ask_2")}
               </motion.h4 >
             }
             {step === 3 &&
@@ -388,7 +377,7 @@ const Quote = () => {
                 animate={{ opacity: 1 }}
                 initial={{ opacity: 0 }}
               >
-                Select Date
+                {t("quote_page:select_date")}
               </motion.h4 >
 
             }
@@ -397,7 +386,7 @@ const Quote = () => {
                 animate={{ opacity: 1 }}
                 initial={{ opacity: 0 }}
               >
-                Select Time
+                {t("quote_page:select_date")}
               </motion.h4 >
             }
 
@@ -452,8 +441,8 @@ const Quote = () => {
 
                     }}
 
-                    value={"Others"}
-                    checked={selectedValues.includes("Others")}
+                    value={t("quote_page:treatment_16")}
+                    checked={selectedValues.includes(t("quote_page:treatment_16"))}
                     onChange={handleCheckboxChange}
 
                     required control={<Checkbox sx={{
@@ -469,7 +458,7 @@ const Quote = () => {
                       },
                       marginLeft: 0
 
-                    }} />} label={"Others"} />
+                    }} />} label={t("quote_page:treatment_16")} />
                 </>
 
               }
@@ -517,13 +506,13 @@ const Quote = () => {
                   initial={{ opacity: 0 }}
                   style={{ marginTop: 0, fontWeight: 'bold' }}
                   className={styles.selctedDate}>
-                  Selected Time: As Soon As Possible
+                  {t("quote_page:ASP")}
                 </motion.p>
 
               }
 
 
-              <div className={styles.date}>
+              <div className={styles.date} dir='ltr'>
                 {
                   step === 3 &&
                   <motion.div
@@ -569,7 +558,7 @@ const Quote = () => {
               <motion.div
                 animate={{ opacity: 1 }}
                 initial={{ opacity: 0 }}
-                className={styles.time} style={step !== 4 && { display: 'none' }}>
+                className={styles.time} dir='ltr' style={step !== 4 && { display: 'none' }}>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <DigitalClock
                     value={timeValue?.$d?.toLocaleDateString("en-US", { hour: "numeric", minute: "numeric", hour12: true }).split(", ")[1]}
@@ -605,11 +594,6 @@ const Quote = () => {
                     }}
                   />
                 </LocalizationProvider>
-                {/*
-              <ul className={`${styles.any_time} ${anyTime && styles.selected}`} onClick={handleAnyTime}>
-                <li>Any time</li>
-              </ul> */}
-
 
                 {step === 4 &&
                   selectedDate !== null && asp !== true &&
@@ -621,7 +605,7 @@ const Quote = () => {
                     {timeValue === null &&
                       <Typography
                       >
-                        Selected date: {selectedDate?.$d?.toLocaleDateString()}
+                        {t("quote_page:selected_date")}  {selectedDate?.$d?.toLocaleDateString()}
                       </Typography>
                     }
                   </motion.div >
@@ -635,7 +619,7 @@ const Quote = () => {
                     className={styles.selctedDate}
                   >
                     <Typography >
-                      Selected date: {selectedDate !== null && asp !== true && selectedDate?.$d?.toLocaleDateString()} {timeValue}
+                      {t("quote_page:selected_date")} {selectedDate !== null && asp !== true && selectedDate?.$d?.toLocaleDateString()} {timeValue}
                     </Typography>
                   </motion.div >
                 }
@@ -651,17 +635,17 @@ const Quote = () => {
                   className={styles.form_container}>
                   <div className={styles.username}>
                     <div className={styles.f_name}>
-                      <label htmlFor="fname">First Name <span>*</span></label>
+                      <label htmlFor="fname">{t("quote_page:first_name")} <span>*</span></label>
                       <input onChange={handleChangeFrom} required type="text" name='fname' placeholder='John' />
                     </div>
                     <div className={styles.l_name}>
-                      <label htmlFor="lname">Last Name <span>*</span></label>
+                      <label htmlFor="lname">{t("quote_page:family_name")} <span>*</span></label>
                       <input onChange={handleChangeFrom} required type="text" name='lname' placeholder='Doe' />
                     </div>
                   </div>
 
-                  <div className={styles.phone}>
-                    <label htmlFor="phone">Phone Number <span>*</span></label>
+                  <div className={styles.phone} dir='ltr'>
+                    <label htmlFor="phone">{t("quote_page:phone_number")} <span>*</span></label>
 
                     <PhoneInput
                       country={'tr'}
@@ -677,7 +661,7 @@ const Quote = () => {
                   </div>
 
                   <div className={styles.email}>
-                    <label htmlFor="email">Email <span>*</span></label>
+                    <label htmlFor="email">{t("quote_page:email")} <span>*</span></label>
                     <input onChange={handleChangeFrom} required type="email" name='email' placeholder='example@gmail.com' />
                   </div>
 
@@ -704,7 +688,7 @@ const Quote = () => {
 
 
 
-                      }} />} label={"I agree to my given details including health data may be processed by Fertiliv for the purpose of obtaining quotes. This includes the transfer of my data to healthcare providers. The consent can be revoked at any time with effect for the future.*"} />
+                      }} />} label={t("quote_page:terms")} />
                   </div>
 
                 </motion.div>
@@ -726,7 +710,7 @@ const Quote = () => {
                         wrapperClassName="load_more_btn"
                         visible={true}
                       />
-                      : "Send Inquiry"
+                      : t("quote_page:send")
 
                     }
 
@@ -745,11 +729,11 @@ const Quote = () => {
               className={styles.conf_code}>
               <div className={styles.title}>
                 <Typography variant={'h3'}>
-                  Confirmation Message
+                  {t("quote_page:conf_message")}
                 </Typography>
               </div>
               <div className={styles.desc}>
-                <Typography>We Want To Make Sure It Is You. In Order To Further Verify Your Identity, Enter The Verification Code That Was Sent To:</Typography>
+                <Typography> {t("quote_page:desc_conf")}</Typography>
               </div>
 
               <div className={styles.mobile_num}>
@@ -764,7 +748,7 @@ const Quote = () => {
               </div>
               <div className={styles.resend}>
                 <Typography>
-                  Didn't receive an email? <button onClick={handleCodeSubmit}>Resend?</button>
+                  {t("quote_page:email_receive")}<button onClick={handleCodeSubmit}>{t("quote_page:resend")}</button>
                 </Typography>
                 <Typography>
                   {message}
@@ -785,10 +769,10 @@ const Quote = () => {
                   <BsCheckLg />
                 </div>
                 <div className={styles.title}>
-                  <Typography variant='h3'>We Got Your Request</Typography>
+                  <Typography variant='h3'>{t("quote_page:success")}</Typography>
                 </div>
                 <div className={styles.desc}>
-                  <Typography>Thank You For Your Submission. Our Team Will Evaluate Your Request And Respond To You In A Timely Manner</Typography>
+                  <Typography>{t("quote_page:thank")}</Typography>
                 </div>
               </div>
             </motion.div>
@@ -799,7 +783,7 @@ const Quote = () => {
 
           {step === 3 &&
             <div className={styles.asp_btn} onClick={handleAsp}>
-              <button>I Want As Soon As Possible</button>
+              <button>{t("quote_page:ASP")}</button>
             </div>
           }
 
@@ -807,12 +791,12 @@ const Quote = () => {
             <>
               {selectedValues.length === 0 &&
                 < div className={styles.continue_btn_sec} >
-                  <button>Continue</button>
+                  <button>{t("quote_page:continue")}</button>
                 </div>}
               {
                 selectedValues.length > 0 &&
                 < div className={styles.continue_btn} onClick={nextStep}>
-                  <button>Continue</button>
+                  <button>{t("quote_page:continue")}</button>
                 </div>
               }
             </>
@@ -821,12 +805,12 @@ const Quote = () => {
             <>
               {forValues.length === 0 &&
                 < div className={styles.continue_btn_sec} >
-                  <button>Continue</button>
+                  <button>{t("quote_page:continue")}</button>
                 </div>}
               {
                 forValues.length > 0 &&
                 < div className={styles.continue_btn} onClick={nextStep}>
-                  <button>Continue</button>
+                  <button>{t("quote_page:continue")}</button>
                 </div>
               }
             </>
@@ -836,7 +820,7 @@ const Quote = () => {
             <div className={styles.continue_btn} >
               <Link href='/'>
                 <button>
-                  Done
+                  {t("quote_page:done")}
                 </button>
               </Link>
             </div>
@@ -844,7 +828,7 @@ const Quote = () => {
 
           {step === 6 &&
             <div className={styles.continue_btn} onClick={handleConfirmation}>
-              <button>Continue</button>
+              <button>{t("quote_page:continue")}</button>
             </div>
           }
 
@@ -857,3 +841,18 @@ const Quote = () => {
 }
 
 export default Quote
+
+
+
+export async function getStaticProps({ locale }) {
+
+  return {
+    props: {
+
+      locale,
+      ...(await serverSideTranslations(locale, ['quote_page'])),
+
+    },
+    revalidate: 10,
+  }
+}

@@ -772,3 +772,34 @@
     }
   }
 }
+
+.card_wrapper[dir="rtl"] {
+  .quote_card {
+    .header {
+      button {
+        h1 {
+          margin-left: 0px;
+          margin-right: 10px;
+        }
+      }
+      .back {
+        flex-direction: row;
+      }
+    }
+  }
+
+  .form_2 {
+    width: 100%;
+    .step_2 {
+      width: 30%;
+    }
+  }
+
+  .form_1 {
+    width: 100%;
+    label {
+      margin-right: 0 !important;
+      margin-left: 16px;
+    }
+  }
+}

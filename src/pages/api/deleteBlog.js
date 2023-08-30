@@ -3,9 +3,8 @@ import path from "path";
 
 export default async function deleteBlog(req, res) {
   if (req.method === "DELETE") {
-    const filePath = path.join("blogs.json");
-
     try {
+      const filePath = path.join("blogs.json");
       const jsonData = fs.readFileSync(filePath, "utf-8");
       const blogs = JSON.parse(jsonData);
 

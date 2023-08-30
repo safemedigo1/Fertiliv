@@ -1,0 +1,43 @@
+{
+  "address": "Address",
+  "email": "Email",
+  "call": "Call Us",
+  "Whatsapp": "WhatsApp",
+
+  "WHO_WE_ARE": "Who we are",
+  "Safety_Standards": "Safety Standards",
+  "How_It_Works": "How It Works",
+  "About_Us": "About Us",
+  "Contact_Us": "Contact Us",
+
+  "Our_Tailored_Medical_services": "Our Tailored Medical services",
+  "WHY_SAFEMEDIGO": "Why Safenedigo",
+  "Highly_Reviewed_Experts": "Highly Reviewed Experts",
+
+  "Get_a_Quote": "Get a Quote",
+  "Get_Budget_Friendly_Operation": "Get Budget-Friendly Operation",
+  "Personalized_Medical_Planning": "Personalized Medical Planning",
+  "Patient_Assistance_Program": "Patient Assistance Program",
+  "Specialized_Treatment_Coordination": "Specialized Treatment Coordination",
+  "Get_a_Second_Opinion": "Get a Second Opinion",
+  "Language_Interpretation_Services": "Language Interpretation Services",
+  "Get_a_Post_Treatment_Care": "Get a Post-Treatment Care",
+  "Telemedicine_Consultations": "Telemedicine Consultations",
+  "Medical_Records_Management": "Medical Records Management",
+  "Wellness_and_Preventive_Care": "Wellness and Preventive Care",
+  "E_Medical_history_record": "E-Medical history record",
+
+  "POPULAR_TREATMENTS": "Popular Treatments",
+  "Hair_transplant": "Hair transplant",
+  "hollywood_smile": "hollywood smile",
+  "dental_implants": "dental implants",
+  "Liposuction": "Liposuction",
+  "gastric_sleeve": "gastric sleeve",
+  "IVF": "IVF (ICSI)",
+  "Vision_correction": "Vision correction",
+  "coronary_artery": "coronary artery",
+  "Joints_replacement": "Joints replacement",
+  "Spine_surgeries": "Spine surgeries",
+  "Prostate_surgeries": "Prostate surgeries",
+  "Penile_prosthesis": "Penile prosthesis"
+}
