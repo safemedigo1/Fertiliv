@@ -30,7 +30,6 @@
   "email": "Email",
   "terms": "I agree to my given details including health data may be processed by Fertiliv for the purpose of obtaining quotes. This includes the transfer of my data to healthcare providers. The consent can be revoked at any time with effect for the future.*",
   "terms_warn": "Terms must be accepted",
-  "selected_date:": "Selected date:",
   "conf_message": "Confirmation Message",
   "desc_conf": "We Want To Make Sure It Is You. In Order To Further Verify Your Identity, Enter The Verification Code That Was Sent To:  ",
   "email_receive": "Didn't receive an email?",
@@ -43,5 +42,7 @@
   "continue": "Continue",
   "ASP": "I Want As Soon As Possible",
   "done": "Done",
-  "send": "Send Inquiry"
+  "send": "Send Inquiry",
+  "TimeDate:": "TEST EN",
+  "testmycontext": "Selected Date:"
 }

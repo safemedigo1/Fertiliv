@@ -565,6 +565,10 @@
             span {
               font-size: 12px;
               color: #7a7a7a;
+              padding: 0px 9px;
+              margin: 0px;
+              padding-right: 0px;
+              margin-right: -5px;
             }
           }
         }
@@ -775,6 +779,7 @@
 
 .card_wrapper[dir="rtl"] {
   .quote_card {
+    align-items: center;
     .header {
       button {
         h1 {
@@ -786,12 +791,20 @@
         flex-direction: row;
       }
     }
+
+    .conf_code {
+      .desc {
+        p {
+          text-align: right;
+        }
+      }
+    }
   }
 
   .form_2 {
     width: 100%;
     .step_2 {
-      width: 30%;
+      // width: 30%;
     }
   }
 
@@ -800,6 +813,19 @@
     label {
       margin-right: 0 !important;
       margin-left: 16px;
+    }
+  }
+
+  .form_4 {
+    .selctedDate {
+      text-align: right;
+    }
+  }
+
+  .form_5 {
+    .form_container {
+      .terms_label label {
+      }
     }
   }
 }

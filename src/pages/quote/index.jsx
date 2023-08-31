@@ -51,10 +51,9 @@ const Quote = () => {
   });
 
   const [updatedFormData, setUpdatedFormData] = useState();
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState();
   const [enteredOtp, setEnteredOtp] = useState("");
   const [otp, setOtp] = useState('');
-
 
   const handleAsp = () => {
     setAsp(true)
@@ -135,19 +134,6 @@ const Quote = () => {
     }
   }, [selectedDate])
 
-  useEffect(() => {
-    if (timeValue !== null) {
-      const timer = setTimeout(() => {
-        setStep((prevStep) => prevStep + 1);
-      }, 1000);
-
-      return () => {
-        clearTimeout(timer);
-      };
-    }
-
-  }, [timeValue])
-  console.log(timeValue)
 
 
 
@@ -337,10 +323,10 @@ const Quote = () => {
             </div>
           }
 
+
           {step === 1 &&
             <div className={styles.desc}>
               <Typography>{t("quote_page:title")}</Typography>
-
             </div>
           }
 
@@ -558,7 +544,7 @@ const Quote = () => {
               <motion.div
                 animate={{ opacity: 1 }}
                 initial={{ opacity: 0 }}
-                className={styles.time} dir='ltr' style={step !== 4 && { display: 'none' }}>
+                className={styles.time} style={step !== 4 && { display: 'none' }}>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <DigitalClock
                     value={timeValue?.$d?.toLocaleDateString("en-US", { hour: "numeric", minute: "numeric", hour12: true }).split(", ")[1]}
@@ -566,7 +552,7 @@ const Quote = () => {
                     skipDisabled
                     minTime={dayjs().set('hour', 9).set('minute', 30).second(0)}
                     maxTime={dayjs().set('hour', 18).set('minute', 0)}
-
+                    onClick={() => setStep((prev) => prev + 1)}
                     sx={{
                       '.Mui-selected':
                       {
@@ -605,7 +591,8 @@ const Quote = () => {
                     {timeValue === null &&
                       <Typography
                       >
-                        {t("quote_page:selected_date")}  {selectedDate?.$d?.toLocaleDateString()}
+                        {t("quote_page:testmycontext")}
+                        {selectedDate?.$d?.toLocaleDateString()}
                       </Typography>
                     }
                   </motion.div >
@@ -619,7 +606,7 @@ const Quote = () => {
                     className={styles.selctedDate}
                   >
                     <Typography >
-                      {t("quote_page:selected_date")} {selectedDate !== null && asp !== true && selectedDate?.$d?.toLocaleDateString()} {timeValue}
+                      {t("quote_page:testmycontext")}  {selectedDate !== null && asp !== true && selectedDate?.$d?.toLocaleDateString()} {timeValue}
                     </Typography>
                   </motion.div >
                 }
@@ -750,9 +737,11 @@ const Quote = () => {
                 <Typography>
                   {t("quote_page:email_receive")}<button onClick={handleCodeSubmit}>{t("quote_page:resend")}</button>
                 </Typography>
-                <Typography>
-                  {message}
-                </Typography>
+                {message &&
+                  <Typography sx={{ textDecoration: 'underline', color: 'red !important' }}>
+                    {message}
+                  </Typography>
+                }
               </div>
             </motion.div>
           }
