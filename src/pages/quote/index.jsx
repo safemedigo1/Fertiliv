@@ -728,7 +728,7 @@ const Quote = () => {
                   {updatedFormData?.email}
                 </Typography>
               </div>
-              <div className="input">
+              <div className="input" dir='ltr'>
 
                 <AuthCode containerClassName={styles.input_container} length={4} allowedCharacters='numeric' onChange={handleCodeChange}
                 />
