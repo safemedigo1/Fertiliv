@@ -19,7 +19,7 @@
     "@ramonak/react-progress-bar": "^5.0.3",
     "@sanity/client": "^6.4.9",
     "@types/formidable": "^3.4.1",
-    "axios": "^1.4.0",
+    "axios": "^1.6.0",
     "cors": "^2.8.5",
     "dayjs": "^1.11.9",
     "eslint": "8.46.0",
