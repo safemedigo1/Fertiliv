@@ -45,7 +45,7 @@
     "react-loader-spinner": "^5.3.4",
     "react-phone-input-2": "^2.15.1",
     "sass": "^1.64.2",
-    "styled-components": "^6.0.7",
+    "styled-components": "^6.1.0",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
