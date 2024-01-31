@@ -12,15 +12,15 @@ export default async function handler(req, res) {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "majd.khaled87@gmail.com",
-      pass: "uylpdgemqncigqez",
+      user: "nonreply.mensaje@gmail.com",
+      pass: "hcdj ohul wmpr xkso",
     },
   });
 
   // Send the OTP code via email
   try {
     await transporter.sendMail({
-      from: "majd.khaled87@gmail.com",
+      from: "nonreply.mensaje@gmail.com",
       to: email,
       subject: "Your OTP code",
       text: `Your OTP code is ${otp}`,

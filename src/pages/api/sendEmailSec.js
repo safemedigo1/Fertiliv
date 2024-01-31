@@ -12,14 +12,14 @@ export default async function sendEmail(req, res) {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "majd.khaled87@gmail.com",
-      pass: "uylpdgemqncigqez",
+      user: "nonreply.mensaje@gmail.com",
+      pass: "hcdj ohul wmpr xkso",
     },
   });
 
   const mailOptions = {
-    from: "majd.khaled87@gmail.com",
-    to: "majd.khaled87@gmail.com",
+    from: "nonreply.mensaje@gmail.com",
+    to: "nonreply.mensaje@gmail.com",
     subject: "New message from (Fertiliv)",
     text: `(Fertiliv)=> First name:${fname}\nLast name${lname}\nEmail: ${email}\nPhone Number: ${phone}\nI \nFor:${selectedForm}`,
   };
