@@ -22,7 +22,7 @@
     "axios": "^1.4.0",
     "cors": "^2.8.5",
     "dayjs": "^1.11.9",
-    "eslint": "8.46.0",
+    "eslint": "9.0.0",
     "eslint-config-next": "13.4.12",
     "formidable": "^3.5.0",
     "framer-motion": "^10.15.1",
