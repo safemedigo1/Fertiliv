@@ -14,8 +14,6 @@ export default async function sendEmail(req, res) {
     auth: {
       user: "Fertiliv@gmail.com",
       pass: password,
-      // user: "Fertiliv@gmail.com",
-      // pass: "imbe ksrv dcgk rzhg",
     },
   });
 

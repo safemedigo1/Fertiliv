@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useContext } from 'react'
-import Navbar from '../../../components/Navbar'
+import Navbar from '../../components/Navbar'
 import styles from './index.module.scss'
 import { Button, Container, Typography } from '@mui/material'
 import axios from 'axios'
-import Login from '../../../components/Login'
-import { MyContext } from '../../../context/MyContext'
+import Login from '../../components/Login'
+import { MyContext } from '../../context/MyContext'
 import { DataGrid } from '@mui/x-data-grid';
 import { ConstructionOutlined } from '@mui/icons-material'
 import { ThreeDots } from 'react-loader-spinner'

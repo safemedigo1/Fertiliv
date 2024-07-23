@@ -13,10 +13,9 @@ import toast from 'react-hot-toast';
 import { ThreeDots } from 'react-loader-spinner'
 import Link from "next/link";
 import Head from "next/head";
-import imgs from '../../../../assets/constants/imgs'
-import Navbar from "../../../../components/Navbar";
-import Footer from "../../../../components/Footer";
-import PageHeader from "../../../../components/PageHeader";
+import imgs from '../../../assets/constants/imgs'
+import Navbar from "../../../components/Navbar";
+import Footer from "../../../components/Footer";
 
 
 export default function BolgDetailsID({ blog, allBlogsTagsData }) {
