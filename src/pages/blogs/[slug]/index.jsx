@@ -16,6 +16,7 @@ import Head from "next/head";
 import imgs from '../../../../assets/constants/imgs'
 import Navbar from "../../../../components/Navbar";
 import Footer from "../../../../components/Footer";
+import PageHeader from "../../../../components/PageHeader";
 
 
 export default function BolgDetailsID({ blog, allBlogsTagsData }) {
@@ -149,7 +150,6 @@ export default function BolgDetailsID({ blog, allBlogsTagsData }) {
         formRef.current?.reset()
       }
     }
-
   }
 
   useEffect(() => {

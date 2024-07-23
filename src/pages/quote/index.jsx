@@ -204,30 +204,44 @@ const Quote = () => {
 
 
     if (updatedFormData && updatedFormData.agree === true) {
-      setIsLoading(true)
-
-      const url = `/api/sendEmail`;
-      const response = await fetch(url, {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ ...updatedFormData }),
-      });
-
-      if (response) {
-        setIsLoading(false)
-      }
-      if (response.status === 200) {
-        handleCodeSubmit();
-        setStep(step + 1);
-        setIsLoading(false)
-
-      }
-
-
+      toast.promise(
+        fetch('/api/sendEmail', {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            ...updatedFormData,
+            selectedForm: updatedFormData.text,
+          }),
+        })
+          .then(async (response) => {
+            const data = await response.text();
+            setIsLoading(false);
+            if (response.ok) {
+              handleCodeSubmit();
+              setStep(step + 1);
+            } else {
+              toast.error('There was an error. Please try again later.');
+              console.error('Request failed with status:', response.status);
+              throw new Error(data);
+            }
+          })
+          .catch((error) => {
+            setIsLoading(false);
+            toast.error('There was an error. Please try again later.');
+            console.error('Request failed:', error);
+            throw error;
+          }),
+        {
+          loading: 'Processing...',
+          success: <b>Your request has been submitted successfully. Thank you!</b>,
+          error: <b>Failed to send, please try again later.</b>,
+        }
+      );
     }
+
 
   };
 
@@ -235,24 +249,34 @@ const Quote = () => {
 
 
   const handleCodeSubmit = async (event) => {
-    // event.preventDefault();
     try {
-      const response = await fetch('/api/auth', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: updatedFormData?.email, enteredOtp })
-      });
-      const data = await response.json();
-      setOtp(data.otp);
-
-
-
-
-
+      toast.promise(
+        fetch('/api/auth', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: updatedFormData?.email, enteredOtp })
+        })
+          .then(async (response) => {
+            const data = await response.json();
+            setOtp(data.otp);
+            if (!response.ok) {
+              throw new Error('Failed to send OTP code');
+            }
+          })
+          .catch((error) => {
+            setMessage('Failed to send OTP code');
+            console.error('Request failed:', error);
+            throw error;
+          }),
+        {
+          loading: 'Processing...',
+          success: <b>OTP code sent successfully. Please check your email.</b>,
+          error: <b>Failed to send OTP code. Please try again later.</b>,
+        }
+      );
     } catch (error) {
       setMessage('Failed to send OTP code');
     }
-
   };
 
 

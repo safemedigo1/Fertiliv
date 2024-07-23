@@ -35,7 +35,7 @@ const Doctor = () => {
 
           <div className={styles.docBtn}>
             <Button>
-              <Link href='/'>Ask a question</Link>
+              <Link href='#consultation'>Ask a question</Link>
             </Button>
           </div>
 

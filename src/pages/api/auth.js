@@ -1,5 +1,5 @@
 import nodemailer from "nodemailer";
-import crypto from "crypto";
+const password = process.env.PASS;
 
 export default async function handler(req, res) {
   const { email } = req.body;
@@ -12,15 +12,17 @@ export default async function handler(req, res) {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "nonreply.mensaje@gmail.com",
-      pass: "hcdj ohul wmpr xkso",
+      // user: "mohamedgk5@gmail.com",
+      // pass: "imbe ksrv dcgk rzhg",
+      user: "fertiliv@gmail.com",
+      pass: password,
     },
   });
 
   // Send the OTP code via email
   try {
     await transporter.sendMail({
-      from: "nonreply.mensaje@gmail.com",
+      from: "",
       to: email,
       subject: "Your OTP code",
       text: `Your OTP code is ${otp}`,

@@ -229,7 +229,9 @@ const Quote = () => {
                         />
                         : "Submit"
 
-                      }                    </Button>
+                      }
+
+                    </Button>
                   </div>
                 </motion.div>
               }
