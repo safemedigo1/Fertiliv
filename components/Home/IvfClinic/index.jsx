@@ -58,7 +58,7 @@ const IvfClinic = () => {
 
         <div className={styles.images_container} onClick={() => setShowGallery(true)}>
           <div className={styles.main_img}>
-            <Image src={big} alt='hospital image' />
+            <Image src={big} alt='fertiliv hospital' />
           </div>
 
 
@@ -69,9 +69,6 @@ const IvfClinic = () => {
             <Image src={small_4} alt='hospital image' />
             <Image src={small_4} alt='hospital image' />
             <Image src={small_4} alt='hospital image' />
-
-
-
           </div>
         </div>
 
@@ -103,3 +100,6 @@ const IvfClinic = () => {
 }
 
 export default IvfClinic
+
+
+
