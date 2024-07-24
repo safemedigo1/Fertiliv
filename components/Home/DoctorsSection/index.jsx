@@ -158,7 +158,7 @@ const DoctorsSection = () => {
     {
       name: 'Doç. Dr. A.Kadir Tepeler',
       specialist: 'IVF Urologist',
-      image: '/kadir.png',
+      image: '/kader.png',
     },
     {
       name: 'Op. Dr. Mehmet Remzi Erdem',
