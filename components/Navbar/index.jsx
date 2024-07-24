@@ -71,7 +71,7 @@ const Navbar = (props) => {
                   <div className={styles.img_container}>
                     <Image src={whatsapp} alt="whatsapp" />
                   </div>
-                  <Link href="https://wa.me/message/R6QC5VWX47VVM1" target="_blank"> 90 501 114 80 60</Link>
+                  <Link href="https://wa.me/905011148060" target="_blank"> 90 501 114 80 60</Link>
                 </div>
 
                 <div className={styles.menu} >
@@ -79,7 +79,7 @@ const Navbar = (props) => {
                     <GiHamburgerMenu />
                   </div>
 
-                  <Link href="https://wa.me/message/R6QC5VWX47VVM1" className={styles.num}>
+                  <Link href="https://wa.me/905011148060" className={styles.num}>
                     <div className={styles.img_container}>
                       <Image src={whatsapp} alt="whatsapp" />
                     </div>

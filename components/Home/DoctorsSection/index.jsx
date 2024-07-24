@@ -8,6 +8,29 @@ import { IoIosArrowBack } from 'react-icons/io';
 
 const DoctorsSection = ({ popularDoctors }) => {
   console.log(popularDoctors, "popularDoctors")
+
+  const doctors = [
+    {
+      name: 'Dr Nilay Karaca',
+      specialist: 'IVF Gynaecologist',
+      image: '/nilay.png',
+    },
+    {
+      name: 'Doç. Dr. A.Kadir Tepeler',
+      specialist: 'IVF Urologist',
+      image: '/kadir.png',
+    },
+    {
+      name: 'Op. Dr. Mehmet Remzi Erdem',
+      specialist: 'IVF Urologist',
+      image: 'mehmet.png',
+    },
+    {
+      name: 'Mr Majd Khaled',
+      specialist: 'Patient Manager',
+      image: 'majd.png',
+    },
+  ]
   return (
     <section id='doctorsSection' className={styles.doctors_section}>
       <Container>
@@ -74,27 +97,27 @@ const DoctorsSection = ({ popularDoctors }) => {
           >
 
 
-            {popularDoctors.map((doctor, index) =>
+            {doctors.map((doctor, index) =>
 
               <SwiperSlide key={index} className={styles.swiper_slide_box}>
-                <Link href={`/doctor/${doctor.slug}`} className={styles.box}>
+                <div className={styles.box}>
                   <div className={styles.image_container}>
-                    <img src={doctor.image} alt={doctor.firstName} />
+                    <img src={doctor.image} alt={doctor.name} />
                   </div>
 
                   <div className={styles.title}>
-                    <p>{`${doctor.firstName} ${doctor.fatherName} ${doctor.lastName}`}</p>
+                    <p>{`${doctor.name}`}</p>
                   </div>
 
                   <div className={styles.buttom_container}>
                     <div className={styles.specialist}>
-                      <p>{doctor.mainSpecialization}</p>
+                      <p>{doctor.specialist}</p>
                     </div>
                     <div className={styles.icon_container}>
                       <IoIosArrowBack />
                     </div>
                   </div>
-                </Link>
+                </div>
               </SwiperSlide>
 
 
