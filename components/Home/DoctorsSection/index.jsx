@@ -254,7 +254,7 @@ const DoctorsSection = () => {
               <SwiperSlide key={index} className={styles.swiper_slide_box}>
                 <div className={styles.box}>
                   <div className={styles.image_container}>
-                    <i mg src={doctor.image} alt={doctor.name} />
+                    <img src={doctor.image} alt={doctor.name} />
                   </div>
                   <div className={styles.title}>
                     <p>{doctor.name}</p>
