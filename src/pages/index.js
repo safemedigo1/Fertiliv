@@ -14,6 +14,7 @@ import Reviews from "../../components/Home/Reviews";
 import Quote from "../../components/Home/Quote";
 import Footer from "../../components/Footer";
 import DoctorsSection from "../../components/Home/DoctorsSection";
+import WhatsappBtn from "../../components/WhatsappBtn";
 
 export default function Home({ popularDoctors }) {
   console.log(popularDoctors, "popularDoctors");
@@ -37,6 +38,7 @@ export default function Home({ popularDoctors }) {
       <Memberships />
       <Reviews />
       <Quote />
+      <WhatsappBtn />
       <Footer />
     </>
   );

@@ -6,6 +6,7 @@ import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io';
 import { consts } from '@itseasy21/react-elastic-carousel';
 import imgs from '../../../assets/constants/imgs';
 import Image from 'next/image';
+import GoogleReviews from '../../GoogleReviews';
 
 const Reviews = () => {
   const { verified } = imgs;
@@ -75,7 +76,7 @@ const Reviews = () => {
           </div>
 
           <div className={styles.slider_container}>
-            <Carousel renderArrow={myArrow}
+            {/* <Carousel renderArrow={myArrow}
               pagination={false}
               breakPoints={breakPoints}>
               {cards.map((card, idx) =>
@@ -98,7 +99,12 @@ const Reviews = () => {
                   <Typography>Read more...</Typography>
                 </div>
               )}
-            </Carousel>
+
+
+
+            </Carousel> */}
+
+            <GoogleReviews />
           </div>
         </div>
       </Container>
