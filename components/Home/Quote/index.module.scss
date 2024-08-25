@@ -275,3 +275,147 @@ section.quote {
     }
   }
 }
+
+section.quote[dir="rtl"] {
+  * {
+    font-family: var(--arabic-font) !important;
+  }
+  .text_container {
+    .title {
+      h3 {
+      }
+    }
+
+    .desc {
+      @media screen and (max-width: 450px) {
+        text-align: right;
+      }
+      p {
+      }
+    }
+  }
+
+  .section_container {
+    .img_container {
+      margin-right: unset;
+      margin-left: 50px;
+
+      img {
+      }
+    }
+
+    .steps_container {
+      width: 100%;
+
+      form {
+        .input_wrap {
+          label {
+          }
+          span {
+          }
+        }
+
+        .treatments {
+        }
+
+        span {
+        }
+
+        .nextBtn {
+          margin-right: unset;
+          margin-left: 287px;
+          @media screen and (max-width: 992px) {
+            margin-left: 0;
+          }
+
+          button {
+          }
+        }
+      }
+
+      .input_container {
+        margin-left: unset;
+        margin-right: 120px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        @media screen and (max-width: 992px) {
+          margin-right: 0;
+          margin: auto;
+        }
+
+        .name,
+        .email,
+        .phone {
+          input {
+            padding-left: unset;
+            padding-right: 16px;
+
+            &:focus {
+              outline: none;
+            }
+          }
+        }
+
+        .name {
+          input:first-child {
+            margin-right: unset;
+            margin-left: 16px;
+            @media screen and (max-width: 992px) {
+              margin-left: 0;
+            }
+          }
+        }
+
+        .email {
+          input {
+          }
+        }
+
+        .phone {
+          input {
+            padding: 0 !important;
+            width: 424px;
+            padding-left: 43px !important;
+          }
+        }
+
+        .email,
+        .phone {
+          input {
+          }
+        }
+
+        .nextBtn {
+          text-align: center;
+          margin-right: 0 !important;
+          margin-top: 50px;
+        }
+      }
+
+      .conf_msg {
+        @media screen and (max-width: 992px) {
+          height: auto;
+        }
+
+        @media screen and (max-width: 450px) {
+          text-align: right;
+        }
+        .title {
+          margin-bottom: 20px;
+          h5 {
+          }
+        }
+
+        .desc {
+          p {
+            @media screen and (max-width: 450px) {
+            }
+          }
+        }
+      }
+    }
+  }
+}

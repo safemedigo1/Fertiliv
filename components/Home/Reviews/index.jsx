@@ -1,23 +1,18 @@
-import React, { useState } from 'react'
+import React, { useState, } from 'react'
 import styles from './index.module.scss'
 import { Container, Rating, Typography, } from '@mui/material'
 import Carousel from '@itseasy21/react-elastic-carousel';
 import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io';
 import { consts } from '@itseasy21/react-elastic-carousel';
-import imgs from '../../../assets/constants/imgs';
+import imgs from '../../../public/assets/constants/imgs';
 import Image from 'next/image';
 import GoogleReviews from '../../GoogleReviews';
+import { useTranslation } from 'react-i18next';
+import { useRouter } from 'next/router';
 
 const Reviews = () => {
-  const { verified } = imgs;
-  const [breakPoints] = useState([
-    { width: 1, itemsToShow: 1.4, showArrows: false, pagination: true },
-    { width: 550, itemsToShow: 3, },
-    { width: 850, itemsToShow: 2.5 },
-    { width: 1150, itemsToShow: 4, },
-    { width: 1450, itemsToShow: 5 },
-    { width: 1750, itemsToShow: 6, },
-  ]);
+  const { t } = useTranslation();
+  const { locale } = useRouter();
 
   // Change Arrow in react-elastic-carousel Lirbrary
   function myArrow({ type, onClick, isEdge }) {
@@ -50,26 +45,24 @@ const Reviews = () => {
   ]
 
   return (
-    <section id='reviews' className={styles.reviews}>
+    <section id='reviews' className={styles.reviews} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
       <Container >
         <div className={styles.section_container}>
           <div className={styles.text_container}>
             <div className={styles.title}>
               <Typography variant='h3'>
-                What Our Patients Are Saying:
-
+                {t("reviews:title")}
               </Typography>
             </div>
             <div className={styles.title2}>
               <Typography variant='h3'>
-                88%
+                92%
               </Typography>
             </div>
 
             <div className={styles.desc}>
               <Typography>
-                Of our Patients would recommend us to their friends and families.
-
+                {t("reviews:desc")}
               </Typography>
             </div>
 

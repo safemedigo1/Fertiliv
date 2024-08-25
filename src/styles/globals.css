@@ -16,6 +16,8 @@
   --btn-box-shadow: 0px 6px 15px #1b09688f;
 
   --main-font: "Quicksand";
+
+  --arabic-font: "Cairo", sans-serif;
   --font-bold: 700;
   --font-semiBold: 600;
   --font-medium: 500;
@@ -245,4 +247,8 @@ button:hover {
   img {
   max-width: 100%;
   max-height: 100%;
+}
+
+.swiper-button-disabled {
+  opacity: 0;
 }

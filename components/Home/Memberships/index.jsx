@@ -1,9 +1,13 @@
 import React from 'react'
 import styles from './index.module.scss';
-import imgs from '../../../assets/constants/imgs';
+import imgs from '../../../public/assets/constants/imgs';
 import { Container, Typography } from '@mui/material';
 import Image from 'next/image';
+import { useTranslation } from 'react-i18next';
+import { useRouter } from 'next/router';
 const Memberships = () => {
+  const { t } = useTranslation();
+  const { locale } = useRouter();
   const { ISO,
     golden,
     International,
@@ -14,32 +18,32 @@ const Memberships = () => {
     Tesvikler, } = imgs;
 
   const memberships = [
-    { icon: Reproductive, title: 'Reproductive health and infertility association' },
-    { icon: Eshre, title: 'European society of human reproduction and embryology' },
-    { icon: arms, title: 'American society for reproductive medicine' },
-    { icon: Tesvikler, title: 'Republic of turkey ministry of health' },
-    { icon: International, title: 'International health tourism authorization certificate' },
-    { icon: golden, title: 'Quality management system by ISO' },
-    { icon: Junior, title: 'Junior chamber international' },
-    { icon: ISO, title: 'International organization for standardization' },
+    { icon: Reproductive, title: t('members:reproductive') },
+    { icon: Eshre, title: t('members:european') },
+    { icon: arms, title: t('members:american') },
+    { icon: Tesvikler, title: t('members:republic') },
+    { icon: International, title: t('members:international') },
+    { icon: golden, title: t('members:quality') },
+    { icon: Junior, title: t('members:junior') },
+    { icon: ISO, title: t('members:international') },
   ]
   return (
-    <section id='memberships' className={styles.memberships}>
+    <section id='memberships' className={styles.memberships} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
       <Container>
         <div className={styles.section_container}>
 
           <div className={styles.text_container}>
             <div className={styles.title}>
               <Typography variant='h3'>
-                Memberships & Quality Standards</Typography>
+                {t('members:title')}</Typography>
             </div>
             <div className={styles.title2}>
               <Typography variant='h3'>
-                Fertiliv clinic </Typography>
+                {t('members:site_name')} </Typography>
             </div>
 
             <div className={styles.desc}>
-              <Typography>Is dedicated to providing  the best possible care for our patients. That's why we strictly follow the protocols set by leading organizations such as:</Typography>
+              <Typography>{t('members:site_name')}</Typography>
             </div>
           </div>
 

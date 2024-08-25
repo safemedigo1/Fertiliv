@@ -154,3 +154,79 @@ section.memberships {
     }
   }
 }
+
+section.memberships[dir="rtl"] {
+  .section_container {
+    .text_container {
+      .title,
+      .title2 {
+        h3 {
+          text-align: right;
+          @media screen and (max-width: 450px) {
+            text-align: right;
+          }
+        }
+      }
+      .title2 {
+        h3 {
+          @media screen and (max-width: 450px) {
+            text-align: right;
+          }
+        }
+      }
+      .desc {
+        p {
+          text-align: right;
+        }
+      }
+    }
+
+    .memberships_container {
+      .member {
+        &:nth-child(7) {
+          .icon_container {
+            img {
+            }
+          }
+        }
+        &:nth-child(6) {
+          .icon_container {
+            img {
+            }
+          }
+        }
+        &:nth-child(5) {
+          .icon_container {
+            img {
+            }
+          }
+        }
+        &:nth-child(4) {
+          .icon_container {
+            img {
+            }
+          }
+        }
+        &:nth-child(1) {
+          .icon_container {
+            img {
+            }
+          }
+        }
+        .icon_container {
+          img {
+          }
+        }
+        .title {
+          p {
+            text-align: right;
+          }
+        }
+      }
+    }
+  }
+
+  * {
+    font-family: var(--arabic-font) !important;
+  }
+}

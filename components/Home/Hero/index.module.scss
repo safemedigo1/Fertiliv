@@ -1,7 +1,7 @@
 #hero {
   padding-top: 50px;
   padding-bottom: 50px;
-  background-image: url("../../../assets/imgs/Hero_Bg.png");
+  background-image: url("/assets/imgs/Hero_Bg.png");
   object-fit: cover;
   border-radius: 0px 0px 75px 75px;
 
@@ -209,5 +209,23 @@
         }
       }
     }
+  }
+}
+
+#hero[dir="rtl"] {
+  * {
+    font-family: var(--arabic-font) !important;
+  }
+  @media screen and (max-width: 992px) {
+    border-radius: 0px;
+    padding-top: 26px;
+    padding-bottom: 25px;
+  }
+
+  .card {
+    background-color: var(--main-beige-color);
+    padding-left: unset;
+    padding-right: 43px;
+    padding-top: 12.5px;
   }
 }

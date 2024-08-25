@@ -3,14 +3,18 @@ import styles from './index.module.scss';
 import { Button, Container, Typography } from '@mui/material';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
-import imgs from '../../../assets/constants/imgs';
+import imgs from '../../../public/assets/constants/imgs';
 import Image from 'next/image';
 import { ThreeDots } from 'react-loader-spinner';
 import { motion } from 'framer-motion';
 import { toast, Toaster } from 'react-hot-toast';
+import { useTranslation } from 'react-i18next';
+import { useRouter } from 'next/router';
 
 const Consultation = () => {
   const { Consultation_girl } = imgs;
+  const { t } = useTranslation();
+  const { locale } = useRouter();
   const [phoneNum, setPhoneNum] = useState('');
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
@@ -93,11 +97,11 @@ const Consultation = () => {
   };
 
   return (
-    <section id="consultation" className={styles.consultation}>
+    <section id="consultation" className={styles.consultation} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
       <Container>
         <div className={styles.section_container}>
           <div className={styles.title}>
-            <Typography variant="h3">Free Initial Consultation</Typography>
+            <Typography variant="h3">{t('why_feriliv:consultation_title')}</Typography>
           </div>
 
           <div className={styles.cards_container}>
@@ -107,17 +111,21 @@ const Consultation = () => {
               </div>
               <div className={styles.text_container}>
                 <div className={styles.title}>
-                  <Typography variant="h4">Do you have a question?</Typography>
+                  <Typography variant="h4">{t('why_feriliv:consultation_title')}</Typography>
                 </div>
-
+                {/* question */}
                 <div className={styles.desc}>
                   <Typography>
-                    Our highly efficient health care
+                    {/* Our highly efficient health care
                     <br />
                     coordinating team will be at your <br />
                     disposal full time. Leave your <br />
                     information and your question and <br />
-                    we will reply to you back.
+                    we will reply to you back. */}
+
+
+                    {t('why_feriliv:question_desc')}
+
                   </Typography>
                 </div>
               </div>
@@ -150,7 +158,7 @@ const Consultation = () => {
                   />
                 </div>
 
-                <div className={styles.phone}>
+                <div className={styles.phone} dir='ltr'>
                   <PhoneInput
                     country="tr"
                     value={phoneNum}
@@ -209,7 +217,7 @@ const Consultation = () => {
 
           <div className={styles.terms}>
             <Typography>
-              I agree to my given details including health data may be processed by Fertilive for the purpose of obtaining quotes. The consent can be revoked at any time with effect for the future.*
+              {t('why_feriliv:terms')}
             </Typography>
           </div>
 
@@ -234,7 +242,7 @@ const Consultation = () => {
                   visible={true}
                 />
               ) : (
-                'Submit'
+                t('why_feriliv:submit')
               )}
             </Button>
           </motion.div>

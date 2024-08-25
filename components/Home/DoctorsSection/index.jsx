@@ -142,12 +142,15 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css/navigation';
-import Link from 'next/link';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
-
+import { useTranslation } from 'react-i18next';
+import { useRouter } from 'next/router';
 const DoctorsSection = () => {
+  const { t } = useTranslation()
+  const { locale } = useRouter()
   const prevRef = useRef(null);
   const nextRef = useRef(null);
+  const swiperRef = useRef(null);
 
   const doctors = [
     {
@@ -173,40 +176,32 @@ const DoctorsSection = () => {
   ];
 
   return (
-    <section id='doctorsSection' className={styles.doctors_section}>
+    <section id='doctorsSection' className={styles.doctors_section} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
       <Container>
         <div className={styles.section_container}>
+
           <div className={styles.title}>
             <div className={styles.sec_title}>
-              <h3>MEDICAL PROFESSIONALS</h3>
+              <h3>{t("doctor:medical_title")}</h3>
             </div>
             <div className={styles.main_title}>
-              <h3>Experienced Doctors</h3>
+              <h3>{t("doctor:medical_title2")}</h3>
             </div>
           </div>
 
           <div className={styles.desc}>
             <p>
-              Every team member possesses extensive expertise in infertility treatment from leading assisted reproduction centers in Turkey and internationally. Seasoned professionals enhance our clients' likelihood of achieving a successful pregnancy.
+              {t("doctor:medical_desc")}
             </p>
           </div>
 
-
-
-
-
-
           <Swiper
-            // navigation={true}
-
+            ref={swiperRef}
             navigation={{
               prevEl: prevRef.current,
               nextEl: nextRef.current,
             }}
-            // onBeforeInit={(swiper) => {
-            //   swiper.params.navigation.prevEl = prevRef.current;
-            //   swiper.params.navigation.nextEl = nextRef.current;
-            // }}
+
             breakpoints={{
               300: {
                 slidesPerView: 1.2,
@@ -248,6 +243,12 @@ const DoctorsSection = () => {
             modules={[Navigation, Pagination]}
 
             dir={`ltr`}
+
+            onSwiper={(swiper) => {
+              swiperRef.current = swiper;
+
+            }}
+
             className={styles.swiper_container}
           >
             {doctors.map((doctor, index) => (
@@ -275,14 +276,14 @@ const DoctorsSection = () => {
 
           </Swiper>
 
-
-          <div ref={prevRef} className={styles.icon_container2}>
+          <div ref={prevRef} className={styles.icon_container_right2}>
             <IoIosArrowBack />
           </div>
 
-          <div ref={nextRef} className={styles.icon_container2}>
+          <div ref={nextRef} className={styles.icon_container_left2}>
             <IoIosArrowForward />
           </div>
+
         </div>
       </Container>
     </section>

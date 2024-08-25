@@ -1,6 +1,6 @@
 // import { Checkbox, Container, Typography, FormControlLabel, Button } from '@mui/material'
 // import React, { useEffect, useState } from 'react'
-// import imgs from '../../../assets/constants/imgs';
+// import imgs from '../../../public/assets/constants/imgs';
 // import styles from './index.module.scss';
 // import Image from 'next/image';
 // import PhoneInput from 'react-phone-input-2';
@@ -273,15 +273,19 @@
 
 import { Checkbox, Container, Typography, FormControlLabel, Button } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import imgs from '../../../assets/constants/imgs';
+import imgs from '../../../public/assets/constants/imgs';
 import styles from './index.module.scss';
 import Image from 'next/image';
 import PhoneInput from 'react-phone-input-2';
 import { motion } from "framer-motion";
 import { ThreeDots } from 'react-loader-spinner';
 import toast, { Toaster } from 'react-hot-toast';
+import { useTranslation } from 'react-i18next';
+import { useRouter } from 'next/router';
 
 const Quote = () => {
+  const { t } = useTranslation()
+  const { locale } = useRouter()
   const { quoteImg } = imgs;
   const [step, setStep] = useState(1);
   const [phoneNum, setPhoneNum] = useState('');
@@ -297,12 +301,12 @@ const Quote = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const treatments = [
-    { treatment: 'Unknown problems after trying to conceive for a year or more.' },
-    { treatment: 'Repeated failed IVF / ICSI / Repeated Miscarriages / Blocked tubes' },
-    { treatment: 'Irregular periods / Polycystic Ovary Syndrome / Ovulation disorders / endocrinology problems' },
-    { treatment: 'Pelvic or Back pain / Uterine problems' },
-    { treatment: 'Very low / zero sperm count / quality(the husband)' },
-    { treatment: 'Personal factors / overage / Unexplained infertility' },
+    { treatment: t("help:question_1") },
+    { treatment: t("help:question_2") },
+    { treatment: t("help:question_3") },
+    { treatment: t("help:question_4") },
+    { treatment: t("help:question_5") },
+    { treatment: t("help:question_6") },
   ];
 
   const handleChangeFrom = (event) => {
@@ -393,15 +397,20 @@ const Quote = () => {
   }, [step]);
 
   return (
-    <section id='quote' className={styles.quote}>
+    <section id='quote' className={styles.quote} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
       <Container>
         <Toaster />
         <div className={styles.text_container}>
           <div className={styles.title}>
-            <Typography variant='h3'>Let us help you!</Typography>
+            <Typography variant='h3'>
+              {t("help:title")}
+            </Typography>
           </div>
           <div className={styles.desc}>
-            <Typography>Tell us a little bit about yourself to get personalized recommendations! Do you have any of the following conditions?</Typography>
+            <Typography>
+              {t("help:desc")}
+
+            </Typography>
           </div>
         </div>
         <div className={styles.section_container}>
@@ -444,7 +453,7 @@ const Quote = () => {
                   </motion.div>
                   <div className={styles.nextBtn} onClick={() => setStep(2)}>
                     <Button>
-                      Next
+                      {t("help:next")}
                     </Button>
                   </div>
                 </>
@@ -459,7 +468,7 @@ const Quote = () => {
                     <input type="text" placeholder='Your First Name' name='fname' onChange={handleChangeFrom} required />
                     <input type="text" placeholder='Your Second Name' name='lname' onChange={handleChangeFrom} required />
                   </div>
-                  <div className={styles.phone}>
+                  <div className={styles.phone} dir='ltr'>
                     <PhoneInput
                       country={'tr'}
                       value={phoneNum}
@@ -482,7 +491,7 @@ const Quote = () => {
                           visible={true}
                         />
                       ) : (
-                        "Submit"
+                        t('why_feriliv:submit')
                       )}
                     </Button>
                   </div>
@@ -496,10 +505,12 @@ const Quote = () => {
                 className={styles.conf_msg}
               >
                 <div className={styles.title}>
-                  <Typography variant='h5'>We Got Your Request</Typography>
+                  <Typography variant='h5'>{t('help:success_title')}</Typography>
                 </div>
                 <div className={styles.desc}>
-                  <Typography>Thank You For Your Submission. Our Team Will Evaluate Your Request And Respond To You In A Timely Manner</Typography>
+                  <Typography>
+                    {t('help:success_desc')}
+                  </Typography>
                 </div>
               </motion.div>
             )}

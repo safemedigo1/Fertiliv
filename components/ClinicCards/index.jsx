@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styles from './index.module.scss'
 import Carousel from 'react-elastic-carousel';
-import imgs from "../../assets/constants/imgs";
+import imgs from "../../../public/assets/constants/imgs";
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi'
 import { FaShieldAlt } from 'react-icons/fa'
 import { MdLocationOn } from 'react-icons/md'

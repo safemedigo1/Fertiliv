@@ -1,16 +1,20 @@
 import React from 'react'
 import styles from './index.module.scss'
 import { Container, Typography } from '@mui/material'
-import imgs from '../../../assets/constants/imgs'
+import imgs from '../../../public/assets/constants/imgs'
 import Image from 'next/image'
 import ImageGallery from "react-image-gallery";
 import CloseIcon from '@mui/icons-material/Close';
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { useRouter } from 'next/router'
+import { useTranslation } from 'react-i18next'
 
 const IvfClinic = () => {
+  const { t } = useTranslation();
   const { small_1, small_2, small_3, small_4, big } = imgs;
   const [showGallery, setShowGallery] = useState(false)
+  const { locale } = useRouter();
 
   const images = [
     {
@@ -44,15 +48,14 @@ const IvfClinic = () => {
   ];
 
   return (
-    <section id='IvfClinic' className={styles.IvfClinic}>
+    <section id='IvfClinic' className={styles.IvfClinic} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
       <Container>
         <div className={styles.title}>
-          <Typography variant='h3'>IVF Clinic In Istanbul</Typography>
+          <Typography variant='h3'>{t("ivfClinic:sec_title")}</Typography>
         </div>
         <div className={styles.desc}>
           <Typography>
-
-            Clinic Fertiliv was founded in 1997, Since then, we have helped thousands of couples from all over the world to fulfill their dream of having children. <br /> In 2022, we moved to brand new premises, where we offer our clients maximum comfort and the best medical care. Our IVF clinic is located 45 minutes from Istanbul Airport is very accessible by car and public transport.
+            {t("ivfClinic:desc_title")}
           </Typography>
         </div>
 

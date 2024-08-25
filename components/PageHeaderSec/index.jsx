@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./index.module.scss";
-import imgs from "../../assets/constants/imgs";
+import imgs from "../../../public/assets/constants/imgs";
 import { Container, Typography, Box, Rating } from "@mui/material";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";

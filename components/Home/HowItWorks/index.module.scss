@@ -153,3 +153,56 @@ section.HowItWorks {
     }
   }
 }
+
+// LTR
+
+section.HowItWorks[dir="rtl"] {
+  * {
+    font-family: var(--arabic-font) !important;
+  }
+  .title {
+    @media screen and (max-width: 450px) {
+      text-align: right;
+    }
+    h3 {
+    }
+  }
+
+  .desc {
+    @media screen and (max-width: 992px) {
+      text-align: right;
+    }
+
+    p {
+    }
+  }
+
+  .steps_container,
+  .steps_container_mob {
+    .step_box {
+      &:not(:last-child) .icon_container {
+        &::after {
+          left: unset;
+          right: 0;
+        }
+      }
+
+      .icon_container {
+        img {
+        }
+      }
+
+      .title {
+        h4 {
+          text-align: right;
+        }
+      }
+
+      .desc {
+        p {
+          text-align: right;
+        }
+      }
+    }
+  }
+}

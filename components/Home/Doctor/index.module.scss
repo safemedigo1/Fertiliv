@@ -108,3 +108,50 @@ section.doctor {
     }
   }
 }
+
+section.doctor[dir="rtl"] {
+  * {
+    font-family: var(--arabic-font) !important;
+  }
+  .card {
+    .title,
+    .title2 {
+      @media screen and (max-width: 450px) {
+        text-align: right;
+      }
+      h3 {
+      }
+    }
+
+    .title2 {
+      h3 {
+      }
+    }
+
+    .desc {
+      p {
+        @media screen and (max-width: 450px) {
+          text-align: right;
+        }
+
+        span {
+          color: var(--main-blue-color);
+        }
+      }
+    }
+
+    .img_container {
+      img {
+      }
+    }
+
+    .docBtn {
+      button {
+      }
+    }
+  }
+
+  * {
+    font-family: var(--arabic-font) !important;
+  }
+}

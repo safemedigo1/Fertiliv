@@ -139,3 +139,62 @@ section.reviews {
     }
   }
 }
+
+section.reviews[dir="rtl"] {
+  * {
+    font-family: var(--arabic-font) !important;
+  }
+  .section_container {
+    .text_container {
+      .title,
+      .title2 {
+        h3 {
+        }
+      }
+
+      .title2 {
+      }
+
+      .desc {
+        p {
+          text-align: right;
+        }
+      }
+    }
+
+    .slider_container {
+      .box {
+        @media screen and (max-width: 992px) {
+          margin-left: unset;
+          margin-right: 10px;
+        }
+
+        .author {
+          .icon_container {
+            margin-left: unset;
+            margin-right: 7px;
+          }
+
+          p {
+          }
+        }
+
+        .date {
+          p {
+          }
+        }
+
+        .rate {
+        }
+
+        .desc {
+          p {
+          }
+        }
+
+        p {
+        }
+      }
+    }
+  }
+}

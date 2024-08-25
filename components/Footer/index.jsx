@@ -1,10 +1,17 @@
 import React from 'react'
 import styles from './index.module.scss';
 import { Button, Container, Typography } from '@mui/material';
-import imgs from '../../assets/constants/imgs';
+// import imgs from '../../../public/assets/constants/imgs';
+
 import Image from 'next/image';
 import Link from 'next/link';
+import imgs from '../../public/assets/constants/imgs';
+import { useTranslation } from 'react-i18next';
+import { useRouter } from 'next/router';
 const Footer = () => {
+  const { t } = useTranslation();
+  const { locale } = useRouter();
+
   const { logo, facebook,
     instagram,
     youtube,
@@ -14,17 +21,17 @@ const Footer = () => {
     ar, } = imgs;
   return (
     <>
-      <footer id='footeer' className={styles.footer}>
+      <footer id='footeer' className={styles.footer} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
         <Container>
           <div className={styles.footer_container}>
             <div className={styles.text_container}>
               <Link href={'/'} className={styles.logo}>
                 <Image src={logo} alt="logo" />
-                <Typography variant='h1'>Fertiliv</Typography>
+                <Typography variant='h1'>{t("common:site_name")}</Typography>
               </Link>
 
               <div className={styles.desc}>
-                <Typography>Advanced Fertility Center Fertiliv</Typography>
+                <Typography>{t("hero:hero_title_sec")}</Typography>
               </div>
 
               <div className={styles.language} >
