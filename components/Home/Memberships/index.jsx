@@ -19,8 +19,8 @@ const Memberships = () => {
 
   const memberships = [
     { icon: Reproductive, title: t('members:reproductive') },
-    { icon: Eshre, title: t('members:european') },
-    { icon: arms, title: t('members:american') },
+    { icon: Eshre, title: t('members:eruo') },
+    { icon: arms, title: t('members:society') },
     { icon: Tesvikler, title: t('members:republic') },
     { icon: International, title: t('members:international') },
     { icon: golden, title: t('members:quality') },
