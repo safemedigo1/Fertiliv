@@ -49,7 +49,7 @@ const Navbar = (props) => {
     { title: t("common:steps"), link: '#HowItWorks' },
     { title: t("common:quote"), link: '/quote' },
     { title: t("common:about"), link: '#IvfClinic' },
-    { title: t("common:blogs"), link: '/blogs' },
+    // { title: t("common:blogs"), link: '/blogs' },
     { title: t("common:contact"), link: '#consultation' },
   ]
 
