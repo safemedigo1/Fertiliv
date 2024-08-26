@@ -111,7 +111,7 @@ const Consultation = () => {
               </div>
               <div className={styles.text_container}>
                 <div className={styles.title}>
-                  <Typography variant="h4">{t('why_feriliv:consultation_title')}</Typography>
+                  <Typography variant="h4">{t('why_feriliv:question')}</Typography>
                 </div>
                 {/* question */}
                 <div className={styles.desc}>
