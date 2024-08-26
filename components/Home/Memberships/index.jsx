@@ -27,6 +27,7 @@ const Memberships = () => {
     { icon: Junior, title: t('members:junior') },
     { icon: ISO, title: t('members:international') },
   ]
+
   return (
     <section id='memberships' className={styles.memberships} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
       <Container>

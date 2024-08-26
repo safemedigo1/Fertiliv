@@ -33,7 +33,7 @@ const Doctor = () => {
           </div>
 
           <div className={styles.desc}>
-            <Typography>{t('doctor:dr_name')}</Typography>
+            <Typography>{t('doctor:dr_desc')}</Typography>
           </div>
 
 
