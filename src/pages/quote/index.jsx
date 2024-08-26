@@ -61,6 +61,7 @@ const Quote = ({ metaData }) => {
         <meta name="twitter:description" content={metaData?.Meta_Description} />
         <link rel="stylesheet" src="../../public/ckeditor-content-styles.css" type="text/css" />
       </Head>
+
       <QuotePage />
     </>
 

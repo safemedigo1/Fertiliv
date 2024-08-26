@@ -17,11 +17,14 @@ const Doctor = () => {
         <div className={styles.card}>
 
           <div className={styles.title}>
-            <Typography variant='h3'>{t('doctor:sec_title')}</Typography>
+            <Typography variant='h3'>{t('doctor:dr_name')}</Typography>
+
           </div>
 
           <div className={styles.desc}>
-            <Typography>{t('doctor:sec_desc')}</Typography>
+
+            <Typography>{t('doctor:dr_desc')}</Typography>
+
           </div>
 
           <div className={styles.img_container}>
@@ -29,11 +32,11 @@ const Doctor = () => {
           </div>
 
           <div className={styles.title2}>
-            <Typography variant='h3'>{t('doctor:dr_name')}</Typography>
+            <Typography variant='h3'>{t('doctor:sec_title')}</Typography>
           </div>
 
           <div className={styles.desc}>
-            <Typography>{t('doctor:dr_desc')}</Typography>
+            <Typography>{t('doctor:sec_desc')}</Typography>
           </div>
 
 
