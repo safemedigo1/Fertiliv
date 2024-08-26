@@ -20,7 +20,7 @@ const Quote = ({ metaData }) => {
         <meta name="csrf-token" content="JdDvDc4LUJomFM4T7QE0hFlH9CeKOHDXMoxV3wer" />
         <meta name="title" content="" />
         <link rel="icon" type="image/png" href={`/${imagePath}`} />
-        <meta name="theme-color" content="#004747" />
+        <meta name="theme-color" content="#1b0968" />
 
         <meta name="mobile-web-app-capable" content="no" />
         <meta name="application-name" content={metaData?.Title_Tag} />
@@ -32,7 +32,7 @@ const Quote = ({ metaData }) => {
         <meta name="author" content={metaData?.Title_Tag} />
         <meta name="description" content={metaData?.Meta_Description} />
         <link rel="canonical" href={`https://www.fertiliv.com/${router.locale}`} />
-        <meta name="msapplication-TileColor" content="#004747" />
+        <meta name="msapplication-TileColor" content="#1b0968" />
         <meta name="msapplication-TileImage" content={`https://www.fertiliv.com/${imagePath}`} />
         <meta name="msapplication-square70x70logo" content={imagePath} />
         <meta name="msapplication-square150x150logo" content={imagePath} />

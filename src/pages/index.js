@@ -26,7 +26,7 @@ export default function Page({ metaData }) {
         <meta name="keywords" content={metaData?.keywords} />
         <meta name="title" content="" />
         <link rel="icon" type="image/png" href={`/${imagePath}`} />
-        <meta name="theme-color" content="#004747" />
+        <meta name="theme-color" content="#1b0968" />
         <meta name="mobile-web-app-capable" content="no" />
         <meta name="application-name" content={metaData?.title} />
         <meta name="apple-mobile-web-app-capable" content="no" />
@@ -43,7 +43,7 @@ export default function Page({ metaData }) {
         <meta name="author" content={metaData?.title} />
         <meta name="description" content={metaData?.desc} />
         <link rel="canonical" href={`https://www.fertiliv.com/${locale}`} />
-        <meta name="msapplication-TileColor" content="#004747" />
+        <meta name="msapplication-TileColor" content="#1b0968" />
         <meta
           name="msapplication-TileImage"
           content={`https://www.fertiliv.com/${imagePath}`}
