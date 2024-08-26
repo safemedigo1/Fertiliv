@@ -93,14 +93,10 @@ const WhyFertiliv = () => {
                 <Link href='/quote'>{t("why_feriliv:team3")}</Link>
               </div>
             </div>
+
           </div>
         </div>
 
-        {/* <div className={styles.video}>
-          <iframe src="" frameborder="0"></iframe>
-
-          <Typography>Fertility clinic Fertiliv in Istanbul</Typography>
-        </div> */}
       </Container>
     </section >
   )
