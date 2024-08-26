@@ -44,7 +44,7 @@ const Memberships = () => {
             </div>
 
             <div className={styles.desc}>
-              <Typography>{t('members:site_name')}</Typography>
+              <Typography>{t('members:desc')}</Typography>
             </div>
           </div>
 
@@ -61,6 +61,7 @@ const Memberships = () => {
               </div>
             )}
           </div>
+
         </div>
       </Container>
     </section>

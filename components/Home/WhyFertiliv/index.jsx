@@ -59,7 +59,8 @@ const WhyFertiliv = () => {
               <div className={styles.desc}>
                 <Typography>
                   {t("why_feriliv:desc2")}
-
+                  <br />
+                  {t("why_feriliv:desc5")}
                 </Typography>
               </div>
 
