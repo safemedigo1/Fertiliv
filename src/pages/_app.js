@@ -20,10 +20,7 @@ function App({ Component, pageProps }) {
   return (
     <>
       <main
-        // className={`${
-        //   locale === "ar" ? cairo.className : quicksand.className
-        // }`}
-
+        dir={locale === "ar" ? "rtl" : "ltr"}
         className={`${
           locale === "ar" ? tajawal.className : quicksand.className
         }`}

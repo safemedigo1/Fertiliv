@@ -1,0 +1,19 @@
+{
+  "clinic": "Klinik",
+  "desc": "Sağlık işlemleri ve doktorlar hakkında tarafsız bilgi sağlayan bağımsız bir kuruluşuz.",
+  "desc2": "Bağımsız bir kuruluş olarak, tıbbi prosedürler ve doktorlar hakkında dürüst ve tarafsız bilgi sunuyoruz. Makalelerimiz, samimi bir şefkatle zenginleştirilmiş olup, güvenilir tıbbi kaynaklar ve uluslararası hastalarımızın dönüştürücü deneyimlerine dayanmaktadır.",
+  "title2": "Tıbbi Prosedürler İçin Kapsamlı Kılavuz",
+
+  "doctors": "doktorlar",
+  "title": "En popüler",
+  "treatment": "Tedavi",
+  "get_started": "Başla",
+  "verified": "Fertiliv'dan doğrulanmıştır",
+  "PatientsTreatedLastYear": "Geçen Yıl Tedavi Edilen Hastalar",
+  "yearsOfExp": "Yılların deneyimleri",
+
+  "PatientsTreatedLastYearFull": "Geçen Yıl Tedavi Edilen Hastalar",
+  "yearsOfExpFull": "Yılların deneyimleri",
+
+  "treatmentsCount": "Yapılan Tedaviler"
+}

@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import styles from "./index.module.scss";
-import { imgs } from '@/public/assets/constants'
 import { Container, Typography, Box, Rating } from "@mui/material";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
@@ -8,12 +7,10 @@ import Image from 'next/image';
 import { MdLocationOn } from 'react-icons/md'
 import { FaShieldAlt } from 'react-icons/fa'
 import Link from "next/link";
-import { MainContext } from '../context/MainContext';
-
-
+import imgs from '../../public/assets/constants/imgs';
 const PageHeader = ({ blog, treatment, dataHospitalSlug, dataDoctorSlug, dataDoctorMainSpecializations, dataDoctorTreatments }) => {
-  const context = useContext(MainContext);
-  const { compareStep } = context;
+  // const context = useContext(MainContext);
+  // const { compareStep } = context;
   const router = useRouter();
 
   const { pathname } = router;
@@ -202,26 +199,26 @@ const PageHeader = ({ blog, treatment, dataHospitalSlug, dataDoctorSlug, dataDoc
                     <div className={styles.boxes_container}>
                       <div className={styles.box}>
                         <div className={styles.num}>
-                          <Typography>{dataDoctorSlug.lastYearPatients}</Typography>
+                          <p>{dataDoctorSlug.lastYearPatients}</p>
                         </div>
                         <div className={styles.yearly}>
-                          <Typography>{t("most_popular:PatientsTreatedLastYear")}</Typography>
+                          <p>{t("most_popular:PatientsTreatedLastYear")}</p>
                         </div>
                       </div>
                       <div className={styles.box}>
                         <div className={styles.num}>
-                          <Typography>{dataDoctorSlug.experienceYears}</Typography>
+                          <p>{dataDoctorSlug.experienceYears}</p>
                         </div>
                         <div className={styles.yearly}>
-                          <Typography>{t("most_popular:yearsOfExp")}</Typography>
+                          <p>{t("most_popular:yearsOfExp")}</p>
                         </div>
                       </div>
                       <div className={styles.box}>
                         <div className={styles.num}>
-                          <Typography>{dataDoctorTreatments?.length}</Typography>
+                          <p>{dataDoctorTreatments?.length}</p>
                         </div>
                         <div className={styles.yearly}>
-                          <Typography>{t("most_popular:treatmentsCount")}</Typography>
+                          <p>{t("most_popular:treatmentsCount")}</p>
                         </div>
                       </div>
 
