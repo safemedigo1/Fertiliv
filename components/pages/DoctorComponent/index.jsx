@@ -175,7 +175,6 @@ const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDo
 
     return (
       <>
-        {/* <SecNavbar dataDoctorSlug={dataDoctorSlug} /> */}
         <PageHeader dataDoctorSlug={dataDoctorSlug} dataDoctorMainSpecializations={dataDoctorMainSpecializations} dataDoctorTreatments={dataDoctorTreatments} />
 
         <Box
@@ -646,81 +645,14 @@ const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDo
 
           </section>
         </Container >
-        {dataDoctorMedias.length !== 0 &&
-          <section id='reviews' className={styles.reviews} dir={router.locale === 'ar' ? 'rtl' : 'ltr'}>
-            <Container className={`${router.locale === 'ar' ? 'mycontainer_ar' : 'mycontainer'}`} sx={{ maxWidth: '1239px', paddingLeft: { sm: "0px", md: "0px" }, }} maxWidth={false} >
-              <div className={styles.title_mob}>
-                <Typography variant={'h4'}>
-                  {t('hospital:media')}
-                </Typography>
-              </div>
-
-              <div className={styles.boxes_container}>
-                <div className={styles.text_container}>
-                  <div className={styles.title}>
-                    <Typography variant={'h4'}>
-                      {t('hospital:media')}
-                    </Typography>
-                  </div>
-
-                  <div className={styles.desc}>
-                    <Typography sx={{
-                      color: "var(--main-dark-color)",
-                      fontSize: '18px',
-                      fontWeight: "var(--font-sem-bold)",
-                      fontFamily: router.locale === 'ar' ? 'var(--arabic-font)' : 'var(--quickstand-font)',
-                      letterSpacing: '0',
-                      marginRight: '20px'
-                    }}>
-                      {t("hospital:mediaDesc")}
-                    </Typography>
-                  </div>
-                </div>
-                <div className={styles.slider_container}>
-                  <Swiper
-                    breakPoints={hospitalBreakPoints}
-                    itemsToScroll={1}
-                    renderArrow={myArrow}
-                    isRTL={router.locale === 'ar' ? true : false}
-                  >
-
-
-
-                    {dataDoctorMedias?.map((clinic, index) => (
-                      <SwiperSlide onClick={() => handleImageClick(clinic.img)} className={styles.box} key={index}>
-                        <div className={styles.img_container}>
-                          <img src={clinic.path} alt={clinic.title} />
-                        </div>
-                      </SwiperSlide>
-                    ))}
-                  </Swiper>
-
-                  {selectedImage && (
-                    <div className={styles.fullscreen_container} onClick={handleCloseImage}>
-                      <img src={selectedImage} className={styles.fullscreen_img} />
-                      <CloseIcon />
-                    </div>
-                  )}
-
-
-                </div>
-              </div>
-            </Container>
-          </section>
-        }
 
 
 
 
-        {/* {cilincs.length !== 0 &&
-          <Box >
-            <MostPopular doctorClinics={cilincs} />
-          </Box>
-        } */}
 
 
 
-        {/* <Footer dataDoctorSlug={dataDoctorSlug} dataDoctorTreatments={dataDoctorTreatments} /> */}
+
       </>
     )
 }
