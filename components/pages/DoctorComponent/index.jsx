@@ -442,7 +442,7 @@ const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDo
                     }}
                     expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                     <AccordionSummary
-                      sx={expanded !== 'panel1' ? { '&:hover': { backgroundColor: '#1b09688f' }, transition: 'all 0.3s ease', height: '55px', borderRadius: '5px', backgroundColor: '#E7EDEC', color: '#000000' }
+                      sx={expanded !== 'panel1' ? { '&:hover': { backgroundColor: '#ffeee1' }, transition: 'all 0.3s ease', height: '55px', borderRadius: '5px', backgroundColor: '#E7EDEC', color: '#000000' }
                         : { backgroundColor: '#1b0968', color: '#FFFFFF', height: '55px', minHeight: '55px !important', borderRadius: '5px' }
                       }
                       expandIcon={<ExpandMoreIcon sx={expanded !== 'panel1' ? { color: ' #000000', width: '30px', height: "30px" } : { color: '#FFFFFF', width: '30px', height: "30px", marginBottom: '5px', }} />}
@@ -493,7 +493,7 @@ const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDo
                     }}
                     expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
                     <AccordionSummary
-                      sx={expanded !== 'panel2' ? { '&:hover': { backgroundColor: '#1b09688f' }, transition: 'all 0.3s ease', height: '55px', borderRadius: '5px', backgroundColor: '#E7EDEC', color: '#000000' }
+                      sx={expanded !== 'panel2' ? { '&:hover': { backgroundColor: '#ffeee1' }, transition: 'all 0.3s ease', height: '55px', borderRadius: '5px', backgroundColor: '#E7EDEC', color: '#000000' }
                         : { backgroundColor: '#1b0968', color: '#FFFFFF', height: '55px', borderRadius: '5px' }
                       }
                       expandIcon={<ExpandMoreIcon sx={expanded !== 'panel2' ? { color: ' #000000', width: '30px', height: "30px" } : { color: '#FFFFFF', width: '30px', height: "30px", marginBottom: '5px', }} />}
@@ -549,7 +549,7 @@ const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDo
                     }}
                     expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
                     <AccordionSummary
-                      sx={expanded !== 'panel3' ? { '&:hover': { backgroundColor: '#1b09688f' }, transition: 'all 0.3s ease', height: '55px', borderRadius: '5px', backgroundColor: '#E7EDEC', color: '#000000' }
+                      sx={expanded !== 'panel3' ? { '&:hover': { backgroundColor: '#ffeee1' }, transition: 'all 0.3s ease', height: '55px', borderRadius: '5px', backgroundColor: '#E7EDEC', color: '#000000' }
                         : { backgroundColor: '#1b0968', color: '#FFFFFF', height: '55px', borderRadius: '5px' }
                       }
                       expandIcon={<ExpandMoreIcon sx={expanded !== 'panel3' ? { color: ' #000000', width: '30px', height: "30px" } : { color: '#FFFFFF', width: '30px', height: "30px", marginBottom: '5px', }} />}
@@ -608,7 +608,7 @@ const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDo
                     }}
                     expanded={expanded === 'panel5'} onChange={handleChange('panel5')}>
                     <AccordionSummary
-                      sx={expanded !== 'panel5' ? { '&:hover': { backgroundColor: '#1b09688f' }, transition: 'all 0.3s ease', height: '55px', borderRadius: '5px', backgroundColor: '#E7EDEC', color: '#000000' }
+                      sx={expanded !== 'panel5' ? { '&:hover': { backgroundColor: '#ffeee1' }, transition: 'all 0.3s ease', height: '55px', borderRadius: '5px', backgroundColor: '#E7EDEC', color: '#000000' }
                         : { backgroundColor: '#1b0968', color: '#FFFFFF', height: '55px', borderRadius: '5px' }
                       }
                       expandIcon={<ExpandMoreIcon sx={expanded !== 'panel5' ? { color: ' #000000', width: '30px', height: "30px" } : { color: '#FFFFFF', width: '30px', height: "30px", marginBottom: '5px', }} />}
