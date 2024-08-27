@@ -1,4 +1,4 @@
-import "../styles/globals.css";
+import "../styles/globals.scss";
 import { Tajawal, Quicksand } from "next/font/google";
 import { appWithTranslation } from "next-i18next";
 import { useRouter } from "next/router";

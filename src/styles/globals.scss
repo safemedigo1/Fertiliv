@@ -74,22 +74,28 @@ button:hover {
   z-index: -1;
 }
 
-#HowItWorks .rec-carousel-wrapper {
-  position: relative;
-}
+#HowItWorks {
+  .swiper-wrapper {
+    width: 100%;
+    justify-content: center;
+    @media screen and (max-width: 450px) {
+      justify-content: unset;
+    }
+  }
 
-#HowItWorks .rec-pagination {
-  /* position: absolute; */
-  /* bottom: -11px; */
-  margin-top: 0px;
-  margin-bottom: 0px;
+  .swiper-pagination {
+    bottom: 0px;
+  }
+  .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background: var(--main-blue-color) !important;
+  }
 }
 #reviews .rec-pagination {
   margin-top: 16px;
 }
 
 #reviews .rec-pagination .rec-dot_active,
-#HowItWorks .rec-pagination .rec-dot_active {
+.rec-pagination .rec-dot_active {
   box-shadow: unset !important;
   background-color: var(--main-blue-color) !important;
 }

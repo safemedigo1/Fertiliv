@@ -16,7 +16,6 @@ const Consultation = () => {
   const { t } = useTranslation();
   const { locale } = useRouter();
   const [phoneNum, setPhoneNum] = useState('');
-  const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     fname: '',
     lname: '',

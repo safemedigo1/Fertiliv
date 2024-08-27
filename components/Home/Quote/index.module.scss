@@ -160,13 +160,17 @@ section.quote {
         margin-left: 120px;
         @media screen and (max-width: 992px) {
           margin-left: 0;
-          margin: auto;
+          margin: 0;
+          width: 100%;
         }
 
         .name,
         .email,
         .phone {
           margin-bottom: 16px;
+          @media screen and (max-width: 992px) {
+            width: 100%;
+          }
           input {
             width: 204px;
             height: 45px;
@@ -208,6 +212,9 @@ section.quote {
         .email {
           input {
             width: 424px;
+            @media screen and (max-width: 992px) {
+              width: 100%;
+            }
           }
         }
 
@@ -216,6 +223,9 @@ section.quote {
             padding: 0 !important;
             width: 424px;
             padding-left: 43px !important;
+            @media screen and (max-450px: 992px) {
+              width: 100%;
+            }
           }
         }
 
@@ -232,6 +242,9 @@ section.quote {
           text-align: center;
           margin-right: 0 !important;
           margin-top: 50px;
+          align-self: center;
+          @media screen and (max-width: 992px) {
+          }
         }
       }
 
@@ -324,7 +337,6 @@ section.quote[dir="rtl"] {
 
         .nextBtn {
           margin-right: unset;
-          margin-left: 287px;
           @media screen and (max-width: 992px) {
             margin-left: 0;
           }
@@ -344,7 +356,7 @@ section.quote[dir="rtl"] {
 
         @media screen and (max-width: 992px) {
           margin-right: 0;
-          margin: auto;
+          // margin: auto;
         }
 
         .name,
@@ -377,9 +389,6 @@ section.quote[dir="rtl"] {
 
         .phone {
           input {
-            padding: 0 !important;
-            width: 424px;
-            padding-left: 43px !important;
           }
         }
 

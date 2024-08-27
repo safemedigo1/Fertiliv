@@ -101,7 +101,7 @@
       align-items: flex-start;
       justify-content: space-between;
       .box {
-        background-color: var(--sec-green-color);
+        background-color: var(--main-beige-color);
         width: 100px;
         min-height: 110px;
         border-radius: 15px;
@@ -120,7 +120,7 @@
         p {
           font-size: 28px;
           font-weight: var(--font-medium);
-          color: var(--main-green-color);
+          color: var(--main-blue-color);
           font-family: "Quicksand";
         }
       }
@@ -141,7 +141,7 @@
 
       button {
         width: 100%;
-        background-color: var(--main-green-color);
+        background-color: var(--main-blue-color);
         color: var(--main-white-color);
         border-radius: 5px;
         height: 56px;
@@ -206,9 +206,9 @@ section.overview {
       .desc_boxes {
         @media screen and (max-width: 992px) {
           display: flex;
-          flex-wrap: wrap;
-          // flex-direction: column-reverse;
+          flex-wrap: nowrap;
           flex-direction: row;
+          gap: 16px;
         }
         .box {
           margin-right: 20px;
@@ -431,7 +431,7 @@ section.reviews {
         right: 30px;
         width: 35px;
         height: 35px;
-        color: var(--main-green-color);
+        color: var(--main-blue-color);
         cursor: pointer;
       }
 
@@ -445,7 +445,7 @@ section.reviews {
 }
 
 section.testimonials {
-  background-color: var(--sec-green-color);
+  background-color: var(--main-beige-color);
   margin-bottom: 40px;
   padding-top: 50px;
   padding-bottom: 50px;
@@ -667,10 +667,6 @@ section.overview[dir="rtl"] {
 
       .desc_boxes {
         @media screen and (max-width: 992px) {
-          display: flex;
-          flex-wrap: wrap;
-          // flex-direction: column-reverse;
-          flex-direction: row;
         }
         .box {
           margin-right: 0px;
@@ -791,7 +787,7 @@ section.reviews[dir="rtl"] {
         right: 30px;
         width: 35px;
         height: 35px;
-        color: var(--main-green-color);
+        color: var(--main-blue-color);
         cursor: pointer;
       }
 
@@ -808,7 +804,7 @@ section.testimonials[dir="rtl"] * {
 }
 
 section.testimonials[dir="rtl"] {
-  background-color: var(--sec-green-color);
+  background-color: var(--main-beige-color);
   margin-bottom: 40px;
   padding-top: 50px;
   padding-bottom: 50px;
