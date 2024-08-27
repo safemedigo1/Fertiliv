@@ -85,9 +85,9 @@ const PageHeader = ({ blog, treatment, dataHospitalSlug, dataDoctorSlug, dataDoc
                   </div>
 
                   <div className={styles.info}>
-                    <div className={styles.header}>
+                    {/* <div className={styles.header}>
                       {dataDoctorSlug.isOnline === true ? t("hospital:online_appointment_available") : t("hospital:offline_appointment_available")}
-                    </div>
+                    </div> */}
                     <div className={styles.boxes_container}>
                       <div className={styles.box}>
                         <div className={styles.num}>
@@ -101,9 +101,9 @@ const PageHeader = ({ blog, treatment, dataHospitalSlug, dataDoctorSlug, dataDoc
                         <div className={styles.num}>
                           <p>{dataDoctorSlug.experienceYears}</p>
                         </div>
-                        <div className={styles.yearly}>
+                        {/* <div className={styles.yearly}>
                           <p>{t("most_popular:yearsOfExp")}</p>
-                        </div>
+                        </div> */}
                       </div>
                       <div className={styles.box}>
                         <div className={styles.num}>

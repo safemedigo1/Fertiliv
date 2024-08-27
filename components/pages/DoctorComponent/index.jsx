@@ -196,19 +196,6 @@ const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDo
 
           <Container sx={{ maxWidth: "1239px" }} maxWidth={false}>
 
-            {dataDoctorSlug.isVerifid &&
-
-              <div className={styles.header}>
-                <div className={styles.icon_container}>
-                  <FaShieldAlt />
-                </div>
-                <div className={styles.text}>
-                  <Typography>
-                    {t("most_popular:verified")}
-                  </Typography>
-                </div>
-              </div>
-            }
 
 
 
@@ -236,12 +223,7 @@ const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDo
             </div> */}
 
 
-              <div className={styles.location}>
-                <MdLocationOn />
-                <Typography >
-                  {dataDoctorSlug?.location}
-                </Typography>
-              </div>
+
 
               <div className={styles.boxes_container}>
                 <div className={styles.box}>
@@ -256,18 +238,20 @@ const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDo
                   <div className={styles.num}>
                     <Typography>{dataDoctorSlug.experienceYears}</Typography>
                   </div>
+
                   <div className={styles.yearly}>
                     <Typography>{t("most_popular:yearsOfExp")}</Typography>
                   </div>
+
                 </div>
-                <div className={styles.box}>
+                {/* <div className={styles.box}>
                   <div className={styles.num}>
                     <Typography>{dataDoctorTreatments?.length}</Typography>
                   </div>
                   <div className={styles.yearly}>
                     <Typography>{t("most_popular:treatmentsCount")}</Typography>
                   </div>
-                </div>
+                </div> */}
 
               </div>
 
