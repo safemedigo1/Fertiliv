@@ -136,6 +136,8 @@ section.HowItWorks {
             height: 10px;
             background-color: var(--main-beige-color);
             z-index: 0;
+            @media screen and (max-width: 400px) {
+            }
           }
         }
         .step_box {
