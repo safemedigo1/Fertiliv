@@ -61,14 +61,13 @@ const PageHeader = ({ blog, treatment, dataHospitalSlug, dataDoctorSlug, dataDoc
                         <Typography variant="h3">
                           {`${dataDoctorSlug.firstName} ${dataDoctorSlug.fatherName} ${dataDoctorSlug.lastName}`}
 
+
+                          {console.log(dataDoctorTreatments, "dataDoctorTreatments")}
+
+
                         </Typography>
                       </div>
-                      <div className={styles.location}>
-                        <MdLocationOn />
-                        <Typography >
-                          {dataDoctorSlug?.location}
-                        </Typography>
-                      </div>
+
                       {/* <div className={styles.rating}>
                         <Rating name="read-only" defaultValue={dataDoctorSlug?.rating} size="small" readOnly />
                         <span className={styles.reviews_num}>{dataDoctorSlug?.totalReviews} Reviews</span>
@@ -77,6 +76,8 @@ const PageHeader = ({ blog, treatment, dataHospitalSlug, dataDoctorSlug, dataDoc
                       <div className={styles.category}>
                         <Typography>
                           {dataDoctorMainSpecializations[0]?.name}
+
+
                         </Typography>
                       </div>
 

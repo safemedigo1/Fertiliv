@@ -46,19 +46,19 @@ const Footer = () => {
                 </div>
 
                 <div className={styles.language} >
-                  <a href={`en/${router.asPath}`}>
+                  <a href={`/en${router.asPath}`}>
                     <Image src={en} alt="en" />
                     <Typography>
                       English
                     </Typography>
                   </a>
-                  <a href={`ar/${router.asPath}`}>
+                  <a href={`/ar${router.asPath}`}>
                     <Image src={ar} alt="ar" />
                     <Typography>
                       Arabic
                     </Typography>
                   </a>
-                  <a href={`tr/${router.asPath}`}>
+                  <a href={`/tr${router.asPath}`}>
                     <Image src={tr} alt="tr" />
                     <Typography>
                       Turkish
