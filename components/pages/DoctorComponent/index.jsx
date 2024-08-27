@@ -330,8 +330,8 @@ const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDo
                         modules={[Navigation, Pagination]}
                         slidesPerView={1}
                         navigation={{
-                          prevEl: '.swiper-button-prev',
-                          nextEl: '.swiper-button-next',
+                          prevEl: '.left_arrow',
+                          nextEl: '.right_arrow',
                         }}
                         pagination={false}
 
@@ -402,10 +402,10 @@ const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDo
                         ))}
 
                         {/* Custom Navigation Arrows */}
-                        <div className="swiper-button-prev">
+                        <div className="left_arrow">
                           <HiChevronLeft />
                         </div>
-                        <div className="swiper-button-next">
+                        <div className="right_arrow">
                           <HiChevronRight />
                         </div>
                       </Swiper>

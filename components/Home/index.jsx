@@ -34,9 +34,7 @@ export default function Home() {
         <IvfClinic />
         <HowItWorks />
         <Doctor />
-
         <DoctorsSection />
-
         <Memberships />
         <Reviews />
         <Quote />

@@ -145,6 +145,7 @@ import 'swiper/css/navigation';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { useTranslation } from 'react-i18next';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 const DoctorsSection = () => {
   const { t } = useTranslation()
   const { locale } = useRouter()
@@ -157,16 +158,21 @@ const DoctorsSection = () => {
       name: 'Dr Nilay Karaca',
       specialist: 'IVF Gynaecologist',
       image: '/nilay.png',
+      link: 'Dr-Nilay-Karaca'
     },
     {
       name: 'Doç. Dr. A.Kadir Tepeler',
       specialist: 'IVF Urologist',
       image: '/kader.png',
+      link: 'Doc-Dr-A-Kadir-Tepeler'
+
     },
     {
       name: 'Op. Dr. Mehmet Remzi Erdem',
       specialist: 'IVF Urologist',
       image: '/mehmet.png',
+      link: 'Dr-remzi-erdem'
+
     },
     {
       name: 'Mr Majd Khaled',
@@ -253,7 +259,7 @@ const DoctorsSection = () => {
           >
             {doctors.map((doctor, index) => (
               <SwiperSlide key={index} className={styles.swiper_slide_box}>
-                <div className={styles.box}>
+                <a href={`/doctor/${doctor.link}`} className={styles.box}>
                   <div className={styles.image_container}>
                     <img src={doctor.image} alt={doctor.name} />
                   </div>
@@ -268,7 +274,7 @@ const DoctorsSection = () => {
                       <IoIosArrowBack />
                     </div>
                   </div>
-                </div>
+                </a>
               </SwiperSlide>
             ))}
 
