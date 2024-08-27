@@ -328,7 +328,7 @@ const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDo
                     <div className={styles.slider_container}>
                       <Swiper
                         modules={[Navigation, Pagination]}
-                        slidesPerView={1}
+                        slidesPerView={1.1}
                         navigation={{
                           prevEl: '.left_arrow',
                           nextEl: '.right_arrow',
