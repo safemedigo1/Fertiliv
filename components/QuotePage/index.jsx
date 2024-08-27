@@ -78,8 +78,9 @@ const QuotePage = () => {
     { title: t("quote_page:treatment_11") },
     { title: t("quote_page:treatment_12") },
     { title: t("quote_page:treatment_13") },
-    // { title: t("quote_page:treatment_14") },
-    // { title: t("quote_page:treatment_15") },
+    { title: t("quote_page:treatment_14") },
+    { title: t("quote_page:treatment_15") },
+    { title: t("quote_page:treatment_16") },
   ]
 
   const question = [
