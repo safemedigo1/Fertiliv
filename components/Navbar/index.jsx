@@ -46,11 +46,11 @@ const Navbar = (props) => {
   const [showMenu, setShowMenu] = useState(false);
 
   const NavLinks = [
-    { title: t("common:steps"), link: '#HowItWorks' },
+    { title: t("common:steps"), link: '/#HowItWorks' },
     { title: t("common:quote"), link: '/quote' },
-    { title: t("common:about"), link: '#IvfClinic' },
+    { title: t("common:about"), link: '/#IvfClinic' },
     // { title: t("common:blogs"), link: '/blogs' },
-    { title: t("common:contact"), link: '#consultation' },
+    { title: t("common:contact"), link: '/#consultation' },
   ]
 
 
@@ -307,8 +307,6 @@ const Navbar = (props) => {
 
                   }
                 </div>
-
-
 
               </Container>
 

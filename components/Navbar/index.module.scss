@@ -78,7 +78,10 @@
 
       position: absolute;
       top: -2px;
-      left: 86px;
+      left: 85px;
+      @media screen and (max-width: 992px) {
+        left: -20px;
+      }
       width: 30px;
       height: 37px;
       background: white;

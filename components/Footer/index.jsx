@@ -11,6 +11,7 @@ import { useRouter } from 'next/router';
 const Footer = () => {
   const { t } = useTranslation();
   const { locale } = useRouter();
+  const router = useRouter();
 
   const { logo, facebook,
     instagram,
@@ -45,24 +46,24 @@ const Footer = () => {
                 </div>
 
                 <div className={styles.language} >
-                  <Link href='/'>
+                  <a href={`en/${router.asPath}`}>
                     <Image src={en} alt="en" />
                     <Typography>
                       English
                     </Typography>
-                  </Link>
-                  <Link href='/'>
+                  </a>
+                  <a href={`ar/${router.asPath}`}>
                     <Image src={ar} alt="ar" />
                     <Typography>
                       Arabic
                     </Typography>
-                  </Link>
-                  <Link href='/'>
+                  </a>
+                  <a href={`tr/${router.asPath}`}>
                     <Image src={tr} alt="tr" />
                     <Typography>
                       Turkish
                     </Typography>
-                  </Link>
+                  </a>
                 </div>
 
               </div>

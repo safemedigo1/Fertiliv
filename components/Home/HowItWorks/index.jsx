@@ -186,12 +186,12 @@ const HowItWorks = () => {
               1450: { slidesPerView: 5 },
               1750: { slidesPerView: 6 },
             }}
-            spaceBetween={30}
+            spaceBetween={40}
             dir={locale === 'ar' ? 'rtl' : 'ltr'}
             className={styles.swiper}
           >
             {steps.map((step, idx) => (
-              <SwiperSlide key={idx}>
+              <SwiperSlide key={idx} className={styles.box_container}>
                 <div className={styles.step_box}>
                   <div className={styles.icon_container}>
                     <Image src={step.icon} alt={step.title} />

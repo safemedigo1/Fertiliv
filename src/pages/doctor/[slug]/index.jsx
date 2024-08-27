@@ -355,5 +355,7 @@ export async function getStaticProps({ locale, params }) {
         "Footer",
       ])),
     },
+    revalidate: 10,
+
   };
 }

@@ -77,8 +77,9 @@ button:hover {
 #HowItWorks {
   .swiper-wrapper {
     width: 100%;
-    justify-content: center;
-    @media screen and (max-width: 450px) {
+
+    justify-content: space-between;
+    @media screen and (max-width: 922px) {
       justify-content: unset;
     }
   }
