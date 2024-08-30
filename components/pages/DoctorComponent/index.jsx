@@ -187,10 +187,7 @@ const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDo
           }}
           id={styles.hospital_header} dir={`${router.locale === 'ar' ? 'rtl' : 'ltr'}`}>
           <div className={styles.img_container}>
-            <Image
-              width={300}
-              height={218}
-              src={dataDoctorSlug.image} alt={dataDoctorSlug.firstName} />
+            <img src={dataDoctorSlug.image} alt={dataDoctorSlug.firstName} />
           </div>
 
           <Container sx={{ maxWidth: "1239px" }} maxWidth={false}>
