@@ -505,11 +505,17 @@ const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDo
                             <ListItem variant='li' sx={{
                               fontSize: { xs: '16px', sm: '16px', md: '16px', lg: '18px' }, fontWeight: 'var(--font-medium)', fontFamily: router.locale === 'ar' ? 'var(--arabic-font)' : 'var(--quickstand-font)'
                             }}>
-                              {memberShip.startdate !== null && memberShip.startdate !== null &&
-                                <Typography variant="h5" sx={{
-                                  fontFamily: router.locale === 'ar' ? 'var(--arabic-font)' : 'var(--quickstand-font)'
-                                }}>{memberShip.memberShipName} ({memberShip.startdate} - {memberShip.endDate})</Typography>
-                              }
+                              <Typography variant="h5" sx={{
+                                fontFamily: router.locale === 'ar' ? 'var(--arabic-font)' : 'var(--quickstand-font)'
+                              }}>
+                                {memberShip.memberShipName}
+
+                                {memberShip.startdate !== null && memberShip.startdate !== null &&
+                                  <>
+                                    {memberShip.startdate} - {memberShip.endDate}
+                                  </>
+                                }
+                              </Typography>
                             </ListItem  >
                           </>
                         ))}

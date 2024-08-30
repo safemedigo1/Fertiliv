@@ -101,18 +101,18 @@ const PageHeader = ({ blog, treatment, dataHospitalSlug, dataDoctorSlug, dataDoc
                         <div className={styles.num}>
                           <p>{dataDoctorSlug.experienceYears}</p>
                         </div>
-                        {/* <div className={styles.yearly}>
+                        <div className={styles.yearly}>
                           <p>{t("most_popular:yearsOfExp")}</p>
-                        </div> */}
+                        </div>
                       </div>
-                      <div className={styles.box}>
+                      {/* <div className={styles.box}>
                         <div className={styles.num}>
                           <p>{dataDoctorTreatments?.length}</p>
                         </div>
                         <div className={styles.yearly}>
                           <p>{t("most_popular:treatmentsCount")}</p>
                         </div>
-                      </div>
+                      </div> */}
 
                     </div>
 
