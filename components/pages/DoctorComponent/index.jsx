@@ -320,9 +320,9 @@ const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDo
 
 
                       <ul>
-                        {dataDoctorEducation?.map((education) => (
+                        {dataDoctorEducation?.map((education, index) => (
 
-                          <li>
+                          <li key={index}>
                             <Typography variant="h5" sx={{
                               display: 'block', fontWeight: '500'
                             }}>{education.title} ({education.yearFrom} - {education.yearTo})</Typography>
@@ -364,9 +364,9 @@ const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDo
                     <AccordionDetails sx={AccordionDetailsStyles}>
 
                       <ul>
-                        {dataDoctorCareer?.map((career) => (
+                        {dataDoctorCareer?.map((career, index) => (
 
-                          <li>
+                          <li key={index}>
                             <Typography variant="h5" sx={{
                               display: 'block', fontWeight: '500'
                             }}>{career.title} ({career.yearFrom} - {career.yearTo})</Typography>
@@ -402,9 +402,9 @@ const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDo
 
                     <AccordionDetails sx={AccordionDetailsStyles}>
                       <ul>
-                        {dataDoctorMemberShip?.map((memberShip) => (
+                        {dataDoctorMemberShip?.map((memberShip, index) => (
 
-                          <li>
+                          <li key={index}>
                             <Typography variant="h5" sx={{
                               display: 'block', fontWeight: '500'
                             }}>{memberShip.memberShipName}
@@ -451,9 +451,9 @@ const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDo
 
                     <AccordionDetails sx={AccordionDetailsStyles}>
                       <ul>
-                        {dataDoctorProcedure?.map((procedure) => (
+                        {dataDoctorProcedure?.map((procedure, index) => (
 
-                          <li>
+                          <li key={index}>
                             <Typography variant="h5" sx={{
                               display: 'block', fontWeight: '500'
                             }}> {procedure.title}</Typography>
