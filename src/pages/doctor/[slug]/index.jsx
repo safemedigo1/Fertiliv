@@ -4,6 +4,7 @@ import Navbar from "../../../../components/Navbar";
 import Footer from "../../../../components/Footer";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import Consultation from "../../../../components/Home/Consultation";
 
 const DoctorName = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDoctorTreatments, dataDoctorCertificatest, dataDoctorLanguagesBySlug, dataDoctorMedias, dataDoctorCareer, dataDoctorEducation, dataDoctorMemberShip, dataDoctorProcedure, dataDoctorHospitalClinics, dataDoctorPackage, dataSubSpecializations, metaData }) => {
   const { locale } = useRouter();
@@ -97,6 +98,7 @@ const DoctorName = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDoctorT
       <DoctorComponent
         dataDoctorSlug={dataDoctorSlug} dataDoctorMainSpecializations={dataDoctorMainSpecializations} dataDoctorTreatments={dataDoctorTreatments} dataDoctorCertificatest={dataDoctorCertificatest} dataDoctorLanguagesBySlug={dataDoctorLanguagesBySlug} dataDoctorMedias={dataDoctorMedias} dataDoctorCareer={dataDoctorCareer} dataDoctorEducation={dataDoctorEducation} dataDoctorMemberShip={dataDoctorMemberShip} dataDoctorProcedure={dataDoctorProcedure} dataDoctorHospitalClinics={dataDoctorHospitalClinics} dataDoctorPackage={dataDoctorPackage} dataSubSpecializations={dataSubSpecializations}
       />
+      <Consultation />
 
       <Footer />
 

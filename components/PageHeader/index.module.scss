@@ -311,14 +311,19 @@
         align-items: flex-start;
         .box {
           background-color: var(--main-beige-color);
-          width: 100px;
+          // width: 100px;
+          width: 50%;
+
           min-height: 110px;
           border-radius: 15px;
           display: flex;
           flex-direction: column;
-          align-items: flex-start;
+          // align-items: flex-start;
           padding: 10px;
           margin-bottom: 24px;
+
+          align-items: center;
+          text-align: center;
 
           &:not(:last-child) {
             margin-right: 13px;
@@ -359,6 +364,7 @@
             font-family: "Quicksand";
             cursor: pointer;
             border: none;
+            transition: all 0.3s ease-in-out;
           }
         }
         width: 100%;

@@ -163,7 +163,7 @@ section.doctors_section {
       display: flex;
       background-color: var(--main-blue-color);
       border-radius: 50%;
-      z-index: 9999;
+      z-index: 10;
       cursor: pointer;
 
       @media screen and (max-width: 992px) {
@@ -180,11 +180,11 @@ section.doctors_section {
       }
     }
     .icon_container_right2 {
-      right: 14px;
+      right: -16px;
     }
 
     .icon_container_left2 {
-      left: 14px;
+      left: -16px;
     }
   }
 }

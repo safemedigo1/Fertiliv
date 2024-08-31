@@ -71,21 +71,25 @@ const Footer = () => {
 
               <div className={styles.media_container}>
                 <div className={styles.media}>
-                  <Link href="">
+                  {/* <Link href="">
                     <Image src={twitter} alt="twitter" />
-                  </Link>
-                  <Link href="">
+                  </Link> */}
+
+                  <Link href="https://www.facebook.com/profile.php?id=100089693390459" target='_blank'>
                     <Image src={facebook} alt="facebook" />
                   </Link>
-                  <Link href="">
+
+                  <Link href="https://www.instagram.com/fertiliv/" target='_blank'>
                     <Image src={instagram} alt="instagram" />
                   </Link>
-                  <Link href="">
+
+
+                  {/* <Link href="">
                     <Image src={youtube} alt="youtube" />
-                  </Link>
+                  </Link> */}
                 </div>
 
-                <div className={styles.subscribe_container}>
+                {/* <div className={styles.subscribe_container}>
                   <div className={styles.title}>
                     <Typography>Subscribe To Our Newsletter</Typography>
                   </div>
@@ -98,7 +102,7 @@ const Footer = () => {
                     </label>
                     <input type="email" placeholder='email@example.com' />
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
 

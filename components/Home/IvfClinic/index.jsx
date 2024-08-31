@@ -18,32 +18,52 @@ const IvfClinic = () => {
 
   const images = [
     {
-      original: big.src,
-      thumbnail: big.src,
+      original: '/assets/imgs/gallery/1.webp',
+      thumbnail: '/assets/imgs/gallery/1.webp',
     },
     {
-      original: small_1.src,
-      thumbnail: small_1.src,
+      original: "/assets/imgs/gallery/2.webp",
+      thumbnail: "/assets/imgs/gallery/2.webp",
     },
     {
-      original: small_2.src,
-      thumbnail: small_2.src,
+      original: "/assets/imgs/gallery/3.webp",
+      thumbnail: "/assets/imgs/gallery/3.webp",
     },
     {
-      original: small_3.src,
-      thumbnail: small_3.src,
+      original: "/assets/imgs/gallery/4.webp",
+      thumbnail: "/assets/imgs/gallery/4.webp",
     },
     {
-      original: small_4.src,
-      thumbnail: small_4.src,
+      original: "/assets/imgs/gallery/5.webp",
+      thumbnail: "/assets/imgs/gallery/5.webp",
     },
     {
-      original: small_4.src,
-      thumbnail: small_4.src,
+      original: "/assets/imgs/gallery/6.webp",
+      thumbnail: "/assets/imgs/gallery/6.webp",
     },
     {
-      original: small_4.src,
-      thumbnail: small_4.src,
+      original: "/assets/imgs/gallery/8.webp",
+      thumbnail: "/assets/imgs/gallery/8.webp",
+    },
+    {
+      original: "/assets/imgs/gallery/9.webp",
+      thumbnail: "/assets/imgs/gallery/9.webp",
+    },
+    {
+      original: "/assets/imgs/gallery/10.webp",
+      thumbnail: "/assets/imgs/gallery/10.webp",
+    },
+    {
+      original: "/assets/imgs/gallery/11.webp",
+      thumbnail: "/assets/imgs/gallery/11.webp",
+    },
+    {
+      original: "/assets/imgs/gallery/12.webp",
+      thumbnail: "/assets/imgs/gallery/12.webp",
+    },
+    {
+      original: "/assets/imgs/gallery/13.webp",
+      thumbnail: "/assets/imgs/gallery/13.webp",
     },
   ];
 
@@ -61,17 +81,17 @@ const IvfClinic = () => {
 
         <div className={styles.images_container} onClick={() => setShowGallery(true)}>
           <div className={styles.main_img}>
-            <Image src={big} alt='fertiliv hospital' />
+            <img src={'/assets/imgs/gallery/12.webp'} alt='Fertiliv' />
           </div>
 
 
           <div className={styles.small_images}>
-            <Image src={small_1} alt='hospital image' />
-            <Image src={small_2} alt='hospital image' />
-            <Image src={small_3} alt='hospital image' />
-            <Image src={small_4} alt='hospital image' />
-            <Image src={small_4} alt='hospital image' />
-            <Image src={small_4} alt='hospital image' />
+            <img src={'/assets/imgs/gallery/1.webp'} alt='Fertiliv' />
+            <img src={'/assets/imgs/gallery/7.webp'} alt='Fertiliv' />
+            <img src={'/assets/imgs/gallery/3.webp'} alt='Fertiliv' />
+            <img src={'/assets/imgs/gallery/9.webp'} alt='Fertiliv' />
+            <img src={'/assets/imgs/gallery/5.webp'} alt='Fertiliv' />
+            <img src={'/assets/imgs/gallery/6.webp'} alt='Fertiliv' />
           </div>
         </div>
 

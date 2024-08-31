@@ -95,27 +95,35 @@ const Consultation = () => {
     }
   };
 
-  return (
-    <section id="consultation" className={styles.consultation} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
-      <Container>
-        <div className={styles.section_container}>
-          <div className={styles.title}>
-            <Typography variant="h3">{t('why_feriliv:consultation_title')}</Typography>
-          </div>
 
-          <div className={styles.cards_container}>
-            <div className={styles.text_card}>
-              <div className={styles.img_container}>
-                <Image src={Consultation_girl} alt="" />
-              </div>
-              <div className={styles.text_container}>
-                <div className={styles.title}>
-                  <Typography variant="h4">{t('why_feriliv:question')}</Typography>
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+  if (isClient)
+
+    return (
+      <section id="consultation" className={styles.consultation} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+        <Container>
+          <div className={styles.section_container}>
+            <div className={styles.title}>
+              <Typography variant="h3">{t('why_feriliv:consultation_title')}</Typography>
+            </div>
+
+            <div className={styles.cards_container}>
+              <div className={styles.text_card}>
+                <div className={styles.img_container}>
+                  <Image src={Consultation_girl} alt="" />
                 </div>
-                {/* question */}
-                <div className={styles.desc}>
-                  <Typography>
-                    {/* Our highly efficient health care
+                <div className={styles.text_container}>
+                  <div className={styles.title}>
+                    <Typography variant="h4">{t('why_feriliv:question')}</Typography>
+                  </div>
+                  {/* question */}
+                  <div className={styles.desc}>
+                    <Typography>
+                      {/* Our highly efficient health care
                     <br />
                     coordinating team will be at your <br />
                     disposal full time. Leave your <br />
@@ -123,132 +131,135 @@ const Consultation = () => {
                     we will reply to you back. */}
 
 
-                    {t('why_feriliv:question_desc')}
+                      {t('why_feriliv:question_desc')}
 
-                  </Typography>
+                    </Typography>
+                  </div>
                 </div>
               </div>
+
+              <motion.div
+                initial={{ opacity: 0, x: -100 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1 }}
+                className={styles.input_container}
+              >
+                <form onSubmit={handleSubmit}>
+                  <div className={styles.name}>
+                    <input
+                      type="text"
+                      placeholder="Your First Name"
+                      name="fname"
+                      value={formData.fname}
+                      onChange={handleChangeForm}
+                      required
+                    />
+                    <input
+                      type="text"
+                      placeholder="Your Second Name"
+                      name="lname"
+                      value={formData.lname}
+                      onChange={handleChangeForm}
+                      required
+                    />
+                  </div>
+
+                  <div className={styles.phone} dir='ltr'>
+                    <PhoneInput
+                      country="tr"
+                      value={phoneNum}
+                      onChange={handleChangePhone}
+                      inputProps={{
+                        name: 'phone',
+                        required: true,
+                      }}
+                    />
+                  </div>
+
+                  <div className={styles.email}>
+                    <input
+                      type="email"
+                      placeholder="E-mail"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChangeForm}
+                      required
+                    />
+                  </div>
+
+                  <div className={styles.textarea}>
+                    <textarea
+                      name="text"
+                      placeholder="Your Question"
+                      value={formData.text}
+                      onChange={handleChangeForm}
+                    ></textarea>
+                  </div>
+                </form>
+              </motion.div>
+
+              <Toaster
+                toastOptions={{
+                  duration: 1000,
+                  success: {
+                    style: {
+                      color: '#004747',
+                      fontWeight: 'bold',
+                    },
+                    iconTheme: {
+                      primary: '#004747',
+                      secondary: '#ffffff',
+                    },
+                  },
+                  error: {
+                    style: {
+                      color: 'red',
+                      fontWeight: 'bold',
+                    },
+                  },
+                }}
+              />
+            </div>
+
+            <div className={styles.terms}>
+
+              <Typography>
+                {t('why_feriliv:terms')}
+              </Typography>
+
             </div>
 
             <motion.div
-              initial={{ opacity: 0, x: -100 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 1 }}
-              className={styles.input_container}
+              className={styles.subBtn}
+              onClick={handleSubmit}
             >
-              <form onSubmit={handleSubmit}>
-                <div className={styles.name}>
-                  <input
-                    type="text"
-                    placeholder="Your First Name"
-                    name="fname"
-                    value={formData.fname}
-                    onChange={handleChangeForm}
-                    required
+              <Button>
+                {isLoading ? (
+                  <ThreeDots
+                    height="25"
+                    width="25"
+                    radius="9"
+                    color="#707070"
+                    ariaLabel="three-dots-loading"
+                    wrapperStyle={{}}
+                    wrapperClassName="load_more_btn"
+                    visible={true}
                   />
-                  <input
-                    type="text"
-                    placeholder="Your Second Name"
-                    name="lname"
-                    value={formData.lname}
-                    onChange={handleChangeForm}
-                    required
-                  />
-                </div>
-
-                <div className={styles.phone} dir='ltr'>
-                  <PhoneInput
-                    country="tr"
-                    value={phoneNum}
-                    onChange={handleChangePhone}
-                    inputProps={{
-                      name: 'phone',
-                      required: true,
-                    }}
-                  />
-                </div>
-
-                <div className={styles.email}>
-                  <input
-                    type="email"
-                    placeholder="E-mail"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChangeForm}
-                    required
-                  />
-                </div>
-
-                <div className={styles.textarea}>
-                  <textarea
-                    name="text"
-                    placeholder="Your Question"
-                    value={formData.text}
-                    onChange={handleChangeForm}
-                  ></textarea>
-                </div>
-              </form>
+                ) : (
+                  t('why_feriliv:submit')
+                )}
+              </Button>
             </motion.div>
 
-            <Toaster
-              toastOptions={{
-                duration: 1000,
-                success: {
-                  style: {
-                    color: '#004747',
-                    fontWeight: 'bold',
-                  },
-                  iconTheme: {
-                    primary: '#004747',
-                    secondary: '#ffffff',
-                  },
-                },
-                error: {
-                  style: {
-                    color: 'red',
-                    fontWeight: 'bold',
-                  },
-                },
-              }}
-            />
           </div>
-
-          <div className={styles.terms}>
-            <Typography>
-              {t('why_feriliv:terms')}
-            </Typography>
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1 }}
-            className={styles.subBtn}
-            onClick={handleSubmit}
-          >
-            <Button>
-              {isLoading ? (
-                <ThreeDots
-                  height="25"
-                  width="25"
-                  radius="9"
-                  color="#707070"
-                  ariaLabel="three-dots-loading"
-                  wrapperStyle={{}}
-                  wrapperClassName="load_more_btn"
-                  visible={true}
-                />
-              ) : (
-                t('why_feriliv:submit')
-              )}
-            </Button>
-          </motion.div>
-        </div>
-      </Container>
-    </section>
-  );
+        </Container>
+      </section>
+    );
 };
 
 export default Consultation;

@@ -85,7 +85,8 @@ section.IvfClinic {
       img {
         width: 600px;
         height: 429px;
-
+        object-fit: cover;
+        border-radius: 12px;
         @media screen and (max-width: 750px) {
           width: 100%;
           margin-right: 0px;
@@ -107,12 +108,17 @@ section.IvfClinic {
         flex-wrap: wrap;
         justify-content: space-between;
         width: 100%;
+        gap: 16px;
+        margin-top: 16px;
       }
+
       img {
         // width: 274px;
         width: 255px;
         height: 203px;
         margin-bottom: 20px;
+        object-fit: cover;
+        border-radius: 12px;
 
         &:first-child {
           margin-right: 20px;
@@ -151,12 +157,10 @@ section.IvfClinic {
           margin-right: 20px;
           width: 160px;
           height: 160px;
-          object-fit: contain;
         }
         @media screen and (max-width: 750px) {
           width: 100px;
           height: 88px;
-          object-fit: contain;
           margin-right: 16px;
           margin-bottom: 16px;
         }

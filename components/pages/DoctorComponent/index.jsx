@@ -1,26 +1,16 @@
 import { Container, Typography, Dialog, DialogContent, Accordion, AccordionDetails, AccordionSummary, Box, List, ListItem, DialogTitle } from '@mui/material';
 import Link from 'next/link';
-// import  from '../../../styles/hospital.module.scss';
 import styles from '../../../src/styles/hospital.module.scss'
-// import Carousel from 'react-elastic-carousel';
 import { useEffect, useState } from "react";
-import { FaChevronRight, FaChevronLeft, } from 'react-icons/fa'
-// import { consts } from 'react-elastic-carousel';
 import Image from "next/image";
 import { styled } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-// import { MostPopular } from "@/components/Home";
-
 import { useRouter } from "next/router";
-import { MdLocationOn } from 'react-icons/md'
-import { FaShieldAlt } from 'react-icons/fa'
 import axios from "axios";
 import { useTranslation } from "react-i18next";
 import PageHeader from "../../PageHeader";
-
-
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
@@ -28,6 +18,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
+
 
 const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDoctorTreatments, dataDoctorCertificatest, dataDoctorLanguagesBySlug, dataDoctorMedias, dataDoctorCareer, dataDoctorEducation, dataDoctorMemberShip, dataDoctorProcedure, dataDoctorHospitalClinics, dataDoctorPackage, dataSubSpecializations }) => {
 
@@ -43,49 +34,16 @@ const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDo
   }, [])
 
   const { t } = useTranslation();
-
-
   const router = useRouter();
-
-
   const [expanded, setExpanded] = useState(false);
-  const [hospitalBreakPoints] = useState([
-    { width: 1, pagination: true, showArrows: false },
-    { width: 300, pagination: true, showArrows: false, itemsToShow: 1.1, itemsToScroll: 1 },
-    { width: 400, pagination: true, itemsToShow: 2.5, itemsToScroll: 1, showArrows: false },
-    { width: 800, pagination: true, itemsToShow: 2.5, itemsToScroll: 1, transitionMs: 1000, showArrows: false },
-    { width: 900, pagination: false, itemsToShow: 2.5, itemsToScroll: 1, transitionMs: 1000 },
 
-  ])
   const [similarDocs, setSimilarDocs] = useState([]);
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
-  // Change Arrow in react-elastic-carousel Lirbrary
-  // function myArrow({ type, onClick, isEdge }) {
-  //   const pointer = type === consts.PREV ?
-  //     <div className='left_arrow'>
-  //       <  FaChevronLeft />
-  //     </div>
-
-  //     :
-  //     <div className='right_arrow'>
-  //       <FaChevronRight />
-
-  //     </div>
-
-  //     ;
-
-  //   return (
-  //     <button className='main_btn' onClick={onClick} disabled={isEdge}>
-  //       {pointer}
-  //     </button>
-  //   );
-  // }
 
 
-  // Dialog MUI
   const [open, setOpen] = useState(false);
 
   const [selectedCard, setSelectedCard] = useState(null)
@@ -166,6 +124,36 @@ const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDo
     setSimilarDocs(similarDocs)
   }
 
+  const AccordionStyles = {
+    marginTop: '8px',
+    '&:before': {
+      display: 'none',
+    }
+  }
+
+  const AccordionSummaryStyles1 = {
+    '&:hover': { backgroundColor: '#ffeee1' }, transition: 'all 0.3s ease', height: '55px', borderRadius: '5px', backgroundColor: '#E7EDEC', color: '#000000'
+  }
+  const AccordionSummaryStyles2 = {
+    backgroundColor: '#1b0968', color: '#FFFFFF', height: '55px', minHeight: '55px !important', borderRadius: '5px'
+  }
+
+  const ExpandMoreIconStyles1 = {
+    color: ' #000000', width: '30px', height: "30px"
+  }
+
+  const ExpandMoreIconStyles2 = {
+    color: '#FFFFFF', width: '30px', height: "30px", marginBottom: '5px',
+  }
+  const TypographyStyles = {
+    fontSize: { xs: '16px', sm: '16px', md: '16px', lg: '18px' }, fontWeight: 'bold', fontFamily:
+      router.locale === 'ar' ? 'var(--arabic-font)' : 'var(--quickstand-font)'
+  }
+  const AccordionDetailsStyles = {
+    fontSize: { xs: '16px', sm: '16px', md: '16px', lg: '18px' }, fontWeight: 'bold', fontFamily:
+      router.locale === 'ar' ? 'var(--arabic-font)' : 'var(--quickstand-font)'
+  }
+
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
@@ -192,16 +180,9 @@ const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDo
 
           <Container sx={{ maxWidth: "1239px" }} maxWidth={false}>
 
-
-
-
             <div className={styles.title}>
               <Typography variant="h3">
                 {`${dataDoctorSlug.doctorLevel === null ? '' : dataDoctorSlug.doctorLevel} ${dataDoctorSlug.firstName} ${dataDoctorSlug.fatherName} ${dataDoctorSlug.lastName} `}
-
-
-
-
               </Typography>
             </div>
 
@@ -213,10 +194,7 @@ const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDo
                 </Typography>
               </div>
 
-              {/* <div className={styles.rating}>
-              <Rating defaultValue={dataDoctorSlug?.rating} size="small" readOnly />
-              <span className={styles.reviews_num}>{dataDoctorSlug?.totalReviews} {t("hospital:Reviews")}</span>
-            </div> */}
+
 
 
 
@@ -240,14 +218,7 @@ const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDo
                   </div>
 
                 </div>
-                {/* <div className={styles.box}>
-                  <div className={styles.num}>
-                    <Typography>{dataDoctorTreatments?.length}</Typography>
-                  </div>
-                  <div className={styles.yearly}>
-                    <Typography>{t("most_popular:treatmentsCount")}</Typography>
-                  </div>
-                </div> */}
+
 
               </div>
 
@@ -313,6 +284,200 @@ const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDo
 
 
               </div>
+
+
+
+              <div className={styles.links}>
+
+
+                {dataDoctorEducation.length !== 0 &&
+                  <Accordion disableGutters elevation={0}
+                    square={false} sx={{
+                      marginTop: '8px',
+                      '&:before': {
+                        display: 'none',
+                      }
+                    }}
+                    expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
+                    <AccordionSummary
+                      sx={expanded !== 'panel3' ? AccordionSummaryStyles1
+                        : AccordionSummaryStyles2
+                      }
+                      expandIcon={<ExpandMoreIcon sx={expanded !== 'panel3' ? ExpandMoreIconStyles1 : ExpandMoreIconStyles2} />}
+                      aria-controls="panel3d-content" id="panel3d-header">
+                      <Typography sx={TypographyStyles}>
+
+                        {t("hospital:education")}
+
+                      </Typography>
+                    </AccordionSummary>
+
+                    <AccordionDetails sx={AccordionDetailsStyles}>
+
+
+
+
+
+
+                      <ul>
+                        {dataDoctorEducation?.map((education) => (
+
+                          <li>
+                            <Typography variant="h5" sx={{
+                              display: 'block', fontWeight: '500'
+                            }}>{education.title} ({education.yearFrom} - {education.yearTo})</Typography>
+
+                            <p>                               {education.description}
+                            </p>
+                          </li>
+                        ))}
+                      </ul>
+
+
+                    </AccordionDetails>
+
+                  </Accordion>
+                }
+
+                {dataDoctorCareer.length !== 0 &&
+                  <Accordion disableGutters elevation={0}
+                    square={false} sx={{
+                      marginTop: '8px',
+                      '&:before': {
+                        display: 'none',
+                      }
+                    }}
+                    expanded={expanded === 'panel5'} onChange={handleChange('panel5')}>
+                    <AccordionSummary
+                      sx={expanded !== 'panel5' ? AccordionSummaryStyles1
+                        : AccordionSummaryStyles2
+                      }
+                      expandIcon={<ExpandMoreIcon sx={expanded !== 'panel5' ? ExpandMoreIconStyles1 : ExpandMoreIconStyles2} />}
+                      aria-controls="panel5d-content" id="panel5d-header">
+                      <Typography sx={
+                        TypographyStyles
+                      }>
+                        {t("hospital:career")}
+                      </Typography>
+                    </AccordionSummary>
+
+                    <AccordionDetails sx={AccordionDetailsStyles}>
+
+                      <ul>
+                        {dataDoctorCareer?.map((career) => (
+
+                          <li>
+                            <Typography variant="h5" sx={{
+                              display: 'block', fontWeight: '500'
+                            }}>{career.title} ({career.yearFrom} - {career.yearTo})</Typography>
+
+                            <p> {career.description}</p>
+                          </li>
+                        ))}
+                      </ul>
+
+
+                    </AccordionDetails>
+
+                  </Accordion>
+                }
+
+                {dataDoctorMemberShip.length !== 0 &&
+                  <Accordion disableGutters elevation={0}
+                    square={false} sx={AccordionStyles}
+                    expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
+                    <AccordionSummary
+                      sx={
+                        expanded !== 'panel2' ?
+                          AccordionSummaryStyles1 : AccordionSummaryStyles2
+                      }
+                      expandIcon={<ExpandMoreIcon sx={expanded !== 'panel2' ? ExpandMoreIconStyles1 : ExpandMoreIconStyles2} />}
+
+                      aria-controls="panel2d-content" id="panel2d-header">
+                      <Typography sx={TypographyStyles}>
+                        {t("hospital:memberships")}
+
+                      </Typography>
+                    </AccordionSummary>
+
+                    <AccordionDetails sx={AccordionDetailsStyles}>
+                      <ul>
+                        {dataDoctorMemberShip?.map((memberShip) => (
+
+                          <li>
+                            <Typography variant="h5" sx={{
+                              display: 'block', fontWeight: '500'
+                            }}>{memberShip.memberShipName}
+                              {memberShip.startdate !== null && memberShip.startdate !== null &&
+                                <>
+                                  {memberShip.startdate} - {memberShip.endDate}
+                                </>
+                              }</Typography>
+
+
+                            <p>
+                              {memberShip.description}
+                            </p>
+                          </li>
+                        ))}
+                      </ul>
+                    </AccordionDetails>
+                  </Accordion>
+                }
+
+
+                {dataDoctorProcedure.length !== 0 &&
+                  <Accordion disableGutters elevation={0}
+                    square={false} sx={{
+                      marginTop: '8px',
+                      '&:before': {
+                        display: 'none',
+                      }
+                    }}
+
+
+
+                    expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+                    <AccordionSummary
+                      sx={expanded !== 'panel1' ? AccordionSummaryStyles1
+                        : AccordionSummaryStyles2
+                      }
+                      expandIcon={<ExpandMoreIcon sx={expanded !== 'panel1' ? ExpandMoreIconStyles1 : ExpandMoreIconStyles2} />}
+                      aria-controls="panel1d-content" id="panel1d-header">
+                      <Typography sx={TypographyStyles}>
+                        {t("hospital:procedures")}
+                      </Typography>
+                    </AccordionSummary>
+
+                    <AccordionDetails sx={AccordionDetailsStyles}>
+                      <ul>
+                        {dataDoctorProcedure?.map((procedure) => (
+
+                          <li>
+                            <Typography variant="h5" sx={{
+                              display: 'block', fontWeight: '500'
+                            }}> {procedure.title}</Typography>
+
+
+                            <p>
+                              {procedure.name}
+                            </p>
+                          </li>
+                        ))}
+                      </ul>
+                    </AccordionDetails>
+
+                  </Accordion>
+                }
+
+
+
+
+
+
+              </div>
+
+
               <div className={styles.certificates_boxes}>
                 {dataDoctorCertificatest.length !== 0 &&
                   <>
@@ -331,8 +496,6 @@ const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDo
                           nextEl: '.right_arrow',
                         }}
                         pagination={false}
-
-
                         className={styles.swiper}
                       >
                         {dataDoctorCertificatest?.map((card, index) => (
@@ -344,7 +507,7 @@ const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDo
                               <div className={styles.boxes_container}>
                                 <div className={styles.box_header}>
                                   <div className={styles.img_container}>
-                                    <Image width={66.87} height={99.78} src={card?.image} alt="" />
+                                    <img src={card?.image} alt="" />
                                   </div>
                                 </div>
 
@@ -387,7 +550,7 @@ const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDo
                                       }
                                     }}
                                   >
-                                    <Image width={66.87} height={99.78} src={selectedCard.image} alt={selectedCard.name} />
+                                    <img src={selectedCard.image} alt={selectedCard.name} />
                                   </Box>
                                   <Typography gutterBottom>
                                     {selectedCard.description}
@@ -410,240 +573,6 @@ const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDo
                   </>
                 }
               </div>
-
-
-              <div className={styles.links}>
-                {dataDoctorProcedure.length !== 0 &&
-                  <Accordion disableGutters elevation={0}
-                    square={false} sx={{
-                      '&:before': {
-                        display: 'none',
-                      }
-                    }}
-                    expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
-                    <AccordionSummary
-                      sx={expanded !== 'panel1' ? { '&:hover': { backgroundColor: '#ffeee1' }, transition: 'all 0.3s ease', height: '55px', borderRadius: '5px', backgroundColor: '#E7EDEC', color: '#000000' }
-                        : { backgroundColor: '#1b0968', color: '#FFFFFF', height: '55px', minHeight: '55px !important', borderRadius: '5px' }
-                      }
-                      expandIcon={<ExpandMoreIcon sx={expanded !== 'panel1' ? { color: ' #000000', width: '30px', height: "30px" } : { color: '#FFFFFF', width: '30px', height: "30px", marginBottom: '5px', }} />}
-                      aria-controls="panel1d-content" id="panel1d-header">
-                      <Typography sx={{ fontSize: { xs: '16px', sm: '16px', md: '16px', lg: '18px' }, fontWeight: 'bold', fontFamily: router.locale === 'ar' ? 'var(--arabic-font)' : 'var(--quickstand-font)' }}>
-                        {t("hospital:procedures")}
-                      </Typography>
-                    </AccordionSummary>
-
-                    <AccordionDetails sx={{ background: '#F4F9F8', overflowX: 'auto', maxHeight: '50vh', }}>
-
-                      <List sx={{
-                        listStyleType: 'disc',
-                        padding: '0px',
-                        '& .MuiListItem-root': {
-
-                          listStylePosition: 'inside',
-                          padding: '0px',
-                        },
-                      }}
-                      >
-
-
-                        {dataDoctorProcedure?.map((procedure) => (
-                          <>
-                            <Typography variant="h5">{procedure.title}</Typography>
-                            <ListItem variant='li' sx={{ fontSize: { xs: '16px', sm: '16px', md: '16px', lg: '18px' }, fontWeight: 'var(--font-medium)', fontFamily: 'var(--quickstand-font)' }}>
-                              {procedure.name}
-                            </ListItem  >
-                          </>
-                        ))}
-
-
-
-                      </List>
-                    </AccordionDetails>
-
-                  </Accordion>
-                }
-
-                {dataDoctorMemberShip.length !== 0 &&
-                  <Accordion disableGutters elevation={0}
-                    square={false} sx={{
-                      marginTop: '8px',
-                      '&:before': {
-                        display: 'none',
-                      }
-                    }}
-                    expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
-                    <AccordionSummary
-                      sx={expanded !== 'panel2' ? { '&:hover': { backgroundColor: '#ffeee1' }, transition: 'all 0.3s ease', height: '55px', borderRadius: '5px', backgroundColor: '#E7EDEC', color: '#000000' }
-                        : { backgroundColor: '#1b0968', color: '#FFFFFF', height: '55px', borderRadius: '5px' }
-                      }
-                      expandIcon={<ExpandMoreIcon sx={expanded !== 'panel2' ? { color: ' #000000', width: '30px', height: "30px" } : { color: '#FFFFFF', width: '30px', height: "30px", marginBottom: '5px', }} />}
-                      aria-controls="panel2d-content" id="panel2d-header">
-                      <Typography sx={{ fontSize: { xs: '16px', sm: '16px', md: '16px', lg: '18px' }, fontWeight: 'bold', fontFamily: router.locale === 'ar' ? 'var(--arabic-font)' : 'var(--quickstand-font)' }}>
-                        {t("hospital:memberships")}
-
-                      </Typography>
-                    </AccordionSummary>
-
-                    <AccordionDetails sx={{ background: '#F4F9F8', overflowX: 'auto', maxHeight: '50vh', }}>
-
-                      <List sx={{
-                        listStyleType: 'disc',
-                        padding: '0px',
-                        '& .MuiListItem-root': {
-
-                          listStylePosition: 'inside',
-                          padding: '0px',
-                        },
-                      }}
-                      >
-
-                        {dataDoctorMemberShip?.map((memberShip) => (
-                          <>
-                            <ListItem variant='li' sx={{
-                              fontSize: { xs: '16px', sm: '16px', md: '16px', lg: '18px' }, fontWeight: 'var(--font-medium)', fontFamily: router.locale === 'ar' ? 'var(--arabic-font)' : 'var(--quickstand-font)'
-                            }}>
-                              <Typography variant="h5" sx={{
-                                fontFamily: router.locale === 'ar' ? 'var(--arabic-font)' : 'var(--quickstand-font)'
-                              }}>
-                                {memberShip.memberShipName}
-
-                                {memberShip.startdate !== null && memberShip.startdate !== null &&
-                                  <>
-                                    {memberShip.startdate} - {memberShip.endDate}
-                                  </>
-                                }
-                              </Typography>
-                            </ListItem  >
-                          </>
-                        ))}
-
-
-
-                      </List>
-                    </AccordionDetails>
-
-                  </Accordion>
-                }
-
-                {dataDoctorEducation.length !== 0 &&
-                  <Accordion disableGutters elevation={0}
-                    square={false} sx={{
-                      marginTop: '8px',
-                      '&:before': {
-                        display: 'none',
-                      }
-                    }}
-                    expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
-                    <AccordionSummary
-                      sx={expanded !== 'panel3' ? { '&:hover': { backgroundColor: '#ffeee1' }, transition: 'all 0.3s ease', height: '55px', borderRadius: '5px', backgroundColor: '#E7EDEC', color: '#000000' }
-                        : { backgroundColor: '#1b0968', color: '#FFFFFF', height: '55px', borderRadius: '5px' }
-                      }
-                      expandIcon={<ExpandMoreIcon sx={expanded !== 'panel3' ? { color: ' #000000', width: '30px', height: "30px" } : { color: '#FFFFFF', width: '30px', height: "30px", marginBottom: '5px', }} />}
-                      aria-controls="panel3d-content" id="panel3d-header">
-                      <Typography sx={{ fontSize: { xs: '16px', sm: '16px', md: '16px', lg: '18px' }, fontWeight: 'bold', fontFamily: router.locale === 'ar' ? 'var(--arabic-font)' : 'var(--quickstand-font)' }}>
-
-                        {t("hospital:education")}
-
-                      </Typography>
-                    </AccordionSummary>
-
-                    <AccordionDetails sx={{ background: '#F4F9F8', overflowX: 'auto', maxHeight: '50vh', }}>
-
-                      <List sx={{
-                        listStyleType: 'disc',
-                        padding: '0px',
-                        '& .MuiListItem-root': {
-
-                          listStylePosition: 'inside',
-                          padding: '0px',
-                        },
-
-                      }}
-                      >
-
-                        {dataDoctorEducation?.map((education) => (
-                          <>
-                            <Typography variant="h5" sx={{
-                              fontFamily: router.locale === 'ar' ? 'var(--arabic-font)' : 'var(--quickstand-font)'
-
-                            }}>{education.title} ({education.yearFrom} - {education.yearTo})</Typography>
-                            <ListItem variant='li' sx={{
-                              fontSize: { xs: '16px', sm: '16px', md: '16px', lg: '18px' }, fontWeight: 'var(--font-medium)',
-                              fontFamily: router.locale === 'ar' ? 'var(--arabic-font)' : 'var(--quickstand-font)'
-
-                            }}>
-                              {education.description}
-                            </ListItem  >
-                          </>
-                        ))}
-
-
-                      </List>
-                    </AccordionDetails>
-
-                  </Accordion>
-                }
-
-                {dataDoctorCareer.length !== 0 &&
-                  <Accordion disableGutters elevation={0}
-                    square={false} sx={{
-                      marginTop: '8px',
-                      '&:before': {
-                        display: 'none',
-                      }
-                    }}
-                    expanded={expanded === 'panel5'} onChange={handleChange('panel5')}>
-                    <AccordionSummary
-                      sx={expanded !== 'panel5' ? { '&:hover': { backgroundColor: '#ffeee1' }, transition: 'all 0.3s ease', height: '55px', borderRadius: '5px', backgroundColor: '#E7EDEC', color: '#000000' }
-                        : { backgroundColor: '#1b0968', color: '#FFFFFF', height: '55px', borderRadius: '5px' }
-                      }
-                      expandIcon={<ExpandMoreIcon sx={expanded !== 'panel5' ? { color: ' #000000', width: '30px', height: "30px" } : { color: '#FFFFFF', width: '30px', height: "30px", marginBottom: '5px', }} />}
-                      aria-controls="panel5d-content" id="panel5d-header">
-                      <Typography sx={{
-                        fontSize: { xs: '16px', sm: '16px', md: '16px', lg: '18px' }, fontWeight: 'bold', fontFamily:
-                          router.locale === 'ar' ? 'var(--arabic-font)' : 'var(--quickstand-font)'
-                      }}>
-                        {t("hospital:career")}
-                      </Typography>
-                    </AccordionSummary>
-
-                    <AccordionDetails sx={{ background: '#F4F9F8', overflowX: 'auto', maxHeight: '50vh', }}>
-
-                      <List sx={{
-                        listStyleType: 'disc',
-                        padding: '0px',
-                        '& .MuiListItem-root': {
-
-                          listStylePosition: 'inside',
-                          padding: '0px',
-                        },
-                      }}
-                      >
-
-                        {dataDoctorCareer?.map((career) => (
-                          <>
-                            <Typography variant="h5" sx={{
-                              fontFamily: router.locale === 'ar' ? 'var(--arabic-font)' : 'var(--quickstand-font)'
-
-                            }}>{career.title} ({career.yearFrom} - {career.yearTo})</Typography>
-                            <ListItem variant='li' sx={{
-                              fontSize: { xs: '16px', sm: '16px', md: '16px', lg: '18px' }, fontWeight: 'var(--font-medium)', fontFamily: 'var(--quickstand-font)',
-                              fontFamily: router.locale === 'ar' ? 'var(--arabic-font)' : 'var(--quickstand-font)'
-                            }}>
-                              {career.description}
-                            </ListItem  >
-                          </>
-                        ))}
-
-
-
-                      </List>
-                    </AccordionDetails>
-
-                  </Accordion>
-                }
-              </div>
-
             </div>
 
           </section>

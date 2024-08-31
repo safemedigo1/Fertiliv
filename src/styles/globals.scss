@@ -51,6 +51,7 @@ a {
 button {
   border: 1px solid transparent !important;
   box-shadow: none !important;
+  transition: all 0.3s ease-in-out !important;
 }
 button:hover {
   background-color: var(--main-white-color) !important;
@@ -199,6 +200,26 @@ button:hover {
   padding: 10px;
   color: var(--main-blue-color) !important;
   filter: none !important;
+
+  @media screen and (max-width: 992px) {
+    left: 348px;
+  }
+}
+#IvfClinic .image-gallery-play-button {
+  @media screen and (max-width: 992px) {
+    left: 348px;
+  }
+}
+#IvfClinic .fullscreen-image-gallery .image-gallery-fullscreen-button {
+  @media screen and (max-width: 992px) {
+    left: unset;
+    right: 0;
+  }
+}
+.image-gallery-index {
+  @media screen and (max-width: 992px) {
+    right: 347px;
+  }
 }
 
 #IvfClinic .fullscreen-image-gallery .image-gallery-fullscreen-button:hover,
@@ -241,7 +262,7 @@ button:hover {
     top: 42%;
   }
   .right_arrow {
-    right: 3px;
+    right: 0px;
     top: 42%;
   }
 }
@@ -254,6 +275,11 @@ button:hover {
   width: 55px !important;
   height: 55px !important;
   fill: var(--main-blue-color);
+
+  @media screen and (max-width: 992px) {
+    width: 35px !important;
+    height: 35px !important;
+  }
 }
 
 .fullscreen-image-gallery {
@@ -263,7 +289,9 @@ button:hover {
   right: 0;
   bottom: 0;
   z-index: 9999;
-  background-color: #000;
+  background-color: #ffeee170;
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(6px);
   width: 100%;
 }
 
@@ -291,11 +319,47 @@ button:hover {
   .fullscreen-image-gallery__wrapper
   .image-gallery-slide
   img {
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  // height: 100%;
+  height: 70vh;
+  object-fit: contain;
+  border-radius: 12px;
+
+  @media screen and (max-width: 992px) {
+    width: 35%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+#IvfClinic .image-gallery-thumbnails button[aria-pressed="true"] {
+  border: 3px solid var(--main-blue-color) !important;
+  line-height: 0;
+  border-radius: 13px;
+  object-fit: cover;
+}
+#IvfClinic .image-gallery-thumbnails button {
+  border: 3px solid transparent !important;
+}
+
+#IvfCl.image-gallery-play-buttonnic .image-gallery-thumbnails button {
+  cursor: pointer;
+  &:hover {
+    background-color: unset !important;
+  }
+  img {
+    object-fit: cover !important;
+    border-radius: 5px;
+  }
 }
 
 .swiper-button-disabled {
   opacity: 0;
   cursor: not-allowed;
+}
+
+#IvfClinic .image-gallery-thumbnail-image {
+  line-height: 0;
+  border-radius: 13px;
+  object-fit: cover;
 }

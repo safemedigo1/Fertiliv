@@ -135,7 +135,7 @@
 
 
 
-import React, { useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styles from './index.module.scss'
 import { Container } from '@mui/material'
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -146,6 +146,35 @@ import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { useTranslation } from 'react-i18next';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+
+const doctors = [
+  {
+    name: 'Dr Nilay Karaca',
+    specialist: 'IVF Gynaecologist',
+    image: '/nilay.png',
+    link: 'Dr-Nilay-Karaca'
+  },
+  {
+    name: 'Doç. Dr. A.Kadir Tepeler',
+    specialist: 'IVF Urologist',
+    image: '/kader.png',
+    link: 'Doc-Dr-A-Kadir-Tepeler'
+
+  },
+  {
+    name: 'Op. Dr. Mehmet Remzi Erdem',
+    specialist: 'IVF Urologist',
+    image: '/mehmet.png',
+    link: 'Dr-remzi-erdem'
+
+  },
+  {
+    name: 'Mr Majd Khaled',
+    specialist: 'Patient Manager',
+    image: '/majd.png',
+  },
+];
+
 const DoctorsSection = () => {
   const { t } = useTranslation()
   const { locale } = useRouter()
@@ -153,36 +182,24 @@ const DoctorsSection = () => {
   const nextRef = useRef(null);
   const swiperRef = useRef(null);
 
-  const doctors = [
-    {
-      name: 'Dr Nilay Karaca',
-      specialist: 'IVF Gynaecologist',
-      image: '/nilay.png',
-      link: 'Dr-Nilay-Karaca'
-    },
-    {
-      name: 'Doç. Dr. A.Kadir Tepeler',
-      specialist: 'IVF Urologist',
-      image: '/kader.png',
-      link: 'Doc-Dr-A-Kadir-Tepeler'
 
-    },
-    {
-      name: 'Op. Dr. Mehmet Remzi Erdem',
-      specialist: 'IVF Urologist',
-      image: '/mehmet.png',
-      link: 'Dr-remzi-erdem'
 
-    },
-    {
-      name: 'Mr Majd Khaled',
-      specialist: 'Patient Manager',
-      image: '/majd.png',
-    },
-  ];
+  const [isSwiperInitialized, setIsSwiperInitialized] = useState(false);
+
+
+  useEffect(() => {
+    if (swiperRef.current && prevRef.current && nextRef.current) {
+      swiperRef.current.navigation.init();
+      swiperRef.current.navigation.update();
+      setIsSwiperInitialized(true);
+    }
+  }, [swiperRef, prevRef, nextRef]);
+
+
 
   return (
     <section id='doctorsSection' className={styles.doctors_section} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+
       <Container>
         <div className={styles.section_container}>
 
@@ -247,19 +264,20 @@ const DoctorsSection = () => {
               },
             }}
             modules={[Navigation, Pagination]}
-
-            dir={`ltr`}
+            dir={locale === 'ar' ? 'rtl' : 'ltr'}
 
             onSwiper={(swiper) => {
               swiperRef.current = swiper;
-
+              if (!isSwiperInitialized) {
+                swiper.navigation.init();
+                swiper.navigation.update();
+              }
             }}
-
             className={styles.swiper_container}
           >
             {doctors.map((doctor, index) => (
               <SwiperSlide key={index} className={styles.swiper_slide_box}>
-                <a href={`/doctor/${doctor.link}`} className={styles.box}>
+                <a href={`${doctor.name === 'Mr Majd Khaled' ? '' : `/doctor/${doctor.link}`}`} className={styles.box}>
                   <div className={styles.image_container}>
                     <img src={doctor.image} alt={doctor.name} />
                   </div>
@@ -292,6 +310,7 @@ const DoctorsSection = () => {
 
         </div>
       </Container>
+
     </section>
   )
 }
