@@ -196,7 +196,6 @@ const DoctorsSection = ({ dataMostPopularDocs }) => {
   }, [swiperRef, prevRef, nextRef]);
 
 
-  console.log(dataMostPopularDocs, "dataMostPopularDocs")
   return (
     <section id='doctorsSection' className={styles.doctors_section} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
 

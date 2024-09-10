@@ -192,6 +192,7 @@ section.doctors_section {
 section.doctors_section[dir="rtl"] {
   * {
     font-family: var(--arabic-font) !important;
+    text-align: right !important;
   }
   .section_container {
     .title {
