@@ -175,7 +175,7 @@ const doctors = [
   },
 ];
 
-const DoctorsSection = () => {
+const DoctorsSection = ({ dataMostPopularDocs }) => {
   const { t } = useTranslation()
   const { locale } = useRouter()
   const prevRef = useRef(null);
@@ -196,7 +196,7 @@ const DoctorsSection = () => {
   }, [swiperRef, prevRef, nextRef]);
 
 
-
+  console.log(dataMostPopularDocs, "dataMostPopularDocs")
   return (
     <section id='doctorsSection' className={styles.doctors_section} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
 
@@ -275,14 +275,14 @@ const DoctorsSection = () => {
             }}
             className={styles.swiper_container}
           >
-            {doctors.map((doctor, index) => (
+            {dataMostPopularDocs.map((doctor, index) => (
               <SwiperSlide key={index} className={styles.swiper_slide_box}>
-                <a href={`${doctor.name === 'Mr Majd Khaled' ? '' : `/doctor/${doctor.link}`}`} className={styles.box}>
+                <a href={`${`/doctor/${doctor.slug}`}`} className={styles.box}>
                   <div className={styles.image_container}>
                     <img src={doctor.image} alt={doctor.name} />
                   </div>
                   <div className={styles.title}>
-                    <p>{doctor.name}</p>
+                    <p>{doctor.doctorLevel} {doctor.firstName} {doctor.lastName}</p>
                   </div>
                   <div className={styles.buttom_container}>
                     <div className={styles.specialist}>

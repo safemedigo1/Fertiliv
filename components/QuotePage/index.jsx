@@ -60,7 +60,7 @@ const QuotePage = () => {
   }
 
   function handleGoBack() {
-    router.back()
+    router.push('/')
   }
 
 
@@ -303,15 +303,17 @@ const QuotePage = () => {
 
             {step !== 7 &&
               <div className={styles.header}>
-                <button onClick={handleGoBack} className={styles.navbar__logo}>
-                  <Image
-                    src={logo.src}
-                    alt="Picture of the author"
-                    width={51.34}
-                    height={45}
-                  />
-                  <h1>{t("common:site_name")}</h1>
-                </button>
+                <a href="/">
+                  <button className={styles.navbar__logo}>
+                    <Image
+                      src={logo.src}
+                      alt="Picture of the author"
+                      width={51.34}
+                      height={45}
+                    />
+                    <h1>{t("common:site_name")}</h1>
+                  </button>
+                </a>
 
                 <div className={styles.close} onClick={handleGoBack}>
                   <CloseIcon />

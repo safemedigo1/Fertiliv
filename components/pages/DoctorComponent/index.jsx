@@ -20,7 +20,7 @@ import 'swiper/css/pagination';
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
 
 
-const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDoctorTreatments, dataDoctorCertificatest, dataDoctorLanguagesBySlug, dataDoctorMedias, dataDoctorCareer, dataDoctorEducation, dataDoctorMemberShip, dataDoctorProcedure, dataDoctorHospitalClinics, dataDoctorPackage, dataSubSpecializations }) => {
+const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDoctorTreatments, dataDoctorCertificatest, dataDoctorLanguagesBySlug, dataDoctorMedias, dataDoctorLeaflets, dataDoctorCareer, dataDoctorEducation, dataDoctorMemberShip, dataDoctorProcedure, dataDoctorHospitalClinics, dataDoctorPackage, dataSubSpecializations }) => {
 
   const [cilincs, setCilincs] = useState([])
   const [hospitals, setHospitals] = useState([])
@@ -325,9 +325,10 @@ const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDo
                           <li key={index}>
                             <Typography variant="h5" sx={{
                               display: 'block', fontWeight: '500'
-                            }}>{education.title} ({education.yearFrom} - {education.yearTo})</Typography>
+                            }}>{education.title} ({education.yearFrom} - {education.tillNow === true ? t('hospital:tillnow') : education.yearTo})</Typography>
 
-                            <p>                               {education.description}
+                            <p>
+                              {education.description}
                             </p>
                           </li>
                         ))}
@@ -369,7 +370,7 @@ const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDo
                           <li key={index}>
                             <Typography variant="h5" sx={{
                               display: 'block', fontWeight: '500'
-                            }}>{career.title} ({career.yearFrom} - {career.yearTo})</Typography>
+                            }}>{career.title} ({career.yearFrom} - {career.tillNow === true ? t('hospital:tillnow') : career.yearTo})</Typography>
 
                             <p> {career.description}</p>
                           </li>
@@ -408,16 +409,74 @@ const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDo
                             <Typography variant="h5" sx={{
                               display: 'block', fontWeight: '500'
                             }}>{memberShip.memberShipName}
-                              {memberShip.startdate !== null && memberShip.startdate !== null &&
+                              {` `}
+
+                              {memberShip.yearFrom !== null && memberShip.yearFrom !== null &&
                                 <>
-                                  {memberShip.startdate} - {memberShip.endDate}
+                                  {memberShip.yearFrom} - {memberShip.tillNow === true ? t('hospital:tillnow') : memberShip.yearTo}
                                 </>
                               }</Typography>
-
 
                             <p>
                               {memberShip.description}
                             </p>
+                          </li>
+                        ))}
+                      </ul>
+                    </AccordionDetails>
+                  </Accordion>
+                }
+
+                {dataDoctorLeaflets.length !== 0 &&
+                  <Accordion disableGutters elevation={0}
+                    square={false} sx={AccordionStyles}
+                    expanded={expanded === 'panel22'} onChange={handleChange('panel22')}>
+                    <AccordionSummary
+                      sx={
+                        expanded !== 'panel22' ?
+                          AccordionSummaryStyles1 : AccordionSummaryStyles2
+                      }
+                      expandIcon={<ExpandMoreIcon sx={expanded !== 'panel22' ? ExpandMoreIconStyles1 : ExpandMoreIconStyles2} />}
+
+                      aria-controls="panel2d-content" id="panel2d-header">
+                      <Typography sx={TypographyStyles}>
+                        {t("hospital:Publications")}
+
+                      </Typography>
+                    </AccordionSummary>
+
+                    <AccordionDetails sx={AccordionDetailsStyles}>
+                      <ul>
+                        {dataDoctorLeaflets?.map((leaf, index) => (
+
+                          <li key={index}>
+                            <Typography variant="h5" sx={{
+                              display: 'block', fontWeight: '500'
+                            }}>{leaf.memberShipName}
+                              {leaf.publishDate !== null &&
+                                <>
+                                  {leaf.publishDate}
+                                </>
+                              }</Typography>
+
+
+                            {/* <p>
+                              {leaf.leafletsDescription}
+                            </p> */}
+
+                            {leaf.leafletsDescription &&
+                              leaf.leafletsDescription.split(' ').map((word, i) => {
+                                if (word.startsWith('http://') || word.startsWith('https://')) {
+                                  return (
+                                    <a key={i} href={word} style={{ textDecoration: 'underline' }} target="_blank" rel="noopener noreferrer">
+                                      {word}{' '}
+                                    </a>
+                                  );
+                                } else {
+                                  return word + ' ';
+                                }
+                              })}
+
                           </li>
                         ))}
                       </ul>

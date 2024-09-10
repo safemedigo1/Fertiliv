@@ -6,7 +6,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import Consultation from "../../../../components/Home/Consultation";
 
-const DoctorName = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDoctorTreatments, dataDoctorCertificatest, dataDoctorLanguagesBySlug, dataDoctorMedias, dataDoctorCareer, dataDoctorEducation, dataDoctorMemberShip, dataDoctorProcedure, dataDoctorHospitalClinics, dataDoctorPackage, dataSubSpecializations, metaData }) => {
+const DoctorName = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDoctorTreatments, dataDoctorCertificatest, dataDoctorLanguagesBySlug, dataDoctorMedias, dataDoctorCareer, dataDoctorEducation, dataDoctorMemberShip, dataDoctorProcedure, dataDoctorHospitalClinics, dataDoctorLeaflets, dataDoctorPackage, dataSubSpecializations, metaData }) => {
   const { locale } = useRouter();
   const imagePath = "assets/imgs/logo.png";
   const logo_v = "assets/imgs/logo_v.png";
@@ -96,7 +96,7 @@ const DoctorName = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDoctorT
 
       <Navbar />
       <DoctorComponent
-        dataDoctorSlug={dataDoctorSlug} dataDoctorMainSpecializations={dataDoctorMainSpecializations} dataDoctorTreatments={dataDoctorTreatments} dataDoctorCertificatest={dataDoctorCertificatest} dataDoctorLanguagesBySlug={dataDoctorLanguagesBySlug} dataDoctorMedias={dataDoctorMedias} dataDoctorCareer={dataDoctorCareer} dataDoctorEducation={dataDoctorEducation} dataDoctorMemberShip={dataDoctorMemberShip} dataDoctorProcedure={dataDoctorProcedure} dataDoctorHospitalClinics={dataDoctorHospitalClinics} dataDoctorPackage={dataDoctorPackage} dataSubSpecializations={dataSubSpecializations}
+        dataDoctorSlug={dataDoctorSlug} dataDoctorLeaflets={dataDoctorLeaflets} dataDoctorMainSpecializations={dataDoctorMainSpecializations} dataDoctorTreatments={dataDoctorTreatments} dataDoctorCertificatest={dataDoctorCertificatest} dataDoctorLanguagesBySlug={dataDoctorLanguagesBySlug} dataDoctorMedias={dataDoctorMedias} dataDoctorCareer={dataDoctorCareer} dataDoctorEducation={dataDoctorEducation} dataDoctorMemberShip={dataDoctorMemberShip} dataDoctorProcedure={dataDoctorProcedure} dataDoctorHospitalClinics={dataDoctorHospitalClinics} dataDoctorPackage={dataDoctorPackage} dataSubSpecializations={dataSubSpecializations}
       />
       <Consultation />
 
@@ -178,6 +178,7 @@ export async function getStaticProps({ locale, params }) {
     })
   })
   const dataDoctorMainSpecializations = await resDoctorMainSpecializations.json()
+
   const resSubSpecializations = await fetch("https://api2.safemedigo.com/api/v1/Doctor/GetDoctorSubSpecializationsBySlug  ", {
     method: 'POST',
     headers: {
@@ -217,6 +218,20 @@ export async function getStaticProps({ locale, params }) {
     })
   })
   const dataDoctorCertificatest = await resDoctorCertificatest.json()
+
+
+  const resDoctorLeaflets = await fetch("https://api2.safemedigo.com/api/v1/Doctor/GetDoctorLeafletsBySlug", {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      "doctorSlug": params.slug,
+      "lang": locale
+    })
+  })
+  const dataDoctorLeaflets = await resDoctorLeaflets.json()
 
 
   const resDoctorLanguagesBySlug = await fetch("https://api2.safemedigo.com/api/v1/Doctor/GetDoctorLanguagesBySlug  ", {
@@ -341,7 +356,7 @@ export async function getStaticProps({ locale, params }) {
   return {
     props: {
       metaData,
-      dataDoctorSlug, dataDoctorMainSpecializations, dataDoctorTreatments, dataDoctorCertificatest, dataDoctorLanguagesBySlug, dataDoctorMedias, dataDoctorCareer, dataDoctorEducation, dataDoctorMemberShip, dataDoctorProcedure, dataDoctorHospitalClinics, dataDoctorPackage, dataSubSpecializations,
+      dataDoctorSlug, dataDoctorMainSpecializations, dataDoctorTreatments, dataDoctorCertificatest, dataDoctorLanguagesBySlug, dataDoctorMedias, dataDoctorCareer, dataDoctorEducation, dataDoctorMemberShip, dataDoctorProcedure, dataDoctorHospitalClinics, dataDoctorPackage, dataSubSpecializations, dataDoctorLeaflets,
       ...(await serverSideTranslations(locale, ["navbar", "hospital", "proceduresSymptoms", "sec_navbar", "proceduresSymptoms_single", 'Footer', 'most_popular',
         "navbar",
         "why_feriliv",

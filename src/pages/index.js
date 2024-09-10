@@ -1,9 +1,9 @@
 import Head from "next/head";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Home from "../../components/Home";
-import { useTranslation } from "react-i18next";
 import { useRouter } from "next/router";
-export default function Page({ metaData }) {
+
+export default function Page({ metaData, dataMostPopularDocs }) {
   const { locale } = useRouter();
 
   const imagePath = "assets/imgs/logo.png";
@@ -92,7 +92,7 @@ export default function Page({ metaData }) {
         />
       </Head>
 
-      <Home />
+      <Home dataMostPopularDocs={dataMostPopularDocs} />
     </>
   );
 }
@@ -115,9 +115,25 @@ export async function getStaticProps({ locale }) {
 
   const metaData = await readFile(locale);
 
+  const resMostPopularDocs = await fetch(
+    "https://api2.safemedigo.com/api/v1/Doctor/ListPopularDoctors",
+    {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        lang: locale,
+        hospitalSlug: "fertiliv",
+      }),
+    }
+  );
+  const dataMostPopularDocs = await resMostPopularDocs.json();
   return {
     props: {
       metaData,
+      dataMostPopularDocs,
       ...(await serverSideTranslations(locale, [
         "navbar",
         "why_feriliv",
