@@ -196,6 +196,19 @@ const DoctorsSection = ({ dataMostPopularDocs }) => {
   }, [swiperRef, prevRef, nextRef]);
 
 
+
+  const [doctorArray, setDoctorArray] = useState(dataMostPopularDocs);
+
+  // Find the doctor with id 78
+  const idSeventyEight = doctorArray.find(item => item.id === 78);
+
+  // Filter out the doctor with id 78
+  const filteredArray = doctorArray.filter(item => item.id !== 78);
+
+  // Reorder the array with doctor id 78 at the start
+  const reorderedArray = idSeventyEight ? [idSeventyEight, ...filteredArray] : doctorArray;
+
+
   return (
     <section id='doctorsSection' className={styles.doctors_section} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
 
@@ -254,7 +267,7 @@ const DoctorsSection = ({ dataMostPopularDocs }) => {
                 spaceBetween: 10,
               },
               1124: {
-                slidesPerView: 2.1,
+                slidesPerView: 3.1,
                 spaceBetween: 10,
               },
               1400: {
@@ -274,9 +287,9 @@ const DoctorsSection = ({ dataMostPopularDocs }) => {
             }}
             className={styles.swiper_container}
           >
-            {dataMostPopularDocs.map((doctor, index) => (
+            {reorderedArray.map((doctor, index) => (
               <SwiperSlide key={index} className={styles.swiper_slide_box}>
-                <a href={`${`/doctor/${doctor.slug}`}`} className={styles.box}>
+                <Link href={`${`/doctor/${doctor.slug}`}`} className={styles.box}>
                   <div className={styles.image_container}>
                     <img src={doctor.image} alt={doctor.name} />
                   </div>
@@ -291,7 +304,7 @@ const DoctorsSection = ({ dataMostPopularDocs }) => {
                       <IoIosArrowBack />
                     </div>
                   </div>
-                </a>
+                </Link>
               </SwiperSlide>
             ))}
 

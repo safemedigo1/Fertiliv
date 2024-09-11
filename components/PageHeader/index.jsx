@@ -59,12 +59,7 @@ const PageHeader = ({ blog, treatment, dataHospitalSlug, dataDoctorSlug, dataDoc
 
                       <div className={styles.name}>
                         <Typography variant="h3">
-                          {`${dataDoctorSlug.firstName} ${dataDoctorSlug.fatherName} ${dataDoctorSlug.lastName}`}
-
-
-                          {console.log(dataDoctorTreatments, "dataDoctorTreatments")}
-
-
+                          {dataDoctorSlug.doctorLevel} {`${dataDoctorSlug.firstName} ${dataDoctorSlug.fatherName} ${dataDoctorSlug.lastName}`}
                         </Typography>
                       </div>
 
@@ -91,7 +86,7 @@ const PageHeader = ({ blog, treatment, dataHospitalSlug, dataDoctorSlug, dataDoc
                     <div className={styles.boxes_container}>
                       <div className={styles.box}>
                         <div className={styles.num}>
-                          <p>{dataDoctorSlug.lastYearPatients}</p>
+                          <p>+{dataDoctorSlug.lastYearPatients}</p>
                         </div>
                         <div className={styles.yearly}>
                           <p>{t("most_popular:PatientsTreatedLastYear")}</p>
@@ -99,20 +94,20 @@ const PageHeader = ({ blog, treatment, dataHospitalSlug, dataDoctorSlug, dataDoc
                       </div>
                       <div className={styles.box}>
                         <div className={styles.num}>
-                          <p>{dataDoctorSlug.experienceYears}</p>
+                          <p>+{dataDoctorSlug.experienceYears}</p>
                         </div>
                         <div className={styles.yearly}>
                           <p>{t("most_popular:yearsOfExp")}</p>
                         </div>
                       </div>
-                      {/* <div className={styles.box}>
+                      <div className={styles.box}>
                         <div className={styles.num}>
-                          <p>{dataDoctorTreatments?.length}</p>
+                          <p>+{dataDoctorTreatments[0]?.count}</p>
                         </div>
                         <div className={styles.yearly}>
                           <p>{t("most_popular:treatmentsCount")}</p>
                         </div>
-                      </div> */}
+                      </div>
 
                     </div>
 

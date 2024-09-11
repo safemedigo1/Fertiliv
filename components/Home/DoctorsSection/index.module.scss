@@ -283,6 +283,8 @@ section.doctors_section[dir="rtl"] {
             align-items: center;
             justify-content: space-between;
             width: 100%;
+            justify-content: flex-start;
+            transform: scaleX(-1);
             .specialist {
               margin-top: 11px;
               p {

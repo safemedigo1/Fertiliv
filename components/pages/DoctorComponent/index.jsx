@@ -202,7 +202,7 @@ const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDo
               <div className={styles.boxes_container}>
                 <div className={styles.box}>
                   <div className={styles.num}>
-                    <Typography>{dataDoctorSlug.lastYearPatients}</Typography>
+                    <Typography>+{dataDoctorSlug.lastYearPatients}</Typography>
                   </div>
                   <div className={styles.yearly}>
                     <Typography>{t("most_popular:PatientsTreatedLastYear")}</Typography>
@@ -210,7 +210,7 @@ const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDo
                 </div>
                 <div className={styles.box}>
                   <div className={styles.num}>
-                    <Typography>{dataDoctorSlug.experienceYears}</Typography>
+                    <Typography>+{dataDoctorSlug.experienceYears}</Typography>
                   </div>
 
                   <div className={styles.yearly}>
@@ -219,7 +219,14 @@ const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDo
 
                 </div>
 
-
+                <div className={styles.box}>
+                  <div className={styles.num}>
+                    <p>+{dataDoctorTreatments[0]?.count}</p>
+                  </div>
+                  <div className={styles.yearly}>
+                    <p>{t("most_popular:treatmentsCount")}</p>
+                  </div>
+                </div>
               </div>
 
               {dataDoctorSlug?.isOnline === true &&
@@ -370,7 +377,7 @@ const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDo
                           <li key={index}>
                             <Typography variant="h5" sx={{
                               display: 'block', fontWeight: '500'
-                            }}>{career.title} ({career.yearFrom} - {career.tillNow === true ? t('hospital:tillnow') : career.yearTo})</Typography>
+                            }}>{career.title} {career.institution} ({career.yearFrom} - {career.tillNow === true ? t('hospital:tillnow') : career.yearTo})</Typography>
 
                             <p> {career.description}</p>
                           </li>
@@ -406,20 +413,23 @@ const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDo
                         {dataDoctorMemberShip?.map((memberShip, index) => (
 
                           <li key={index}>
+                            <p>
+                              {memberShip.memberShipName}
+                            </p>
+
                             <Typography variant="h5" sx={{
                               display: 'block', fontWeight: '500'
-                            }}>{memberShip.memberShipName}
+                            }}>
                               {` `}
 
                               {memberShip.yearFrom !== null && memberShip.yearFrom !== null &&
                                 <>
                                   {memberShip.yearFrom} - {memberShip.tillNow === true ? t('hospital:tillnow') : memberShip.yearTo}
                                 </>
-                              }</Typography>
+                              }
+                            </Typography>
 
-                            <p>
-                              {memberShip.description}
-                            </p>
+
                           </li>
                         ))}
                       </ul>
