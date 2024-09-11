@@ -8,13 +8,12 @@ import Consultation from "../../../../components/Home/Consultation";
 
 const DoctorName = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDoctorTreatments, dataDoctorCertificatest, dataDoctorLanguagesBySlug, dataDoctorMedias, dataDoctorCareer, dataDoctorEducation, dataDoctorMemberShip, dataDoctorProcedure, dataDoctorHospitalClinics, dataDoctorLeaflets, dataDoctorPackage, dataSubSpecializations, metaData }) => {
   const { locale } = useRouter();
-  const imagePath = "assets/imgs/logo.png";
-  const logo_v = "assets/imgs/logo_v.png";
+
 
   return (
     <>
       <Head>
-        <title>{metaData?.title}</title>
+        <title>{dataDoctorSlug?.metaTitleTag}</title>
         <meta charSet="UTF-8" />
         <meta
           name="viewport"
@@ -25,68 +24,80 @@ const DoctorName = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDoctorT
           name="csrf-token"
           content="JdDvDc4LUJomFM4T7QE0hFlH9CeKOHDXMoxV3wer"
         />
-        <meta name="keywords" content={metaData?.keywords} />
+        <meta name="keywords" content={dataDoctorSlug?.metaKeywords} />
         <meta name="title" content="" />
-        <link rel="icon" type="image/png" href={`/${imagePath}`} />
+        <link rel="icon" type="image/png" href={dataDoctorSlug?.image} />
         <meta name="theme-color" content="#1b0968" />
         <meta name="mobile-web-app-capable" content="no" />
-        <meta name="application-name" content={metaData?.title} />
+        <meta name="application-name" content={dataDoctorSlug?.metaTitleTag} />
         <meta name="apple-mobile-web-app-capable" content="no" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-        <meta name="apple-mobile-web-app-title" content={metaData?.title} />
+        <meta
+          name="apple-mobile-web-app-title"
+          content={dataDoctorSlug?.metaTitleTag}
+        />
         <link
           rel="apple-touch-icon"
-          href={`https://www.fertiliv.com/${imagePath}`}
+          href={dataDoctorSlug?.image}
         />
         <link
           rel="apple-touch-startup-image"
-          href={`https://www.fertiliv.com/${imagePath}`}
+          href={dataDoctorSlug?.image}
         />
-        <meta name="author" content={metaData?.title} />
-        <meta name="description" content={metaData?.desc} />
+        <meta name="author" content={dataDoctorSlug?.metaTitleTag} />
+        <meta name="description" content={dataDoctorSlug?.metaDescription} />
         <link rel="canonical" href={`https://www.fertiliv.com/${locale}`} />
         <meta name="msapplication-TileColor" content="#1b0968" />
         <meta
           name="msapplication-TileImage"
-          content={`https://www.fertiliv.com/${imagePath}`}
+          content={dataDoctorSlug?.image}
         />
-        <meta name="msapplication-square70x70logo" content={imagePath} />
-        <meta name="msapplication-square150x150logo" content={imagePath} />
-        <meta name="msapplication-wide310x150logo" content={imagePath} />
-        <meta name="msapplication-square310x310logo" content={imagePath} />
-        <link rel="apple-touch-icon-precomposed" href={imagePath} />
+        <meta
+          name="msapplication-square70x70logo"
+          content={dataDoctorSlug?.image}
+        />
+        <meta
+          name="msapplication-square150x150logo"
+          content={dataDoctorSlug?.image}
+        />
+        <meta
+          name="msapplication-wide310x150logo"
+          content={dataDoctorSlug?.image}
+        />
+        <meta
+          name="msapplication-square310x310logo"
+          content={dataDoctorSlug?.image}
+        />
+        <link rel="apple-touch-icon-precomposed" href={dataDoctorSlug?.image} />
         <meta property="og:type" content="website" />
 
-        <meta property="og:site_name" content={metaData?.title} />
+        <meta property="og:site_name" content={dataDoctorSlug?.metaTitleTag} />
         <meta property="og:locale" content={locale} />
         <meta property="og:locale:alternate" content={locale} />
         <meta
           property="og:url"
           content={`https://www.fertiliv.com/${locale}`}
         />
-        <meta property="og:title" content={metaData?.title} />
+        <meta property="og:title" content={dataDoctorSlug?.metaTitleTag} />
         <meta property="og:description" content={metaData?.desc} />
+        <meta property="og:image" content={`${dataDoctorSlug?.image}`} />
+        <meta itemProp="name" content={dataDoctorSlug?.metaTitleTag} />
+        <meta itemProp="author" content={dataDoctorSlug?.metaTitleTag} />
+        <meta itemProp="image" content={`${dataDoctorSlug?.image}`} />
         <meta
-          property="og:image"
-          content={`https://www.fertiliv.com/${logo_v}`}
+          itemProp="description"
+          content={dataDoctorSlug?.metaDescription}
         />
-        <meta itemProp="name" content={metaData?.title} />
-        <meta itemProp="author" content={metaData?.title} />
-        <meta itemProp="image" content={`https://www.fertiliv.com/${logo_v}`} />
-        <meta itemProp="description" content={metaData?.desc} />
-        <meta
-          name="twitter:image"
-          content={`https://www.fertiliv.com/${logo_v}`}
-        />
+        <meta name="twitter:image" content={`${dataDoctorSlug?.image}`} />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@" />
         <meta name="twitter:creator" content="@" />
-        <meta name="twitter:title" content={metaData?.title} />
+        <meta name="twitter:title" content={dataDoctorSlug?.metaTitleTag} />
+        <meta name="twitter:image:src" content={`${dataDoctorSlug?.image}`} />
         <meta
-          name="twitter:image:src"
-          content={`https://www.fertiliv.com/${logo_v}`}
+          name="twitter:description"
+          content={dataDoctorSlug?.metaDescription}
         />
-        <meta name="twitter:description" content={metaData?.desc} />
         <link
           rel="stylesheet"
           src="../../public/ckeditor-content-styles.css"
@@ -356,7 +367,11 @@ export async function getStaticProps({ locale, params }) {
   return {
     props: {
       metaData,
-      dataDoctorSlug, dataDoctorMainSpecializations, dataDoctorTreatments, dataDoctorCertificatest, dataDoctorLanguagesBySlug, dataDoctorMedias, dataDoctorCareer, dataDoctorEducation, dataDoctorMemberShip, dataDoctorProcedure, dataDoctorHospitalClinics, dataDoctorPackage, dataSubSpecializations, dataDoctorLeaflets,
+      dataDoctorSlug,
+      dataDoctorMainSpecializations,
+      dataDoctorTreatments,
+      dataDoctorCertificatest,
+      dataDoctorLanguagesBySlug, dataDoctorMedias, dataDoctorCareer, dataDoctorEducation, dataDoctorMemberShip, dataDoctorProcedure, dataDoctorHospitalClinics, dataDoctorPackage, dataSubSpecializations, dataDoctorLeaflets,
       ...(await serverSideTranslations(locale, ["navbar", "hospital", "proceduresSymptoms", "sec_navbar", "proceduresSymptoms_single", 'Footer', 'most_popular',
         "navbar",
         "why_feriliv",

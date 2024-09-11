@@ -16,6 +16,8 @@ const PageHeader = ({ blog, treatment, dataHospitalSlug, dataDoctorSlug, dataDoc
   const { pathname } = router;
   const { design, designMobile, post1, userimg } = imgs;
   const { t } = useTranslation();
+  const numbers = dataDoctorTreatments.map((item) => item.count);
+  const total = numbers.reduce((a, b) => a + b, 0);
 
   return (
     <>
@@ -102,7 +104,7 @@ const PageHeader = ({ blog, treatment, dataHospitalSlug, dataDoctorSlug, dataDoc
                       </div>
                       <div className={styles.box}>
                         <div className={styles.num}>
-                          <p>+{dataDoctorTreatments[0]?.count}</p>
+                          <p>+{total}</p>
                         </div>
                         <div className={styles.yearly}>
                           <p>{t("most_popular:treatmentsCount")}</p>

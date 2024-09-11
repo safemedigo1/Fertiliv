@@ -35,6 +35,7 @@ const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDo
 
   const { t } = useTranslation();
   const router = useRouter();
+  const { locale } = useRouter();
   const [expanded, setExpanded] = useState(false);
 
   const [similarDocs, setSimilarDocs] = useState([]);
@@ -89,6 +90,9 @@ const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDo
       </DialogTitle>
     );
   }
+
+  const numbers = dataDoctorTreatments.map((item) => item.count);
+  const total = numbers.reduce((a, b) => a + b, 0);
 
 
 
@@ -161,6 +165,10 @@ const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDo
   }, [])
   if (isClient)
 
+
+
+
+
     return (
       <>
         <PageHeader dataDoctorSlug={dataDoctorSlug} dataDoctorMainSpecializations={dataDoctorMainSpecializations} dataDoctorTreatments={dataDoctorTreatments} />
@@ -179,7 +187,6 @@ const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDo
           </div>
 
           <Container sx={{ maxWidth: "1239px" }} maxWidth={false}>
-
             <div className={styles.title}>
               <Typography variant="h3">
                 {`${dataDoctorSlug.doctorLevel === null ? '' : dataDoctorSlug.doctorLevel} ${dataDoctorSlug.firstName} ${dataDoctorSlug.fatherName} ${dataDoctorSlug.lastName} `}
@@ -187,16 +194,11 @@ const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDo
             </div>
 
             <div className={styles.text_container}>
-
               <div className={styles.name}>
                 <Typography >
                   {dataDoctorMainSpecializations[0]?.name}
                 </Typography>
               </div>
-
-
-
-
 
 
               <div className={styles.boxes_container}>
@@ -221,14 +223,13 @@ const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDo
 
                 <div className={styles.box}>
                   <div className={styles.num}>
-                    <p>+{dataDoctorTreatments[0]?.count}</p>
+                    <p>+{total}</p>
                   </div>
                   <div className={styles.yearly}>
                     <p>{t("most_popular:treatmentsCount")}</p>
                   </div>
                 </div>
               </div>
-
               {dataDoctorSlug?.isOnline === true &&
                 <div className={styles.button_container}>
                   <Link href={'/quote'}>
@@ -236,9 +237,7 @@ const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDo
                   </Link>
                 </div>
               }
-
             </div>
-
           </Container>
         </Box>
 
@@ -566,6 +565,7 @@ const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDo
                         }}
                         pagination={false}
                         className={styles.swiper}
+                        dir={locale === 'ar' ? 'rtl' : 'ltr'}
                       >
                         {dataDoctorCertificatest?.map((card, index) => (
                           <SwiperSlide key={index}>
@@ -646,14 +646,6 @@ const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDo
 
           </section>
         </Container >
-
-
-
-
-
-
-
-
       </>
     )
 }

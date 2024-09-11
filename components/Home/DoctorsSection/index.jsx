@@ -276,7 +276,7 @@ const DoctorsSection = ({ dataMostPopularDocs }) => {
               },
             }}
             modules={[Navigation, Pagination]}
-            dir={locale === 'ar' ? 'rtl' : 'ltr'}
+            dir={'rtl'}
 
             onSwiper={(swiper) => {
               swiperRef.current = swiper;
