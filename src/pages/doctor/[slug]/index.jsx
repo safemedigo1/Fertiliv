@@ -6,7 +6,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import Consultation from "../../../../components/Home/Consultation";
 
-const DoctorName = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDoctorTreatments, dataDoctorCertificatest, dataDoctorLanguagesBySlug, dataDoctorMedias, dataDoctorCareer, dataDoctorEducation, dataDoctorMemberShip, dataDoctorProcedure, dataDoctorHospitalClinics, dataDoctorLeaflets, dataDoctorPackage, dataSubSpecializations, metaData }) => {
+const DoctorName = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDoctorTreatments, dataDoctorCertificatest, dataDoctorLanguagesBySlug, dataDoctorMedias, dataDoctorCareer, dataDoctorEducation, dataDoctorMemberShip, dataDoctorProcedure, dataDoctorHospitalClinics, dataDoctorLeaflets, dataDoctorPackage, dataSubSpecializations, }) => {
   const { locale } = useRouter();
 
 
@@ -79,7 +79,7 @@ const DoctorName = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDoctorT
           content={`https://www.fertiliv.com/${locale}`}
         />
         <meta property="og:title" content={dataDoctorSlug?.metaTitleTag} />
-        <meta property="og:description" content={metaData?.desc} />
+        <meta property="og:description" content={dataDoctorSlug?.metaDescription} />
         <meta property="og:image" content={`${dataDoctorSlug?.image}`} />
         <meta itemProp="name" content={dataDoctorSlug?.metaTitleTag} />
         <meta itemProp="author" content={dataDoctorSlug?.metaTitleTag} />
@@ -145,22 +145,6 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ locale, params }) {
 
-  const path = require("path");
-  const fs = require("fs");
-
-  const readFile = async (locale) => {
-    const filePath = path.join(
-      process.cwd(),
-      "public",
-      "locales",
-      locale,
-      "meta_home_page.json"
-    );
-    const fileContents = fs.readFileSync(filePath, "utf8");
-    return JSON.parse(fileContents);
-  };
-
-  const metaData = await readFile(locale);
 
 
   const resDoctorSlug = await fetch("https://api2.safemedigo.com/api/v1/Doctor/GetDoctorBySlug", {
@@ -366,7 +350,6 @@ export async function getStaticProps({ locale, params }) {
 
   return {
     props: {
-      metaData,
       dataDoctorSlug,
       dataDoctorMainSpecializations,
       dataDoctorTreatments,
