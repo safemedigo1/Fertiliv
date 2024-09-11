@@ -9,6 +9,7 @@ import Consultation from "../../../../components/Home/Consultation";
 const DoctorName = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDoctorTreatments, dataDoctorCertificatest, dataDoctorLanguagesBySlug, dataDoctorMedias, dataDoctorCareer, dataDoctorEducation, dataDoctorMemberShip, dataDoctorProcedure, dataDoctorHospitalClinics, dataDoctorLeaflets, dataDoctorPackage, dataSubSpecializations, }) => {
   const { locale } = useRouter();
 
+  const imagePath = "https://fertiliv.com/assets/imgs/logo.png";
 
   return (
     <>
@@ -26,7 +27,7 @@ const DoctorName = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDoctorT
         />
         <meta name="keywords" content={dataDoctorSlug?.metaKeywords} />
         <meta name="title" content="" />
-        <link rel="icon" type="image/png" href={dataDoctorSlug?.image} />
+        <link rel="icon" type="image/png" href={imagePath} />
         <meta name="theme-color" content="#1b0968" />
         <meta name="mobile-web-app-capable" content="no" />
         <meta name="application-name" content={dataDoctorSlug?.metaTitleTag} />
@@ -38,11 +39,11 @@ const DoctorName = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDoctorT
         />
         <link
           rel="apple-touch-icon"
-          href={dataDoctorSlug?.image}
+          href={imagePath}
         />
         <link
           rel="apple-touch-startup-image"
-          href={dataDoctorSlug?.image}
+          href={imagePath}
         />
         <meta name="author" content={dataDoctorSlug?.metaTitleTag} />
         <meta name="description" content={dataDoctorSlug?.metaDescription} />
@@ -50,25 +51,25 @@ const DoctorName = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDoctorT
         <meta name="msapplication-TileColor" content="#1b0968" />
         <meta
           name="msapplication-TileImage"
-          content={dataDoctorSlug?.image}
+          content={imagePath}
         />
         <meta
           name="msapplication-square70x70logo"
-          content={dataDoctorSlug?.image}
+          content={imagePath}
         />
         <meta
           name="msapplication-square150x150logo"
-          content={dataDoctorSlug?.image}
+          content={imagePath}
         />
         <meta
           name="msapplication-wide310x150logo"
-          content={dataDoctorSlug?.image}
+          content={imagePath}
         />
         <meta
           name="msapplication-square310x310logo"
-          content={dataDoctorSlug?.image}
+          content={imagePath}
         />
-        <link rel="apple-touch-icon-precomposed" href={dataDoctorSlug?.image} />
+        <link rel="apple-touch-icon-precomposed" href={imagePath} />
         <meta property="og:type" content="website" />
 
         <meta property="og:site_name" content={dataDoctorSlug?.metaTitleTag} />
@@ -80,20 +81,20 @@ const DoctorName = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDoctorT
         />
         <meta property="og:title" content={dataDoctorSlug?.metaTitleTag} />
         <meta property="og:description" content={dataDoctorSlug?.metaDescription} />
-        <meta property="og:image" content={`${dataDoctorSlug?.image}`} />
+        <meta property="og:image" content={`${imagePath}`} />
         <meta itemProp="name" content={dataDoctorSlug?.metaTitleTag} />
         <meta itemProp="author" content={dataDoctorSlug?.metaTitleTag} />
-        <meta itemProp="image" content={`${dataDoctorSlug?.image}`} />
+        <meta itemProp="image" content={`${imagePath}`} />
         <meta
           itemProp="description"
           content={dataDoctorSlug?.metaDescription}
         />
-        <meta name="twitter:image" content={`${dataDoctorSlug?.image}`} />
+        <meta name="twitter:image" content={`${imagePath}`} />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@" />
         <meta name="twitter:creator" content="@" />
         <meta name="twitter:title" content={dataDoctorSlug?.metaTitleTag} />
-        <meta name="twitter:image:src" content={`${dataDoctorSlug?.image}`} />
+        <meta name="twitter:image:src" content={`${imagePath}`} />
         <meta
           name="twitter:description"
           content={dataDoctorSlug?.metaDescription}
