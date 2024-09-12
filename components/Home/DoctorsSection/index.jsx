@@ -296,6 +296,9 @@ const DoctorsSection = ({ dataMostPopularDocs }) => {
                   <div className={styles.title}>
                     <p>{doctor.doctorLevel} {doctor.firstName} {doctor.lastName}</p>
                   </div>
+                  <div className={styles.specialist}>
+                    <p>{doctor.mainSpecialization}</p>
+                  </div>
                   <div className={styles.buttom_container}>
                     <div className={styles.specialist}>
                       <p>{doctor.specialist}</p>

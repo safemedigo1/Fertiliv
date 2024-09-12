@@ -23,7 +23,7 @@ const tajawal = Tajawal({
 
 function App({ Component, pageProps }) {
   const { t } = useTranslation();
-  const [showPopup, setShowPopup] = useState(false);
+  const [showPopup, setShowPopup] = useState(true);
   const { locale } = useRouter();
   const [updatedFormData, setUpdatedFormData] = useState();
   const [isLoading, setIsLoading] = useState(false);
@@ -130,11 +130,19 @@ function App({ Component, pageProps }) {
                 className={"input_container"}
               >
                 <div className="text_container">
-                  <p>{t("common:offer1")}</p>
+                  <h5>
+                    {t("common:offer1")} <br /> {t("common:offer2")}
+                  </h5>
 
-                  <p>{t("common:offer2")}</p>
                   <p>{t("common:offer3")}</p>
                 </div>
+
+                <div className="mobile">
+                  <div className="img_container">
+                    <img src="/assets/imgs/offer.png" />
+                  </div>
+                </div>
+
                 <form onSubmit={handleSubmit} dir="ltr">
                   <div className={"name"}>
                     <input
@@ -189,6 +197,12 @@ function App({ Component, pageProps }) {
                   </Button>
                 </div>
               </motion.div>
+
+              <div className="desktop">
+                <div className="img_container">
+                  <img src="/assets/imgs/offer.png" />
+                </div>
+              </div>
 
               <div className="close_btn" onClick={() => setShowPopup(false)}>
                 <CloseIcon />

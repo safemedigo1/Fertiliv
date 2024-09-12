@@ -1,5 +1,3 @@
-import Head from "next/head";
-
 import Navbar from "../../components/Navbar";
 import Hero from "../../components/Home/Hero";
 import WhyFertiliv from "../../components/Home/WhyFertiliv";

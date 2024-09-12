@@ -33,7 +33,6 @@ section.doctors_section {
     .desc {
       width: 100%;
       display: flex;
-      margin-bottom: 40px;
       p {
         margin: auto;
         max-width: 800px;
@@ -96,9 +95,8 @@ section.doctors_section {
           .title {
             margin-top: auto;
             width: 100%;
-            margin-bottom: 17px;
-            @media screen and (max-width: 450px) {
-            }
+            margin-bottom: 0px;
+
             p {
               text-align: left;
               font-size: 24px;
@@ -110,6 +108,15 @@ section.doctors_section {
                 // padding: 16px;
                 font-size: 18px;
               }
+            }
+          }
+
+          .specialist {
+            align-self: flex-end;
+            p {
+              margin: 0;
+              font-size: 18px;
+              font-weight: 500;
             }
           }
 
@@ -281,6 +288,10 @@ section.doctors_section[dir="rtl"] {
                 font-size: 18px;
               }
             }
+          }
+
+          .specialist {
+            align-self: flex-start;
           }
 
           .buttom_container {
