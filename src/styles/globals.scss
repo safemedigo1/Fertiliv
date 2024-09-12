@@ -44,7 +44,7 @@ body {
 }
 
 a {
-  color: inherit;
+  color: unset;
   text-decoration: none;
 }
 
@@ -362,4 +362,150 @@ button:hover {
   line-height: 0;
   border-radius: 13px;
   object-fit: cover;
+}
+
+// PopUPCard
+.card_container {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 99;
+
+  background-color: rgba(255, 238, 225, 0.4392156863);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(6px);
+  width: 100%;
+  display: flex;
+
+  .content_container {
+    display: flex;
+    margin: auto;
+    background-color: var(--main-beige-color);
+    padding: 24px;
+    position: relative;
+    border-radius: 16px;
+    box-shadow: -1px 1px 5px 0px #0000004f;
+
+    .text_container {
+      margin-top: 16px;
+      p {
+        font-size: 18px;
+        font-weight: bold;
+      }
+    }
+    .close_btn {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      cursor: pointer;
+    }
+    .input_container {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: 20px;
+    }
+    form {
+      width: 100%;
+      .name {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 16px;
+        @media screen and (max-width: 450px) {
+          flex-direction: column;
+        }
+
+        input {
+          width: 100%;
+          height: 45px;
+
+          border: none;
+
+          padding-top: 10px;
+          padding-bottom: 10px;
+          padding-left: 16px;
+          &:focus {
+            outline: none;
+          }
+          @media screen and (max-width: 450px) {
+            width: 100%;
+          }
+
+          &:first-child {
+            @media screen and (max-width: 450px) {
+              margin-bottom: 16px;
+            }
+          }
+        }
+      }
+      .phone {
+        margin-bottom: 16px;
+        input {
+          width: 100%;
+          height: 45px;
+        }
+      }
+      .email {
+        margin-bottom: 16px;
+        input {
+          width: 100%;
+          height: 45px;
+          border: none;
+
+          padding-top: 10px;
+          padding-bottom: 10px;
+          padding-left: 16px;
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+
+      .textarea {
+        textarea {
+          width: 100%;
+          height: 104px;
+          border: none;
+          padding-top: 10px;
+          padding-bottom: 10px;
+          padding-left: 16px;
+
+          resize: vertical;
+
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+
+      input {
+        border-radius: 5px;
+      }
+    }
+  }
+  .subBtn {
+    margin-top: 11px;
+    text-align: center;
+
+    button {
+      width: 232px;
+      background-color: var(--main-blue-color);
+      color: var(--main-white-color);
+      font-size: 16px;
+      font-weight: var(--font-bold);
+      box-shadow: var(--btn-box-shadow);
+      border-radius: 30px;
+      text-transform: capitalize;
+    }
+  }
+}
+
+main[dir="rtl"] {
+  button {
+    font-family: var(--arabic-font);
+  }
 }

@@ -23,8 +23,8 @@ const tajawal = Tajawal({
 
 function App({ Component, pageProps }) {
   const { t } = useTranslation();
-  const [showPopup, setShowPopup] = useState(true);
   const { locale } = useRouter();
+  const [showPopup, setShowPopup] = useState(false); // Controls the popup visibility
   const [updatedFormData, setUpdatedFormData] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const [phoneNum, setPhoneNum] = useState("");
@@ -34,17 +34,26 @@ function App({ Component, pageProps }) {
     phone: "",
   });
 
+  // Update form data when phone number or form changes
   useEffect(() => {
     setUpdatedFormData({ ...formData, phone: phoneNum });
   }, [formData, phoneNum]);
 
+  // Ensure the popup only shows on the user's first visit (and only after 10 seconds)
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowPopup(true);
-    }, 2 * 60 * 1000);
+    const hasVisited = localStorage.getItem("hasVisited");
 
-    return () => clearTimeout(timer);
-  }, []);
+    // Only show the popup if the user has not visited before
+    if (!hasVisited) {
+      const timer = setTimeout(() => {
+        setShowPopup(true);
+        localStorage.setItem("hasVisited", "true"); // Mark as visited
+      }, 10000); // 10 seconds delay
+
+      // Cleanup the timer when the component unmounts
+      return () => clearTimeout(timer);
+    }
+  }, []); // Empty dependency array means this runs only on the first render
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -66,7 +75,7 @@ function App({ Component, pageProps }) {
             const data = await response.text();
             setIsLoading(false);
             if (response.ok) {
-              setShowPopup(false);
+              setShowPopup(false); // Close the popup on success
             } else {
               console.error("Request failed with status:", response.status);
               throw new Error(data);
@@ -93,14 +102,13 @@ function App({ Component, pageProps }) {
 
   const handleChangeForm = (event) => {
     const { name, value } = event.target;
-
     setFormData({
       ...formData,
       [name]: value,
     });
   };
 
-  const handleChangePhone = (newPhoneVal, countryData) => {
+  const handleChangePhone = (newPhoneVal) => {
     setPhoneNum(newPhoneVal);
   };
 
@@ -127,16 +135,15 @@ function App({ Component, pageProps }) {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.5 }}
-                className={"input_container"}
+                className="input_container"
               >
                 <div className="text_container">
                   <p>{t("common:offer1")}</p>
-
                   <p>{t("common:offer2")}</p>
                   <p>{t("common:offer3")}</p>
                 </div>
                 <form onSubmit={handleSubmit} dir="ltr">
-                  <div className={"name"}>
+                  <div className="name">
                     <input
                       type="text"
                       placeholder="Your Name"
@@ -147,7 +154,7 @@ function App({ Component, pageProps }) {
                     />
                   </div>
 
-                  <div className={"phone"} dir="ltr">
+                  <div className="phone" dir="ltr">
                     <PhoneInput
                       country="tr"
                       value={phoneNum}
@@ -159,7 +166,7 @@ function App({ Component, pageProps }) {
                     />
                   </div>
 
-                  <div className={"email"}>
+                  <div className="email">
                     <input
                       type="email"
                       placeholder="E-mail"
@@ -169,25 +176,26 @@ function App({ Component, pageProps }) {
                       required
                     />
                   </div>
+
+                  <div className="subBtn">
+                    <Button type="submit">
+                      {isLoading ? (
+                        <ThreeDots
+                          height="25"
+                          width="25"
+                          radius="9"
+                          color="#707070"
+                          ariaLabel="three-dots-loading"
+                          wrapperStyle={{}}
+                          wrapperClassName="load_more_btn"
+                          visible={true}
+                        />
+                      ) : (
+                        t("why_feriliv:submit")
+                      )}
+                    </Button>
+                  </div>
                 </form>
-                <div className={"subBtn"} onClick={handleSubmit}>
-                  <Button>
-                    {isLoading ? (
-                      <ThreeDots
-                        height="25"
-                        width="25"
-                        radius="9"
-                        color="#707070"
-                        ariaLabel="three-dots-loading"
-                        wrapperStyle={{}}
-                        wrapperClassName="load_more_btn"
-                        visible={true}
-                      />
-                    ) : (
-                      t("why_feriliv:submit")
-                    )}
-                  </Button>
-                </div>
               </motion.div>
 
               <div className="close_btn" onClick={() => setShowPopup(false)}>

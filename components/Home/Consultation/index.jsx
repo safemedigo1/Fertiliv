@@ -105,7 +105,9 @@ const Consultation = () => {
 
     return (
       <section id="consultation" className={styles.consultation} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+
         <Container>
+
           <div className={styles.section_container}>
             <div className={styles.title}>
               <Typography variant="h3">{t('why_feriliv:consultation_title')}</Typography>
@@ -197,6 +199,8 @@ const Consultation = () => {
                     ></textarea>
                   </div>
                 </form>
+
+
               </motion.div>
 
               <Toaster
@@ -257,7 +261,9 @@ const Consultation = () => {
             </motion.div>
 
           </div>
+
         </Container>
+
       </section>
     );
 };
