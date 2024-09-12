@@ -23,7 +23,7 @@ const tajawal = Tajawal({
 
 function App({ Component, pageProps }) {
   const { t } = useTranslation();
-  const [showPopup, setShowPopup] = useState(true);
+  const [showPopup, setShowPopup] = useState(false);
   const { locale } = useRouter();
   const [updatedFormData, setUpdatedFormData] = useState();
   const [isLoading, setIsLoading] = useState(false);
