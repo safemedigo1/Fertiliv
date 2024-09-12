@@ -41,7 +41,7 @@ function App({ Component, pageProps }) {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowPopup(true);
-    }, 2 * 60 * 1000);
+    }, 25000);
 
     return () => clearTimeout(timer);
   }, []);
