@@ -2,9 +2,7 @@ section.reviews {
   margin-top: 60px;
 
   .section_container {
-    @media screen and (min-width: 992px) {
-      background-color: var(--main-beige-color);
-    }
+    background-color: var(--main-beige-color);
 
     padding: 50px;
     border-radius: 75px;
@@ -13,6 +11,7 @@ section.reviews {
 
     @media screen and (max-width: 992px) {
       flex-direction: column;
+      display: block;
       width: 100%;
       padding-top: 24px;
       padding-bottom: 24px;
@@ -21,7 +20,6 @@ section.reviews {
       background-color: var(--main-beige-color);
       border-radius: 12px;
     }
-
     .text_container {
       width: 33%;
       @media screen and (max-width: 992px) {

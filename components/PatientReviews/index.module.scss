@@ -1,0 +1,121 @@
+section.patient_stories {
+  position: relative;
+
+  @media screen and (max-width: 992px) {
+    padding-top: 20px;
+    background-color: var(--main-beige-color);
+  }
+
+  .slider_container {
+    width: 810px;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    position: relative;
+
+    .shadow_box {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      width: 36px;
+      height: 100%;
+      opacity: 1;
+      z-index: 8;
+      box-shadow: inset -20px 0px 12px 0px #ffeee1;
+
+      @media screen and (max-width: 992px) {
+        display: none;
+      }
+    }
+    .swiper {
+      width: 100%;
+    }
+
+    .swiper2 {
+      @media screen and (max-width: 1300px) {
+        width: 100%;
+      }
+    }
+
+    @media screen and (max-width: 1300px) {
+      width: 100%;
+    }
+
+    // @media screen and (max-width: 750px) {
+    //   width: 400px;
+    // }
+
+    @media screen and (max-width: 1100px) {
+      justify-content: space-around;
+    }
+
+    @media screen and (max-width: 750px) {
+      align-items: flex-start;
+      justify-content: center;
+    }
+    @media screen and (max-width: 450px) {
+      justify-content: flex-start;
+      width: 100%;
+    }
+  }
+}
+
+section.patient_stories[dir="rtl"] {
+  * {
+    font-family: var(--arabic-font) !important;
+  }
+
+  @media screen and (max-width: 992px) {
+    padding-top: 20px;
+  }
+
+  .slider_container {
+    .shadow_box {
+      top: 0px;
+      right: unset;
+      left: 0;
+      z-index: 8;
+      transform: rotate(180deg);
+    }
+
+    .box {
+      margin-right: 0px;
+      margin-right: 26px;
+
+      @media screen and (max-width: 992px) {
+        margin-right: 0px;
+      }
+
+      .box_title {
+        padding-left: 22px;
+        padding-right: 15px;
+        h5 {
+          font-family: var(--arabic-font) !important;
+        }
+      }
+
+      .desc {
+        padding-left: 22px;
+        padding-right: 15px;
+        p {
+          font-family: var(--arabic-font) !important;
+        }
+      }
+
+      .author_container {
+        padding-left: 22px;
+        padding-right: 15px;
+
+        .img_container {
+          margin-right: 0px;
+          // margin-left: 21.5px;
+        }
+      }
+
+      .btns_container {
+        padding-left: 0px;
+        padding-right: 15px;
+      }
+    }
+  }
+}

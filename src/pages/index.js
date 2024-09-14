@@ -3,7 +3,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Home from "../../components/Home";
 import { useRouter } from "next/router";
 
-export default function Page({ metaData, dataMostPopularDocs }) {
+export default function Page({ metaData, dataMostPopularDocs, dataReviews }) {
   const { locale } = useRouter();
 
   const imagePath = "assets/imgs/logo.png";
@@ -92,7 +92,10 @@ export default function Page({ metaData, dataMostPopularDocs }) {
         />
       </Head>
 
-      <Home dataMostPopularDocs={dataMostPopularDocs} />
+      <Home
+        dataMostPopularDocs={dataMostPopularDocs}
+        dataReviews={dataReviews}
+      />
     </>
   );
 }
@@ -130,10 +133,31 @@ export async function getStaticProps({ locale }) {
     }
   );
   const dataMostPopularDocs = await resMostPopularDocs.json();
+
+  const resReviews = await fetch(
+    "https://api2.safemedigo.com/api/v1/Rating/GetAllRatings",
+    {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "Cache-Control": "no-cache",
+        Pragma: "no-cache",
+        Expires: "0",
+      },
+      body: JSON.stringify({
+        lang: locale,
+        platform: "fertiliv",
+      }),
+    }
+  );
+  const dataReviews = await resReviews.json();
+
   return {
     props: {
       metaData,
       dataMostPopularDocs,
+      dataReviews,
       ...(await serverSideTranslations(locale, [
         "navbar",
         "why_feriliv",

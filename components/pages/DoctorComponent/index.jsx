@@ -319,12 +319,6 @@ const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDo
                     </AccordionSummary>
 
                     <AccordionDetails sx={AccordionDetailsStyles}>
-
-
-
-
-
-
                       <ul>
                         {dataDoctorEducation?.map((education, index) => (
 
@@ -537,12 +531,6 @@ const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDo
 
                   </Accordion>
                 }
-
-
-
-
-
-
               </div>
 
 
@@ -565,7 +553,7 @@ const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDo
                         }}
                         pagination={false}
                         className={styles.swiper}
-                        dir={locale === 'ar' ? 'rtl' : 'ltr'}
+                        dir={'ltr'}
                       >
                         {dataDoctorCertificatest?.map((card, index) => (
                           <SwiperSlide key={index}>

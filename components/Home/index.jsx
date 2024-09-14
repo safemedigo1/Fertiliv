@@ -14,7 +14,7 @@ import WhatsappBtn from "../../components/WhatsappBtn";
 import { useEffect, useState } from "react";
 
 
-export default function Home({ dataMostPopularDocs }) {
+export default function Home({ dataMostPopularDocs, dataReviews }) {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
@@ -34,7 +34,7 @@ export default function Home({ dataMostPopularDocs }) {
         <Doctor />
         <DoctorsSection dataMostPopularDocs={dataMostPopularDocs} />
         <Memberships />
-        <Reviews />
+        <Reviews dataReviews={dataReviews} />
         <Quote />
         <WhatsappBtn />
         <Footer />
