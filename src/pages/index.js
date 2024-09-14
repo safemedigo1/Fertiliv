@@ -171,6 +171,7 @@ export async function getStaticProps({ locale }) {
         "members",
         "ivfClinic",
         "Footer",
+        "treatments_section",
       ])),
     },
     revalidate: 10,
