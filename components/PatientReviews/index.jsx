@@ -153,7 +153,7 @@ const PatientReviews = ({ dataReviews }) => {
                     </p>
                   </div>
 
-                  {review.ratingTreatments.length >= 1 && expandedReview === reviewIndex && (
+                  {/* {review.ratingTreatments.length >= 1 && expandedReview === reviewIndex && (
                     <div className={pstyles.percuders}>
                       <div className={pstyles.title}>{t('navbar:procedures_symptoms')}</div>
                       <ul>
@@ -170,7 +170,7 @@ const PatientReviews = ({ dataReviews }) => {
                         ))}
                       </ul>
                     </div>
-                  )}
+                  )} */}
 
                   <div className={pstyles.btns_container}>
                     <div className={pstyles.posted_on}>
