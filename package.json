@@ -27,7 +27,7 @@
     "date-fns": "^2.21.3",
     "dayjs": "^1.11.9",
     "eslint": "8.46.0",
-    "eslint-config-next": "13.4.12",
+    "eslint-config-next": "14.1.0",
     "formidable": "^3.5.0",
     "framer-motion": "^10.18.0",
     "i18next": "^23.4.6",
