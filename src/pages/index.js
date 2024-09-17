@@ -147,7 +147,8 @@ export async function getStaticProps({ locale }) {
       },
       body: JSON.stringify({
         lang: locale,
-        platform: "fertiliv",
+        // platform: "",
+        hospitalSlug: "fertiliv",
       }),
     }
   );
