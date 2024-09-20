@@ -13,8 +13,8 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import axios from 'axios';
 import Image from 'next/image'
-import Navbar from '../../../components/Navbar'
-import Footer from '../../../components/Footer'
+import Navbar from '../../components/Navbar'
+import Footer from '../../components/Footer'
 
 
 export default function Blogs({ blogCategory, blogs, allBlogsTagsData, currentPage, totalPages, locale }) {

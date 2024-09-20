@@ -25,14 +25,16 @@ const WhyFertiliv = () => {
           <div className={styles.boxes_container}>
 
             <div className={styles.box} >
-              <div className={styles.icon_container}>
-                <Image src={Success} alt="ICON" />
-              </div>
+              <div className={styles.wrapper}>
 
-              <div className={styles.box_title}>
-                <Typography variant='h4'>
-                  {t("why_feriliv:box_title1")}
-                </Typography>
+                <div className={styles.icon_container}>
+                  <Image src={Success} alt="ICON" />
+                </div>
+                <div className={styles.box_title}>
+                  <Typography variant='h4'>
+                    {t("why_feriliv:box_title1")}
+                  </Typography>
+                </div>
               </div>
 
               <div className={styles.desc}>
@@ -48,14 +50,15 @@ const WhyFertiliv = () => {
             </div>
 
             <div className={styles.box} >
-              <div className={styles.icon_container}>
-                <Image src={Packages} alt="ICON" />
-              </div>
+              <div className={styles.wrapper}>
+                <div className={styles.icon_container}>
+                  <Image src={Packages} alt="ICON" />
+                </div>
 
-              <div className={styles.box_title}>
-                <Typography variant='h4'>{t("why_feriliv:box_title2")}</Typography>
+                <div className={styles.box_title}>
+                  <Typography variant='h4'>{t("why_feriliv:box_title2")}</Typography>
+                </div>
               </div>
-
               <div className={styles.desc}>
                 <Typography>
                   {t("why_feriliv:desc2")}
@@ -70,14 +73,15 @@ const WhyFertiliv = () => {
             </div>
 
             <div className={styles.box} >
-              <div className={styles.icon_container}>
-                <Image src={Experience} alt="ICON" />
-              </div>
+              <div className={styles.wrapper}>
+                <div className={styles.icon_container}>
+                  <Image src={Experience} alt="ICON" />
+                </div>
 
-              <div className={styles.box_title}>
-                <Typography variant='h4'>{t("why_feriliv:box_title3")}</Typography>
+                <div className={styles.box_title}>
+                  <Typography variant='h4'>{t("why_feriliv:box_title3")}</Typography>
+                </div>
               </div>
-
               <div className={styles.desc}>
                 <Typography>
                   {t("why_feriliv:desc3")}

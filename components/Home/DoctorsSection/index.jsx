@@ -177,7 +177,7 @@ const doctors = [
 
 const DoctorsSection = ({ dataMostPopularDocs }) => {
   const { t } = useTranslation()
-  const { locale } = useRouter()
+  const { locale } = useRouter();
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   const swiperRef = useRef(null);
@@ -210,7 +210,9 @@ const DoctorsSection = ({ dataMostPopularDocs }) => {
 
 
   return (
-    <section id='doctorsSection' className={styles.doctors_section} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+    <section id='doctorsSection' className={styles.doctors_section}
+      dir={locale === 'ar' ? 'rtl' : 'ltr'}
+    >
 
       <Container>
         <div className={styles.section_container}>
@@ -233,8 +235,8 @@ const DoctorsSection = ({ dataMostPopularDocs }) => {
           <Swiper
             ref={swiperRef}
             navigation={{
-              prevEl: prevRef.current,
               nextEl: nextRef.current,
+              prevEl: prevRef.current,
             }}
 
             breakpoints={{
@@ -276,7 +278,7 @@ const DoctorsSection = ({ dataMostPopularDocs }) => {
               },
             }}
             modules={[Navigation, Pagination]}
-            dir={'rtl'}
+            dir={locale === 'ar' ? 'rtl' : 'ltr'}
 
             onSwiper={(swiper) => {
               swiperRef.current = swiper;
@@ -315,13 +317,25 @@ const DoctorsSection = ({ dataMostPopularDocs }) => {
 
           </Swiper>
 
-          <div ref={prevRef} className={styles.icon_container_right2}>
-            <IoIosArrowBack />
-          </div>
-
-          <div ref={nextRef} className={styles.icon_container_left2}>
-            <IoIosArrowForward />
-          </div>
+          {locale === 'ar' ? (
+            <>
+              <div ref={nextRef} className={styles.icon_container_left2}>
+                <IoIosArrowForward />
+              </div>
+              <div ref={prevRef} className={styles.icon_container_right2}>
+                <IoIosArrowBack />
+              </div>
+            </>
+          ) : (
+            <>
+              <div ref={prevRef} className={styles.icon_container_right2}>
+                <IoIosArrowBack />
+              </div>
+              <div ref={nextRef} className={styles.icon_container_left2}>
+                <IoIosArrowForward />
+              </div>
+            </>
+          )}
 
         </div>
       </Container>

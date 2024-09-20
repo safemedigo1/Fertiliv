@@ -49,6 +49,10 @@
       justify-content: space-between;
       margin-bottom: 80px;
 
+      background-color: #ffeee1;
+      border-radius: 20px;
+      padding: 20px;
+
       @media screen and (max-width: 992px) {
         flex-direction: column;
         align-items: center;
@@ -61,17 +65,14 @@
 
       .box {
         width: 370px;
-        height: 575px;
+        height: 315px;
         padding-left: 20px;
         padding-right: 32px;
         padding-top: 20px;
         padding-bottom: 30px;
-        background-color: var(--main-beige-color);
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        border-radius: 0px 20px 20px 20px;
-        justify-content: space-around;
 
         margin-bottom: 24px;
         @media screen and (max-width: 992px) {
@@ -87,9 +88,16 @@
           padding: 0;
         }
 
+        .wrapper {
+          display: flex;
+          gap: 16px;
+          align-items: center;
+        }
+
         &:last-child {
           @media screen and (max-width: 992px) {
             padding-bottom: 0px;
+            margin-bottom: 0;
           }
         }
 
@@ -107,28 +115,26 @@
         }
         .icon_container {
           margin-bottom: 20px;
-          width: 150px;
-          height: 150px;
+          width: 83.97px;
+          height: 87.65px;
           background-color: var(--main-white-color);
           display: flex;
           border-radius: 50%;
           @media screen and (max-width: 450px) {
             width: 70px;
             height: 70px;
+            margin-bottom: 16px;
           }
 
           img {
             margin: auto;
-            width: 135px;
-            height: 135px;
+            width: 80%;
+            height: 80%;
             object-fit: contain;
 
             @media screen and (max-width: 450px) {
               // width: 125px;
               // height: 125px;
-
-              width: 80%;
-              height: 80%;
             }
           }
         }
@@ -139,7 +145,7 @@
             color: var(--main-blue-color);
             font-weight: var(--font-bold);
             font-family: var(--main-font);
-            font-size: 29px;
+            font-size: 21px;
             @media screen and (max-width: 450px) {
               font-size: 18px;
             }
@@ -148,12 +154,13 @@
 
         .desc {
           p {
+            margin: 0;
             text-align: left;
-            color: #262626;
-            font-weight: var(--font-regular);
+            color: #000000;
             font-family: var(--main-font);
-            font-size: 24px;
-            line-height: 1.7rem;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 1.3rem;
 
             @media screen and (max-width: 992px) {
               text-align: center;
@@ -169,13 +176,13 @@
         }
 
         .link {
-          margin-top: 18px;
+          margin-top: auto;
           @media screen and (max-width: 450px) {
             margin-top: 0;
           }
           a {
-            color: var(--main-blue-color);
-            font-size: 24px;
+            color: #1b0968;
+            font-size: 20px;
             text-decoration: underline;
             font-weight: var(--font-regular);
             font-family: var(--main-font);
@@ -279,25 +286,13 @@
         .box_title {
           margin-bottom: 4px;
           h4 {
-            color: var(--main-blue-color);
-            font-weight: var(--font-bold);
-            font-family: var(--main-font);
-            font-size: 29px;
-            @media screen and (max-width: 450px) {
-              font-size: 24px;
-            }
           }
         }
 
         .desc {
           p {
             text-align: right;
-            color: #262626;
-            font-weight: var(--font-regular);
-            font-family: var(--main-font);
-            font-size: 24px;
-            line-height: unset;
-
+            line-height: 1.5rem;
             @media screen and (max-width: 992px) {
               text-align: center;
             }
@@ -310,7 +305,6 @@
         }
 
         .link {
-          margin-top: 18px;
           @media screen and (max-width: 450px) {
             margin-top: 0;
           }
