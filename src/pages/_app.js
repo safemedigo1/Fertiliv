@@ -400,6 +400,7 @@ function App({ Component, pageProps }) {
                       countryCodeEditable={false}
                       country="tr"
                       value={phoneNum}
+                      enableLongNumbers={true}
                       onChange={handleChangePhone}
                       inputProps={{
                         name: "phone",

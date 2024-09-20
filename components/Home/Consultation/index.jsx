@@ -25,10 +25,11 @@ const Consultation = () => {
   });
   const [updatedFormData, setUpdatedFormData] = useState();
   const [isLoading, setIsLoading] = useState(false);
-  console.log(phoneNum, "phonephone")
+
   const handleChangePhone = (newPhoneVal, countryData) => {
     setPhoneNum(newPhoneVal);
   };
+
 
   useEffect(() => {
     setUpdatedFormData({ ...formData, phone: phoneNum });
@@ -147,6 +148,7 @@ const Consultation = () => {
                 transition={{ duration: 1 }}
                 className={styles.input_container}
               >
+
                 <form onSubmit={handleSubmit}>
                   <div className={styles.name}>
                     <input
@@ -169,9 +171,9 @@ const Consultation = () => {
 
                   <div className={styles.phone} dir='ltr'>
                     <PhoneInput
-                      enableLongNumbers={false}
                       countryCodeEditable={false}
                       country="tr"
+                      enableLongNumbers={true}
                       value={phoneNum}
                       onChange={handleChangePhone}
                       inputProps={{

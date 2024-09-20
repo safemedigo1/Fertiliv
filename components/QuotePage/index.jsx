@@ -647,9 +647,10 @@ const QuotePage = () => {
                         countryCodeEditable={false}
                         country={'tr'}
                         value={phoneNum}
+                        enableLongNumbers={true}
+
                         onChange={handleChangePhone}
                         // onChange={newPhoneVal => setPhoneNum(newPhoneVal)}
-
                         inputProps={{
                           name: 'phone',
                           required: true,

@@ -374,6 +374,17 @@ const Quote = () => {
     setIsLoading(false);
   };
 
+
+
+
+
+
+
+
+
+
+
+
   const handleCheckboxChange = (event) => {
     const value = event.target.value;
     const checked = event.target.checked;
@@ -471,6 +482,8 @@ const Quote = () => {
                   <div className={styles.phone} dir='ltr'>
                     <PhoneInput
                       countryCodeEditable={false}
+                      enableLongNumbers={true}
+
                       country={'tr'}
                       value={phoneNum}
                       onChange={handleChangePhone}
@@ -499,6 +512,10 @@ const Quote = () => {
                 </motion.div>
               )}
             </form>
+
+
+
+
             {step === 3 && (
               <motion.div
                 animate={{ opacity: 1 }}
