@@ -188,7 +188,7 @@ const PatientReviews = ({ dataReviews }) => {
                       ) : (
                         <>
                           <img src="/assets/svgs/logo-safemedigo.svg" alt="" />
-                          <Link href='' target='_blank' style={{ textDecoration: 'none' }}>
+                          <Link href='' style={{ textDecoration: 'none' }}>
                             {t('treatments_section:postedOn_plat')}
                           </Link>
                         </>

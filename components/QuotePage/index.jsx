@@ -644,6 +644,7 @@ const QuotePage = () => {
                       <label htmlFor="phone">{t("quote_page:phone_number")} <span>*</span></label>
 
                       <PhoneInput
+                        countryCodeEditable={false}
                         country={'tr'}
                         value={phoneNum}
                         onChange={handleChangePhone}

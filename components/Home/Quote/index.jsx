@@ -470,6 +470,7 @@ const Quote = () => {
                   </div>
                   <div className={styles.phone} dir='ltr'>
                     <PhoneInput
+                      countryCodeEditable={false}
                       country={'tr'}
                       value={phoneNum}
                       onChange={handleChangePhone}

@@ -25,7 +25,7 @@ const Consultation = () => {
   });
   const [updatedFormData, setUpdatedFormData] = useState();
   const [isLoading, setIsLoading] = useState(false);
-
+  console.log(phoneNum, "phonephone")
   const handleChangePhone = (newPhoneVal, countryData) => {
     setPhoneNum(newPhoneVal);
   };
@@ -169,6 +169,8 @@ const Consultation = () => {
 
                   <div className={styles.phone} dir='ltr'>
                     <PhoneInput
+                      enableLongNumbers={false}
+                      countryCodeEditable={false}
                       country="tr"
                       value={phoneNum}
                       onChange={handleChangePhone}

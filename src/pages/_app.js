@@ -397,6 +397,7 @@ function App({ Component, pageProps }) {
 
                   <div className={"phone"} dir="ltr">
                     <PhoneInput
+                      countryCodeEditable={false}
                       country="tr"
                       value={phoneNum}
                       onChange={handleChangePhone}
