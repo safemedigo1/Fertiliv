@@ -12,7 +12,6 @@ export default function Page({
   const { locale } = useRouter();
 
   const imagePath = `images/${locale}/image.png`;
-  const logo_v = "assets/imgs/logo_v.png";
 
   return (
     <>
@@ -71,15 +70,18 @@ export default function Page({
         <meta property="og:description" content={metaData?.desc} />
         <meta
           property="og:image"
-          content={`https://www.fertiliv.com/${logo_v}`}
+          content={`https://www.fertiliv.com/${imagePath}`}
         />
         <meta itemProp="name" content={metaData?.title} />
         <meta itemProp="author" content={metaData?.title} />
-        <meta itemProp="image" content={`https://www.fertiliv.com/${logo_v}`} />
+        <meta
+          itemProp="image"
+          content={`https://www.fertiliv.com/${imagePath}`}
+        />
         <meta itemProp="description" content={metaData?.desc} />
         <meta
           name="twitter:image"
-          content={`https://www.fertiliv.com/${logo_v}`}
+          content={`https://www.fertiliv.com/${imagePath}`}
         />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@" />
@@ -87,7 +89,7 @@ export default function Page({
         <meta name="twitter:title" content={metaData?.title} />
         <meta
           name="twitter:image:src"
-          content={`https://www.fertiliv.com/${logo_v}`}
+          content={`https://www.fertiliv.com/${imagePath}`}
         />
         <meta name="twitter:description" content={metaData?.desc} />
         <link
