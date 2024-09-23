@@ -39,6 +39,7 @@ const BlogsSection = ({ blogs }) => {
             }}
             dir={router.locale === 'ar' ? 'rtl' : 'ltr'}
             className={styles.swiper}
+            spaceBetween={16}
           >
 
             {

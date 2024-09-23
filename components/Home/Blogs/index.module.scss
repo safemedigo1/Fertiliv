@@ -21,11 +21,8 @@ section.reviews {
       border-radius: 12px;
     }
 
-    @media screen and (max-width: 992px) {
-      padding: 8px;
-    }
     .text_container {
-      width: 33%;
+      width: 27%;
       @media screen and (max-width: 992px) {
         width: 100%;
         margin-bottom: 24px;
