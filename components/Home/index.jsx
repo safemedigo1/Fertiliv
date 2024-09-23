@@ -12,9 +12,10 @@ import Footer from "../../components/Footer";
 import DoctorsSection from "../../components/Home/DoctorsSection";
 import WhatsappBtn from "../../components/WhatsappBtn";
 import { useEffect, useState } from "react";
+import Blogs from "./Blogs";
 
 
-export default function Home({ dataMostPopularDocs, dataReviews }) {
+export default function Home({ dataMostPopularDocs, dataReviews, blogs }) {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
@@ -37,6 +38,8 @@ export default function Home({ dataMostPopularDocs, dataReviews }) {
         <Reviews dataReviews={dataReviews} />
         <Quote />
         <WhatsappBtn />
+        <Blogs dataReviews={dataReviews} blogs={blogs} />
+
         <Footer />
 
 

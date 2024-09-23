@@ -2,42 +2,43 @@ import React from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import SingleBlogPage from "@/components/SingleBlogPage";
+import SingleBlogPage from "../../../../components/SingleBlogPage";
+import Navbar from "../../../../components/Navbar";
+import Footer from "../../../../components/Footer";
 
-export default function BolgDetailsID({ blog, allBlogsTagsData, dataReviews, metaData }) {
-  const keywords = allBlogsTagsData?.map(tag => tag.tagName).join(', ');
+export default function BolgDetailsID({ blog, allBlogsTagsData, dataReviews, }) {
   const router = useRouter();
   const { locale } = useRouter();
   const imagePath = `images/${locale}/image.png`;
 
-
+  console.log(blog.metaTitleTag, "metaTitleTag")
   return (
     <>
       <Head>
-        <title>{metaData?.Title_Tag}</title>
+        <title>{blog?.metaTitleTag}</title>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="csrf-token" content="JdDvDc4LUJomFM4T7QE0hFlH9CeKOHDXMoxV3wer" />
         <meta name="title" content="" />
         <link rel="icon" type="image/png" href={`/${imagePath}`} />
-        <meta name="theme-color" content="#004747" />
+        <meta name="theme-color" content="#1b0968" />
         <meta
           name="keywords"
-          content={metaData?.Meta_Keywords}
+          content={blog?.metaKeywords}
         />
         <meta name="mobile-web-app-capable" content="no" />
-        <meta name="application-name" content={metaData?.Title_Tag} />
+        <meta name="application-name" content={blog?.metaTitleTag} />
         <meta name="apple-mobile-web-app-capable" content="no" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-        <meta name="apple-mobile-web-app-title" content={metaData?.Title_Tag} />
-        <link rel="apple-touch-icon" href={`https://www.safemedigo.com/${imagePath}`} />
-        <link rel="apple-touch-startup-image" href={`https://www.safemedigo.com/${imagePath}`} />
-        <meta name="author" content={metaData?.Title_Tag} />
-        <meta name="description" content={metaData?.Meta_Description} />
-        <link rel="canonical" href={`https://www.safemedigo.com/${router.locale}`} />
-        <meta name="msapplication-TileColor" content="#004747" />
-        <meta name="msapplication-TileImage" content={`https://www.safemedigo.com/${imagePath}`} />
+        <meta name="apple-mobile-web-app-title" content={blog?.metaTitleTag} />
+        <link rel="apple-touch-icon" href={`https://www.fertiliv.com/${imagePath}`} />
+        <link rel="apple-touch-startup-image" href={`https://www.fertiliv.com/${imagePath}`} />
+        <meta name="author" content={blog?.metaTitleTag} />
+        <meta name="description" content={blog?.metaDescription} />
+        <link rel="canonical" href={`https://www.fertiliv.com/${router.locale}`} />
+        <meta name="msapplication-TileColor" content="#1b0968" />
+        <meta name="msapplication-TileImage" content={`https://www.fertiliv.com/${imagePath}`} />
         <meta name="msapplication-square70x70logo" content={imagePath} />
         <meta name="msapplication-square150x150logo" content={imagePath} />
         <meta name="msapplication-wide310x150logo" content={imagePath} />
@@ -45,31 +46,35 @@ export default function BolgDetailsID({ blog, allBlogsTagsData, dataReviews, met
         <link rel="apple-touch-icon-precomposed" href={imagePath} />
         <meta property="og:type" content="website" />
 
-        <meta property="og:site_name" content={metaData?.Title_Tag} />
+        <meta property="og:site_name" content={blog?.metaTitleTag} />
         <meta property="og:locale" content={router.locale} />
         <meta property="og:locale:alternate" content={router.locale} />
-        <meta property="og:url" content={`https://www.safemedigo.com/${router.locale}`} />
-        <meta property="og:title" content={metaData?.Title_Tag} />
-        <meta property="og:description" content={metaData?.Meta_Description} />
-        <meta property="og:image" content={`https://www.safemedigo.com/${imagePath}`} />
-        <meta itemProp="name" content={metaData?.Title_Tag} />
-        <meta itemProp="author" content={metaData?.Title_Tag} />
-        <meta itemProp="image" content={`https://www.safemedigo.com/${imagePath}`} />
-        <meta itemProp="description" content={metaData?.Meta_Description} />
-        <meta name="twitter:image" content={`https://www.safemedigo.com/${imagePath}`} />
+        <meta property="og:url" content={`https://www.fertiliv.com/${router.locale}`} />
+        <meta property="og:title" content={blog?.metaTitleTag} />
+        <meta property="og:description" content={blog?.metaDescription} />
+        <meta property="og:image" content={`https://www.fertiliv.com/${imagePath}`} />
+        <meta itemProp="name" content={blog?.metaTitleTag} />
+        <meta itemProp="author" content={blog?.metaTitleTag} />
+        <meta itemProp="image" content={`https://www.fertiliv.com/${imagePath}`} />
+        <meta itemProp="description" content={blog?.metaDescription} />
+        <meta name="twitter:image" content={`https://www.fertiliv.com/${imagePath}`} />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@" />
         <meta name="twitter:creator" content="@" />
-        <meta name="twitter:title" content={metaData?.Title_Tag} />
-        <meta name="twitter:image:src" content={`https://www.safemedigo.com/${imagePath}`} />
-        <meta name="twitter:description" content={metaData?.Meta_Description} />
+        <meta name="twitter:title" content={blog?.metaTitleTag} />
+        <meta name="twitter:image:src" content={`https://www.fertiliv.com/${imagePath}`} />
+        <meta name="twitter:description" content={blog?.metaDescription} />
         <link rel="stylesheet" src="../../public/ckeditor-content-styles.css" type="text/css" />
       </Head>
+
+
+      <Navbar />
 
       <SingleBlogPage
         blog={blog}
         allBlogsTagsData={allBlogsTagsData}
         dataReviews={dataReviews} />
+      <Footer />
     </>
   );
 }
@@ -92,17 +97,8 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params, locale }) {
-  const path = require('path');
-  const fs = require('fs');
 
-  const readFile = async (locale) => {
-    const filePath = path.join(process.cwd(), 'public', 'locales', locale, 'meta_single_blog.json');
-    const fileContents = fs.readFileSync(filePath, 'utf8');
-    return JSON.parse(fileContents);
 
-  };
-
-  const metaData = await readFile(locale);
 
   const res = await fetch("https://api2.safemedigo.com/api/v1/Blog/GetBlogUiDataBySlug", {
     method: 'POST',
@@ -154,9 +150,22 @@ export async function getStaticProps({ params, locale }) {
     props: {
       blog: data,
       allBlogsTagsData,
-      metaData,
       dataReviews,
-      ...(await serverSideTranslations(locale, ['proceduresSymptoms_single', 'treatments_section', 'contact_details', 'single_blog', 'navbar', 'sec_navbar', 'page_header_comp', 'blogs_page', 'Footer', 'patient_stories'])),
+      ...(await serverSideTranslations(locale, ["navbar", "hospital", "proceduresSymptoms", "sec_navbar", "proceduresSymptoms_single", 'Footer', 'most_popular',
+        "navbar",
+        "why_feriliv",
+        "common",
+        "howItWorks",
+        "ivfClinic",
+        "hero",
+        "doctor",
+        "reviews",
+        "help",
+        "blogs_page",
+        "members",
+        "ivfClinic",
+        "single_blog",
+        "Footer",])),
     },
     revalidate: 10,
   }

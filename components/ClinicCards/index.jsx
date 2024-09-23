@@ -82,7 +82,7 @@
 //               <Image width={344} height={191} src={similarDoc.image} alt={similarDoc.firstName} />
 //               {similarDoc.isVerifid &&
 //                 <div className={styles.verified}>
-//                   <FaShieldAlt color='#004747' />
+//                   <FaShieldAlt color='#1b0968' />
 //                   <Typography >
 //                     {t("most_popular:verified")}
 //                   </Typography>
@@ -226,7 +226,7 @@ const ClinicCard = ({ similarDocs }) => {
                 <Image width={344} height={191} src={similarDoc.image} alt={similarDoc.firstName} />
                 {similarDoc.isVerifid && (
                   <div className={styles.verified}>
-                    <FaShieldAlt color='#004747' />
+                    <FaShieldAlt color='#1b0968' />
                     <Typography>
                       {t("most_popular:verified")}
                     </Typography>

@@ -198,8 +198,7 @@ export async function getServerSideProps({ query, }) {
     },
     body: JSON.stringify({
       "lang": "en",
-      "blogCategoryId": myCategoryId[0]?.id || '0',
-      "currentPage": page,
+      "blogCategoryId": 12, "currentPage": page,
     })
   })
   const data = await res.json()

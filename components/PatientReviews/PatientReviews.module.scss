@@ -10,7 +10,7 @@
   width: 344px;
   @media screen and (max-width: 450px) {
     padding: 19px 16px;
-    width: 246px !important;
+    width: 90% !important;
   }
   * {
     transition: all 0.3s ease-in-out;
@@ -45,7 +45,7 @@
       .username {
         p {
           margin: 0;
-          color: var(--main-green-color);
+          color: var(--main-blue-color);
           font-weight: bold;
           font-size: 18px;
         }
@@ -92,7 +92,7 @@
       font-size: 18px;
       font-weight: bold;
       margin: 0;
-      color: var(--main-green-color);
+      color: var(--main-blue-color);
     }
   }
 
@@ -120,7 +120,7 @@
       // -webkit-box-orient: vertical;
       // overflow: hidden;
       // text-overflow: ellipsis;
-      color: var(--main-green-color);
+      color: var(--main-blue-color);
       font-size: 18px;
       font-weight: 500;
       height: 200px;
@@ -150,7 +150,7 @@
 
   .percuders {
     .title {
-      color: var(--main-green-color);
+      color: var(--main-blue-color);
       font-size: 18px;
     }
 
@@ -183,7 +183,7 @@
           padding: 7px;
           font-size: 16px;
           text-decoration: underline;
-          color: var(--main-green-color);
+          color: var(--main-blue-color);
           padding-left: 16px;
           display: flex;
         }
@@ -207,7 +207,7 @@
 
       a {
         text-decoration: underline;
-        color: var(--main-green-color);
+        color: var(--main-blue-color);
         font-size: 16px;
         font-weight: 500;
       }
@@ -215,7 +215,7 @@
 
     .more {
       text-decoration: underline;
-      color: var(--main-green-color);
+      color: var(--main-blue-color);
       font-size: 16px;
       font-weight: 500;
       cursor: pointer;
@@ -240,14 +240,14 @@
       right: 20%;
       width: 44px;
       height: 44px;
-      border: 1px solid var(--main-green-color);
+      border: 1px solid var(--main-blue-color);
       display: flex;
       border-radius: 50%;
       cursor: pointer;
       z-index: 999;
       svg {
         margin: auto;
-        color: var(--main-green-color);
+        color: var(--main-blue-color);
         width: 30px;
         height: 30px;
       }

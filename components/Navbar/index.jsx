@@ -42,14 +42,14 @@ const Navbar = (props) => {
   const { t } = useTranslation();
   const { locale } = useRouter();
   const router = useRouter();
-  const { whatsapp, logo, en, arrowDown, ar, tr } = imgs;
+  const { whatsapp, logo, en, ar, tr } = imgs;
   const [showMenu, setShowMenu] = useState(false);
 
   const NavLinks = [
     { title: t("common:steps"), link: '/#HowItWorks' },
     { title: t("common:quote"), link: '/quote' },
     { title: t("common:about"), link: '/#IvfClinic' },
-    // { title: t("common:blogs"), link: '/blogs' },
+    { title: t("common:blogs"), link: '/blogs' },
     { title: t("common:contact"), link: '/#consultation' },
   ]
 

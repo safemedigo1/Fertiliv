@@ -212,11 +212,11 @@ const Consultation = () => {
                   duration: 1000,
                   success: {
                     style: {
-                      color: '#004747',
+                      color: '#1b0968',
                       fontWeight: 'bold',
                     },
                     iconTheme: {
-                      primary: '#004747',
+                      primary: '#1b0968',
                       secondary: '#ffffff',
                     },
                   },

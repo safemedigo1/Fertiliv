@@ -9,15 +9,13 @@ import Select from "@mui/material/Select";
 import ExpandMoreOutlinedIcon from "@mui/icons-material/ExpandMoreOutlined";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import SecNavbar from '@/components/Navbar/SecNavbar';
 import Image from 'next/image'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { motion } from 'framer-motion'
-import { ContactDetails } from '@/components/Home';
-import PageHeader from '@/components/PageHeader';
-import Tags from '@/components/Tags';
 import Head from 'next/head';
 import { useTranslation } from 'react-i18next';
+import Consultation from '../../../../../components/Home/Consultation';
+import Tags from '../../../../../components/Tags';
 
 export default function BlogPage({ metaData, blogCategory, blogs, allBlogsTagsData, currentPage, totalPages, dataReviews }) {
   const keywords = allBlogsTagsData?.map(tag => tag.tagName).join(', ');
@@ -77,7 +75,7 @@ export default function BlogPage({ metaData, blogCategory, blogs, allBlogsTagsDa
         />
         <meta name="title" content={`${metaData.title} | ${metaData.blogs}`} />
         <link rel="icon" type="image/ico" href="/favorite.ico" />
-        <meta name="theme-color" content="#004747" />
+        <meta name="theme-color" content="#1b0968" />
         <meta name="mobile-web-app-capable" content="no" />
         <meta name="application-name" content={`${metaData.title} | ${metaData.blogs}`} />
         <meta name="apple-mobile-web-app-capable" content="no" />
@@ -151,7 +149,7 @@ export default function BlogPage({ metaData, blogCategory, blogs, allBlogsTagsDa
           content={metaData.description}
         />
         <link rel="canonical" href={`https://fertiliv.com/${router.locale}/blogs`} />
-        <meta name="msapplication-TileColor" content="#004747" />
+        <meta name="msapplication-TileColor" content="#1b0968" />
         <meta
           name="msapplication-TileImage"
           content="/favorite.ico"
@@ -212,54 +210,22 @@ export default function BlogPage({ metaData, blogCategory, blogs, allBlogsTagsDa
 
       {isClient &&
         <>
-          <SecNavbar />
-          <PageHeader />
-          <div id={styles.tags_filter} dir={`${router.locale === 'ar' ? 'rtl' : 'ltr'}`}>
-            <Container sx={{ maxWidth: "1239px" }} maxWidth={false}>
-              <div id='filter_blog_component' className={styles.filter} dir={`${router.locale === 'ar' ? 'rtl' : 'ltr'}`}>
-                <FormControl fullWidth  >
-                  {/* <InputLabel id="demo-simple-select-autowidth-label">{t('blogs_page:filter_title')}</InputLabel> */}
-                  <Select
-                    displayEmpty
-                    inputProps={{ 'aria-label': 'Without label' }}
-                    IconComponent={ExpandMoreOutlinedIcon}
-                    // label={t('blogs_page:filter_title')}
-                    onChange={handleFilterChanges}
 
-                    MenuProps={{
-                      anchorOrigin: { horizontal: 'right', vertical: 'bottom' },
-                      transformOrigin: { horizontal: 'right', vertical: 'top' },
-                    }}
-                    style={{
-                      backgroundColor: "#E7EDEC",
-                      color: "#000000",
-                      fontSize: "18px",
-                      fontWeight: "bold",
-
-                    }}
-                  >
-                    <MenuItem disabled sx={{ display: 'none' }}>
-                      {t("blogs_page:choose_category")}
-                    </MenuItem>
-                    {blogCategory.map((item) => (
-                      <MenuItem dir={`${router.locale === 'ar' ? 'rtl' : 'ltr'}`} value={item.slug} >
-                        <span dir={`${router.locale === 'ar' ? 'rtl' : 'ltr'}`} className={'category_name'}>
-                          {item.categeryName}
-                        </span>
-                      </MenuItem>
-                    ))}
-
-
-                  </Select>
-                </FormControl>
-              </div>
-            </Container >
-          </div >
 
           <div className={styles.sections_container} dir={`${router.locale === 'ar' ? 'rtl' : 'ltr'}`}>
             <section className='section_container_blogs' id={styles.blogs_sec} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
               <Container sx={{ maxWidth: "1239px" }} maxWidth={false}>
+                <div className={styles.hero}>
+                  <div className={styles.title}>
+                    <h1>
+                      {t("blogs_page:hero_title")}
+                    </h1>
+                  </div>
 
+                  <div className={styles.desc}>
+                    {t("blogs_page:hero_desc")}
+                  </div>
+                </div>
                 <div
                   className={styles.boxes_container}>
                   {
@@ -332,8 +298,8 @@ export default function BlogPage({ metaData, blogCategory, blogs, allBlogsTagsDa
 
                 <Box sx={{
                   display: 'flex', alignItems: 'center', flexDirection: 'column', justifyContent: "center", marginTop: '50px',
-                  '& ul > li> button:not(.Mui-selected)': { color: '#004747', fontWeight: 'bold', fontSize: '14px' },
-                  '& ul > li> .Mui-selected': { backgroundColor: '#004747', color: '#ffffff', fontWeight: 'bold', fontSize: '18px' }
+                  '& ul > li> button:not(.Mui-selected)': { color: '#1b0968', fontWeight: 'bold', fontSize: '14px' },
+                  '& ul > li> .Mui-selected': { backgroundColor: '#1b0968', color: '#ffffff', fontWeight: 'bold', fontSize: '18px' }
                 }} className="pagination">
                   <Pagination count={totalPages} page={currentPage}
                     dir="ltr"
@@ -344,9 +310,9 @@ export default function BlogPage({ metaData, blogCategory, blogs, allBlogsTagsDa
             </section>
 
             {/* Tag Component */}
-            <Tags allBlogsTagsData={allBlogsTagsData} />
+            {/* <Tags allBlogsTagsData={allBlogsTagsData} /> */}
           </div>
-          <ContactDetails dataReviews={dataReviews} />
+          <Consultation />
 
         </>
       }
@@ -366,7 +332,7 @@ export default function BlogPage({ metaData, blogCategory, blogs, allBlogsTagsDa
 
 
 export async function getStaticPaths() {
-  const res = await fetch("https://api2.fertiliv.com/api/v1/Blog/GetAllBlogWithPage", {
+  const res = await fetch("https://api2.safemedigo.com/api/v1/Blog/GetAllBlogWithPage", {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -426,7 +392,7 @@ export async function getStaticProps({ locale, params }) {
   const endIndex = startIndex + limit;
 
 
-  const res1 = await fetch("https://api2.fertiliv.com/api/v1/BlogCategory/GetAllBlogCategoriesByLang", {
+  const res1 = await fetch("https://api2.safemedigo.com/api/v1/BlogCategory/GetAllBlogCategoriesByLang", {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -442,7 +408,7 @@ export async function getStaticProps({ locale, params }) {
 
   const myCategoryId = data2.filter((c) => c.slug === params.category)
 
-  const res = await fetch("https://api2.fertiliv.com/api/v1/Blog/GetAllBlogWithPage", {
+  const res = await fetch("https://api2.safemedigo.com/api/v1/Blog/GetAllBlogWithPage", {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -450,8 +416,7 @@ export async function getStaticProps({ locale, params }) {
     },
     body: JSON.stringify({
       "lang": locale,
-      "blogCategoryId": myCategoryId[0]?.id || '0',
-      "currentPage": page,
+      "blogCategoryId": 12, "currentPage": page,
     })
   })
   const data = await res.json()
@@ -461,7 +426,7 @@ export async function getStaticProps({ locale, params }) {
   const totalProducts = data.count;
   const totalPages = Math.ceil(totalProducts / limit);
 
-  const allBlogTagsRes = await fetch("https://api2.fertiliv.com/api/v1/Blog/GetAllBlogsTags", {
+  const allBlogTagsRes = await fetch("https://api2.safemedigo.com/api/v1/Blog/GetAllBlogsTags", {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -475,7 +440,7 @@ export async function getStaticProps({ locale, params }) {
   const allBlogsTagsData = await allBlogTagsRes.json()
 
   const resReviews = await fetch(
-    "https://api2.fertiliv.com/api/v1/Rating/GetAllRatings",
+    "https://api2.safemedigo.com/api/v1/Rating/GetAllRatings",
     {
       method: "POST",
       headers: {
@@ -502,7 +467,21 @@ export async function getStaticProps({ locale, params }) {
       totalPages,
       allBlogsTagsData,
       metaData,
-      ...(await serverSideTranslations(locale, ['navbar', 'contact_details', 'treatments_section', 'sec_navbar', 'blogs_page', 'page_header_comp', 'Footer', 'patient_stories'])),
+      ...(await serverSideTranslations(locale, ["navbar", "hospital", "proceduresSymptoms", "sec_navbar", "proceduresSymptoms_single", 'Footer', 'most_popular',
+        "navbar",
+        "why_feriliv",
+        "common",
+        "howItWorks",
+        "ivfClinic",
+        "hero",
+        "doctor",
+        "reviews",
+        "help",
+        "blogs_page",
+
+        "members",
+        "ivfClinic",
+        "Footer"])),
     },
     revalidate: 10,
 

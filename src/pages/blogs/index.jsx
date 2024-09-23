@@ -1,11 +1,10 @@
 import Head from "next/head";
-import SecNavbar from "@/components/Navbar/SecNavbar";
 import axios from 'axios';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import PageHeader from '@/components/PageHeader/index';
-import BlogsComponents from "@/components/BlogsComponents";
 import { useRouter } from "next/router";
-
+import Navbar from "../../../components/Navbar";
+import BlogsComponents from '../../../components/BlogsComponents'
+import Footer from "../../../components/Footer";
 export default function Blogs({ blogCategory, blogs, allBlogsTagsData, currentPage, totalPages, metaData, dataReviews }) {
   const keywords = blogCategory?.map(treatment => treatment.categeryName).join(', ');
   const router = useRouter();
@@ -14,6 +13,7 @@ export default function Blogs({ blogCategory, blogs, allBlogsTagsData, currentPa
 
   return (
     <>
+
       <Head>
         <title>{`${metaData.title} | ${metaData.blogs_desc}`} </title>
         <meta name="blogs" content="blogs for doctors" />
@@ -34,7 +34,7 @@ export default function Blogs({ blogCategory, blogs, allBlogsTagsData, currentPa
         />
         <meta name="title" content={`${metaData.title} | ${metaData.blogs}`} />
         <link rel="icon" type="image/ico" href="/favorite.ico" />
-        <meta name="theme-color" content="#004747" />
+        <meta name="theme-color" content="#1b0968" />
         <meta name="mobile-web-app-capable" content="no" />
         <meta name="application-name" content={`${metaData.title} | ${metaData.blogs}`} />
         <meta name="apple-mobile-web-app-capable" content="no" />
@@ -108,7 +108,7 @@ export default function Blogs({ blogCategory, blogs, allBlogsTagsData, currentPa
           content={metaData.description}
         />
         <link rel="canonical" href={`https://safemedigo.com/${router.locale}/blogs`} />
-        <meta name="msapplication-TileColor" content="#004747" />
+        <meta name="msapplication-TileColor" content="#1b0968" />
         <meta
           name="msapplication-TileImage"
           content="/favorite.ico"
@@ -166,10 +166,9 @@ export default function Blogs({ blogCategory, blogs, allBlogsTagsData, currentPa
         />
       </Head>
 
+      <Navbar />
 
 
-      <SecNavbar />
-      <PageHeader />
       <BlogsComponents
         blogCategory={blogCategory}
         blogs={blogs}
@@ -178,6 +177,9 @@ export default function Blogs({ blogCategory, blogs, allBlogsTagsData, currentPa
         totalPages={totalPages}
         dataReviews={dataReviews}
       />
+
+      <Footer />
+
 
     </>
   );
@@ -222,7 +224,7 @@ export async function getStaticProps({ locale }) {
   const getBlogWithPageRes = await
     axios.post("https://api2.safemedigo.com/api/v1/Blog/GetAllBlogWithPage", {
       "lang": locale,
-      "blogCategoryId": '0',
+      "blogCategoryId": 12,
       "currentPage": 1
     }, {
       headers: {
@@ -261,7 +263,7 @@ export async function getStaticProps({ locale }) {
       },
       body: JSON.stringify({
         lang: locale,
-        platform: "safemedigo",
+        platform: "fertiliv",
       }),
     }
   );
@@ -269,7 +271,20 @@ export async function getStaticProps({ locale }) {
 
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['treatments_section', 'navbar', 'sec_navbar', 'blogs_page', 'page_header_comp', 'Footer', 'patient_stories', 'contact_details'])),
+      ...(await serverSideTranslations(locale, ["navbar", "hospital", "proceduresSymptoms", "sec_navbar", "proceduresSymptoms_single", 'Footer', 'most_popular',
+        "navbar",
+        "why_feriliv",
+        "common",
+        "howItWorks",
+        "ivfClinic",
+        "hero",
+        "doctor",
+        "reviews",
+        "help",
+        "members",
+        "blogs_page",
+        "ivfClinic",
+        "Footer",])),
       blogs: data,
       blogCategory: data2,
       currentPage: parseInt(page),

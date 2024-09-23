@@ -29,9 +29,9 @@ const PatientReviews = ({ dataReviews }) => {
   };
 
   const breakpoints = {
-    1: { slidesPerView: 1.1 },
-    300: { slidesPerView: 1.1 },
-    400: { slidesPerView: 1.1 },
+    1: { slidesPerView: 1 },
+    300: { slidesPerView: 1 },
+    400: { slidesPerView: 1 },
     600: { slidesPerView: 2.1 },
     900: { slidesPerView: 2.5 },
     1000: { slidesPerView: 2.1 },
@@ -71,6 +71,7 @@ const PatientReviews = ({ dataReviews }) => {
             }}
             dir={router.locale === 'ar' ? 'rtl' : 'ltr'}
             className={styles.swiper}
+            spaceBetween={8}
           >
             <div className={styles.shadow_box} />
 

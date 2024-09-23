@@ -3,10 +3,15 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Home from "../../components/Home";
 import { useRouter } from "next/router";
 
-export default function Page({ metaData, dataMostPopularDocs, dataReviews }) {
+export default function Page({
+  metaData,
+  dataMostPopularDocs,
+  dataReviews,
+  blogs,
+}) {
   const { locale } = useRouter();
 
-  const imagePath = "assets/imgs/logo.png";
+  const imagePath = `images/${locale}/image.png`;
   const logo_v = "assets/imgs/logo_v.png";
 
   return (
@@ -95,6 +100,7 @@ export default function Page({ metaData, dataMostPopularDocs, dataReviews }) {
       <Home
         dataMostPopularDocs={dataMostPopularDocs}
         dataReviews={dataReviews}
+        blogs={blogs}
       />
     </>
   );
@@ -154,8 +160,29 @@ export async function getStaticProps({ locale }) {
   );
   const dataReviews = await resReviews.json();
 
+  const getBlogWithPageRes = await fetch(
+    "https://api2.safemedigo.com/api/v1/Blog/GetAllBlogWithPage",
+    {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "Cache-Control": "no-cache",
+        Pragma: "no-cache",
+        Expires: "0",
+      },
+      body: JSON.stringify({
+        lang: locale,
+        blogCategoryId: "12",
+        currentPage: 1,
+      }),
+    }
+  );
+  const data = await getBlogWithPageRes.json();
+
   return {
     props: {
+      blogs: data,
       metaData,
       dataMostPopularDocs,
       dataReviews,
@@ -171,6 +198,7 @@ export async function getStaticProps({ locale }) {
         "help",
         "members",
         "ivfClinic",
+        "blogs_page",
         "Footer",
         "treatments_section",
       ])),

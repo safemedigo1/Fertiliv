@@ -134,8 +134,8 @@ export default function BlogPage({ blogCategory, blogs, allBlogsTagsData, curren
             </div>
             <Box sx={{
               display: 'flex', alignItems: 'center', flexDirection: 'column', justifyContent: "center", marginTop: '50px',
-              '& ul > li> button:not(.Mui-selected)': { color: '#004747', fontWeight: 'bold', fontSize: '14px' },
-              '& ul > li> .Mui-selected': { backgroundColor: '#004747', color: '#ffffff', fontWeight: 'bold', fontSize: '18px' }
+              '& ul > li> button:not(.Mui-selected)': { color: '#1b0968', fontWeight: 'bold', fontSize: '14px' },
+              '& ul > li> .Mui-selected': { backgroundColor: '#1b0968', color: '#ffffff', fontWeight: 'bold', fontSize: '18px' }
             }} className="pagination">
               <Pagination count={totalPages} page={currentPage} onChange={handleMyChangePage} />
 
@@ -226,8 +226,7 @@ export async function getStaticProps({ params }) {
     },
     body: JSON.stringify({
       "lang": "en",
-      "blogCategoryId": myCategoryId[0]?.id || '0',
-      "currentPage": page,
+      "blogCategoryId": 12, "currentPage": page,
     })
   })
   const data = await res.json()

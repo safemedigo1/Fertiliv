@@ -7,10 +7,11 @@ footer.footer {
     padding-bottom: 85px;
     display: flex;
     align-items: flex-end;
-    justify-content: space-between;
+    justify-content: center;
 
     @media screen and (max-width: 992px) {
       flex-direction: column;
+      align-items: center;
     }
 
     .text_container {
@@ -18,6 +19,7 @@ footer.footer {
         margin-bottom: 18px;
         display: flex;
         align-items: center;
+        justify-content: center;
 
         img {
           width: 80px;
@@ -42,17 +44,15 @@ footer.footer {
 
       .desc {
         margin-bottom: 58px;
-        @media screen and (max-width: 992px) {
-        }
 
         p {
           color: var(--main-blue-color);
           font-size: 28px;
           font-weight: var(--font-regular);
           font-family: var(--main-font);
-
           @media screen and (max-width: 992px) {
             font-size: 18px;
+            text-align: center;
           }
         }
       }
@@ -87,11 +87,10 @@ footer.footer {
       .media {
         display: flex;
         align-items: center;
-        margin-bottom: 57px;
+        margin-top: 57px;
         justify-content: center;
         @media screen and (max-width: 992px) {
-          margin-bottom: 24px;
-          justify-content: flex-start;
+          margin-top: 24px;
         }
 
         a {

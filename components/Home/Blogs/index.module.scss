@@ -3,7 +3,7 @@ section.reviews {
 
   .section_container {
     background-color: var(--main-beige-color);
-
+    overflow: hidden;
     padding: 50px;
     border-radius: 75px;
     display: flex;
@@ -19,7 +19,9 @@ section.reviews {
       padding-right: 16px;
       background-color: var(--main-beige-color);
       border-radius: 12px;
+    }
 
+    @media screen and (max-width: 992px) {
       padding: 8px;
     }
     .text_container {
