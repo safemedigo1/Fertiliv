@@ -14,7 +14,7 @@ export default function Blogs({ blogCategory, blogs, allBlogsTagsData, currentPa
     <>
 
       <Head>
-        <title>{`${metaData.title} | ${metaData.blogs_desc}`} </title>
+        <title>{`${metaData.site_name} | ${metaData.blogs}`} </title>
         <meta
           name="keywords"
           content={metaData?.keywords}
@@ -30,11 +30,11 @@ export default function Blogs({ blogCategory, blogs, allBlogsTagsData, currentPa
           name="csrf-token"
           content="JdDvDc4LUJomFM4T7QE0hFlH9CeKOHDXMoxV3wer"
         />
-        <meta name="title" content={`${metaData.title} | ${metaData.blogs}`} />
+        <meta name="title" content={`${metaData.site_name} | ${metaData.blogs}`} />
         <link rel="icon" type="image/ico" href="/favorite.ico" />
         <meta name="theme-color" content="#1b0968" />
         <meta name="mobile-web-app-capable" content="no" />
-        <meta name="application-name" content={`${metaData.title} | ${metaData.blogs}`} />
+        <meta name="application-name" content={`${metaData.site_name} | ${metaData.blogs}`} />
         <meta name="apple-mobile-web-app-capable" content="no" />
         <meta
           name="apple-mobile-web-app-status-bar-style"
@@ -42,7 +42,7 @@ export default function Blogs({ blogCategory, blogs, allBlogsTagsData, currentPa
         />
         <meta
           name="apple-mobile-web-app-title"
-          content={`${metaData.title} | ${metaData.blogs}`}
+          content={`${metaData.site_name} | ${metaData.blogs}`}
         />
         <link rel="apple-touch-icon" href="/favorite.ico" />
         <link
@@ -100,7 +100,7 @@ export default function Blogs({ blogCategory, blogs, allBlogsTagsData, currentPa
           href={`https://fertiliv.com/${router.locale}/blogs`}
           hrefLang="x-default"
         />
-        <meta name="author" content={`${metaData.title} | ${metaData.blogs}`} />
+        <meta name="author" content={`${metaData.site_name} | ${metaData.blogs}`} />
         <meta
           name="description"
           content={metaData.blogs_desc}
@@ -132,21 +132,21 @@ export default function Blogs({ blogCategory, blogs, allBlogsTagsData, currentPa
           href={`https://fertiliv.com//${imagePath}`}
         />
         <meta property="og:type" content="website" />
-        <meta property="og:site_name" content={`${metaData.title} | ${metaData.blogs}`} />
+        <meta property="og:site_name" content={`${metaData.site_name} | ${metaData.blogs}`} />
         <meta property="og:locale" content={router.locale} />
         <meta
           property="og:locale:alternate"
           content={router.locale}
         />
         <meta property="og:url" content={`https://fertiliv.com/${router.locale}/blogs`} />
-        <meta property="og:title" content={`${metaData.title} | ${metaData.blogs}`} />
+        <meta property="og:title" content={`${metaData.site_name} | ${metaData.blogs}`} />
         <meta
           property="og:description"
           content={metaData.blogs_desc}
         />
         <meta property="og:image" content={`https://fertiliv.com/${imagePath}`} />
-        <meta itemprop="name" content={`${metaData.title} | ${metaData.blogs}`} />
-        <meta itemprop="author" content={`${metaData.title} | ${metaData.blogs}`} />
+        <meta itemprop="name" content={`${metaData.site_name} | ${metaData.blogs}`} />
+        <meta itemprop="author" content={`${metaData.site_name} | ${metaData.blogs}`} />
         <meta itemprop="image" content={`https://fertiliv.com/${imagePath}`} />
         <meta
           itemprop="description"
@@ -156,7 +156,7 @@ export default function Blogs({ blogCategory, blogs, allBlogsTagsData, currentPa
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@" />
         <meta name="twitter:creator" content="@" />
-        <meta name="twitter:title" content={`${metaData.title} | ${metaData.blogs}`} />
+        <meta name="twitter:title" content={`${metaData.site_name} | ${metaData.blogs}`} />
         <meta name="twitter:image:src" content={`https://fertiliv.com/${imagePath}`} />
         <meta
           name="twitter:description"
