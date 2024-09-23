@@ -6,7 +6,6 @@ import Navbar from "../../../components/Navbar";
 import BlogsComponents from '../../../components/BlogsComponents'
 import Footer from "../../../components/Footer";
 export default function Blogs({ blogCategory, blogs, allBlogsTagsData, currentPage, totalPages, metaData, dataReviews }) {
-  const keywords = blogCategory?.map(treatment => treatment.categeryName).join(', ');
   const router = useRouter();
   const { locale } = useRouter();
   const imagePath = `images/${locale}/image.png`;
@@ -16,10 +15,9 @@ export default function Blogs({ blogCategory, blogs, allBlogsTagsData, currentPa
 
       <Head>
         <title>{`${metaData.title} | ${metaData.blogs_desc}`} </title>
-        <meta name="blogs" content="blogs for doctors" />
         <meta
           name="keywords"
-          content={keywords}
+          content={metaData?.keywords}
         />
 
         <meta charSet="UTF-8" />
@@ -99,15 +97,15 @@ export default function Blogs({ blogCategory, blogs, allBlogsTagsData, currentPa
         />
         <link
           rel="alternate"
-          href={`https://safemedigo.com/${router.locale}/blogs`}
+          href={`https://fertiliv.com/${router.locale}/blogs`}
           hrefLang="x-default"
         />
         <meta name="author" content={`${metaData.title} | ${metaData.blogs}`} />
         <meta
           name="description"
-          content={metaData.description}
+          content={metaData.blogs_desc}
         />
-        <link rel="canonical" href={`https://safemedigo.com/${router.locale}/blogs`} />
+        <link rel="canonical" href={`https://fertiliv.com/${router.locale}/blogs`} />
         <meta name="msapplication-TileColor" content="#1b0968" />
         <meta
           name="msapplication-TileImage"
@@ -115,23 +113,23 @@ export default function Blogs({ blogCategory, blogs, allBlogsTagsData, currentPa
         />
         <meta
           name="msapplication-square70x70logo"
-          content={`https://safemedigo.com/${imagePath}`}
+          content={`https://fertiliv.com/${imagePath}`}
         />
         <meta
           name="msapplication-square150x150logo"
-          content={`https://safemedigo.com/${imagePath}`}
+          content={`https://fertiliv.com/${imagePath}`}
         />
         <meta
           name="msapplication-wide310x150logo"
-          content={`https://safemedigo.com/${imagePath}`}
+          content={`https://fertiliv.com/${imagePath}`}
         />
         <meta
           name="msapplication-square310x310logo"
-          content={`https://safemedigo.com/${imagePath}`}
+          content={`https://fertiliv.com/${imagePath}`}
         />
         <link
           rel="apple-touch-icon-precomposed"
-          href={`https://safemedigo.com//${imagePath}`}
+          href={`https://fertiliv.com//${imagePath}`}
         />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content={`${metaData.title} | ${metaData.blogs}`} />
@@ -140,29 +138,29 @@ export default function Blogs({ blogCategory, blogs, allBlogsTagsData, currentPa
           property="og:locale:alternate"
           content={router.locale}
         />
-        <meta property="og:url" content={`https://safemedigo.com/${router.locale}/blogs`} />
+        <meta property="og:url" content={`https://fertiliv.com/${router.locale}/blogs`} />
         <meta property="og:title" content={`${metaData.title} | ${metaData.blogs}`} />
         <meta
           property="og:description"
-          content={metaData.description}
+          content={metaData.blogs_desc}
         />
-        <meta property="og:image" content={`https://safemedigo.com/${imagePath}`} />
+        <meta property="og:image" content={`https://fertiliv.com/${imagePath}`} />
         <meta itemprop="name" content={`${metaData.title} | ${metaData.blogs}`} />
         <meta itemprop="author" content={`${metaData.title} | ${metaData.blogs}`} />
-        <meta itemprop="image" content={`https://safemedigo.com/${imagePath}`} />
+        <meta itemprop="image" content={`https://fertiliv.com/${imagePath}`} />
         <meta
           itemprop="description"
-          content={metaData.description}
+          content={metaData.blogs_desc}
         />
-        <meta name="twitter:image" content={`https://safemedigo.com/${imagePath}`} />
+        <meta name="twitter:image" content={`https://fertiliv.com/${imagePath}`} />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@" />
         <meta name="twitter:creator" content="@" />
         <meta name="twitter:title" content={`${metaData.title} | ${metaData.blogs}`} />
-        <meta name="twitter:image:src" content={`https://safemedigo.com/${imagePath}`} />
+        <meta name="twitter:image:src" content={`https://fertiliv.com/${imagePath}`} />
         <meta
           name="twitter:description"
-          content={metaData.description}
+          content={metaData.blogs_desc}
         />
       </Head>
 
