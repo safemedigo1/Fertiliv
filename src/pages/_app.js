@@ -260,31 +260,21 @@ function App({ Component, pageProps }) {
 
   // Ensure the popup only shows once after 25 seconds on the first visit
   useEffect(() => {
-    const hasVisited = localStorage.getItem("hasVisited");
+    // Show the popup after 10 seconds
+    const showPopupTimer = setTimeout(() => {
+      setShowPopup(true);
 
-    // Only show the popup if the user has not visited before
-    if (!hasVisited) {
-      const timer = setTimeout(() => {
-        setShowPopup(true);
-        localStorage.setItem("hasVisited", "true"); // Mark as visited
-      }, 10000); // 25 seconds delay
+      // Hide the popup after 10 seconds of being visible
+      const hidePopupTimer = setTimeout(() => {
+        setShowPopup(false);
+      }, 10000); // 10 seconds to hide the popup
 
-      // Cleanup the timer when the component unmounts
-      return () => clearTimeout(timer);
-    }
-  }, []); // Empty dependency array means this runs only on the initial render
+      // Clean up the hide timer when component unmounts
+      return () => clearTimeout(hidePopupTimer);
+    }, 10000); // 10 seconds to show the popup
 
-  useEffect(() => {
-    const handleBeforeUnload = () => {
-      localStorage.removeItem("hasVisited"); // Clear 'hasVisited' on refresh
-    };
-
-    window.addEventListener("beforeunload", handleBeforeUnload);
-
-    // Cleanup the event listener
-    return () => {
-      window.removeEventListener("beforeunload", handleBeforeUnload);
-    };
+    // Clean up the show timer when component unmounts
+    return () => clearTimeout(showPopupTimer);
   }, []);
 
   const handleSubmit = async (event) => {

@@ -11,7 +11,6 @@ export default function BolgDetailsID({ blog, allBlogsTagsData, dataReviews, }) 
   const { locale } = useRouter();
   const imagePath = `images/${locale}/image.png`;
 
-  console.log(blog.metaTitleTag, "metaTitleTag")
   return (
     <>
       <Head>
