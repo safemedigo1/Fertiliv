@@ -29,10 +29,7 @@ const BlogsComponents = ({ blogCategory,
   const router = useRouter();
 
 
-  const handleFilterChanges = (event, value) => {
-    router.push(`/category/${value.props.value}/page/1`, undefined, { scroll: false });
-    setCategory(value.props.children)
-  }
+
 
 
   const handleMyChangePage = (event, value) => {
