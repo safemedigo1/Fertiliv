@@ -20,6 +20,7 @@
       }
       .title {
         h1 {
+          margin: 0;
           color: var(--main-blue-color);
           font-size: 50px;
           font-weight: 600;
@@ -30,6 +31,8 @@
         }
       }
       .desc {
+        margin: 0;
+
         max-width: 860px;
         color: var(--main-blue-color);
         font-size: 28px;
@@ -43,6 +46,8 @@
 
     .title {
       h6 {
+        margin: 0;
+
         color: var(--main-dark-color);
         font-family: var(--quickstand-font);
         font-weight: var(--font-sem-bold);
