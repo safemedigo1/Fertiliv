@@ -9,6 +9,7 @@ import PhoneInput from "react-phone-input-2";
 import { Button } from "@mui/material";
 import { ThreeDots } from "react-loader-spinner";
 import toast from "react-hot-toast";
+import "../styles/content-styles.css";
 
 const quicksand = Quicksand({
   subsets: ["latin"],

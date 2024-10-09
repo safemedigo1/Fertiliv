@@ -66,6 +66,7 @@ const BlogsComponents = ({ blogCategory,
                     {t("blogs_page:hero_desc")}
                   </div>
                 </div>
+
                 <div
                   className={styles.boxes_container}>
                   {

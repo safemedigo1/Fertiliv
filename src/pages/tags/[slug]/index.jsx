@@ -1,28 +1,46 @@
-import Head from "next/head";
-import axios from 'axios';
+import { Box, FormControl, InputLabel, MenuItem, Pagination, Select, Typography } from '@mui/material'
+import { Container } from '@mui/system'
+import { motion } from 'framer-motion'
+import Head from 'next/head'
+import React, { useEffect, useState } from 'react'
+import styles from '../../../styles/blogs.module.scss';
+import Image from 'next/image'
+import ExpandMoreOutlinedIcon from "@mui/icons-material/ExpandMoreOutlined";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { useRouter } from "next/router";
-import Navbar from "../../../components/Navbar";
-import BlogsComponents from '../../../components/BlogsComponents'
-import Footer from "../../../components/Footer";
-import Tags from "../../../components/Tags";
-export default function Blogs({ blogCategory, blogs, allBlogsTagsData, currentPage, totalPages, metaData, dataReviews, }) {
+import { useRouter } from 'next/router'
+import { useTranslation } from "react-i18next";
+import Tags from '../../../../components/Tags'
+import Navbar from '../../../../components/Navbar'
+import Footer from '../../../../components/Footer'
+
+const TagsBlog = ({ blogCategory, blogs, allBlogsTagsData, currentPage, totalPages, query, metaData, dataReviews }) => {
+  const { t } = useTranslation();
+
+  const handleMyChangePage = (event, value) => {
+    event.preventDefault();
+    router.push(`/tags/page/${value}`)
+  }
+
   const router = useRouter();
+
+
+  const [isClient, setIsClient] = useState(false)
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+
   const { locale } = useRouter();
   const imagePath = `images/${locale}/image.png`;
 
   return (
     <>
-
       <Head>
         <title>{`${metaData.site_name} | ${metaData.blogs}`} </title>
         <meta
           name="keywords"
           content={metaData?.keywords}
         />
-
-        <link rel="icon" type="image/png" href={`/${imagePath}`} />
-
 
         <meta charSet="UTF-8" />
         <meta
@@ -35,6 +53,7 @@ export default function Blogs({ blogCategory, blogs, allBlogsTagsData, currentPa
           content="JdDvDc4LUJomFM4T7QE0hFlH9CeKOHDXMoxV3wer"
         />
         <meta name="title" content={`${metaData.site_name} | ${metaData.blogs}`} />
+        <link rel="icon" type="image/png" href={`/${imagePath}`} />
         <meta name="theme-color" content="#1b0968" />
         <meta name="mobile-web-app-capable" content="no" />
         <meta name="application-name" content={`${metaData.site_name} | ${metaData.blogs}`} />
@@ -167,32 +186,131 @@ export default function Blogs({ blogCategory, blogs, allBlogsTagsData, currentPa
         />
       </Head>
 
+
+
       <Navbar />
 
-
-      <BlogsComponents
-        blogCategory={blogCategory}
-        blogs={blogs}
-        allBlogsTagsData={allBlogsTagsData}
-        currentPage={currentPage}
-        totalPages={totalPages}
-        dataReviews={dataReviews}
-      />
+      <div>
 
 
-      <Tags allBlogsTagsData={blogs?.data} query={'query'} />
+
+        {isClient &&
+          <>
+
+
+            <div className={styles.sections_container} dir={`${router.locale === 'ar' ? 'rtl' : 'ltr'}`}>
+
+              <section id={styles.blogs_sec}>
+                <Container sx={{ maxWidth: "1239px", marginTop: '40px' }} maxWidth={false}>
+
+                  <div className={styles.hero}>
+                    <div className={styles.title}>
+                      <h1>
+                        {t("blogs_page:hero_title")}
+                      </h1>
+                    </div>
+
+                    <div className={styles.desc}>
+                      {t("blogs_page:hero_desc")}
+                    </div>
+                  </div>
+
+
+
+                  <div className={styles.title}>
+
+                  </div>
+                  <div
+                    className={styles.boxes_container}>
+                    {
+                      blogs?.data.map((post, idx) => (
+                        <>
+                          <motion.a
+                            animate={{ opacity: 1 }}
+                            initial={{ opacity: 0 }}
+
+                            transition={{ duration: 1, }}
+                            href={`/blogs/${post.slug}`} className={styles.box} key={idx}>
+                            <div className={styles.img_container}>
+                              <Image
+                                src={post.image}
+                                alt={post.title}
+                                width={344}
+                                height={500}
+                              />
+
+
+                            </div>
+                            <div className={styles.box_title}>
+                              <Typography variant="h5">{post.title}</Typography>
+                            </div>
+
+                            <div className={styles.desc}>
+                              <p>{post.briefContent}</p>
+                            </div>
+
+                            <div className={styles.author_container}>
+                              <div className={styles.img_container}>
+                                <Image width={344}
+                                  height={500} src={post?.publisherImage} alt={post.publisherName} />
+
+                              </div>
+                              <div className={styles.author_data}>
+                                <div className={styles.user_name}>
+                                  {post.publisherName}
+                                </div>
+                                <div className={styles.user_job}>{post.jobTitle}</div>
+                              </div>
+                            </div>
+
+                            <div className={styles.btns_container}>
+                              <div className={styles.trans_btn}>
+                                {post.tags.map((tag) => (
+                                  <>
+                                    <button>{tag.tagName}</button>
+                                  </>
+                                ))}
+                              </div>
+
+                            </div>
+                          </motion.a>
+                        </>
+                      ))
+                    }
+                  </div>
+
+                  <Box sx={{
+                    display: 'flex', alignItems: 'center', flexDirection: 'column', justifyContent: "center", marginTop: '50px',
+                    '& ul > li> button:not(.Mui-selected)': { color: '#1b0968', fontWeight: 'bold', fontSize: '14px' },
+                    '& ul > li> .Mui-selected': { backgroundColor: '#1b0968', color: '#ffffff', fontWeight: 'bold', fontSize: '18px' }
+                  }} className="pagination">
+                    <Pagination dir="ltr" count={totalPages} page={currentPage} onChange={handleMyChangePage} />
+
+                  </Box>
+                </Container>
+              </section>
+
+
+              {/* Tag Component */}
+              <Tags allBlogsTagsData={blogs?.data} query={query} />
+            </div>
+          </>
+
+        }
+
+      </div>
 
 
       <Footer />
 
-
     </>
-  );
-};
+  )
+}
+
+export default TagsBlog
 
 
-
-export async function getStaticProps({ locale }) {
+export async function getServerSideProps({ query, locale }) {
   const path = require('path');
   const fs = require('fs');
 
@@ -205,11 +323,32 @@ export async function getStaticProps({ locale }) {
 
   const metaData = await readFile(locale);
 
-
-  const page = '1'; // If no page is specified, default to page 1
+  const page = query.page || '1'; // If no page is specified, default to page 1
   const limit = 6; // Number of products to display per page
   const startIndex = (page - 1) * limit;
   const endIndex = startIndex + limit;
+
+
+
+  const res = await fetch("https://api2.safemedigo.com/api/v1/Blog/GetAllBlogWithPageByTagName", {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      "lang": locale,
+      "tagSlug": query.slug,
+      "currentPage": page,
+    })
+  })
+  const data = await res.json();
+
+
+
+
+
+
 
   const res1 = await fetch("https://api2.safemedigo.com/api/v1/BlogCategory/GetAllBlogCategoriesByLang", {
     method: 'POST',
@@ -219,29 +358,31 @@ export async function getStaticProps({ locale }) {
     },
     body: JSON.stringify({
       "lang": locale,
+      "isSpecial": false,
     })
   })
-
   const data2 = await res1.json()
 
+  const myCategoryId = await data2?.filter((c) => c.slug === query.category)
+
+  const getBlogWithPageRes = await fetch("https://api2.safemedigo.com/api/v1/Blog/GetAllBlogWithPage", {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    "lang": locale,
+    "blogCategoryId": myCategoryId?.[0]?.id || '0',
+    "currentPage": page || 1
+  },);
+  const getBlogWithPageData = await getBlogWithPageRes.data;
 
 
-  const getBlogWithPageRes = await
-    axios.post("https://api2.safemedigo.com/api/v1/Blog/GetAllBlogWithPage", {
-      "lang": locale,
-      "blogCategoryId": 12,
-      "currentPage": 1
-    }, {
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      }
-    });
-  const data = await getBlogWithPageRes.data;
 
   const products = data.data;
   const totalProducts = data.count;
   const totalPages = Math.ceil(totalProducts / limit);
+
 
   const allBlogTagsRes = await fetch("https://api2.safemedigo.com/api/v1/Blog/GetAllBlogsTags", {
     method: 'POST',
@@ -255,6 +396,7 @@ export async function getStaticProps({ locale }) {
   })
 
   const allBlogsTagsData = await allBlogTagsRes.json()
+
   const resReviews = await fetch(
     "https://api2.safemedigo.com/api/v1/Rating/GetAllRatings",
     {
@@ -268,15 +410,28 @@ export async function getStaticProps({ locale }) {
       },
       body: JSON.stringify({
         lang: locale,
-        platform: "fertiliv",
+        platform: "safemedigo",
       }),
     }
   );
   const dataReviews = await resReviews.json();
 
+
+
+
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["navbar", "hospital", "proceduresSymptoms", "sec_navbar", "proceduresSymptoms_single", 'Footer', 'most_popular',
+      blogs: data,
+      dataReviews,
+
+      blogCategory: data2,
+      products: products.slice(startIndex, endIndex),
+      currentPage: parseInt(page),
+      totalPages,
+      allBlogsTagsData,
+      metaData,
+      ...(await serverSideTranslations(locale, ['home', 'navbar', 'hero_section', 'search_section', 'help_section', 'why_safemedigo', 'treatments_section', 'most_popular', 'patient_stories', 'safety_standards_section', 'why_turky_section', 'contact_details', 'sec_navbar', 'page_header_comp', 'blogs_page',
+
         "navbar",
         "why_feriliv",
         "common",
@@ -287,20 +442,12 @@ export async function getStaticProps({ locale }) {
         "reviews",
         "help",
         "members",
-        "blogs_page",
         "ivfClinic",
-        "Footer",])),
-      blogs: data,
-      blogCategory: data2,
-      currentPage: parseInt(page),
-      totalPages,
-      allBlogsTagsData,
-      locale,
-      metaData,
-      dataReviews
-    },
-    revalidate: 10,
+        "blogs_page",
+        "Footer",
+        "treatments_section",
+        'Footer'])),
+      revalidate: 10,
+    }
   }
 }
-
-

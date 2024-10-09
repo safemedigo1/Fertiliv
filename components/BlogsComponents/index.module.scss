@@ -20,6 +20,7 @@
       }
       .title {
         h1 {
+          margin: 0;
           color: var(--main-blue-color);
           font-size: 50px;
           font-weight: 600;
@@ -30,6 +31,7 @@
         }
       }
       .desc {
+        margin: 0;
         max-width: 860px;
         color: var(--main-blue-color);
         font-size: 28px;
@@ -201,6 +203,55 @@
           }
         }
 
+        // .btns_container {
+        //   display: flex;
+        //   align-items: flex-end;
+        //   justify-content: flex-start;
+        //   width: 100%;
+        //   padding-right: 22px;
+        //   padding-left: 15px;
+        //   margin-bottom: 16px;
+
+        //   .trans_btn,
+        //   .turk_btn {
+        //     @media screen and (max-width: 992px) {
+        //       // margin-top: 31px;
+        //     }
+        //     button {
+        //       // width: 122px;
+        //       // height: 40px;
+
+        //       padding: 10px 18px 10px;
+
+        //       background-color: var(--light-green-color);
+        //       border: 2px solid var(--main-blue-color);
+        //       border-radius: 22px;
+        //       color: var(--main-blue-color);
+
+        //       text-align: center;
+        //       font-size: 16px;
+        //       font-weight: var(--font-sem-bold);
+        //       font-family: var(--quickstand-font);
+        //       transition: all 0.3s ease-in-out;
+        //       cursor: pointer;
+        //       margin-top: 10px;
+        //       margin-left: 10px;
+        //       overflow: hidden;
+        //       text-overflow: ellipsis;
+        //       white-space: nowrap;
+
+        //       &:hover {
+        //         border: 2px solid var(--main-blue-color);
+        //         background-color: var(--main-blue-color);
+        //         color: #fafafa;
+        //       }
+        //     }
+        //   }
+        //   .trans_btn {
+        //     margin-right: 16px;
+        //   }
+        // }
+
         .btns_container {
           display: flex;
           align-items: flex-end;
@@ -222,14 +273,14 @@
               padding: 10px 18px 10px;
 
               background-color: var(--light-green-color);
-              border: 2px solid var(--main-blue-color);
+              border: 2px solid var(--main-blue-color) !important;
               border-radius: 22px;
               color: var(--main-blue-color);
 
               text-align: center;
               font-size: 16px;
               font-weight: var(--font-sem-bold);
-              font-family: var(--quickstand-font);
+              font-family: var(--main-font);
               transition: all 0.3s ease-in-out;
               cursor: pointer;
               margin-top: 10px;
@@ -239,9 +290,10 @@
               white-space: nowrap;
 
               &:hover {
-                border: 2px solid var(--main-blue-color);
-                background-color: var(--main-blue-color);
-                color: #fafafa;
+                // border: 2px solid var(--main-blue-color);
+                border: 2px solid transparent !important;
+                background-color: var(--main-blue-color) !important;
+                color: #fafafa !important;
               }
             }
           }

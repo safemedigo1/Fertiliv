@@ -5,12 +5,15 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import SingleBlogPage from "../../../../components/SingleBlogPage";
 import Navbar from "../../../../components/Navbar";
 import Footer from "../../../../components/Footer";
+import axios from "axios";
 
 export default function BolgDetailsID({ blog, allBlogsTagsData, dataReviews, }) {
   const router = useRouter();
   const { locale } = useRouter();
   const imagePath = `images/${locale}/image.png`;
 
+
+  console.log(allBlogsTagsData, "24424242")
   return (
     <>
       <Head>
@@ -112,18 +115,7 @@ export async function getStaticProps({ params, locale }) {
   })
   const data = await res.json()
 
-  const allBlogTagsRes = await fetch("https://api2.safemedigo.com/api/v1/Blog/GetAllBlogsTags", {
-    method: 'POST',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      "lang": locale,
-    })
-  })
 
-  const allBlogsTagsData = await allBlogTagsRes.json()
 
 
 
@@ -145,10 +137,27 @@ export async function getStaticProps({ params, locale }) {
     }
   );
   const dataReviews = await resReviews.json();
+
+
+
+
+  const getBlogWithPageRes = await
+    axios.post("https://api2.safemedigo.com/api/v1/Blog/GetAllBlogWithPage", {
+      "lang": locale,
+      "blogCategoryId": 12,
+      "currentPage": 1
+    }, {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    });
+  const data2 = await getBlogWithPageRes.data;
+
   return {
     props: {
       blog: data,
-      allBlogsTagsData,
+      allBlogsTagsData: data2?.data,
       dataReviews,
       ...(await serverSideTranslations(locale, ["navbar", "hospital", "proceduresSymptoms", "sec_navbar", "proceduresSymptoms_single", 'Footer', 'most_popular',
         "navbar",

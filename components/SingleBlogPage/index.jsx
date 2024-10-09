@@ -16,9 +16,10 @@ import toast from 'react-hot-toast';
 import { ThreeDots } from 'react-loader-spinner'
 import Link from "next/link";
 import Consultation from "../Home/Consultation";
+import Tags from "../Tags";
 
 
-const SingleBlogPage = ({ blog }) => {
+const SingleBlogPage = ({ blog, allBlogsTagsData }) => {
 
   const [commentsDetails, setCommentsDetails] = useState([])
   const [commentsCount, setCommentsCount] = useState(0)
@@ -215,43 +216,44 @@ const SingleBlogPage = ({ blog }) => {
                   </Typography>
                 </div>
 
+                {blog.showEmployeeData !== false &&
+                  <div className={styles.wrapper}>
+                    <div className={styles.writer_info}>
+                      <div className={styles.writer_img}>
+                        <Image width={100} height={100} src={blog.publisherImage} alt={blog.publisher} />
+                      </div>
 
-                <div className={styles.wrapper}>
-                  <div className={styles.writer_info}>
-                    <div className={styles.writer_img}>
-                      <Image width={100} height={100} src={blog.publisherImage} alt={blog.publisher} />
+                      <div className={styles.name}>
+                        <Link href="/about-us#team">
+                          {blog.publisher}
+                        </Link>
+                        <br />
+                        {blog.jobTitle}
+                      </div>
+
+
                     </div>
 
-                    <div className={styles.name}>
-                      <Link href="/about-us#team">
-                        {blog.publisher}
-                      </Link>
-                      <br />
-                      {blog.jobTitle}
+                    <Box sx={{ marginTop: '20px' }} className={styles.writer_info}>
+                      <div className={styles.writer_img}>
+                        <Image width={100} height={100} src={blog.reviewerImage} alt={blog.reviewer} />
+                      </div>
+
+                      <div className={styles.name}>
+                        <Link href="/about-us#team">
+                          {blog.reviewer}
+                        </Link>
+                        <br />
+                        {blog.reviewerJobTitle}
+                      </div>
+                    </Box>
+
+
+                    <div className={styles.date}>
+                      {blog.date}
                     </div>
-
-
                   </div>
-
-                  <Box sx={{ marginTop: '20px' }} className={styles.writer_info}>
-                    <div className={styles.writer_img}>
-                      <Image width={100} height={100} src={blog.reviewerImage} alt={blog.reviewer} />
-                    </div>
-
-                    <div className={styles.name}>
-                      <Link href="/about-us#team">
-                        {blog.reviewer}
-                      </Link>
-                      <br />
-                      {blog.reviewerJobTitle}
-                    </div>
-                  </Box>
-
-
-                  <div className={styles.date}>
-                    {blog.date}
-                  </div>
-                </div>
+                }
 
 
               </Box>
@@ -289,6 +291,10 @@ const SingleBlogPage = ({ blog }) => {
 
         </div>
       </Container >
+
+      <Tags allBlogsTagsData={allBlogsTagsData} query={'query'} />
+
+      {console.log(allBlogsTagsData, "allBlogsTagsData222")}
 
       <Container sx={{ maxWidth: "1239px" }} maxWidth={false}>
         <div id={styles.cards_container} dir={`${router.locale === 'ar' ? 'rtl' : 'ltr'}`}>
