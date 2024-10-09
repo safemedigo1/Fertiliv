@@ -22,7 +22,7 @@
     "@ramonak/react-progress-bar": "^5.0.3",
     "@sanity/client": "^6.4.9",
     "@types/formidable": "^3.4.1",
-    "axios": "^1.4.0",
+    "axios": "^1.7.4",
     "cors": "^2.8.5",
     "date-fns": "^2.21.3",
     "dayjs": "^1.11.9",
