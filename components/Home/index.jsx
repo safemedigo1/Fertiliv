@@ -25,7 +25,6 @@ export default function Home({ dataMostPopularDocs, dataReviews, blogs }) {
 
     return (
       <>
-
         <Navbar />
         <Hero />
         <WhyFertiliv />

@@ -97,24 +97,25 @@ const BlogsComponents = ({ blogCategory,
                             <div className={styles.desc}>
                               <p>{post.briefContent}</p>
                             </div>
+                            {post.showEmployeeData === false &&
+                              <div className={styles.author_container}>
+                                <div className={styles.img_container}>
+                                  <Image
+                                    width={344}
+                                    height={500}
+                                    src={post?.publisherImage} alt={post.publisherName} />
 
-                            <div className={styles.author_container}>
-                              <div className={styles.img_container}>
-                                <Image
-                                  width={344}
-                                  height={500}
-                                  src={post?.publisherImage} alt={post.publisherName} />
 
 
-
-                              </div>
-                              <div className={styles.author_data}>
-                                <div className={styles.user_name}>
-                                  {post.publisherName}
                                 </div>
-                                <div className={styles.user_job}>{post.jobTitle}</div>
+                                <div className={styles.author_data}>
+                                  <div className={styles.user_name}>
+                                    {post.publisherName}
+                                  </div>
+                                  <div className={styles.user_job}>{post.jobTitle}</div>
+                                </div>
                               </div>
-                            </div>
+                            }
 
                             <div className={styles.btns_container}>
                               <div className={styles.trans_btn}>
