@@ -97,7 +97,7 @@ const BlogsComponents = ({ blogCategory,
                             <div className={styles.desc}>
                               <p>{post.briefContent}</p>
                             </div>
-                            {post.showEmployeeData === false &&
+                            {post?.showEmployeeData !== false &&
                               <div className={styles.author_container}>
                                 <div className={styles.img_container}>
                                   <Image

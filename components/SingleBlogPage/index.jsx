@@ -216,7 +216,7 @@ const SingleBlogPage = ({ blog, allBlogsTagsData }) => {
                   </Typography>
                 </div>
 
-                {blog.showEmployeeData === false &&
+                {blog?.showEmployeeData !== false &&
                   <div className={styles.wrapper}>
                     <div className={styles.writer_info}>
                       <div className={styles.writer_img}>

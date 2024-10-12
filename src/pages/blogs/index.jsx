@@ -219,6 +219,8 @@ export async function getStaticProps({ locale }) {
     },
     body: JSON.stringify({
       "lang": locale,
+      "isSpecial": false,
+
     })
   })
 
