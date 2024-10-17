@@ -417,19 +417,27 @@ export async function getStaticProps({ locale, params }) {
 
   const myCategoryId = data2.filter((c) => c.slug === params.category)
 
-  const res = await fetch("https://api2.safemedigo.com/api/v1/Blog/GetAllBlogWithPage", {
-    method: 'POST',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      "lang": locale,
-      "blogCategoryId": 12,
-      "currentPage": page,
-    })
-  })
-  const data = await res.json()
+  const res = await fetch(
+    "https://api2.safemedigo.com/api/v1/Hospital/GetHospitalBlogWithPageBySlug",
+    {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "Cache-Control": "no-cache",
+        Pragma: "no-cache",
+        Expires: "0",
+      },
+      body: JSON.stringify({
+        lang: locale,
+        blogCategoryId: "12",
+        currentPage: page,
+        hospitalSlug: "fertiliv",
+      }),
+    }
+  );
+  const data = await res.json();;
+
 
 
   const products = data.data;

@@ -1,19 +1,28 @@
-import Head from "next/head";
-import axios from 'axios';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useRouter } from "next/router";
-import Navbar from "../../../components/Navbar";
-import BlogsComponents from '../../../components/BlogsComponents'
-import Footer from "../../../components/Footer";
-import Tags from "../../../components/Tags";
-export default function Blogs({ blogCategory, blogs, allBlogsTagsData, currentPage, totalPages, metaData, dataReviews, }) {
+import { useState } from "react";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import Head from 'next/head';
+import Navbar from '../../../../components/Navbar';
+import TagsPages from '../../../../components/Tags/TagsPages';
+
+
+export default function Tags({ metaData, blogCategory, blogs, allBlogsTagsData, currentPage, totalPages, dataReviews }) {
+  const keywords = allBlogsTagsData?.map(tag => tag.tagName).join(', ');
   const router = useRouter();
+
+
+
+
+
   const { locale } = useRouter();
+
   const imagePath = `images/${locale}/image.png`;
+
+  const [isClient, setIsClient] = useState(false)
+
 
   return (
     <>
-
       <Head>
         <title>{`${metaData.site_name} | ${metaData.blogs}`} </title>
         <meta
@@ -170,31 +179,25 @@ export default function Blogs({ blogCategory, blogs, allBlogsTagsData, currentPa
       <Navbar />
 
 
-      <BlogsComponents
-        blogCategory={blogCategory}
-        blogs={blogs}
-        allBlogsTagsData={allBlogsTagsData}
-        currentPage={currentPage}
-        totalPages={totalPages}
-        dataReviews={dataReviews}
-      />
+      <TagsPages blogCategory={blogCategory} blogs={blogs} allBlogsTagsData={allBlogsTagsData} currentPage={currentPage} totalPages={totalPages} dataReviews={dataReviews} />
 
 
-      <Tags allBlogsTagsData={blogs?.data} query={'query'} />
 
 
-      <Footer />
 
 
     </>
   );
-};
+
+
+}
 
 
 
-export async function getStaticProps({ locale }) {
+export async function getServerSideProps({ locale, params }) {
   const path = require('path');
   const fs = require('fs');
+
 
   const readFile = async (locale) => {
     const filePath = path.join(process.cwd(), 'public', 'locales', locale, 'meta_home_page.json');
@@ -206,10 +209,11 @@ export async function getStaticProps({ locale }) {
   const metaData = await readFile(locale);
 
 
-  const page = '1'; // If no page is specified, default to page 1
+  const page = params.page || '1'; // If no page is specified, default to page 1
   const limit = 6; // Number of products to display per page
   const startIndex = (page - 1) * limit;
   const endIndex = startIndex + limit;
+
 
   const res1 = await fetch("https://api2.safemedigo.com/api/v1/BlogCategory/GetAllBlogCategoriesByLang", {
     method: 'POST',
@@ -219,38 +223,27 @@ export async function getStaticProps({ locale }) {
     },
     body: JSON.stringify({
       "lang": locale,
-      "isSpecial": false,
+      "isSpecial": true,
 
     })
   })
-
   const data2 = await res1.json()
 
 
 
-  const getBlogWithPageRes = await
-    fetch(
-      "https://api2.safemedigo.com/api/v1/Hospital/GetHospitalBlogWithPageBySlug",
-      {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-          "Cache-Control": "no-cache",
-          Pragma: "no-cache",
-          Expires: "0",
-        },
-        body: JSON.stringify({
-          lang: locale,
-          blogCategoryId: "12",
-          currentPage: 1,
-          hospitalSlug: "fertiliv",
-        }),
-      }
-    );
-  const data = await getBlogWithPageRes.json();;
-
-
+  const res = await fetch("https://api2.safemedigo.com/api/v1/Blog/GetAllBlogWithPageByTagName", {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      "lang": locale,
+      "tagSlug": params.slug,
+      "currentPage": page,
+    })
+  })
+  const data = await res.json();
 
 
 
@@ -270,6 +263,7 @@ export async function getStaticProps({ locale }) {
   })
 
   const allBlogsTagsData = await allBlogTagsRes.json()
+
   const resReviews = await fetch(
     "https://api2.safemedigo.com/api/v1/Rating/GetAllRatings",
     {
@@ -288,9 +282,16 @@ export async function getStaticProps({ locale }) {
     }
   );
   const dataReviews = await resReviews.json();
-
   return {
     props: {
+      blogs: data,
+      dataReviews,
+      blogCategory: data2,
+      products: products.slice(startIndex, endIndex),
+      currentPage: parseInt(page),
+      totalPages,
+      allBlogsTagsData,
+      metaData,
       ...(await serverSideTranslations(locale, ["navbar", "hospital", "proceduresSymptoms", "sec_navbar", "proceduresSymptoms_single", 'Footer', 'most_popular',
         "navbar",
         "why_feriliv",
@@ -301,21 +302,96 @@ export async function getStaticProps({ locale }) {
         "doctor",
         "reviews",
         "help",
-        "members",
         "blogs_page",
+
+        "members",
         "ivfClinic",
-        "Footer",])),
-      blogs: data,
-      blogCategory: data2,
-      currentPage: parseInt(page),
-      totalPages,
-      allBlogsTagsData,
-      locale,
-      metaData,
-      dataReviews
+        "Footer"])),
     },
-    revalidate: 10,
+
   }
 }
 
 
+
+
+// export async function getStaticPaths({ params }) {
+//   // const res = await fetch("https://api2.safemedigo.com/api/v1/Blog/GetAllBlogWithPage", {
+//   //   method: 'POST',
+//   //   headers: {
+//   //     'Accept': 'application/json',
+//   //     'Content-Type': 'application/json'
+//   //   },
+//   //   body: JSON.stringify({
+//   //     "lang": "en",
+//   //     "blogCategoryId": '0',
+//   //     "currentPage": '1',
+//   //   })
+//   // })
+//   // const data = await res.json()
+//   // const totalProducts = data.count / 6;
+
+
+
+//   // const dynamicNumber = Math.ceil(totalProducts);
+//   // const numbersArray = Array.from({ length: dynamicNumber }, (_, index) => index + 1);
+//   // const customLocale = ['en', 'ar', 'tr'];
+
+
+
+
+
+
+
+
+
+
+
+
+//   const res = await fetch(
+//     "https://api2.safemedigo.com/api/v1/Hospital/GetHospitalBlogWithPageBySlug",
+//     {
+//       method: "POST",
+//       headers: {
+//         Accept: "application/json",
+//         "Content-Type": "application/json",
+//         "Cache-Control": "no-cache",
+//         Pragma: "no-cache",
+//         Expires: "0",
+//       },
+//       body: JSON.stringify({
+//         "lang": "en",
+//         "blogCategoryId": "12",
+//         "currentPage": params.page,
+//         "hospitalSlug": "fertiliv",
+//       }),
+//     }
+//   );
+//   const data = await res.json();;
+
+
+
+//   const products = data.data;
+//   const totalProducts = data.count;
+//   const totalPages = Math.ceil(totalProducts / limit);
+
+
+
+//   const paths = Array.from({ length: totalPages }, (_, index) => ({
+//     page: { id: (index + 1).toString() }, // IDs from 1 to totalCount as strings
+//   }));
+
+
+//   // const paths = numbersArray.flatMap((number, idx) => customLocale.map((locale) => ({
+//   //   page: { slug: number.toString() },
+//   //   locale: locale,
+//   // })))
+
+
+
+
+//   return {
+//     paths,
+//     fallback: 'blocking',
+//   };
+// }

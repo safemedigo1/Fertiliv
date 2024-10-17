@@ -14,15 +14,16 @@ import Navbar from '../../../../components/Navbar'
 import Footer from '../../../../components/Footer'
 import BlogsComponents from '../../../../components/BlogsComponents'
 
-const TagsBlog = ({ blogCategory, blogs, allBlogsTagsData, currentPage, totalPages, query, metaData, dataReviews }) => {
+const TagsBlog = ({ blogs, currentPage, totalPages, query, metaData, allBlogsTagsData }) => {
+  const router = useRouter();
+
   const { t } = useTranslation();
 
   const handleMyChangePage = (event, value) => {
     event.preventDefault();
-    router.push(`/tags/page/${value}`)
+    router.push(`/tags/${router.query.slug}/${value}`)
   }
 
-  const router = useRouter();
 
 
   const [isClient, setIsClient] = useState(false)
@@ -343,20 +344,6 @@ export async function getServerSideProps({ query, locale }) {
 
 
 
-  const res = await fetch("https://api2.safemedigo.com/api/v1/Blog/GetAllBlogWithPageByTagName", {
-    method: 'POST',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      "lang": locale,
-      "tagSlug": query.slug,
-      "currentPage": page,
-    })
-  })
-  const data = await res.json();
-
 
 
 
@@ -378,24 +365,29 @@ export async function getServerSideProps({ query, locale }) {
 
   const myCategoryId = await data2?.filter((c) => c.slug === query.category)
 
-  const getBlogWithPageRes = await fetch("https://api2.safemedigo.com/api/v1/Blog/GetAllBlogWithPage", {
+
+
+  const res = await fetch("https://api2.safemedigo.com/api/v1/Blog/GetAllBlogWithPageByTagName", {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     },
-    "lang": locale,
-    "blogCategoryId": myCategoryId?.[0]?.id || '0',
-    "currentPage": page || 1
-  },);
-  const getBlogWithPageData = await getBlogWithPageRes.data;
+    body: JSON.stringify({
+      "lang": locale,
+      "tagSlug": query.slug,
+      "currentPage": page,
+    })
+  })
+  const data = await res.json();
+
+
 
 
 
   const products = data.data;
   const totalProducts = data.count;
   const totalPages = Math.ceil(totalProducts / limit);
-
 
   const allBlogTagsRes = await fetch("https://api2.safemedigo.com/api/v1/Blog/GetAllBlogsTags", {
     method: 'POST',
@@ -410,24 +402,6 @@ export async function getServerSideProps({ query, locale }) {
 
   const allBlogsTagsData = await allBlogTagsRes.json()
 
-  const resReviews = await fetch(
-    "https://api2.safemedigo.com/api/v1/Rating/GetAllRatings",
-    {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        "Cache-Control": "no-cache",
-        Pragma: "no-cache",
-        Expires: "0",
-      },
-      body: JSON.stringify({
-        lang: locale,
-        platform: "safemedigo",
-      }),
-    }
-  );
-  const dataReviews = await resReviews.json();
 
 
 
@@ -435,9 +409,6 @@ export async function getServerSideProps({ query, locale }) {
   return {
     props: {
       blogs: data,
-      dataReviews,
-
-      blogCategory: data2,
       products: products.slice(startIndex, endIndex),
       currentPage: parseInt(page),
       totalPages,
