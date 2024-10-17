@@ -65,12 +65,12 @@
         margin-bottom: 8px;
         padding-right: 22px;
         padding-left: 15px;
-        // overflow: hidden;
-        // display: -webkit-box;
-        // -webkit-box-orient: vertical;
-        // -webkit-line-clamp: 1;
-        // white-space: pre-wrap;
-        // -webkit-line-clamp: 1;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        white-space: pre-wrap;
+        -webkit-line-clamp: 3;
         h5 {
           margin: 0;
           color: var(--main-blue-color);
@@ -83,7 +83,8 @@
       .desc {
         padding-right: 22px;
         padding-left: 15px;
-        margin-bottom: 22px;
+        // margin-bottom: 22px;
+        margin-bottom: 8px;
 
         overflow: hidden;
         display: -webkit-box;

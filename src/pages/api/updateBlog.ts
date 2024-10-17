@@ -49,8 +49,6 @@ export default function updateBlog(req: NextApiRequest, res: NextApiResponse) {
         }
         resolve({ fields, files });
 
-        // console.log(fields, "FielldDDDSSSSS");
-
         try {
           await cors(async (req: any, res: NextApiResponse) => {
             const filePath = path.join("blogs.json");
