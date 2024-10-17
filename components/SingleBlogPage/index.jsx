@@ -216,11 +216,11 @@ const SingleBlogPage = ({ blog, allBlogsTagsData }) => {
                   </Typography>
                 </div>
 
-                {post?.showEmployeeData &&
+                {blog?.showEmployeeData &&
                   <div className={styles.wrapper}>
                     <div className={styles.writer_info}>
                       <div className={styles.writer_img}>
-                        <Image width={100} height={100} src={blog.publisherImage} alt={blog.publisher} />
+                        <Image width={100} height={100} src={blog?.publisherImage} alt={blog?.publisher} />
                       </div>
 
                       <div className={styles.name}>

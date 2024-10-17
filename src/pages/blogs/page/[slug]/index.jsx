@@ -425,7 +425,8 @@ export async function getStaticProps({ locale, params }) {
     },
     body: JSON.stringify({
       "lang": locale,
-      "blogCategoryId": 12, "currentPage": page,
+      "blogCategoryId": 12,
+      "currentPage": page,
     })
   })
   const data = await res.json()
