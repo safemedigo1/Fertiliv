@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './index.module.scss';
+import styles from '../../../src/styles/blogs.module.scss';
 import { useRouter } from "next/router";
 import Pagination from "@mui/material/Pagination";
 import { Box, Container, Typography } from "@mui/material";
