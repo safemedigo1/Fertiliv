@@ -36,11 +36,32 @@ const Tags = ({ blog, allBlogsTagsData }) => {
 
               {allBlogsTagsData?.map((tag, idx) => (
                 <>
-                  {tag?.tags.map((innerTag, index) =>
+                  {/* {tag?.tags.map((innerTag, index) => (
+                    <>
+                      {innerTag?.slug !== '' &&
 
-                    <div className={styles.tag} key={index}>
-                      <Link href={`/tags/${innerTag.slug}`}>
-                        <button className={`${innerTag.slug === router.query.slug ? styles.active : ''}`}>{innerTag?.tagName}</button>
+                        <div className={styles.tag} key={index}>
+                          <Link href={`/tags/${innerTag.slug}`}>
+                            <button className={`${innerTag.slug === router.query.slug ? styles.active : ''}`}>{innerTag?.tagName}</button>
+                          </Link>
+                        </div>}
+                    </>
+
+
+                  )
+                  )} */}
+
+
+
+                  {tag?.tags?.[0]?.slug !== '' && (
+                    <div className={styles.tag} key={idx}>
+                      <Link href={`/tags/${tag.tags[0].slug}`}>
+                        <button
+                          className={`${tag.tags[0].slug === router.query.slug ? styles.active : ''
+                            }`}
+                        >
+                          {tag.tags[0]?.tagName}
+                        </button>
                       </Link>
                     </div>
                   )}

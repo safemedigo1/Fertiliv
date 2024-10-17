@@ -163,7 +163,7 @@ export async function getStaticProps({ locale }) {
   const dataReviews = await resReviews.json();
 
   const getBlogWithPageRes = await fetch(
-    "https://api2.safemedigo.com/api/v1/Blog/GetAllBlogWithPage",
+    "https://api2.safemedigo.com/api/v1/Hospital/GetHospitalBlogWithPageBySlug",
     {
       method: "POST",
       headers: {
@@ -177,6 +177,7 @@ export async function getStaticProps({ locale }) {
         lang: locale,
         blogCategoryId: "12",
         currentPage: 1,
+        hospitalSlug: "fertiliv",
       }),
     }
   );

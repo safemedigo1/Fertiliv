@@ -1,4 +1,4 @@
-import { Box, FormControl, InputLabel, MenuItem, Pagination, Select, Typography } from '@mui/material'
+import { Box, FormControl, InputLabel, Link, MenuItem, Pagination, Select, Typography } from '@mui/material'
 import { Container } from '@mui/system'
 import { motion } from 'framer-motion'
 import Head from 'next/head'
@@ -12,6 +12,7 @@ import { useTranslation } from "react-i18next";
 import Tags from '../../../../components/Tags'
 import Navbar from '../../../../components/Navbar'
 import Footer from '../../../../components/Footer'
+import BlogsComponents from '../../../../components/BlogsComponents'
 
 const TagsBlog = ({ blogCategory, blogs, allBlogsTagsData, currentPage, totalPages, query, metaData, dataReviews }) => {
   const { t } = useTranslation();
@@ -245,29 +246,40 @@ const TagsBlog = ({ blogCategory, blogs, allBlogsTagsData, currentPage, totalPag
                               <Typography variant="h5">{post.title}</Typography>
                             </div>
 
-                            <div className={styles.desc}>
+
+                            <div className={`${styles.desc} ${post?.showEmployeeData === false && post?.tags?.some((tag) => tag?.tagName === '') && styles.full_desc
+                              }`}>
                               <p>{post.briefContent}</p>
                             </div>
+                            {post?.showEmployeeData &&
+                              <div className={styles.author_container}>
+                                <div className={styles.img_container}>
+                                  <Image
+                                    width={344}
+                                    height={500}
+                                    src={post?.publisherImage} alt={post.publisherName} />
 
-                            <div className={styles.author_container}>
-                              <div className={styles.img_container}>
-                                <Image width={344}
-                                  height={500} src={post?.publisherImage} alt={post.publisherName} />
 
-                              </div>
-                              <div className={styles.author_data}>
-                                <div className={styles.user_name}>
-                                  {post.publisherName}
+
                                 </div>
-                                <div className={styles.user_job}>{post.jobTitle}</div>
+                                <div className={styles.author_data}>
+                                  <div className={styles.user_name}>
+                                    {post.publisherName}
+                                  </div>
+                                  <div className={styles.user_job}>{post.jobTitle}</div>
+                                </div>
                               </div>
-                            </div>
+                            }
 
                             <div className={styles.btns_container}>
                               <div className={styles.trans_btn}>
                                 {post.tags.map((tag) => (
                                   <>
-                                    <button>{tag.tagName}</button>
+                                    {tag?.tagName !== '' &&
+                                      <Link href={`/tags/${tag.slug}`}>
+                                        <button>{tag.tagName}</button>
+                                      </Link>
+                                    }
                                   </>
                                 ))}
                               </div>
@@ -294,6 +306,7 @@ const TagsBlog = ({ blogCategory, blogs, allBlogsTagsData, currentPage, totalPag
               {/* Tag Component */}
               <Tags allBlogsTagsData={blogs?.data} query={query} />
             </div>
+
           </>
 
         }

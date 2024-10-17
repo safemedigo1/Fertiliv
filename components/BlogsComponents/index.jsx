@@ -94,10 +94,11 @@ const BlogsComponents = ({ blogCategory,
                               <Typography variant="h5">{post.title}</Typography>
                             </div>
 
-                            <div className={styles.desc}>
+                            <div className={`${styles.desc} ${post?.showEmployeeData === false && post?.tags?.some((tag) => tag?.tagName === '') && styles.full_desc
+                              }`}>
                               <p>{post.briefContent}</p>
                             </div>
-                            {post?.showEmployeeData !== false &&
+                            {post?.showEmployeeData &&
                               <div className={styles.author_container}>
                                 <div className={styles.img_container}>
                                   <Image
@@ -121,9 +122,11 @@ const BlogsComponents = ({ blogCategory,
                               <div className={styles.trans_btn}>
                                 {post.tags.map((tag) => (
                                   <>
-                                    <Link href={`/tags/${tag.slug}`}>
-                                      <button>{tag.tagName}</button>
-                                    </Link>
+                                    {tag?.tagName !== '' &&
+                                      <Link href={`/tags/${tag.slug}`}>
+                                        <button>{tag.tagName}</button>
+                                      </Link>
+                                    }
                                   </>
                                 ))}
                               </div>

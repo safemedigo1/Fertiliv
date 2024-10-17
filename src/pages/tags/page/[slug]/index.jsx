@@ -26,19 +26,11 @@ export default function BlogPage({ metaData, blogCategory, blogs, allBlogsTagsDa
 
   const handleMyChangePage = (event, value) => {
     event.preventDefault();
-    if (value === 1) {
-      router.push(`/blogs/`);
-    }
+    // if (value === 1) {
+    //   router.push(`/blogs/`);
+    // }
 
-    router.push(`/blogs/page/${value}`)
-  }
-
-  const handleFilterChanges = (event, value) => {
-    router.push(`/category/${value.props.value}/page/1`);
-
-    // setTimeout(() => window.location.reload(), 2000);
-    setCategory(value.props.value
-    )
+    router.push(`/tags/page/${value}`)
   }
 
 
@@ -284,9 +276,11 @@ export default function BlogPage({ metaData, blogCategory, blogs, allBlogsTagsDa
                               <div className={styles.trans_btn}>
                                 {post.tags.map((tag) => (
                                   <>
-                                    <Link href={`/tags/${tag.slug}`}>
-                                      <button>{tag.tagName}</button>
-                                    </Link>
+                                    {tag?.tagName !== '' &&
+                                      <Link href={`/tags/${tag.slug}`}>
+                                        <button>{tag.tagName}</button>
+                                      </Link>
+                                    }
                                   </>
                                 ))}
                               </div>

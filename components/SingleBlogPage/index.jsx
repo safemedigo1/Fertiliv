@@ -216,7 +216,7 @@ const SingleBlogPage = ({ blog, allBlogsTagsData }) => {
                   </Typography>
                 </div>
 
-                {blog?.showEmployeeData !== false &&
+                {post?.showEmployeeData &&
                   <div className={styles.wrapper}>
                     <div className={styles.writer_info}>
                       <div className={styles.writer_img}>
@@ -294,7 +294,6 @@ const SingleBlogPage = ({ blog, allBlogsTagsData }) => {
 
       <Tags allBlogsTagsData={allBlogsTagsData} query={'query'} />
 
-      {console.log(allBlogsTagsData, "allBlogsTagsData222")}
 
       <Container sx={{ maxWidth: "1239px" }} maxWidth={false}>
         <div id={styles.cards_container} dir={`${router.locale === 'ar' ? 'rtl' : 'ltr'}`}>

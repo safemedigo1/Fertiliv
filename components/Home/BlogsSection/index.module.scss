@@ -101,6 +101,14 @@
         }
       }
 
+      .full_desc {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 10;
+        white-space: pre-wrap;
+        -webkit-line-clamp: 10;
+      }
+
       .author_container {
         padding-right: 22px;
         padding-left: 15px;

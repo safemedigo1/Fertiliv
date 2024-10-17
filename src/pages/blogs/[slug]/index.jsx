@@ -13,7 +13,6 @@ export default function BolgDetailsID({ blog, allBlogsTagsData, dataReviews, }) 
   const imagePath = `images/${locale}/image.png`;
 
 
-  console.log(allBlogsTagsData, "24424242")
   return (
     <>
       <Head>
