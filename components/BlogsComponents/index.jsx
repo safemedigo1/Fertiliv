@@ -102,8 +102,8 @@ const BlogsComponents = ({ blogCategory,
                           transformOrigin: { horizontal: 'right', vertical: 'top' },
                         }}
                         style={{
-                          backgroundColor: "#E7EDEC",
-                          color: "#000000",
+                          backgroundColor: "#ffeee1",
+                          color: "var(--main-blue-color)",
                           fontSize: "18px",
                           fontWeight: "bold",
 
