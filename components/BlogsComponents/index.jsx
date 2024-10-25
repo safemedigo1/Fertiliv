@@ -28,14 +28,28 @@ const BlogsComponents = ({ blogCategory,
 
   const router = useRouter();
 
-
-
+  const slug = router?.query?.slug;
+  const id = router?.query?.id
+  // const
+  const activeCategory = blogCategory?.find(blog => blog?.slug === slug);
 
 
   const handleMyChangePage = (event, value) => {
     event.preventDefault();
     router.push(`/blogs/page/${value}`, undefined, { scroll: false })
+
   }
+
+
+
+
+  const handleFilterChanges = (event, value) => {
+    router.push(`/category/${value.props.value}/page/1`, undefined, { scroll: false });
+    setCategory(value.props.children)
+  }
+
+
+
 
 
   const [isClient, setIsClient] = useState(false)
@@ -44,10 +58,14 @@ const BlogsComponents = ({ blogCategory,
     setIsClient(true)
   }, [])
 
+
+
+
   return (
     <>
       {isClient &&
         <>
+
 
           <div className={styles.sections_container} dir={`${router.locale === 'ar' ? 'rtl' : 'ltr'}`}>
 
@@ -66,6 +84,63 @@ const BlogsComponents = ({ blogCategory,
                     {t("blogs_page:hero_desc")}
                   </div>
                 </div>
+
+
+                <div id={styles.tags_filter} dir={`${router.locale === 'ar' ? 'rtl' : 'ltr'}`}>
+                  <div id='filter_blog_component' className={styles.filter} dir={`${router.locale === 'ar' ? 'rtl' : 'ltr'}`}>
+                    <FormControl fullWidth  >
+                      {/* <InputLabel id="demo-simple-select-autowidth-label">{t('blogs_page:filter_title')}</InputLabel> */}
+                      <Select
+                        displayEmpty
+                        inputProps={{ 'aria-label': 'Without label' }}
+                        IconComponent={ExpandMoreOutlinedIcon}
+                        // label={t('blogs_page:filter_title')}
+                        onChange={handleFilterChanges}
+
+                        MenuProps={{
+                          anchorOrigin: { horizontal: 'right', vertical: 'bottom' },
+                          transformOrigin: { horizontal: 'right', vertical: 'top' },
+                        }}
+                        style={{
+                          backgroundColor: "#E7EDEC",
+                          color: "#000000",
+                          fontSize: "18px",
+                          fontWeight: "bold",
+
+                        }}
+                      >
+                        <MenuItem disabled sx={{ display: 'none' }}>
+                          {router.pathname === '/blogs' &&
+                            t("blogs_page:choose_category")
+                          }
+
+                          {activeCategory?.categeryName}
+                        </MenuItem>
+                        {blogCategory.map((item) => (
+                          <MenuItem dir={`${router.locale === 'ar' ? 'rtl' : 'ltr'}`} value={item.slug} >
+                            <span dir={`${router.locale === 'ar' ? 'rtl' : 'ltr'}`} className={'category_name'}>
+                              {item.categeryName}
+                            </span>
+                          </MenuItem>
+                        ))}
+
+
+                      </Select>
+                    </FormControl>
+                  </div>
+                </div >
+
+
+
+                {
+
+                  blogs.count === 0 &&
+                  <Container sx={{ maxWidth: "1239px", marginTop: '80px', marginBottom: '80px', textAlign: 'center', fontWeight: 'bold', fontSize: '24px' }} maxWidth={false}>
+                    <h2>No Blogs In {activeCategory?.categeryName} </h2>
+                  </Container>
+
+                }
+
 
                 <div
                   className={styles.boxes_container}>
@@ -141,16 +216,20 @@ const BlogsComponents = ({ blogCategory,
                   }
                 </div>
 
-                <Box sx={{
-                  display: 'flex', alignItems: 'center', flexDirection: 'column', justifyContent: "center", marginTop: '50px',
-                  '& ul > li> button:not(.Mui-selected)': { color: '#1b0968', fontWeight: 'bold', fontSize: '14px' },
-                  '& ul > li> .Mui-selected': { backgroundColor: '#1b0968', color: '#ffffff', fontWeight: 'bold', fontSize: '18px' }
-                }} className="pagination">
-                  <Pagination count={totalPages} page={currentPage}
-                    dir="ltr"
-                    onChange={handleMyChangePage}
-                  />
-                </Box>
+                {
+
+                  blogs.count !== 0 &&
+                  <Box sx={{
+                    display: 'flex', alignItems: 'center', flexDirection: 'column', justifyContent: "center", marginTop: '50px',
+                    '& ul > li> button:not(.Mui-selected)': { color: '#1b0968', fontWeight: 'bold', fontSize: '14px' },
+                    '& ul > li> .Mui-selected': { backgroundColor: '#1b0968', color: '#ffffff', fontWeight: 'bold', fontSize: '18px' }
+                  }} className="pagination">
+                    <Pagination count={totalPages} page={currentPage}
+                      dir="ltr"
+                      onChange={handleMyChangePage}
+                    />
+                  </Box>
+                }
               </Container>
             </section>
 

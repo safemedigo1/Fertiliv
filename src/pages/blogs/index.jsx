@@ -180,7 +180,7 @@ export default function Blogs({ blogCategory, blogs, allBlogsTagsData, currentPa
       />
 
 
-      <Tags allBlogsTagsData={blogs?.data} query={'query'} />
+      <Tags allBlogsTagsData={allBlogsTagsData} query={'query'} />
 
 
       <Footer />

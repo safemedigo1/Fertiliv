@@ -204,7 +204,7 @@ export default function BlogPage({ metaData, blogCategory, blogs, allBlogsTagsDa
         />
 
 
-        <Tags allBlogsTagsData={blogs?.data} query={'query'} />
+        <Tags allBlogsTagsData={allBlogsTagsData} query={'query'} />
 
         <Consultation />
 
