@@ -298,6 +298,7 @@ const PageNumber = ({ blogCategory, query, blogs, myCategoryId, currentPage, tot
             dataReviews={dataReviews} />
         </>
 
+        <Footer />
 
       </>
 
