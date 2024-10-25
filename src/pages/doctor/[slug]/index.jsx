@@ -123,7 +123,7 @@ export default DoctorName
 
 
 export async function getStaticPaths() {
-  const resDoctorsSlugs = await fetch("https://api2.safemedigo.com/api/v1/Doctor/ListAllDoctorSlugs");
+  const resDoctorsSlugs = await fetch("https://api1.fertiliv.com/api/v1/Doctor/ListAllDoctorSlugs");
   const dataDoctorsSlugs = await resDoctorsSlugs.json();
 
   const paths = dataDoctorsSlugs.map((slug) => {
@@ -148,7 +148,7 @@ export async function getStaticProps({ locale, params }) {
 
 
 
-  const resDoctorSlug = await fetch("https://api2.safemedigo.com/api/v1/Doctor/GetDoctorBySlug", {
+  const resDoctorSlug = await fetch("https://api1.fertiliv.com/api/v1/Doctor/GetDoctorBySlug", {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -162,7 +162,7 @@ export async function getStaticProps({ locale, params }) {
   const dataDoctorSlug = await resDoctorSlug.json()
 
 
-  const resDoctorMainSpecializations = await fetch("https://api2.safemedigo.com/api/v1/Doctor/GetDoctorMainSpecializationsBySlug  ", {
+  const resDoctorMainSpecializations = await fetch("https://api1.fertiliv.com/api/v1/Doctor/GetDoctorMainSpecializationsBySlug  ", {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -175,7 +175,7 @@ export async function getStaticProps({ locale, params }) {
   })
   const dataDoctorMainSpecializations = await resDoctorMainSpecializations.json()
 
-  const resSubSpecializations = await fetch("https://api2.safemedigo.com/api/v1/Doctor/GetDoctorSubSpecializationsBySlug  ", {
+  const resSubSpecializations = await fetch("https://api1.fertiliv.com/api/v1/Doctor/GetDoctorSubSpecializationsBySlug  ", {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -188,7 +188,7 @@ export async function getStaticProps({ locale, params }) {
   })
   const dataSubSpecializations = await resSubSpecializations.json()
 
-  const resDoctorTreatments = await fetch("https://api2.safemedigo.com/api/v1/Doctor/GetDoctorTreatmentsBySlug  ", {
+  const resDoctorTreatments = await fetch("https://api1.fertiliv.com/api/v1/Doctor/GetDoctorTreatmentsBySlug  ", {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -202,7 +202,7 @@ export async function getStaticProps({ locale, params }) {
   const dataDoctorTreatments = await resDoctorTreatments.json()
 
 
-  const resDoctorCertificatest = await fetch("https://api2.safemedigo.com/api/v1/Doctor/GetDoctorCertificatestBySlug  ", {
+  const resDoctorCertificatest = await fetch("https://api1.fertiliv.com/api/v1/Doctor/GetDoctorCertificatestBySlug  ", {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -216,7 +216,7 @@ export async function getStaticProps({ locale, params }) {
   const dataDoctorCertificatest = await resDoctorCertificatest.json()
 
 
-  const resDoctorLeaflets = await fetch("https://api2.safemedigo.com/api/v1/Doctor/GetDoctorLeafletsBySlug", {
+  const resDoctorLeaflets = await fetch("https://api1.fertiliv.com/api/v1/Doctor/GetDoctorLeafletsBySlug", {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -230,7 +230,7 @@ export async function getStaticProps({ locale, params }) {
   const dataDoctorLeaflets = await resDoctorLeaflets.json()
 
 
-  const resDoctorLanguagesBySlug = await fetch("https://api2.safemedigo.com/api/v1/Doctor/GetDoctorLanguagesBySlug  ", {
+  const resDoctorLanguagesBySlug = await fetch("https://api1.fertiliv.com/api/v1/Doctor/GetDoctorLanguagesBySlug  ", {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -244,7 +244,7 @@ export async function getStaticProps({ locale, params }) {
   const dataDoctorLanguagesBySlug = await resDoctorLanguagesBySlug.json()
 
 
-  const resDoctorMedias = await fetch("https://api2.safemedigo.com/api/v1/Doctor/GetDoctorMediasBySlug  ", {
+  const resDoctorMedias = await fetch("https://api1.fertiliv.com/api/v1/Doctor/GetDoctorMediasBySlug  ", {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -258,7 +258,7 @@ export async function getStaticProps({ locale, params }) {
   const dataDoctorMedias = await resDoctorMedias.json()
 
 
-  const resDoctorCareer = await fetch("https://api2.safemedigo.com/api/v1/Doctor/GetDoctorCareerBySlug", {
+  const resDoctorCareer = await fetch("https://api1.fertiliv.com/api/v1/Doctor/GetDoctorCareerBySlug", {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -273,7 +273,7 @@ export async function getStaticProps({ locale, params }) {
 
 
 
-  const resDoctorEducation = await fetch("https://api2.safemedigo.com/api/v1/Doctor/GetDoctorEducationBySlug  ", {
+  const resDoctorEducation = await fetch("https://api1.fertiliv.com/api/v1/Doctor/GetDoctorEducationBySlug  ", {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -288,7 +288,7 @@ export async function getStaticProps({ locale, params }) {
 
 
 
-  const resDoctorMemberShip = await fetch("https://api2.safemedigo.com/api/v1/Doctor/GetDoctorMemberShipBySlug  ", {
+  const resDoctorMemberShip = await fetch("https://api1.fertiliv.com/api/v1/Doctor/GetDoctorMemberShipBySlug  ", {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -304,7 +304,7 @@ export async function getStaticProps({ locale, params }) {
 
 
 
-  const resDoctorProcedure = await fetch("https://api2.safemedigo.com/api/v1/Doctor/GetDoctorProcedureBySlug  ", {
+  const resDoctorProcedure = await fetch("https://api1.fertiliv.com/api/v1/Doctor/GetDoctorProcedureBySlug  ", {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -320,7 +320,7 @@ export async function getStaticProps({ locale, params }) {
 
 
 
-  const resDoctorHospitalClinics = await fetch("https://api2.safemedigo.com/api/v1/Doctor/GetDoctorHospitalClinicsBySlug  ", {
+  const resDoctorHospitalClinics = await fetch("https://api1.fertiliv.com/api/v1/Doctor/GetDoctorHospitalClinicsBySlug  ", {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -335,7 +335,7 @@ export async function getStaticProps({ locale, params }) {
 
 
 
-  const resDoctorPackage = await fetch("https://api2.safemedigo.com/api/v1/Doctor/GetDoctorPackageBySlug  ", {
+  const resDoctorPackage = await fetch("https://api1.fertiliv.com/api/v1/Doctor/GetDoctorPackageBySlug  ", {
     method: 'POST',
     headers: {
       'Accept': 'application/json',

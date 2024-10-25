@@ -84,7 +84,7 @@
 //   }
 
 //   const getTreatmentImages = async () => {
-//     const resTreatmentData = await axios.post("https://api2.safemedigo.com/api/v1/Doctor/GetDoctorTreatmentsImages", {
+//     const resTreatmentData = await axios.post("https://api1.fertiliv.com/api/v1/Doctor/GetDoctorTreatmentsImages", {
 //       "doctorSlug": router.query.slug,
 //       "treatmentSlug": dataDoctorTreatments[0]?.treatmentSlug,
 //       "lang": router.locale
@@ -257,7 +257,7 @@ const BeforeAfter = ({ treatments, beforeCards, dataDoctorTreatments }) => {
   };
 
   const getTreatmentImages = async () => {
-    const resTreatmentData = await axios.post("https://api2.safemedigo.com/api/v1/Doctor/GetDoctorTreatmentsImages", {
+    const resTreatmentData = await axios.post("https://api1.fertiliv.com/api/v1/Doctor/GetDoctorTreatmentsImages", {
       doctorSlug: router.query.slug,
       treatmentSlug: treatmentSlug,
       lang: router.locale

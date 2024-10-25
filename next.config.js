@@ -23,6 +23,9 @@ const nextConfig = {
       "https://fertilive.com/",
       "https://cp2.safemedigo.com",
       "cp2.safemedigo.com",
+      // Fertiliv domains
+      " api1.fertiliv.com",
+      "cp1.fertiliv.com",
     ],
   },
   i18n,

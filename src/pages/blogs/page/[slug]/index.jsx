@@ -20,40 +20,19 @@ import Navbar from '../../../../../components/Navbar';
 import BlogsComponents from '../../../../../components/BlogsComponents';
 
 export default function BlogPage({ metaData, blogCategory, blogs, allBlogsTagsData, currentPage, totalPages, dataReviews }) {
-  const keywords = allBlogsTagsData?.map(tag => tag.tagName).join(', ');
-  const { t } = useTranslation();
   const router = useRouter();
   const [category, setCategory] = useState('All');
 
-  const handleMyChangePage = (event, value) => {
-    event.preventDefault();
-    if (value === 1) {
-      router.push(`/blogs/`);
-    }
-
-    router.push(`/blogs/page/${value}`)
-  }
-
-  const handleFilterChanges = (event, value) => {
-    router.push(`/category/${value.props.value}/page/1`);
-
-    // setTimeout(() => window.location.reload(), 2000);
-    setCategory(value.props.value
-    )
-  }
 
 
-  const count = blogs.count / 6;
+
 
   const { locale } = useRouter();
 
   const imagePath = `images/${locale}/image.png`;
 
-  const [isClient, setIsClient] = useState(false)
+  console.log(totalPages, "totalPages")
 
-  useEffect(() => {
-    setIsClient(true)
-  }, [])
 
   return (
     <>
@@ -213,25 +192,23 @@ export default function BlogPage({ metaData, blogCategory, blogs, allBlogsTagsDa
       <Navbar />
 
 
-      {isClient &&
-        <>
+      <>
 
-          <BlogsComponents
-            blogCategory={blogCategory}
-            blogs={blogs}
-            allBlogsTagsData={allBlogsTagsData}
-            currentPage={currentPage}
-            totalPages={totalPages}
-            dataReviews={dataReviews}
-          />
+        <BlogsComponents
+          blogCategory={blogCategory}
+          blogs={blogs}
+          allBlogsTagsData={allBlogsTagsData}
+          currentPage={currentPage}
+          totalPages={totalPages}
+          dataReviews={dataReviews}
+        />
 
 
-          <Tags allBlogsTagsData={blogs?.data} query={'query'} />
+        <Tags allBlogsTagsData={blogs?.data} query={'query'} />
 
-          <Consultation />
+        <Consultation />
 
-        </>
-      }
+      </>
 
 
 
@@ -250,8 +227,180 @@ export default function BlogPage({ metaData, blogCategory, blogs, allBlogsTagsDa
 
 
 
+// export async function getStaticPaths() {
+//   const res = await fetch("https://api1.fertiliv.com/api/v1/Blog/GetAllBlogWithPage", {
+//     method: 'POST',
+//     headers: {
+//       'Accept': 'application/json',
+//       'Content-Type': 'application/json'
+//     },
+//     body: JSON.stringify({
+//       "lang": "en",
+//       "blogCategoryId": '0',
+//       "currentPage": '1',
+//     })
+//   })
+//   const data = await res.json()
+//   const totalProducts = data.count / 6;
+
+
+
+//   const dynamicNumber = Math.ceil(totalProducts);
+//   const numbersArray = Array.from({ length: dynamicNumber }, (_, index) => index + 1);
+//   const customLocale = ['en', 'ar', 'tr'];
+
+
+
+
+//   const paths = numbersArray.flatMap((number, idx) => customLocale.map((locale) => ({
+//     params: { slug: number.toString() },
+//     locale: locale,
+//   })))
+
+
+
+
+
+//   return {
+//     paths,
+//     fallback: 'blocking',
+//   };
+// }
+
+
+// export async function getStaticProps({ locale, params }) {
+//   const path = require('path');
+//   const fs = require('fs');
+
+//   const readFile = async (locale) => {
+//     const filePath = path.join(process.cwd(), 'public', 'locales', locale, 'meta_home_page.json');
+//     const fileContents = fs.readFileSync(filePath, 'utf8');
+//     return JSON.parse(fileContents);
+
+//   };
+
+//   const metaData = await readFile(locale);
+
+
+//   const page = params.slug || '1'; // If no page is specified, default to page 1
+//   const limit = 6; // Number of products to display per page
+//   const startIndex = (page - 1) * limit;
+//   const endIndex = startIndex + limit;
+
+
+//   const res1 = await fetch("https://api2.safemedigo.com/api/v1/BlogCategory/GetAllBlogCategoriesByLang", {
+//     method: 'POST',
+//     headers: {
+//       'Accept': 'application/json',
+//       'Content-Type': 'application/json'
+//     },
+//     body: JSON.stringify({
+//       "lang": locale,
+//       "isSpecial": true,
+
+//     })
+//   })
+//   const data2 = await res1.json()
+
+//   const myCategoryId = data2.filter((c) => c.slug === params.category)
+
+//   const res = await fetch(
+//     "https://api2.safemedigo.com/api/v1/Hospital/GetHospitalBlogWithPageBySlug",
+//     {
+//       method: "POST",
+//       headers: {
+//         Accept: "application/json",
+//         "Content-Type": "application/json",
+//         "Cache-Control": "no-cache",
+//         Pragma: "no-cache",
+//         Expires: "0",
+//       },
+//       body: JSON.stringify({
+//         lang: locale,
+//         blogCategoryId: "12",
+//         currentPage: page,
+//         hospitalSlug: "fertiliv",
+//       }),
+//     }
+//   );
+//   const data = await res.json();;
+
+
+
+//   const products = data.data;
+//   const totalProducts = data.count;
+//   const totalPages = Math.ceil(totalProducts / limit);
+
+//   const allBlogTagsRes = await fetch("https://api2.safemedigo.com/api/v1/Blog/GetAllBlogsTags", {
+//     method: 'POST',
+//     headers: {
+//       'Accept': 'application/json',
+//       'Content-Type': 'application/json'
+//     },
+//     body: JSON.stringify({
+//       "lang": locale,
+//     })
+//   })
+
+//   const allBlogsTagsData = await allBlogTagsRes.json()
+
+//   const resReviews = await fetch(
+//     "https://api2.safemedigo.com/api/v1/Rating/GetAllRatings",
+//     {
+//       method: "POST",
+//       headers: {
+//         Accept: "application/json",
+//         "Content-Type": "application/json",
+//         "Cache-Control": "no-cache",
+//         Pragma: "no-cache",
+//         Expires: "0",
+//       },
+//       body: JSON.stringify({
+//         lang: locale,
+//         platform: "fertiliv",
+//       }),
+//     }
+//   );
+//   const dataReviews = await resReviews.json();
+//   return {
+//     props: {
+//       blogs: data,
+//       dataReviews,
+//       blogCategory: data2,
+//       products: products.slice(startIndex, endIndex),
+//       currentPage: parseInt(page),
+//       totalPages,
+//       allBlogsTagsData,
+//       metaData,
+//       ...(await serverSideTranslations(locale, ["navbar", "hospital", "proceduresSymptoms", "sec_navbar", "proceduresSymptoms_single", 'Footer', 'most_popular',
+//         "navbar",
+//         "why_feriliv",
+//         "common",
+//         "howItWorks",
+//         "ivfClinic",
+//         "hero",
+//         "doctor",
+//         "reviews",
+//         "help",
+//         "blogs_page",
+
+//         "members",
+//         "ivfClinic",
+//         "Footer"])),
+//     },
+//     revalidate: 10,
+
+//   }
+// }
+
+
+
+
+
+
+
 export async function getStaticPaths() {
-  const res = await fetch("https://api2.safemedigo.com/api/v1/Blog/GetAllBlogWithPage", {
+  const res = await fetch("https://api1.fertiliv.com/api/v1/Blog/GetAllBlogWithPage", {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -305,13 +454,13 @@ export async function getStaticProps({ locale, params }) {
   const metaData = await readFile(locale);
 
 
-  const page = params.slug || '1'; // If no page is specified, default to page 1
-  const limit = 6; // Number of products to display per page
+  const page = params.slug || '1';
+  const limit = 6;
   const startIndex = (page - 1) * limit;
   const endIndex = startIndex + limit;
 
 
-  const res1 = await fetch("https://api2.safemedigo.com/api/v1/BlogCategory/GetAllBlogCategoriesByLang", {
+  const res1 = await fetch("https://api1.fertiliv.com/api/v1/BlogCategory/GetAllBlogCategoriesByLang", {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -319,7 +468,7 @@ export async function getStaticProps({ locale, params }) {
     },
     body: JSON.stringify({
       "lang": locale,
-      "isSpecial": true,
+      "isSpecial": false,
 
     })
   })
@@ -327,34 +476,26 @@ export async function getStaticProps({ locale, params }) {
 
   const myCategoryId = data2.filter((c) => c.slug === params.category)
 
-  const res = await fetch(
-    "https://api2.safemedigo.com/api/v1/Hospital/GetHospitalBlogWithPageBySlug",
-    {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        "Cache-Control": "no-cache",
-        Pragma: "no-cache",
-        Expires: "0",
-      },
-      body: JSON.stringify({
-        lang: locale,
-        blogCategoryId: "12",
-        currentPage: page,
-        hospitalSlug: "fertiliv",
-      }),
-    }
-  );
-  const data = await res.json();;
-
+  const res = await fetch("https://api1.fertiliv.com/api/v1/Blog/GetAllBlogWithPage", {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      "lang": locale,
+      "blogCategoryId": myCategoryId[0]?.id || '0',
+      "currentPage": page,
+    })
+  })
+  const data = await res.json()
 
 
   const products = data.data;
   const totalProducts = data.count;
   const totalPages = Math.ceil(totalProducts / limit);
 
-  const allBlogTagsRes = await fetch("https://api2.safemedigo.com/api/v1/Blog/GetAllBlogsTags", {
+  const allBlogTagsRes = await fetch("https://api1.fertiliv.com/api/v1/Blog/GetAllBlogsTags", {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -368,7 +509,7 @@ export async function getStaticProps({ locale, params }) {
   const allBlogsTagsData = await allBlogTagsRes.json()
 
   const resReviews = await fetch(
-    "https://api2.safemedigo.com/api/v1/Rating/GetAllRatings",
+    "https://api1.fertiliv.com/api/v1/Rating/GetAllRatings",
     {
       method: "POST",
       headers: {
@@ -380,7 +521,7 @@ export async function getStaticProps({ locale, params }) {
       },
       body: JSON.stringify({
         lang: locale,
-        platform: "fertiliv",
+        platform: "safemedigo",
       }),
     }
   );

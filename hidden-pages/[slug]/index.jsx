@@ -335,7 +335,7 @@ export default function BlogPage({ metaData, blogCategory, blogs, allBlogsTagsDa
 
 
 export async function getStaticPaths() {
-  const res = await fetch("https://api2.safemedigo.com/api/v1/Blog/GetAllBlogWithPage", {
+  const res = await fetch("https://api1.fertiliv.com/api/v1/Blog/GetAllBlogWithPage", {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -395,7 +395,7 @@ export async function getStaticProps({ locale, params }) {
   const endIndex = startIndex + limit;
 
 
-  const res1 = await fetch("https://api2.safemedigo.com/api/v1/BlogCategory/GetAllBlogCategoriesByLang", {
+  const res1 = await fetch("https://api1.fertiliv.com/api/v1/BlogCategory/GetAllBlogCategoriesByLang", {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -414,7 +414,7 @@ export async function getStaticProps({ locale, params }) {
 
 
   const res = await fetch(
-    "https://api2.safemedigo.com/api/v1/Hospital/GetHospitalBlogWithPageBySlug",
+    "https://api1.fertiliv.com/api/v1/Hospital/GetHospitalBlogWithPageBySlug",
     {
       method: "POST",
       headers: {
@@ -440,7 +440,7 @@ export async function getStaticProps({ locale, params }) {
   const totalProducts = data.count;
   const totalPages = Math.ceil(totalProducts / limit);
 
-  const allBlogTagsRes = await fetch("https://api2.safemedigo.com/api/v1/Blog/GetAllBlogsTags", {
+  const allBlogTagsRes = await fetch("https://api1.fertiliv.com/api/v1/Blog/GetAllBlogsTags", {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -454,7 +454,7 @@ export async function getStaticProps({ locale, params }) {
   const allBlogsTagsData = await allBlogTagsRes.json()
 
   const resReviews = await fetch(
-    "https://api2.safemedigo.com/api/v1/Rating/GetAllRatings",
+    "https://api1.fertiliv.com/api/v1/Rating/GetAllRatings",
     {
       method: "POST",
       headers: {

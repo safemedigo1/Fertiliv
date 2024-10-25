@@ -115,7 +115,7 @@ const DoctorComponent = ({ dataDoctorSlug, dataDoctorMainSpecializations, dataDo
   }, [])
 
   const getSimilarDocs = async () => {
-    const similarDocs = await axios.post("https://api2.safemedigo.com/api/v1/Doctor/ListSimilarDoctors", {
+    const similarDocs = await axios.post("https://api1.fertiliv.com/api/v1/Doctor/ListSimilarDoctors", {
       "lang": router.locale,
       "mainSpecializationIds": [1]
     }, {

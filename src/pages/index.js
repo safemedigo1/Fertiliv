@@ -127,7 +127,7 @@ export async function getStaticProps({ locale }) {
   const metaData = await readFile(locale);
 
   const resMostPopularDocs = await fetch(
-    "https://api2.safemedigo.com/api/v1/Doctor/ListPopularDoctors",
+    "https://api1.fertiliv.com/api/v1/Doctor/ListPopularDoctors",
     {
       method: "POST",
       headers: {
@@ -143,7 +143,7 @@ export async function getStaticProps({ locale }) {
   const dataMostPopularDocs = await resMostPopularDocs.json();
 
   const resReviews = await fetch(
-    "https://api2.safemedigo.com/api/v1/Rating/GetAllRatings",
+    "https://api1.fertiliv.com/api/v1/Rating/GetAllRatings",
     {
       method: "POST",
       headers: {
@@ -163,21 +163,17 @@ export async function getStaticProps({ locale }) {
   const dataReviews = await resReviews.json();
 
   const getBlogWithPageRes = await fetch(
-    "https://api2.safemedigo.com/api/v1/Hospital/GetHospitalBlogWithPageBySlug",
+    "https://api1.fertiliv.com/api/v1/Blog/GetAllBlogWithPage",
     {
       method: "POST",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        "Cache-Control": "no-cache",
-        Pragma: "no-cache",
-        Expires: "0",
       },
       body: JSON.stringify({
         lang: locale,
-        blogCategoryId: "12",
+        blogCategoryId: 0,
         currentPage: 1,
-        hospitalSlug: "fertiliv",
       }),
     }
   );

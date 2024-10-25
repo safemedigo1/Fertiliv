@@ -51,13 +51,13 @@ const SingleBlogPage = ({ blog, allBlogsTagsData }) => {
 
   function shareToFacebook() {
     const url = router.asPath;
-    const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=www.safemedigo.com/${url}`;
+    const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=www.fertiliv.com/${url}`;
     window.open(shareUrl, '_blank');
   }
 
   function shareToTwitter() {
     const url = router.asPath;
-    const shareUrl = `https://twitter.com/intent/tweet?url=www.safemedigo.com/${url}`;
+    const shareUrl = `https://twitter.com/intent/tweet?url=www.fertiliv.com/${url}`;
 
     window.open(shareUrl, '_blank');
   }
@@ -65,7 +65,7 @@ const SingleBlogPage = ({ blog, allBlogsTagsData }) => {
 
   function shareToEmail() {
     const url = router.asPath;
-    const shareUrl = `mailto:?body=www.safemedigo.com/${url}`;
+    const shareUrl = `mailto:?body=www.fertiliv.com/${url}`;
 
     window.location.href = shareUrl;
   }
@@ -73,7 +73,7 @@ const SingleBlogPage = ({ blog, allBlogsTagsData }) => {
 
   function shareToLink() {
     const url = router.asPath;
-    navigator.clipboard.writeText(`www.safemedigo.com/${url}`)
+    navigator.clipboard.writeText(`www.fertiliv.com/${url}`)
       .then(() => alert('Link copied to clipboard!'))
       .catch(error => console.error(error));
   }
@@ -82,7 +82,7 @@ const SingleBlogPage = ({ blog, allBlogsTagsData }) => {
 
   // Blog Comments API's
   const getAllCommentByPage = async () => {
-    const getBlogComments = await axios.post("https://api2.safemedigo.com/api/v1/BlogComment/GetAllBlogCommentByPage", {
+    const getBlogComments = await axios.post("https://api1.fertiliv.com/api/v1/BlogComment/GetAllBlogCommentByPage", {
       "currentPage": currentPageCount,
       "blogId": blog.id
     }, {
@@ -123,7 +123,7 @@ const SingleBlogPage = ({ blog, allBlogsTagsData }) => {
 
       toast.error(t("single_blog:emailValid"))
     } else {
-      const addCommentData = await axios.post("https://api2.safemedigo.com/api/v1/BlogComment/AddBlogComment", {
+      const addCommentData = await axios.post("https://api1.fertiliv.com/api/v1/BlogComment/AddBlogComment", {
         "blogId": blog.id,
         "comment": userCommentDetails.comment,
         "email": userCommentDetails.email,

@@ -82,7 +82,7 @@ export default function BolgDetailsID({ blog, allBlogsTagsData, dataReviews, }) 
 
 
 export async function getStaticPaths() {
-  const res = await fetch("https://api2.safemedigo.com/api/v1/Blog/GetAllBlogSlugs");
+  const res = await fetch("https://api1.fertiliv.com/api/v1/Blog/GetAllBlogSlugs");
   const data = await res.json()
 
   const paths = data?.map((data) => {
@@ -101,7 +101,7 @@ export async function getStaticProps({ params, locale }) {
 
 
 
-  const res = await fetch("https://api2.safemedigo.com/api/v1/Blog/GetBlogUiDataBySlug", {
+  const res = await fetch("https://api1.fertiliv.com/api/v1/Blog/GetBlogUiDataBySlug", {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -119,7 +119,7 @@ export async function getStaticProps({ params, locale }) {
 
 
   const resReviews = await fetch(
-    "https://api2.safemedigo.com/api/v1/Rating/GetAllRatings",
+    "https://api1.fertiliv.com/api/v1/Rating/GetAllRatings",
     {
       method: "POST",
       headers: {
@@ -131,7 +131,7 @@ export async function getStaticProps({ params, locale }) {
       },
       body: JSON.stringify({
         lang: locale,
-        platform: "safemedigo",
+        platform: "fertiliv",
       }),
     }
   );
@@ -141,7 +141,7 @@ export async function getStaticProps({ params, locale }) {
 
 
   const getBlogWithPageRes = await
-    axios.post("https://api2.safemedigo.com/api/v1/Blog/GetAllBlogWithPage", {
+    axios.post("https://api1.fertiliv.com/api/v1/Blog/GetAllBlogWithPage", {
       "lang": locale,
       "blogCategoryId": 12,
       "currentPage": 1

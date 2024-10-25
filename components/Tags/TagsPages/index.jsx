@@ -11,7 +11,7 @@ import { useTranslation } from 'react-i18next';
 import Consultation from '../../Home/Consultation';
 import Tags from '../index'
 
-const TagsPages = ({ blogs, currentPage, totalPages, }) => {
+const TagsPages = ({ blogs, currentPage, totalPages, allBlogsTagsData }) => {
   const { t } = useTranslation();
   const router = useRouter();
   const slug = router.query.slug;
@@ -145,7 +145,7 @@ const TagsPages = ({ blogs, currentPage, totalPages, }) => {
           </div>
 
 
-          <Tags allBlogsTagsData={blogs?.data} query={'query'} />
+          <Tags allBlogsTagsData={allBlogsTagsData} query={'query'} />
 
           <Consultation />
 

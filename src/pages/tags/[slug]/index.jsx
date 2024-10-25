@@ -12,7 +12,6 @@ import { useTranslation } from "react-i18next";
 import Tags from '../../../../components/Tags'
 import Navbar from '../../../../components/Navbar'
 import Footer from '../../../../components/Footer'
-import BlogsComponents from '../../../../components/BlogsComponents'
 
 const TagsBlog = ({ blogs, currentPage, totalPages, query, metaData, allBlogsTagsData }) => {
   const router = useRouter();
@@ -305,7 +304,7 @@ const TagsBlog = ({ blogs, currentPage, totalPages, query, metaData, allBlogsTag
 
 
               {/* Tag Component */}
-              <Tags allBlogsTagsData={blogs?.data} query={query} />
+              <Tags allBlogsTagsData={allBlogsTagsData} query={query} />
             </div>
 
           </>
@@ -350,7 +349,7 @@ export async function getServerSideProps({ query, locale }) {
 
 
 
-  const res1 = await fetch("https://api2.safemedigo.com/api/v1/BlogCategory/GetAllBlogCategoriesByLang", {
+  const res1 = await fetch("https://api1.fertiliv.com/api/v1/BlogCategory/GetAllBlogCategoriesByLang", {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -367,7 +366,7 @@ export async function getServerSideProps({ query, locale }) {
 
 
 
-  const res = await fetch("https://api2.safemedigo.com/api/v1/Blog/GetAllBlogWithPageByTagName", {
+  const res = await fetch("https://api1.fertiliv.com/api/v1/Blog/GetAllBlogWithPageByTagName", {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -389,7 +388,7 @@ export async function getServerSideProps({ query, locale }) {
   const totalProducts = data.count;
   const totalPages = Math.ceil(totalProducts / limit);
 
-  const allBlogTagsRes = await fetch("https://api2.safemedigo.com/api/v1/Blog/GetAllBlogsTags", {
+  const allBlogTagsRes = await fetch("https://api1.fertiliv.com/api/v1/Blog/GetAllBlogsTags", {
     method: 'POST',
     headers: {
       'Accept': 'application/json',

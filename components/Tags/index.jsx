@@ -50,10 +50,18 @@ const Tags = ({ blog, allBlogsTagsData }) => {
 
                   )
                   )} */}
+                  <>
+                    {tag?.slug !== '' &&
+                      <div className={styles.tag} key={idx}>
+                        <Link href={`/tags/${tag.slug}`}>
+                          <button className={`${tag.slug === router.query.slug ? styles.active : ''}`}>{tag.tagName}</button>
+                        </Link>
+                      </div>
+                    }
+                  </>
 
 
-
-                  {tag?.tags?.[0]?.slug !== '' && (
+                  {/* {tag?.tags?.[0]?.slug !== '' && (
                     <div className={styles.tag} key={idx}>
                       <Link href={`/tags/${tag.tags[0].slug}`}>
                         <button
@@ -64,7 +72,7 @@ const Tags = ({ blog, allBlogsTagsData }) => {
                         </button>
                       </Link>
                     </div>
-                  )}
+                  )} */}
                 </>
               ))}
             </div>
