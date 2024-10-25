@@ -65,7 +65,7 @@ const PageNumber = ({ blogCategory, query, blogs, myCategoryId, currentPage, tot
         />
         <meta name="title" content="Safemedigo" />
         <link rel="icon" type="image/ico" href="/favorite.ico" />
-        <meta name="theme-color" content="#004747" />
+        <meta name="theme-color" content="#1b0968" />
         <meta name="mobile-web-app-capable" content="no" />
         <meta name="application-name" content="Safemedigo" />
         <meta name="apple-mobile-web-app-capable" content="no" />
@@ -139,7 +139,7 @@ const PageNumber = ({ blogCategory, query, blogs, myCategoryId, currentPage, tot
           content={metaData.blogs_desc}
         />
         <link rel="canonical" href={`https://safemedigo.com/${router.locale}/blogs`} />
-        <meta name="msapplication-TileColor" content="#004747" />
+        <meta name="msapplication-TileColor" content="#1b0968" />
         <meta
           name="msapplication-TileImage"
           content="/favorite.ico"
@@ -277,8 +277,8 @@ const PageNumber = ({ blogCategory, query, blogs, myCategoryId, currentPage, tot
 
                       <Box sx={{
                         display: 'flex', alignItems: 'center', flexDirection: 'column', justifyContent: "center", marginTop: '50px',
-                        '& ul > li> button:not(.Mui-selected)': { color: '#004747', fontWeight: 'bold', fontSize: '14px' },
-                        '& ul > li> .Mui-selected': { backgroundColor: '#004747', color: '#ffffff', fontWeight: 'bold', fontSize: '18px' }
+                        '& ul > li> button:not(.Mui-selected)': { color: '#1b0968', fontWeight: 'bold', fontSize: '14px' },
+                        '& ul > li> .Mui-selected': { backgroundColor: '#1b0968', color: '#ffffff', fontWeight: 'bold', fontSize: '18px' }
                       }} className="pagination">
                         <Pagination dir='ltr' count={totalPages} page={currentPage} onChange={handleMyChangePage} />
 
