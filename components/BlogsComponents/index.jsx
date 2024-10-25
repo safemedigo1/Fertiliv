@@ -116,8 +116,8 @@ const BlogsComponents = ({ blogCategory,
 
                           {activeCategory?.categeryName}
                         </MenuItem>
-                        {blogCategory.map((item) => (
-                          <MenuItem dir={`${router.locale === 'ar' ? 'rtl' : 'ltr'}`} value={item.slug} >
+                        {blogCategory.map((item, idx) => (
+                          <MenuItem key={idx} dir={`${router.locale === 'ar' ? 'rtl' : 'ltr'}`} value={item.slug} >
                             <span dir={`${router.locale === 'ar' ? 'rtl' : 'ltr'}`} className={'category_name'}>
                               {item.categeryName}
                             </span>

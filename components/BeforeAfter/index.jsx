@@ -277,7 +277,7 @@ const BeforeAfter = ({ treatments, beforeCards, dataDoctorTreatments }) => {
 
   useEffect(() => {
     getTreatmentImages();
-  }, [treatmentSlug]);
+  }, [treatmentSlug], getTreatmentImages);
 
   const SelecetStyleEn = {
     backgroundColor: "#1b0968",
