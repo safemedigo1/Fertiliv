@@ -115,12 +115,14 @@ function App({ Component, pageProps }) {
     setPhoneNum(newPhoneVal);
   };
 
+  console.log(tajawal, "tajawal");
+
   return (
     <>
       <main
         dir={locale === "ar" ? "rtl" : "ltr"}
-        className={`${
-          locale === "ar" ? tajawal.className : quicksand.className
+        className={` ${
+          locale === "ar" ? tajawal.style.fontFamily : quicksand.className
         }`}
       >
         <Component {...pageProps} />

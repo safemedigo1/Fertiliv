@@ -115,6 +115,7 @@ const BlogsSection = ({ blogs }) => {
 
           </Swiper>
 
+          <div className={styles.shadow_box} />
 
           <div className='left_arrow'>
             <HiChevronLeft />

@@ -28,6 +28,18 @@ const PatientReviews = ({ dataReviews }) => {
     setExpandedReview(expandedReview === index ? null : index);
   };
 
+  // const breakpoints = {
+  //   1: { slidesPerView: 1 },
+  //   300: { slidesPerView: 1 },
+  //   400: { slidesPerView: 1 },
+  //   600: { slidesPerView: 2.1 },
+  //   900: { slidesPerView: 2.5 },
+  //   1000: { slidesPerView: 1.9 },
+  //   1299: { slidesPerView: 1.9 },
+  // };
+
+
+
   const breakpoints = {
     1: { slidesPerView: 1 },
     300: { slidesPerView: 1 },
@@ -35,8 +47,8 @@ const PatientReviews = ({ dataReviews }) => {
     600: { slidesPerView: 2.1 },
     900: { slidesPerView: 2.5 },
     1000: { slidesPerView: 2.1 },
-    1299: { slidesPerView: 1.9 },
   };
+
 
   if (router.pathname === '/reviews') {
     breakpoints[928] = { slidesPerView: 3.1, spaceBetween: 27 };

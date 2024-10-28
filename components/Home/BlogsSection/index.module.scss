@@ -25,6 +25,7 @@
   }
 
   .boxes_container {
+    position: relative;
     .box {
       margin-top: 35px;
       width: 344px;
@@ -254,6 +255,21 @@
         }
       }
     }
+
+    .shadow_box {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      width: 36px;
+      height: 100%;
+      opacity: 1;
+      z-index: 8;
+      box-shadow: inset -20px 0px 12px 0px #ffeee1;
+
+      @media screen and (max-width: 992px) {
+        display: none;
+      }
+    }
   }
 }
 
@@ -370,6 +386,14 @@
           margin-right: 16px;
         }
       }
+    }
+
+    .shadow_box {
+      top: 0px;
+      right: unset;
+      left: 0;
+      z-index: 8;
+      transform: rotate(180deg);
     }
   }
 }
