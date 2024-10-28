@@ -15,6 +15,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Tags from '../../../../../../components/Tags';
 import { useTranslation } from 'react-i18next';
 import Navbar from '../../../../../../components/Navbar';
+import Footer from '../../../../../../components/Footer';
 import Consultation from '../../../../../../components/Home/Consultation';
 import BlogsComponents from '../../../../../../components/BlogsComponents';
 

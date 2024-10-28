@@ -115,8 +115,6 @@ function App({ Component, pageProps }) {
     setPhoneNum(newPhoneVal);
   };
 
-  console.log(tajawal, "tajawal");
-
   return (
     <>
       <main
